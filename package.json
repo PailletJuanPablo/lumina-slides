@@ -1,0 +1,54 @@
+{
+  "name": "lumina-slides",
+  "version": "8.0.0",
+  "description": "A high-performance, declarative presentation engine for Vue 3.",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/lumina-slides.umd.cjs",
+  "module": "./dist/lumina-slides.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/lumina-slides.js",
+      "require": "./dist/lumina-slides.umd.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "docs:generate": "typedoc --json public/api-docs.json src/index.ts --skipErrorChecking",
+    "type-check": "vue-tsc --noEmit",
+    "preview": "vite preview"
+  },
+  "peerDependencies": {
+    "vue": "^3.3.0"
+  },
+  "dependencies": {
+    "gsap": "^3.12.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@vitejs/plugin-vue": "^4.5.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "typedoc": "^0.28.15",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0",
+    "vue": "^3.3.8",
+    "vue-tsc": "^1.8.22"
+  },
+  "keywords": [
+    "vue",
+    "presentation",
+    "slides",
+    "engine",
+    "gsap"
+  ],
+  "author": "Lumina Team",
+  "license": "MIT"
+}

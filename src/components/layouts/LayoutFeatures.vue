@@ -1,0 +1,34 @@
+<template>
+    <BaseSlide :data="data">
+        <div class="min-h-screen w-full flex flex-col justify-center p-8 lg:p-24">
+            <!-- Header -->
+            <div class="mb-16 reveal-up text-center lg:text-left max-w-4xl">
+                <h2 class="text-5xl font-heading font-bold mb-4">{{ data.title }}</h2>
+                <p class="text-xl" style="color: var(--lumina-colors-muted, #9ca3af);">{{ data.description }}</p>
+            </div>
+
+            <!-- Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+                <div v-for="(feature, i) in data.features" :key="i"
+                    class="glass-panel p-8 rounded-3xl hover:bg-white/5 transition duration-500 reveal-card group border-t border-white/5 hover:border-blue-500/50">
+                    <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition duration-300"
+                        style="color: var(--lumina-colors-primary, #3b82f6);">
+                        <i :class="['fa-solid', feature.icon]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white">{{ feature.title }}</h3>
+                    <p class="leading-relaxed" style="color: var(--lumina-colors-muted, #9ca3af);">{{ feature.desc }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </BaseSlide>
+</template>
+
+<script setup lang="ts">
+import BaseSlide from '../base/BaseSlide.vue';
+import type { SlideFeatures } from '../../core/types';
+
+defineProps<{
+    data: SlideFeatures
+}>();
+</script>
