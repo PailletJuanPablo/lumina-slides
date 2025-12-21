@@ -273,7 +273,8 @@ const renderParams = (sig: any) => {
 
 onMounted(async () => {
     try {
-        const res = await fetch('/api-docs.json');
+        const baseUrl = import.meta.env.BASE_URL;
+        const res = await fetch(`${baseUrl}api-docs.json`);
         if (!res.ok) throw new Error('Docs not found');
         const json = await res.json();
         // TypeDoc structure often wraps everything in a root object

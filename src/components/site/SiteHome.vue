@@ -8,68 +8,244 @@
         </div>
 
         <!-- Hero Content -->
-        <h1 class="text-6xl md:text-8xl font-heading font-bold mb-6 tracking-tight">
-            The Presentation<br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Engine for
-                Vue.</span>
+        <h1 class="text-6xl md:text-8xl font-heading font-bold mb-6 tracking-tight relative z-10">
+            The Interface Layer<br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">for the Agentic
+                Era.</span>
         </h1>
 
-        <p class="text-xl md:text-2xl text-white/60 max-w-2xl mb-12 leading-relaxed">
-            Create stunning, high-performance slide decks using declarative JSON and Vue 3.
-            Powered by GSAP for cinematic transitions.
+        <p class="text-xl md:text-2xl text-white/60 max-w-2xl mb-12 leading-relaxed relative z-10">
+            Turn text into high-performance UI. A deterministic, declarative engine specifically designed for LLM
+            output.
         </p>
 
-        <div class="flex flex-col md:flex-row gap-6">
-            <button @click="$emit('navigate', 'examples')"
-                class="px-8 py-4 rounded-full bg-white text-black text-lg font-bold hover:scale-105 transition duration-300">
-                View Examples
-            </button>
+        <div class="flex flex-col md:flex-row gap-6 mb-24 relative z-10">
             <button @click="$emit('navigate', 'docs')"
+                class="px-8 py-4 rounded-full bg-white text-black text-lg font-bold hover:scale-105 transition duration-300 shadow-xl shadow-white/10">
+                Read the Protocol
+            </button>
+            <button @click="scrollToDemo"
                 class="px-8 py-4 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 text-white text-lg font-bold backdrop-blur-md transition duration-300">
-                Get Started
+                Try the Demo
             </button>
         </div>
 
-        <!-- Feature Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24 max-w-6xl w-full text-left">
-            <div class="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition">
-                <div class="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center mb-4 text-blue-400">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                    </svg>
+        <!-- STREAMING DEMO SECTION -->
+        <div id="home-demo" class="w-full max-w-[1400px] mx-auto relative z-10 mb-32 text-left px-8">
+            <div
+                class="bg-[#050505] border border-white/10 rounded-3xl overflow-hidden shadow-2xl flex flex-col h-[700px] relative group ring-1 ring-white/5">
+
+                <!-- Mac-style Window Header -->
+                <div class="h-12 bg-[#0A0A0A] border-b border-white/5 flex items-center px-4 justify-between shrink-0">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500/20"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500/20"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500/20"></div>
+                    </div>
+                    <div class="text-xs font-mono text-white/20 uppercase tracking-widest hidden md:block">Agent Preview
+                        Environment</div>
+
+                    <!-- Sim Button in Header -->
+                    <button @click="runDemo"
+                        class="px-4 py-1.5 rounded-full bg-blue-500 hover:bg-blue-400 text-white font-bold text-[10px] uppercase tracking-wide shadow-lg shadow-blue-500/20 transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-play"></i> Simulate Stream
+                    </button>
                 </div>
-                <h3 class="text-xl font-bold mb-2">High Performance</h3>
-                <p class="text-white/60">Built on Vite and Vue 3 for instant load times and 60fps animations.</p>
+
+                <!-- Main Body: Split View -->
+                <div class="flex-1 flex flex-col md:flex-row overflow-hidden relative">
+
+                    <!-- Preview (Left, 3/4) -->
+                    <div class="w-full md:w-3/4 h-full relative bg-black border-r border-white/10 order-2 md:order-1">
+                        <div id="home-demo-container" class="w-full h-full"></div>
+
+                        <!-- Empty State -->
+                        <div v-if="!demoStarted"
+                            class="absolute inset-0 flex items-center justify-center text-white/10 pointer-events-none">
+                            <div class="text-center">
+                                <i class="fa-solid fa-layer-group text-6xl mb-6 opacity-50"></i>
+                                <p class="text-lg font-light">Waiting for Agent...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Editor (Right, 1/4) -->
+                    <div class="w-full md:w-1/4 h-48 md:h-full flex flex-col bg-[#080808] order-1 md:order-2">
+                        <div
+                            class="px-4 py-3 text-[10px] font-bold text-blue-400/50 flex justify-between items-center border-b border-white/5 bg-blue-500/5 shrink-0">
+                            <span>INCOMING JSON STREAM</span>
+                            <div class="w-2 h-2 rounded-full bg-blue-500 animate-pulse" v-if="demoStarted"></div>
+                        </div>
+                        <textarea v-model="demoInput"
+                            class="flex-1 bg-transparent p-4 font-mono text-xs text-green-400 resize-none focus:outline-none leading-relaxed"
+                            placeholder='// Waiting for LLM output...' spellcheck="false"></textarea>
+                    </div>
+
+                </div>
             </div>
-            <div class="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition">
+        </div>
+
+        <!-- Feature Grid (Updated Copy) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full text-left pb-24 relative z-10">
+            <div
+                class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-blue-500/30 transition duration-500 group">
                 <div
-                    class="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center mb-4 text-purple-400">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
-                        </path>
-                    </svg>
+                    class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 text-blue-400 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-bolt text-xl"></i>
                 </div>
-                <h3 class="text-xl font-bold mb-2">Component Based</h3>
-                <p class="text-white/60">Extend the engine with your own Vue components as slides.</p>
+                <h3 class="text-xl font-bold mb-3 text-white">Zero Hallucinations</h3>
+                <p class="text-white/50 leading-relaxed">Stop hoping the LLM generates valid HTML/CSS. Give it a strict
+                    schema and get pixel-perfect results every time.</p>
             </div>
-            <div class="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 transition">
+            <div
+                class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition duration-500 group">
                 <div
-                    class="w-12 h-12 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-4 text-emerald-400">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
-                        </path>
-                    </svg>
+                    class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-6 text-purple-400 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-brain text-xl"></i>
                 </div>
-                <h3 class="text-xl font-bold mb-2">Declarative JSON</h3>
-                <p class="text-white/60">Define your entire presentation structure in a simple JSON file.</p>
+                <h3 class="text-xl font-bold mb-3">Semantic Layouts</h3>
+                <p class="text-white/50 leading-relaxed">Agents don't need to be designers. They just choose "Timeline"
+                    or "Features", and the engine handles the aesthetics.</p>
+            </div>
+            <div
+                class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-green-500/30 transition duration-500 group">
+                <div
+                    class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mb-6 text-green-400 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-tower-broadcast text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Realtime Streaming</h3>
+                <p class="text-white/50 leading-relaxed">Our partial JSON parser renders UI frames <i>while</i> the LLM
+                    is still typing. No loading spinners.</p>
             </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import { ref, watch, onUnmounted, nextTick } from 'vue';
+import { Lumina } from '../../core/Lumina';
+import { parsePartialJson } from '../../utils/streaming';
+
 defineEmits(['navigate']);
+
+const demoInput = ref('');
+const demoStarted = ref(false);
+let demoEngine: Lumina | null = null;
+
+const TARGET_JSON = `{
+  "meta": { "title": "Home Demo" },
+  "slides": [
+    {
+      "type": "half",
+      "sizing": "container",
+      "meta": {
+        "orbColor": "#8b5cf6"
+      },
+      "imageSide": "left",
+      "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2000",
+      "tag": "Left Aligned",
+      "title": "Image on Left",
+      "paragraphs": [
+        "The classic split screen. Image on the left, content on the right.",
+        "Perfect for introducing a product or feature where the visual context leads the narrative."
+      ],
+      "cta": "Explore Left"
+    },
+    {
+      "type": "statement",
+      "sizing": "container",
+      "meta": {
+        "orbColor": "#ec4899"
+      },
+      "tag": "Minimal",
+      "title": "Impactful Headlines",
+      "subtitle": "The standard statement slide allows for massive typography to drive a point home."
+    },
+    {
+      "type": "features",
+      "sizing": "container",
+      "title": "Grid System",
+      "description": "The features layout automatically arranges cards into a responsive grid.",
+      "features": [
+        { "title": "Card One", "desc": "Standard card with an icon.", "icon": "fa-bolt" },
+        { "title": "Card Two", "desc": "Cards scale on hover.", "icon": "fa-star" },
+        { "title": "Card Three", "desc": "Fully responsive on mobile.", "icon": "fa-mobile" }
+      ]
+    },
+    {
+      "type": "timeline",
+      "sizing": "container",
+      "title": "Project History",
+      "subtitle": "A visual journey through our milestones.",
+      "timeline": [
+        { "date": "Q1 2023", "title": "Inception", "description": "The initial concept was drafted." },
+        { "date": "Q3 2023", "title": "Prototype", "description": "First functional MVP released." },
+        { "date": "Q1 2024", "title": "Beta Launch", "description": "Public beta opened to users." }
+      ]
+    }
+  ]
+}`;
+
+function scrollToDemo() {
+    const el = document.getElementById('home-demo');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
+
+async function runDemo() {
+    demoInput.value = '';
+    demoStarted.value = true;
+
+    // Initialize Engine if needed
+    if (!demoEngine) {
+        // Ensure container is cleared
+        const container = document.getElementById('home-demo-container');
+        if (container) container.innerHTML = '';
+
+        await nextTick();
+        demoEngine = new Lumina('#home-demo-container', {
+            ui: { visible: true, showControls: true },
+            keyboard: false,
+            animation: { enabled: true, durationIn: 0.5 }
+        });
+    }
+
+    let i = 0;
+    const interval = setInterval(() => {
+        demoInput.value += TARGET_JSON[i];
+        i++;
+        if (i >= TARGET_JSON.length) clearInterval(interval);
+    }, 15);
+}
+
+// Watch input and parse
+watch(demoInput, (val) => {
+    if (!demoEngine) return;
+    const parsed = parsePartialJson(val);
+    if (parsed) {
+        if (parsed.slides && Array.isArray(parsed.slides)) {
+            parsed.slides.forEach((s: any) => s.sizing = 'container');
+            demoEngine.load(parsed);
+
+            // Auto-advance logic: check if we have a new slide that is ready
+            // We want to be on the last slide that has sufficient content (e.g., at least a title)
+            const availableSlides = parsed.slides.filter((s: any) => s.title || s.type);
+            // We subtract 1 because index is 0-based
+            const targetIndex = availableSlides.length - 1;
+
+            if (targetIndex > demoEngine.currentSlideIndex) {
+                demoEngine.goTo(targetIndex);
+            }
+        } else {
+            demoEngine.load({
+                meta: { title: "Demo" },
+                slides: [{ ...parsed, sizing: 'container' }]
+            });
+        }
+    }
+});
+
+
+onUnmounted(() => {
+    if (demoEngine) demoEngine.destroy();
+});
 </script>

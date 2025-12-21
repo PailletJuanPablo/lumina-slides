@@ -1,6 +1,7 @@
 <template>
   <BaseSlide :data="data">
-    <div class="min-h-screen flex flex-col justify-center items-center text-center p-8 relative">
+    <div
+      :class="['flex flex-col justify-center items-center text-center p-8 relative', data.sizing === 'container' ? 'h-full' : 'min-h-screen']">
       <div class="reveal-zoom max-w-5xl z-10">
         <!-- Tag -->
         <span v-if="data.tag"
@@ -12,7 +13,7 @@
         <!-- Title -->
         <h1
           class="font-heading font-bold leading-[0.9] tracking-tight mb-8 text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500"
-          style="font-size: clamp(3rem, 10vw, 8rem);">
+          :style="data.sizing === 'container' ? 'font-size: 3.5rem;' : 'font-size: clamp(3rem, 10vw, 8rem);'">
           {{ data.title }}
         </h1>
 

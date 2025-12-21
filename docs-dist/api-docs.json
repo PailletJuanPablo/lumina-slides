@@ -1,0 +1,4469 @@
+{
+	"schemaVersion": "2.0",
+	"id": 0,
+	"name": "lumina-engine",
+	"variant": "project",
+	"kind": 1,
+	"flags": {},
+	"children": [
+		{
+			"id": 1,
+			"name": "Lumina",
+			"variant": "declaration",
+			"kind": 128,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "LUMINA ENGINE\r\n\r\nThe main entry point for the Lumina presentation library.\r\nInitializes the Vue application, sets up the store, and manages the component lifecycle."
+					}
+				],
+				"blockTags": [
+					{
+						"tag": "@example",
+						"content": [
+							{
+								"kind": "code",
+								"text": "```ts\nconst engine = new Lumina('#app', { loop: true });\r\nengine.load(deckData);\n```"
+							}
+						]
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 2,
+					"name": "constructor",
+					"variant": "declaration",
+					"kind": 512,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/Lumina.ts",
+							"line": 34,
+							"character": 4
+						}
+					],
+					"signatures": [
+						{
+							"id": 3,
+							"name": "Lumina",
+							"variant": "signature",
+							"kind": 16384,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Creates a new Lumina instance."
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "src/core/Lumina.ts",
+									"line": 34,
+									"character": 4
+								}
+							],
+							"parameters": [
+								{
+									"id": 4,
+									"name": "selector",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "CSS selector for the container element (e.g. '#app')."
+											}
+										]
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 5,
+									"name": "options",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Configuration options (theme, loop, keys, etc.)."
+											}
+										]
+									},
+									"type": {
+										"type": "reference",
+										"target": 286,
+										"name": "LuminaOptions",
+										"package": "lumina-engine"
+									},
+									"defaultValue": "{}"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": 1,
+								"name": "Lumina",
+								"package": "lumina-engine"
+							}
+						}
+					]
+				},
+				{
+					"id": 264,
+					"name": "selector",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isPublic": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "CSS selector for the container element (e.g. '#app')."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Lumina.ts",
+							"line": 34,
+							"character": 23
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 284,
+					"name": "destroy",
+					"variant": "declaration",
+					"kind": 2048,
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Lumina.ts",
+							"line": 91,
+							"character": 11
+						}
+					],
+					"signatures": [
+						{
+							"id": 285,
+							"name": "destroy",
+							"variant": "signature",
+							"kind": 4096,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/core/Lumina.ts",
+									"line": 91,
+									"character": 11
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				},
+				{
+					"id": 265,
+					"name": "load",
+					"variant": "declaration",
+					"kind": 2048,
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Lumina.ts",
+							"line": 65,
+							"character": 11
+						}
+					],
+					"signatures": [
+						{
+							"id": 266,
+							"name": "load",
+							"variant": "signature",
+							"kind": 4096,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Loads a Deck object into the engine.\r\nUse this to start the presentation or switch decks dynamically."
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "src/core/Lumina.ts",
+									"line": 65,
+									"character": 11
+								}
+							],
+							"parameters": [
+								{
+									"id": 267,
+									"name": "deckData",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "The Deck object containing meta and slides."
+											}
+										]
+									},
+									"type": {
+										"type": "reference",
+										"target": 297,
+										"name": "Deck",
+										"package": "lumina-engine"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				},
+				{
+					"id": 276,
+					"name": "off",
+					"variant": "declaration",
+					"kind": 2048,
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Lumina.ts",
+							"line": 87,
+							"character": 11
+						}
+					],
+					"signatures": [
+						{
+							"id": 277,
+							"name": "off",
+							"variant": "signature",
+							"kind": 4096,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Unsubscribes from an engine event."
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "src/core/Lumina.ts",
+									"line": 87,
+									"character": 11
+								}
+							],
+							"typeParameters": [
+								{
+									"id": 278,
+									"name": "K",
+									"variant": "typeParam",
+									"kind": 131072,
+									"flags": {},
+									"type": {
+										"type": "typeOperator",
+										"operator": "keyof",
+										"target": {
+											"type": "reference",
+											"target": 313,
+											"name": "LuminaEventMap",
+											"package": "lumina-engine"
+										}
+									}
+								}
+							],
+							"parameters": [
+								{
+									"id": 279,
+									"name": "event",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Event name."
+											}
+										]
+									},
+									"type": {
+										"type": "reference",
+										"target": 278,
+										"name": "K",
+										"package": "lumina-engine",
+										"refersToTypeParameter": true
+									}
+								},
+								{
+									"id": 280,
+									"name": "handler",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "The callback function to remove."
+											}
+										]
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 281,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/core/Lumina.ts",
+													"line": 87,
+													"character": 66
+												}
+											],
+											"signatures": [
+												{
+													"id": 282,
+													"name": "__type",
+													"variant": "signature",
+													"kind": 4096,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "src/core/Lumina.ts",
+															"line": 87,
+															"character": 66
+														}
+													],
+													"parameters": [
+														{
+															"id": 283,
+															"name": "e",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"type": {
+																"type": "indexedAccess",
+																"indexType": {
+																	"type": "reference",
+																	"target": 278,
+																	"name": "K",
+																	"package": "lumina-engine",
+																	"refersToTypeParameter": true
+																},
+																"objectType": {
+																	"type": "reference",
+																	"target": 313,
+																	"name": "LuminaEventMap",
+																	"package": "lumina-engine"
+																}
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				},
+				{
+					"id": 268,
+					"name": "on",
+					"variant": "declaration",
+					"kind": 2048,
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Lumina.ts",
+							"line": 77,
+							"character": 11
+						}
+					],
+					"signatures": [
+						{
+							"id": 269,
+							"name": "on",
+							"variant": "signature",
+							"kind": 4096,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Subscribes to an engine event.\r\nWrapper around the internal EventBus."
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "src/core/Lumina.ts",
+									"line": 77,
+									"character": 11
+								}
+							],
+							"typeParameters": [
+								{
+									"id": 270,
+									"name": "K",
+									"variant": "typeParam",
+									"kind": 131072,
+									"flags": {},
+									"type": {
+										"type": "typeOperator",
+										"operator": "keyof",
+										"target": {
+											"type": "reference",
+											"target": 313,
+											"name": "LuminaEventMap",
+											"package": "lumina-engine"
+										}
+									}
+								}
+							],
+							"parameters": [
+								{
+									"id": 271,
+									"name": "event",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Event name ('ready', 'slideChange', 'action', 'error')."
+											}
+										]
+									},
+									"type": {
+										"type": "reference",
+										"target": 270,
+										"name": "K",
+										"package": "lumina-engine",
+										"refersToTypeParameter": true
+									}
+								},
+								{
+									"id": 272,
+									"name": "handler",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Callback function."
+											}
+										]
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 273,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/core/Lumina.ts",
+													"line": 77,
+													"character": 65
+												}
+											],
+											"signatures": [
+												{
+													"id": 274,
+													"name": "__type",
+													"variant": "signature",
+													"kind": 4096,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "src/core/Lumina.ts",
+															"line": 77,
+															"character": 65
+														}
+													],
+													"parameters": [
+														{
+															"id": 275,
+															"name": "e",
+															"variant": "param",
+															"kind": 32768,
+															"flags": {},
+															"type": {
+																"type": "indexedAccess",
+																"indexType": {
+																	"type": "reference",
+																	"target": 270,
+																	"name": "K",
+																	"package": "lumina-engine",
+																	"refersToTypeParameter": true
+																},
+																"objectType": {
+																	"type": "reference",
+																	"target": 313,
+																	"name": "LuminaEventMap",
+																	"package": "lumina-engine"
+																}
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Constructors",
+					"children": [
+						2
+					]
+				},
+				{
+					"title": "Properties",
+					"children": [
+						264
+					]
+				},
+				{
+					"title": "Methods",
+					"children": [
+						284,
+						265,
+						276,
+						268
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/core/Lumina.ts",
+					"line": 24,
+					"character": 13
+				}
+			]
+		},
+		{
+			"id": 376,
+			"name": "ActionPayload",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "Payload for the 'action' event (e.g. button clicks)."
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 378,
+					"name": "label",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 294,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 380,
+					"name": "origin",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 296,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 377,
+					"name": "type",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 293,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 379,
+					"name": "value",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 295,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "any"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						378,
+						380,
+						377,
+						379
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/core/types.ts",
+					"line": 292,
+					"character": 17
+				}
+			]
+		},
+		{
+			"id": 297,
+			"name": "Deck",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "The complete Deck object.\r\nThis is the primary data structure passed to "
+					},
+					{
+						"kind": "code",
+						"text": "`engine.load()`"
+					},
+					{
+						"kind": "text",
+						"text": "."
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 298,
+					"name": "meta",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 179,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 318,
+						"name": "DeckMeta",
+						"package": "lumina-engine"
+					}
+				},
+				{
+					"id": 299,
+					"name": "slides",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 180,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": 300,
+							"name": "BaseSlideData",
+							"package": "lumina-engine"
+						}
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						298,
+						299
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/core/types.ts",
+					"line": 178,
+					"character": 17
+				}
+			]
+		},
+		{
+			"id": 318,
+			"name": "DeckMeta",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "Global metadata for the entire presentation deck."
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 320,
+					"name": "author",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 169,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 321,
+					"name": "date",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 170,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 319,
+					"name": "title",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 168,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						320,
+						321,
+						319
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/core/types.ts",
+					"line": 167,
+					"character": 17
+				}
+			],
+			"indexSignatures": [
+				{
+					"id": 322,
+					"name": "__index",
+					"variant": "signature",
+					"kind": 8192,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 171,
+							"character": 4
+						}
+					],
+					"parameters": [
+						{
+							"id": 323,
+							"name": "key",
+							"variant": "param",
+							"kind": 32768,
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "any"
+					}
+				}
+			]
+		},
+		{
+			"id": 354,
+			"name": "FeatureItem",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "Feature Item structure for Features Layout."
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 356,
+					"name": "desc",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 80,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 357,
+					"name": "icon",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 81,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 355,
+					"name": "title",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 79,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						356,
+						357,
+						355
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/core/types.ts",
+					"line": 78,
+					"character": 17
+				}
+			]
+		},
+		{
+			"id": 386,
+			"name": "LuminaAnimationOptions",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "Animation configuration settings."
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 389,
+					"name": "durationIn",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Duration of entry animations in seconds."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 238,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 390,
+					"name": "durationOut",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Duration of exit animations in seconds."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 240,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 392,
+					"name": "ease",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "GSAP easing string (e.g. 'power3.out')."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 244,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 387,
+					"name": "enabled",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Global toggle for animations."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 234,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 391,
+					"name": "stagger",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Stagger delay between sequential elements in seconds."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 242,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 388,
+					"name": "type",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "The style of entry animation for slide elements."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 236,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "literal",
+								"value": "fade"
+							},
+							{
+								"type": "literal",
+								"value": "slide"
+							},
+							{
+								"type": "literal",
+								"value": "zoom"
+							},
+							{
+								"type": "literal",
+								"value": "cascade"
+							}
+						]
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						389,
+						390,
+						392,
+						387,
+						391,
+						388
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/core/types.ts",
+					"line": 232,
+					"character": 17
+				}
+			]
+		},
+		{
+			"id": 313,
+			"name": "LuminaEventMap",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "Map of event names to their payload types."
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 316,
+					"name": "action",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Fired when a user interaction occurs."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 308,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 376,
+						"name": "ActionPayload",
+						"package": "lumina-engine"
+					}
+				},
+				{
+					"id": 317,
+					"name": "error",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Fired when an internal error occurs."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 310,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": {
+							"packageName": "typescript",
+							"packagePath": "lib/lib.es5.d.ts",
+							"qualifiedName": "Error"
+						},
+						"name": "Error",
+						"package": "typescript"
+					}
+				},
+				{
+					"id": 314,
+					"name": "ready",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Fired when a deck is successfully loaded."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 304,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 297,
+						"name": "Deck",
+						"package": "lumina-engine"
+					}
+				},
+				{
+					"id": 315,
+					"name": "slideChange",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Fired when the active slide changes."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 306,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 372,
+						"name": "SlideChangePayload",
+						"package": "lumina-engine"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						316,
+						317,
+						314,
+						315
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/core/types.ts",
+					"line": 302,
+					"character": 17
+				}
+			]
+		},
+		{
+			"id": 393,
+			"name": "LuminaKeyBindings",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "Custom keyboard shortcuts."
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 394,
+					"name": "next",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 215,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "intrinsic",
+							"name": "string"
+						}
+					}
+				},
+				{
+					"id": 395,
+					"name": "prev",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 216,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "intrinsic",
+							"name": "string"
+						}
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						394,
+						395
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/core/types.ts",
+					"line": 214,
+					"character": 17
+				}
+			]
+		},
+		{
+			"id": 286,
+			"name": "LuminaOptions",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "Main initialization options for the Lumina Engine."
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 296,
+					"name": "animation",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Animation settings."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 270,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 386,
+						"name": "LuminaAnimationOptions",
+						"package": "lumina-engine"
+					}
+				},
+				{
+					"id": 292,
+					"name": "debug",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Enable debug logs."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 262,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 290,
+					"name": "keyboard",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Enable/Disable keyboard shortcuts."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 258,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 295,
+					"name": "keys",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Custom key bindings."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 268,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 393,
+						"name": "LuminaKeyBindings",
+						"package": "lumina-engine"
+					}
+				},
+				{
+					"id": 288,
+					"name": "loop",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Whether to loop back to the start after the last slide."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 254,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 289,
+					"name": "navigation",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Enable/Disable keyboard navigation."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 256,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 287,
+					"name": "selector",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "CSS Selector for the container to mount into (default: '#app' or internal)."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 252,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 293,
+					"name": "theme",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Theme configuration object or preset name string."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 264,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "intrinsic",
+								"name": "string"
+							},
+							{
+								"type": "reference",
+								"target": 301,
+								"name": "ThemeConfig",
+								"package": "lumina-engine"
+							}
+						]
+					}
+				},
+				{
+					"id": 291,
+					"name": "touch",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Enable/Disable touch swipe gestures."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 260,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 294,
+					"name": "ui",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "UI element toggles."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 266,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 381,
+						"name": "LuminaUIOptions",
+						"package": "lumina-engine"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						296,
+						292,
+						290,
+						295,
+						288,
+						289,
+						287,
+						293,
+						291,
+						294
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/core/types.ts",
+					"line": 250,
+					"character": 17
+				}
+			]
+		},
+		{
+			"id": 381,
+			"name": "LuminaUIOptions",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "UI Visibility toggles."
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 385,
+					"name": "showControls",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 226,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 383,
+					"name": "showProgressBar",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 224,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 384,
+					"name": "showSlideCount",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 225,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 382,
+					"name": "visible",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 223,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						385,
+						383,
+						384,
+						382
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/core/types.ts",
+					"line": 222,
+					"character": 17
+				}
+			]
+		},
+		{
+			"id": 372,
+			"name": "SlideChangePayload",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "Payload for the 'slideChange' event."
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 373,
+					"name": "index",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 284,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 374,
+					"name": "previousIndex",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 285,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 375,
+					"name": "slide",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 286,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 300,
+						"name": "BaseSlideData",
+						"package": "lumina-engine"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						373,
+						374,
+						375
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/core/types.ts",
+					"line": 283,
+					"character": 17
+				}
+			]
+		},
+		{
+			"id": 331,
+			"name": "SlideFeatures",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "Slide: Features Layout\r\nA grid of feature cards."
+					}
+				],
+				"blockTags": [
+					{
+						"tag": "@example",
+						"content": [
+							{
+								"kind": "code",
+								"text": "```json\r\n{\r\n  \"type\": \"features\",\r\n  \"title\": \"Core Capabilities\",\r\n  \"description\": \"Built to scale.\",\r\n  \"features\": [\r\n    { \"title\": \"Reactive\", \"desc\": \"State management\", \"icon\": \"fa-database\" },\r\n    { \"title\": \"Modular\", \"desc\": \"Tree-shakable\", \"icon\": \"fa-cube\" }\r\n  ]\r\n}\r\n```"
+							}
+						]
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 334,
+					"name": "description",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 103,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 335,
+					"name": "features",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "List of feature cards to display."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 105,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": 354,
+							"name": "FeatureItem",
+							"package": "lumina-engine"
+						}
+					}
+				},
+				{
+					"id": 336,
+					"name": "id",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true,
+						"isInherited": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Unique ID for keying loop optimization (optional)."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 49,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "SlideBase.id"
+					}
+				},
+				{
+					"id": 337,
+					"name": "meta",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true,
+						"isInherited": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Slide-specific metadata."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 51,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 363,
+						"name": "SlideMeta",
+						"package": "lumina-engine"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "SlideBase.meta"
+					}
+				},
+				{
+					"id": 333,
+					"name": "title",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 102,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 332,
+					"name": "type",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 101,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "literal",
+						"value": "features"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						334,
+						335,
+						336,
+						337,
+						333,
+						332
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/core/types.ts",
+					"line": 100,
+					"character": 17
+				}
+			],
+			"extendedTypes": [
+				{
+					"type": "reference",
+					"target": {
+						"packageName": "lumina-engine",
+						"packagePath": "src/core/types.ts",
+						"qualifiedName": "SlideBase"
+					},
+					"name": "SlideBase",
+					"package": "lumina-engine"
+				}
+			]
+		},
+		{
+			"id": 338,
+			"name": "SlideHalf",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "Slide: Split/Half Layout\r\nText on one side, image on the other."
+					}
+				],
+				"blockTags": [
+					{
+						"tag": "@example",
+						"content": [
+							{
+								"kind": "code",
+								"text": "```json\r\n{\r\n  \"type\": \"half\",\r\n  \"imageSide\": \"left\",\r\n  \"image\": \"https://example.com/photo.jpg\",\r\n  \"title\": \"Smart Split Layouts\",\r\n  \"paragraphs\": [\"Lumina adapts to viewport size.\", \"Content is King.\"],\r\n  \"cta\": \"Read Documentation\"\r\n}\r\n```"
+							}
+						]
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 345,
+					"name": "cta",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 131,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 346,
+					"name": "id",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true,
+						"isInherited": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Unique ID for keying loop optimization (optional)."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 49,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "SlideBase.id"
+					}
+				},
+				{
+					"id": 341,
+					"name": "image",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 127,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 340,
+					"name": "imageSide",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Which side the image appears on."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 126,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "literal",
+								"value": "left"
+							},
+							{
+								"type": "literal",
+								"value": "right"
+							}
+						]
+					}
+				},
+				{
+					"id": 347,
+					"name": "meta",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true,
+						"isInherited": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Slide-specific metadata."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 51,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 363,
+						"name": "SlideMeta",
+						"package": "lumina-engine"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "SlideBase.meta"
+					}
+				},
+				{
+					"id": 344,
+					"name": "paragraphs",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 130,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "intrinsic",
+							"name": "string"
+						}
+					}
+				},
+				{
+					"id": 342,
+					"name": "tag",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 128,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 343,
+					"name": "title",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 129,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 339,
+					"name": "type",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 124,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "literal",
+						"value": "half"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						345,
+						346,
+						341,
+						340,
+						347,
+						344,
+						342,
+						343,
+						339
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/core/types.ts",
+					"line": 123,
+					"character": 17
+				}
+			],
+			"extendedTypes": [
+				{
+					"type": "reference",
+					"target": {
+						"packageName": "lumina-engine",
+						"packagePath": "src/core/types.ts",
+						"qualifiedName": "SlideBase"
+					},
+					"name": "SlideBase",
+					"package": "lumina-engine"
+				}
+			]
+		},
+		{
+			"id": 363,
+			"name": "SlideMeta",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "Metadata for individual slides.\r\nCan contain arbitrary data used by custom layouts."
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 364,
+					"name": "orbColor",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 39,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 365,
+					"name": "orbPos",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 40,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 366,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 368,
+									"name": "left",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/core/types.ts",
+											"line": 40,
+											"character": 28
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 367,
+									"name": "top",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/core/types.ts",
+											"line": 40,
+											"character": 15
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										368,
+										367
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "src/core/types.ts",
+									"line": 40,
+									"character": 13
+								}
+							]
+						}
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						364,
+						365
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/core/types.ts",
+					"line": 38,
+					"character": 17
+				}
+			],
+			"indexSignatures": [
+				{
+					"id": 369,
+					"name": "__index",
+					"variant": "signature",
+					"kind": 8192,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 41,
+							"character": 4
+						}
+					],
+					"parameters": [
+						{
+							"id": 370,
+							"name": "key",
+							"variant": "param",
+							"kind": 32768,
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "any"
+					}
+				}
+			]
+		},
+		{
+			"id": 324,
+			"name": "SlideStatement",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "Slide: Statement Layout\r\nA simple, high-impact text layout."
+					}
+				],
+				"blockTags": [
+					{
+						"tag": "@example",
+						"content": [
+							{
+								"kind": "code",
+								"text": "```json\r\n{\r\n  \"type\": \"statement\",\r\n  \"meta\": { \"orbColor\": \"#3b82f6\" },\r\n  \"tag\": \"Declarative Engine\",\r\n  \"title\": \"Lumina V8\",\r\n  \"subtitle\": \"A highly modular, performance-first presentation engine.\"\r\n}\r\n```"
+							}
+						]
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 329,
+					"name": "id",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true,
+						"isInherited": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Unique ID for keying loop optimization (optional)."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 49,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "SlideBase.id"
+					}
+				},
+				{
+					"id": 330,
+					"name": "meta",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true,
+						"isInherited": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Slide-specific metadata."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 51,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 363,
+						"name": "SlideMeta",
+						"package": "lumina-engine"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "SlideBase.meta"
+					}
+				},
+				{
+					"id": 328,
+					"name": "subtitle",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 72,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 326,
+					"name": "tag",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 70,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 327,
+					"name": "title",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 71,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 325,
+					"name": "type",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 69,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "literal",
+						"value": "statement"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						329,
+						330,
+						328,
+						326,
+						327,
+						325
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/core/types.ts",
+					"line": 68,
+					"character": 17
+				}
+			],
+			"extendedTypes": [
+				{
+					"type": "reference",
+					"target": {
+						"packageName": "lumina-engine",
+						"packagePath": "src/core/types.ts",
+						"qualifiedName": "SlideBase"
+					},
+					"name": "SlideBase",
+					"package": "lumina-engine"
+				}
+			]
+		},
+		{
+			"id": 348,
+			"name": "SlideTimeline",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "Slide: Timeline Layout\r\nChronological list of events."
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 352,
+					"name": "id",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true,
+						"isInherited": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Unique ID for keying loop optimization (optional)."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 49,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "SlideBase.id"
+					}
+				},
+				{
+					"id": 351,
+					"name": "items",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 141,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": {
+								"packageName": "lumina-engine",
+								"packagePath": "src/core/types.ts",
+								"qualifiedName": "TimelineItem"
+							},
+							"name": "TimelineItem",
+							"package": "lumina-engine"
+						}
+					}
+				},
+				{
+					"id": 353,
+					"name": "meta",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true,
+						"isInherited": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Slide-specific metadata."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 51,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 363,
+						"name": "SlideMeta",
+						"package": "lumina-engine"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "SlideBase.meta"
+					}
+				},
+				{
+					"id": 350,
+					"name": "title",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 140,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 349,
+					"name": "type",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 139,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "literal",
+						"value": "timeline"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						352,
+						351,
+						353,
+						350,
+						349
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/core/types.ts",
+					"line": 138,
+					"character": 17
+				}
+			],
+			"extendedTypes": [
+				{
+					"type": "reference",
+					"target": {
+						"packageName": "lumina-engine",
+						"packagePath": "src/core/types.ts",
+						"qualifiedName": "SlideBase"
+					},
+					"name": "SlideBase",
+					"package": "lumina-engine"
+				}
+			]
+		},
+		{
+			"id": 358,
+			"name": "StepItem",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "Structure for items in the 'steps' layout."
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 361,
+					"name": "description",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 30,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 362,
+					"name": "icon",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 31,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 359,
+					"name": "step",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 28,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 360,
+					"name": "title",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 29,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						361,
+						362,
+						359,
+						360
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/core/types.ts",
+					"line": 27,
+					"character": 17
+				}
+			]
+		},
+		{
+			"id": 301,
+			"name": "ThemeConfig",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "Configuration for the visual theme."
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 302,
+					"name": "colors",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Color palette overrides.\r\nValues should be Hex codes (e.g. '#EF4444')."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 193,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 303,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 305,
+									"name": "background",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"sources": [
+										{
+											"fileName": "src/core/types.ts",
+											"line": 195,
+											"character": 8
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 307,
+									"name": "muted",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"sources": [
+										{
+											"fileName": "src/core/types.ts",
+											"line": 197,
+											"character": 8
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 304,
+									"name": "primary",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"sources": [
+										{
+											"fileName": "src/core/types.ts",
+											"line": 194,
+											"character": 8
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 306,
+									"name": "text",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"sources": [
+										{
+											"fileName": "src/core/types.ts",
+											"line": 196,
+											"character": 8
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										305,
+										307,
+										304,
+										306
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "src/core/types.ts",
+									"line": 193,
+									"character": 13
+								}
+							]
+						}
+					}
+				},
+				{
+					"id": 308,
+					"name": "fonts",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Font family overrides.\r\nValues should be valid CSS font-family strings."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 203,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 309,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 311,
+									"name": "body",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"sources": [
+										{
+											"fileName": "src/core/types.ts",
+											"line": 205,
+											"character": 8
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 310,
+									"name": "heading",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"sources": [
+										{
+											"fileName": "src/core/types.ts",
+											"line": 204,
+											"character": 8
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 312,
+									"name": "mono",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"sources": [
+										{
+											"fileName": "src/core/types.ts",
+											"line": 206,
+											"character": 8
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										311,
+										310,
+										312
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "src/core/types.ts",
+									"line": 203,
+									"character": 12
+								}
+							]
+						}
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						302,
+						308
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/core/types.ts",
+					"line": 188,
+					"character": 17
+				}
+			]
+		},
+		{
+			"id": 371,
+			"name": "LuminaEventType",
+			"variant": "declaration",
+			"kind": 2097152,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "Supported event names emitted by the engine."
+					}
+				]
+			},
+			"sources": [
+				{
+					"fileName": "src/core/types.ts",
+					"line": 278,
+					"character": 12
+				}
+			],
+			"type": {
+				"type": "union",
+				"types": [
+					{
+						"type": "literal",
+						"value": "ready"
+					},
+					{
+						"type": "literal",
+						"value": "slideChange"
+					},
+					{
+						"type": "literal",
+						"value": "action"
+					},
+					{
+						"type": "literal",
+						"value": "error"
+					}
+				]
+			}
+		},
+		{
+			"id": 300,
+			"name": "SlideData",
+			"variant": "declaration",
+			"kind": 2097152,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "The main Slide Data structure.\r\nA discriminated union of all supported slide types."
+					}
+				]
+			},
+			"sources": [
+				{
+					"fileName": "src/core/types.ts",
+					"line": 157,
+					"character": 12
+				}
+			],
+			"type": {
+				"type": "union",
+				"types": [
+					{
+						"type": "reference",
+						"target": 324,
+						"name": "SlideStatement",
+						"package": "lumina-engine"
+					},
+					{
+						"type": "reference",
+						"target": 331,
+						"name": "SlideFeatures",
+						"package": "lumina-engine"
+					},
+					{
+						"type": "reference",
+						"target": 338,
+						"name": "SlideHalf",
+						"package": "lumina-engine"
+					},
+					{
+						"type": "reference",
+						"target": 348,
+						"name": "SlideTimeline",
+						"package": "lumina-engine"
+					},
+					{
+						"type": "reference",
+						"target": {
+							"packageName": "lumina-engine",
+							"packagePath": "src/core/types.ts",
+							"qualifiedName": "SlideGeneric"
+						},
+						"name": "SlideGeneric",
+						"package": "lumina-engine"
+					}
+				]
+			}
+		},
+		{
+			"id": 396,
+			"name": "bus",
+			"variant": "declaration",
+			"kind": 32,
+			"flags": {
+				"isConst": true
+			},
+			"sources": [
+				{
+					"fileName": "src/core/events.ts",
+					"line": 50,
+					"character": 13
+				}
+			],
+			"type": {
+				"type": "reference",
+				"target": {
+					"packageName": "lumina-engine",
+					"packagePath": "src/core/events.ts",
+					"qualifiedName": "EventBus"
+				},
+				"name": "EventBus",
+				"package": "lumina-engine"
+			},
+			"defaultValue": "..."
+		},
+		{
+			"id": 397,
+			"name": "LuminaDeck",
+			"variant": "declaration",
+			"kind": 32,
+			"flags": {
+				"isConst": true
+			},
+			"sources": [
+				{
+					"fileName": "src/vite-env.d.ts",
+					"line": 4,
+					"character": 10
+				}
+			],
+			"type": {
+				"type": "reference",
+				"target": {
+					"packageName": "@vue/runtime-core",
+					"packagePath": "dist/runtime-core.d.ts",
+					"qualifiedName": "DefineComponent"
+				},
+				"typeArguments": [
+					{
+						"type": "reflection",
+						"declaration": {
+							"id": 398,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/vite-env.d.ts",
+									"line": 4,
+									"character": 37
+								}
+							]
+						}
+					},
+					{
+						"type": "reflection",
+						"declaration": {
+							"id": 399,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/vite-env.d.ts",
+									"line": 4,
+									"character": 41
+								}
+							]
+						}
+					},
+					{
+						"type": "intrinsic",
+						"name": "any"
+					}
+				],
+				"name": "DefineComponent",
+				"package": "@vue/runtime-core"
+			}
+		}
+	],
+	"groups": [
+		{
+			"title": "Classes",
+			"children": [
+				1
+			]
+		},
+		{
+			"title": "Interfaces",
+			"children": [
+				376,
+				297,
+				318,
+				354,
+				386,
+				313,
+				393,
+				286,
+				381,
+				372,
+				331,
+				338,
+				363,
+				324,
+				348,
+				358,
+				301
+			]
+		},
+		{
+			"title": "Type Aliases",
+			"children": [
+				371,
+				300
+			]
+		},
+		{
+			"title": "Variables",
+			"children": [
+				396,
+				397
+			]
+		}
+	],
+	"packageName": "lumina-engine",
+	"readme": [
+		{
+			"kind": "text",
+			"text": "# Lumina Engine v8\n\nA high-performance, declarative presentation engine for Vue 3, built for creating cinematic, web-based slide decks.\n\n## Features\n\n- **🚀 Vue 3 & TypeScript**: Built with the Composition API for maximum performance and type safety.\n- **✨ GSAP Animations**: Cinema-quality, GPU-accelerated transitions out of the box.\n- **🎨 Theming System**: CSS Variable-based theming engine with dark/light mode support.\n- **🔌 Pluggable Architecture**: Dependency Injection based store allows for multiple instances.\n- **📱 Responsive**: Touch and Swipe support (coming soon, keyboard ready).\n\n## Installation\n\n"
+		},
+		{
+			"kind": "code",
+			"text": "```bash\nnpm install lumina-engine gsap\n```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\n## Usage\n\n### 1. Basic Setup\n\n"
+		},
+		{
+			"kind": "code",
+			"text": "```typescript\nimport { Lumina } from \"lumina-engine\";\nimport \"lumina-engine/style.css\";\n\n// Mount to a DOM element\nconst deck = new Lumina(\"#app\", {\n  loop: false,\n  theme: {\n    colors: {\n      primary: \"#10b981\",\n    },\n  },\n});\n\n// Load Data\ndeck.load({\n  meta: { title: \"My Deck\" },\n  slides: [\n    {\n      type: \"statement\",\n      title: \"Hello World\",\n      subtitle: \"Powered by Lumina\",\n    },\n  ],\n});\n```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\n### 2. Event Handling\n\n"
+		},
+		{
+			"kind": "code",
+			"text": "```typescript\ndeck.on(\"slideChange\", (e) => {\n  console.log(`Slide changed to ${e.index}`);\n});\n\ndeck.on(\"action\", (e) => {\n  console.log(\"User interaction:\", e);\n});\n```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\n## Slide Types\n\n- "
+		},
+		{
+			"kind": "code",
+			"text": "`statement`"
+		},
+		{
+			"kind": "text",
+			"text": ": Big bold text for impact.\n- "
+		},
+		{
+			"kind": "code",
+			"text": "`half`"
+		},
+		{
+			"kind": "text",
+			"text": ": Split screen image + text.\n- "
+		},
+		{
+			"kind": "code",
+			"text": "`features`"
+		},
+		{
+			"kind": "text",
+			"text": ": Grid of cards with icons.\n\n## License\n\nMIT"
+		}
+	],
+	"symbolIdMap": {
+		"0": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/index.ts",
+			"qualifiedName": ""
+		},
+		"1": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina"
+		},
+		"2": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina.__constructor"
+		},
+		"3": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina"
+		},
+		"4": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "selector"
+		},
+		"5": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "options"
+		},
+		"264": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina.selector"
+		},
+		"265": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina.load"
+		},
+		"266": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina.load"
+		},
+		"267": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "deckData"
+		},
+		"268": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina.on"
+		},
+		"269": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina.on"
+		},
+		"270": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "K"
+		},
+		"271": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "event"
+		},
+		"272": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "handler"
+		},
+		"273": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "__type"
+		},
+		"274": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "__type"
+		},
+		"275": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "e"
+		},
+		"276": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina.off"
+		},
+		"277": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina.off"
+		},
+		"278": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "K"
+		},
+		"279": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "event"
+		},
+		"280": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "handler"
+		},
+		"281": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "__type"
+		},
+		"282": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "__type"
+		},
+		"283": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "e"
+		},
+		"284": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina.destroy"
+		},
+		"285": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina.destroy"
+		},
+		"286": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaOptions"
+		},
+		"287": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaOptions.selector"
+		},
+		"288": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaOptions.loop"
+		},
+		"289": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaOptions.navigation"
+		},
+		"290": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaOptions.keyboard"
+		},
+		"291": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaOptions.touch"
+		},
+		"292": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaOptions.debug"
+		},
+		"293": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaOptions.theme"
+		},
+		"294": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaOptions.ui"
+		},
+		"295": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaOptions.keys"
+		},
+		"296": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaOptions.animation"
+		},
+		"297": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "Deck"
+		},
+		"298": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "Deck.meta"
+		},
+		"299": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "Deck.slides"
+		},
+		"300": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "BaseSlideData"
+		},
+		"301": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "ThemeConfig"
+		},
+		"302": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "ThemeConfig.colors"
+		},
+		"303": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "__type"
+		},
+		"304": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "__type.primary"
+		},
+		"305": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "__type.background"
+		},
+		"306": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "__type.text"
+		},
+		"307": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "__type.muted"
+		},
+		"308": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "ThemeConfig.fonts"
+		},
+		"309": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "__type"
+		},
+		"310": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "__type.heading"
+		},
+		"311": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "__type.body"
+		},
+		"312": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "__type.mono"
+		},
+		"313": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaEventMap"
+		},
+		"314": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaEventMap.ready"
+		},
+		"315": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaEventMap.slideChange"
+		},
+		"316": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaEventMap.action"
+		},
+		"317": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaEventMap.error"
+		},
+		"318": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "DeckMeta"
+		},
+		"319": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "DeckMeta.title"
+		},
+		"320": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "DeckMeta.author"
+		},
+		"321": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "DeckMeta.date"
+		},
+		"322": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "DeckMeta.__index"
+		},
+		"324": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideStatement"
+		},
+		"325": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideStatement.type"
+		},
+		"326": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideStatement.tag"
+		},
+		"327": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideStatement.title"
+		},
+		"328": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideStatement.subtitle"
+		},
+		"329": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideBase.id"
+		},
+		"330": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideBase.meta"
+		},
+		"331": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideFeatures"
+		},
+		"332": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideFeatures.type"
+		},
+		"333": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideFeatures.title"
+		},
+		"334": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideFeatures.description"
+		},
+		"335": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideFeatures.features"
+		},
+		"336": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideBase.id"
+		},
+		"337": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideBase.meta"
+		},
+		"338": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideHalf"
+		},
+		"339": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideHalf.type"
+		},
+		"340": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideHalf.imageSide"
+		},
+		"341": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideHalf.image"
+		},
+		"342": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideHalf.tag"
+		},
+		"343": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideHalf.title"
+		},
+		"344": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideHalf.paragraphs"
+		},
+		"345": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideHalf.cta"
+		},
+		"346": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideBase.id"
+		},
+		"347": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideBase.meta"
+		},
+		"348": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideTimeline"
+		},
+		"349": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideTimeline.type"
+		},
+		"350": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideTimeline.title"
+		},
+		"351": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideTimeline.items"
+		},
+		"352": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideBase.id"
+		},
+		"353": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideBase.meta"
+		},
+		"354": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "FeatureItem"
+		},
+		"355": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "FeatureItem.title"
+		},
+		"356": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "FeatureItem.desc"
+		},
+		"357": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "FeatureItem.icon"
+		},
+		"358": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "StepItem"
+		},
+		"359": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "StepItem.step"
+		},
+		"360": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "StepItem.title"
+		},
+		"361": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "StepItem.description"
+		},
+		"362": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "StepItem.icon"
+		},
+		"363": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideMeta"
+		},
+		"364": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideMeta.orbColor"
+		},
+		"365": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideMeta.orbPos"
+		},
+		"366": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "__type"
+		},
+		"367": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "__type.top"
+		},
+		"368": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "__type.left"
+		},
+		"369": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideMeta.__index"
+		},
+		"371": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaEventType"
+		},
+		"372": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideChangePayload"
+		},
+		"373": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideChangePayload.index"
+		},
+		"374": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideChangePayload.previousIndex"
+		},
+		"375": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideChangePayload.slide"
+		},
+		"376": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "ActionPayload"
+		},
+		"377": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "ActionPayload.type"
+		},
+		"378": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "ActionPayload.label"
+		},
+		"379": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "ActionPayload.value"
+		},
+		"380": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "ActionPayload.origin"
+		},
+		"381": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaUIOptions"
+		},
+		"382": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaUIOptions.visible"
+		},
+		"383": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaUIOptions.showProgressBar"
+		},
+		"384": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaUIOptions.showSlideCount"
+		},
+		"385": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaUIOptions.showControls"
+		},
+		"386": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaAnimationOptions"
+		},
+		"387": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaAnimationOptions.enabled"
+		},
+		"388": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaAnimationOptions.type"
+		},
+		"389": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaAnimationOptions.durationIn"
+		},
+		"390": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaAnimationOptions.durationOut"
+		},
+		"391": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaAnimationOptions.stagger"
+		},
+		"392": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaAnimationOptions.ease"
+		},
+		"393": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaKeyBindings"
+		},
+		"394": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaKeyBindings.next"
+		},
+		"395": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "LuminaKeyBindings.prev"
+		},
+		"396": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/core/events.ts",
+			"qualifiedName": "bus"
+		},
+		"397": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/vite-env.d.ts",
+			"qualifiedName": "component"
+		},
+		"398": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/vite-env.d.ts",
+			"qualifiedName": "__type"
+		},
+		"399": {
+			"packageName": "lumina-engine",
+			"packagePath": "src/vite-env.d.ts",
+			"qualifiedName": "__type"
+		}
+	},
+	"files": {
+		"entries": {
+			"1": "src/index.ts",
+			"2": "README.md",
+			"3": ""
+		},
+		"reflections": {
+			"1": 0,
+			"2": 0,
+			"3": 0
+		}
+	}
+}

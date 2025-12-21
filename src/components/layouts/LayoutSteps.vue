@@ -1,6 +1,7 @@
 <template>
     <BaseSlide :data="data">
-        <div class="min-h-screen w-full flex flex-col justify-center p-8 lg:p-12">
+        <div
+            :class="['w-full flex flex-col justify-center p-8 lg:p-12', data.sizing === 'container' ? 'min-h-full' : 'min-h-screen']">
             <!-- Header -->
             <div class="mb-20 text-center reveal-up">
                 <h2 class="text-5xl font-heading font-bold mb-4">{{ data.title }}</h2>

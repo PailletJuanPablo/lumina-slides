@@ -1,5 +1,6 @@
 import { reactive, readonly, InjectionKey } from 'vue';
-import type { Deck, LuminaOptions } from './types';
+import type { Deck, LuminaOptions, ActionPayload } from './types';
+import { expandValue } from './compression';
 
 /**
  * LUMINA STORE FACTORY
@@ -11,6 +12,8 @@ export interface LuminaState {
     currentIndex: number;
     options: LuminaOptions;
     isReady: boolean;
+    // Feature: Feedback Loop (Context Window)
+    actionHistory: ActionPayload[];
 }
 
 export type LuminaStore = ReturnType<typeof createStore>;
@@ -45,6 +48,49 @@ const DEFAULT_OPTIONS: LuminaOptions = {
 };
 
 /**
+ * Deeply expands compressed values in an object.
+ */
+function deepExpand(obj: any): any {
+    if (typeof obj === 'string') return expandValue(obj);
+    if (Array.isArray(obj)) return obj.map(deepExpand);
+    if (obj && typeof obj === 'object') {
+        const newObj: any = {};
+        for (const key in obj) {
+            newObj[key] = deepExpand(obj[key]);
+        }
+        return newObj;
+    }
+    return obj;
+}
+
+/**
+ * Simple deep merge for patching.
+ */
+function deepMerge(target: any, source: any) {
+    if (typeof target !== 'object' || target === null) return source;
+    if (typeof source !== 'object' || source === null) return source;
+
+    if (Array.isArray(source)) {
+        // Arrays are replaced, not merged, to avoid duplication issues in lists
+        return source.map(deepExpand);
+    }
+
+    const output = { ...target };
+    for (const key in source) {
+        if (source[key] === Object(source[key])) {
+            if (!(key in target)) {
+                Object.assign(output, { [key]: deepExpand(source[key]) });
+            } else {
+                output[key] = deepMerge(target[key], source[key]);
+            }
+        } else {
+            Object.assign(output, { [key]: deepExpand(source[key]) });
+        }
+    }
+    return output;
+}
+
+/**
  * Creates a new isolated Lumina Store instance.
  * Uses the Factory pattern to support multiple engine instances on the same page.
  * 
@@ -56,7 +102,8 @@ export function createStore(initialOptions: LuminaOptions = {}) {
         deck: null,
         currentIndex: 0,
         options: { ...DEFAULT_OPTIONS, ...initialOptions },
-        isReady: false
+        isReady: false,
+        actionHistory: []
     });
 
     // --- Getters ---
@@ -127,9 +174,28 @@ export function createStore(initialOptions: LuminaOptions = {}) {
             console.error('[LuminaStore] Invalid deck format');
             return;
         }
-        state.deck = deck;
+        // Apply Feature: Token Optimization (Expansion)
+        state.deck = deepExpand(deck);
         state.currentIndex = 0;
         state.isReady = true;
+        state.actionHistory = []; // Reset history
+    }
+
+    /**
+     * Feature: Diff Updates
+     * Patches the current deck with partial data.
+     */
+    function patchDeck(partial: any) {
+        if (!state.deck) return;
+        state.deck = deepMerge(state.deck, partial);
+    }
+
+    /**
+     * Records a user action for the Feedback Loop.
+     */
+    function recordAction(action: ActionPayload) {
+        state.actionHistory.push(action);
+        if (state.actionHistory.length > 50) state.actionHistory.shift(); // Keep buffer small
     }
 
     /** Advances to the next slide if possible. */
@@ -173,6 +239,8 @@ export function createStore(initialOptions: LuminaOptions = {}) {
         progress,
         setOptions,
         loadDeck,
+        patchDeck,
+        recordAction,
         next,
         prev,
         goto

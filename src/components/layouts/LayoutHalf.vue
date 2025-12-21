@@ -1,16 +1,17 @@
 <template>
   <BaseSlide :data="data" customClass="bg-[var(--lumina-bg)]">
-    <div class="min-h-screen w-full flex flex-col lg:block relative">
+    <div
+      :class="['w-full flex flex-col lg:block relative', data.sizing === 'container' ? 'min-h-full' : 'min-h-screen']">
       <!-- Image Section -->
       <div
-        :class="['relative h-[40vh] lg:h-full lg:w-1/2 lg:fixed lg:top-0 overflow-hidden z-0', data.imageSide === 'right' ? 'lg:right-0 order-1' : 'lg:left-0 order-1']">
+        :class="['relative h-[40vh] lg:h-full lg:w-1/2 overflow-hidden z-0', data.sizing === 'container' ? 'lg:absolute lg:top-0' : 'lg:fixed lg:top-0', data.imageSide === 'right' ? 'lg:right-0 order-1' : 'lg:left-0 order-1']">
         <div class="absolute inset-0 bg-black/20 z-10"></div>
         <img :src="data.image" class="w-full h-full object-cover reveal-img scale-110 origin-center" alt="Slide Image">
       </div>
 
       <!-- Content Section -->
       <div
-        :class="['relative z-10 w-full lg:w-1/2 min-h-[60vh] lg:min-h-screen flex flex-col justify-center p-8 lg:p-24 order-2 bg-[#050505]', data.imageSide === 'right' ? 'lg:mr-[50%]' : 'lg:ml-[50%]']">
+        :class="['relative z-10 w-full lg:w-1/2 min-h-[60vh] flex flex-col justify-center p-8 lg:p-24 order-2 bg-[#050505]', data.imageSide === 'right' ? 'lg:mr-[50%]' : 'lg:ml-[50%]', data.sizing === 'container' ? 'lg:min-h-full' : 'lg:min-h-screen']">
         <div class="reveal-content max-w-xl">
           <!-- Tag -->
           <span class="text-xs font-bold uppercase tracking-[0.2em] mb-6 block"

@@ -5,6 +5,7 @@ import LayoutHalf from '../components/layouts/LayoutHalf.vue';
 import LayoutFeatures from '../components/layouts/LayoutFeatures.vue';
 import LayoutTimeline from '../components/layouts/LayoutTimeline.vue';
 import LayoutSteps from '../components/layouts/LayoutSteps.vue';
+import LayoutAuto from '../components/layouts/LayoutAuto.vue';
 import { createStore, StoreKey, LuminaStore } from './store';
 import { bus } from './events';
 import { ThemeManager } from './theme';
@@ -52,6 +53,12 @@ export class Lumina {
         this.app.component('layout-features', LayoutFeatures);
         this.app.component('layout-timeline', LayoutTimeline);
         this.app.component('layout-steps', LayoutSteps);
+        this.app.component('layout-auto', LayoutAuto);
+
+        // Internal Event Listeners
+        bus.on('action', (payload) => {
+            this.store.recordAction(payload);
+        });
 
         this.app.mount(this.selector);
     }
@@ -65,6 +72,43 @@ export class Lumina {
     public load(deckData: Deck) {
         this.store.loadDeck(deckData);
         bus.emit('ready', deckData);
+    }
+
+    /**
+     * Feature: Diff Updates
+     * Updates the existing deck with partial changes.
+     */
+    public patch(diff: any) {
+        this.store.patchDeck(diff);
+    }
+
+    /**
+     * Feature: Feedback Loop
+     * Exports the current session state for LLM consumption.
+     * Includes: Narrative Log, Context Window, and Interest "Heatmap".
+     */
+    public exportState() {
+        const { currentIndex, deck, actionHistory } = this.store.state;
+        const slide = deck?.slides[currentIndex];
+
+        // 1. Context Window & Narrative Log
+        const context = actionHistory.map(a => `User ${a.type}ed on ${a.label || a.value}`).join(' -> ');
+
+        // 2. Interest "Heatmap" (Aggregated Actions)
+        const interest = actionHistory.length > 5 ? "High Engagement" : "Low Engagement";
+
+        return Object.freeze({
+            status: "active",
+            currentSlide: {
+                index: currentIndex,
+                id: slide?.id || currentIndex,
+                type: slide?.type,
+                title: slide?.title || "(No Title)"
+            },
+            narrative: `User is currently on slide ${currentIndex + 1}. Session Flow: ${context || "Just started"}.`,
+            engagementLevel: interest,
+            history: [...actionHistory] // Clone
+        });
     }
 
     /**
@@ -95,5 +139,24 @@ export class Lumina {
             this.app = null as any;
         }
         bus.clear();
+    }
+
+    /**
+     * Navigation API
+     */
+    public get currentSlideIndex() {
+        return this.store.state.currentIndex;
+    }
+
+    public goTo(index: number) {
+        this.store.goto(index);
+    }
+
+    public next() {
+        this.store.next();
+    }
+
+    public prev() {
+        this.store.prev();
     }
 }

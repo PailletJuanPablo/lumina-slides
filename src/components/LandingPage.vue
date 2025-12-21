@@ -201,8 +201,10 @@
         <!-- Footer -->
         <footer class="py-12 border-t border-white/5 bg-[#0f172a] text-center">
             <p class="text-slate-500 text-sm">
-                © 2024 Lumina Engine. Released under MIT License. <br>
-                Crafted with <span class="text-red-500">♥</span> for the Vue community.
+                © 2025 Lumina Engine. Released under MIT License. <br>
+                Created by <a href="https://pailletjp.com" target="_blank"
+                    class="text-slate-400 hover:text-cyan-400 transition-colors">Juan Pablo Paillet</a> for the Vue
+                community.
             </p>
         </footer>
     </div>

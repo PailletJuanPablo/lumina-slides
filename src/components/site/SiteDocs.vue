@@ -240,6 +240,36 @@ createApp(App).mount('#app');</code></pre>
                         </div>
                     </div>
 
+
+                    <!-- SIZING / EMBEDDING -->
+                    <div v-else-if="activeSection === 'sizing'">
+                        <h1>Embedding & Sizing</h1>
+                        <p>By default, Lumina slides take up the full viewport height (<code>100vh</code>) to create an
+                            immersive experience.</p>
+                        <p>However, if you want to embed a slide inside a smaller container (e.g., a dashboard widget or
+                            a blog post card), you can change the sizing mode.</p>
+
+                        <h3>Container Mode</h3>
+                        <p>Set the <code>sizing</code> property to <code>'container'</code> in your slide data. This
+                            tells the engine to respect the parent container's height instead of forcing full screen.
+                        </p>
+
+                        <pre><code>{
+  <span class="text-blue-400">"type"</span>: <span class="text-green-400">"timeline"</span>,
+  <span class="text-blue-400">"sizing"</span>: <span class="text-green-400">"container"</span>, <span class="text-gray-500">// Default is "viewport"</span>
+  <span class="text-blue-400">"title"</span>: <span class="text-green-400">"Project History"</span>,
+  <span class="text-blue-400">"timeline"</span>: [...]
+}</code></pre>
+
+                        <div class="mt-8 p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
+                            <h4 class="text-yellow-400 font-bold mb-2"><i class="fa-solid fa-lightbulb mr-2"></i>Pro Tip
+                            </h4>
+                            <p class="text-sm text-yellow-200/80 m-0">When using 'container' mode, ensure the parent
+                                element has a defined height (e.g., <code>h-96</code> or fixed pixels), otherwise the
+                                slide content might collapse or expand unexpectedly.</p>
+                        </div>
+                    </div>
+
                     <!-- CONFIGURATION -->
                     <div v-else-if="activeSection === 'config'">
                         <h1>Configuration</h1>
@@ -300,6 +330,251 @@ engine.<span class="text-yellow-400">on</span>('action', (payload) => {
 }</code></pre>
                     </div>
 
+
+                    <!-- AGENTS: INTRO -->
+                    <div v-else-if="activeSection === 'agents-intro'">
+                        <h1>The Agent Protocol</h1>
+                        <p class="lead">Lumina is the first presentation engine designed for <strong>Agentic
+                                AI</strong>.</p>
+                        <p>Large Language Models (LLMs) are great at "What" (Content) but struggle with "How"
+                            (Pixel-perfect CSS).
+                            Lumina solves this by acting as a <strong>Semantic Interface Layer</strong>.</p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-12 not-prose">
+                            <div
+                                class="bg-gray-900 border border-purple-500/20 rounded-xl p-8 relative overflow-hidden">
+                                <div class="absolute top-0 right-0 p-4 opacity-20">
+                                    <i class="fa-solid fa-robot text-6xl text-purple-500"></i>
+                                </div>
+                                <h3 class="text-purple-400 font-bold mb-4">The Agent's Job</h3>
+                                <ul class="space-y-3 text-sm text-gray-400">
+                                    <li class="flex gap-2"><i class="fa-solid fa-check text-green-500"></i> Generate
+                                        Text Content</li>
+                                    <li class="flex gap-2"><i class="fa-solid fa-check text-green-500"></i> Determine
+                                        Structure</li>
+                                    <li class="flex gap-2"><i class="fa-solid fa-check text-green-500"></i> Choose
+                                        Semantic Layouts</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-900 border border-blue-500/20 rounded-xl p-8 relative overflow-hidden">
+                                <div class="absolute top-0 right-0 p-4 opacity-20">
+                                    <i class="fa-solid fa-layer-group text-6xl text-blue-500"></i>
+                                </div>
+                                <h3 class="text-blue-400 font-bold mb-4">Lumina's Job</h3>
+                                <ul class="space-y-3 text-sm text-gray-400">
+                                    <li class="flex gap-2"><i class="fa-solid fa-check text-blue-500"></i> 60fps
+                                        Animations</li>
+                                    <li class="flex gap-2"><i class="fa-solid fa-check text-blue-500"></i> Responsive
+                                        Typography</li>
+                                    <li class="flex gap-2"><i class="fa-solid fa-check text-blue-500"></i> Interactive
+                                        State</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h2>The Protocol</h2>
+                        <p>Agents communicate with Lumina via a JSON format that is strict enough for deterministic
+                            rendering but loose enough for LLMs.</p>
+                    </div>
+
+                    <!-- AGENTS: TOKENS -->
+                    <div v-else-if="activeSection === 'agents-tokens'">
+                        <h1>Token Optimization</h1>
+                        <p>LLM tokens cost money and latency. Lumina supports a <strong>Hybrid Schema</strong> that
+                            accepts short aliases.</p>
+
+                        <div class="not-prose grid gap-6 mt-8">
+                            <div class="bg-[#0A0A0A] border border-white/10 rounded-xl p-6">
+                                <h3 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Standard JSON
+                                    (120 Tokens)</h3>
+                                <pre class="!mb-0 !p-0 !bg-transparent !border-none"><code>{
+  "type": "statement",
+  "title": "Quarterly Review",
+  "subtitle": "Growth is exceeding expectations."
+}</code></pre>
+                            </div>
+
+                            <div class="bg-[#0A0A0A] border border-green-500/20 rounded-xl p-6 relative">
+                                <span
+                                    class="absolute top-4 right-4 text-xs font-bold text-green-400 bg-green-500/10 px-2 py-1 rounded">
+                                    ~40% Less Tokens
+                                </span>
+                                <h3 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Optimized
+                                    JSON (70 Tokens)</h3>
+                                <pre class="!mb-0 !p-0 !bg-transparent !border-none"><code>{
+  "type": "statement",
+  "t": "Quarterly Review",
+  "s": "Growth is exceeding expectations."
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <h3>Supported Aliases</h3>
+                        <table class="w-full text-left text-sm text-gray-400">
+                            <thead class="bg-white/5 text-white">
+                                <tr>
+                                    <th class="p-3">Full Key</th>
+                                    <th class="p-3">Alias</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-white/5">
+                                <tr>
+                                    <td class="p-3">title</td>
+                                    <td class="p-3 text-green-400">t</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">subtitle</td>
+                                    <td class="p-3 text-green-400">s</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">description</td>
+                                    <td class="p-3 text-green-400">d</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">features</td>
+                                    <td class="p-3 text-green-400">fs</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">timeline</td>
+                                    <td class="p-3 text-green-400">tl</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- AGENTS: STREAMING -->
+                    <div v-else-if="activeSection === 'agents-streaming'">
+                        <h1>Streaming & Realtime</h1>
+                        <p>Lumina enables a <strong>"Type & See"</strong> experience. Using our partial parser, you can
+                            feed raw LLM streams directly into the engine.</p>
+
+                        <div class="not-prose my-12">
+                            <div
+                                class="bg-[#050505] border border-white/10 rounded-2xl overflow-hidden shadow-2xl flex flex-col h-[800px] relative group">
+
+                                <!-- CTA Overlay (Top Right) -->
+                                <div class="absolute top-4 right-4 z-20">
+                                    <button @click="runDemo"
+                                        class="px-5 py-1.5 rounded-full bg-blue-500 hover:bg-blue-400 text-white font-bold text-xs shadow-lg shadow-blue-500/20 transition-all transform hover:scale-105 flex items-center gap-2">
+                                        <i class="fa-solid fa-play"></i> Simulate AI Stream
+                                    </button>
+                                </div>
+
+                                <!-- Editor (Top, Fixed Height) -->
+                                <div
+                                    class="w-full h-48 flex flex-col bg-gray-900 border-b border-white/10 relative z-10">
+                                    <div
+                                        class="bg-white/5 px-4 py-2 text-xs font-bold text-white/50 flex justify-between items-center">
+                                        <span>LLM JSON OUTPUT</span>
+                                        <span class="text-xs text-white/20 mr-32" v-if="demoStarted">Receiving
+                                            Tokens...</span>
+                                    </div>
+                                    <textarea v-model="demoInput"
+                                        class="flex-1 bg-transparent p-6 font-mono text-sm text-green-400 resize-none focus:outline-none"
+                                        placeholder='Waiting for tokens...'></textarea>
+                                </div>
+
+                                <!-- Preview (Bottom, Flex) -->
+                                <div class="w-full flex-1 relative bg-black min-h-[300px]">
+                                    <div id="streaming-demo-container" class="w-full h-full"></div>
+                                    <div v-if="!demoStarted"
+                                        class="absolute inset-0 flex items-center justify-center text-white/20">
+                                        <div class="text-center">
+                                            <i class="fa-solid fa-tv text-4xl mb-4"></i>
+                                            <p class="text-sm">Preview UI Render</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AGENTS: LAYOUT GALLERY -->
+                    <div v-else-if="activeSection === 'agents-layouts'">
+                        <h1>Layout Gallery</h1>
+                        <p>Lumina provides 5 core layouts optimized for different types of information. Click <strong><i
+                                    class="fa-solid fa-play text-blue-400"></i> Visualize</strong> to load them into the
+                            <a @click.prevent="activeSection = 'agents-streaming'; scroll('streaming-demo-container')"
+                                href="#" class="text-blue-400 hover:underline">Streaming Demo</a>.
+                        </p>
+
+                        <div class="space-y-12 mt-12">
+
+                            <!-- Statement -->
+                            <div class="bg-[#0A0A0A] border border-white/10 rounded-xl overflow-hidden p-6">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h3 class="text-xl font-bold text-white flex items-center gap-3">
+                                        <span
+                                            class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 text-xs uppercase font-bold">Statement</span>
+                                    </h3>
+                                    <button @click="loadIntoDemo(EXAMPLES.statement)"
+                                        class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-xs font-bold text-white/50 hover:text-white transition flex items-center gap-2 border border-white/5">
+                                        <i class="fa-solid fa-play text-blue-400"></i> Visualize
+                                    </button>
+                                </div>
+                                <p class="text-sm text-gray-400 mb-4">Best for: Titles, Quotes, Big Ideas.</p>
+                                <pre class="!mb-0 !bg-black/50"><code>{{ EXAMPLES.statement }}</code></pre>
+                            </div>
+
+                            <!-- Features -->
+                            <div class="bg-[#0A0A0A] border border-white/10 rounded-xl overflow-hidden p-6">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h3 class="text-xl font-bold text-white flex items-center gap-3">
+                                        <span
+                                            class="px-2 py-0.5 rounded bg-yellow-500/10 text-yellow-400 text-xs uppercase font-bold">Features</span>
+                                    </h3>
+                                    <button @click="loadIntoDemo(EXAMPLES.features)"
+                                        class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-xs font-bold text-white/50 hover:text-white transition flex items-center gap-2 border border-white/5">
+                                        <i class="fa-solid fa-play text-yellow-400"></i> Visualize
+                                    </button>
+                                </div>
+                                <p class="text-sm text-gray-400 mb-4">Best for: Lists, Grids, Stats, Benefits.</p>
+                                <pre class="!mb-0 !bg-black/50"><code>{{ EXAMPLES.features }}</code></pre>
+                            </div>
+
+                            <!-- Timeline -->
+                            <div class="bg-[#0A0A0A] border border-white/10 rounded-xl overflow-hidden p-6">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h3 class="text-xl font-bold text-white flex items-center gap-3">
+                                        <span
+                                            class="px-2 py-0.5 rounded bg-green-500/10 text-green-400 text-xs uppercase font-bold">Timeline</span>
+                                    </h3>
+                                    <button @click="loadIntoDemo(EXAMPLES.timeline)"
+                                        class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-xs font-bold text-white/50 hover:text-white transition flex items-center gap-2 border border-white/5">
+                                        <i class="fa-solid fa-play text-green-400"></i> Visualize
+                                    </button>
+                                </div>
+                                <p class="text-sm text-gray-400 mb-4">Best for: Roadmaps, History, Changelogs.</p>
+                                <pre class="!mb-0 !bg-black/50"><code>{{ EXAMPLES.timeline }}</code></pre>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div v-else-if="activeSection === 'agents-auto'">
+                        <h1>Auto-Layouts</h1>
+                        <p>Sometimes the Agent doesn't know which layout is best. Just use <code>type: 'auto'</code>.
+                        </p>
+                        <p>Lumina analyzes the content structure to pick the best view automatically.</p>
+
+                        <pre><code>{
+  <span class="text-blue-400">"type"</span>: <span class="text-green-400">"auto"</span>,
+  <span class="text-blue-400">"timeline"</span>: [ ... ] <span class="text-gray-500">// Engine detects timeline data -> Renders Timeline Layout</span>
+}</code></pre>
+                    </div>
+
+                    <!-- AGENTS: STATE -->
+                    <div v-else-if="activeSection === 'agents-state'">
+                        <h1>State & Feedback Loop</h1>
+                        <p>To create a conversation, the Agent needs to know what the user did. Use
+                            <code>engine.exportState()</code>.
+                        </p>
+                        <pre><code>{
+  <span class="text-blue-400">"narrative"</span>: <span class="text-green-400">"User viewed 'Pricing' for 30s then clicked 'Sign Up'."</span>,
+  <span class="text-blue-400">"engagementLevel"</span>: <span class="text-green-400">"High"</span>
+}</code></pre>
+                    </div>
                 </div>
             </Transition>
         </main>
@@ -307,9 +582,187 @@ engine.<span class="text-yellow-400">on</span>('action', (payload) => {
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch, onUnmounted, nextTick } from 'vue';
+import { Lumina } from '../../core/Lumina';
+import { parsePartialJson } from '../../utils/streaming';
 
 const activeSection = ref('intro');
+
+// --- DEMO LOGIC ---
+const demoInput = ref('');
+const demoStarted = ref(false);
+let demoEngine: Lumina | null = null;
+
+const TARGET_JSON = `{
+  "meta": { "title": "Lumina Demo" },
+  "slides": [
+    {
+      "type": "half",
+      "sizing": "container",
+      "meta": {
+        "orbColor": "#8b5cf6"
+      },
+      "imageSide": "left",
+      "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2000",
+      "tag": "Left Aligned",
+      "title": "Image on Left",
+      "paragraphs": [
+        "The classic split screen. Image on the left, content on the right.",
+        "Perfect for introducing a product or feature where the visual context leads the narrative."
+      ],
+      "cta": "Explore Left"
+    },
+    {
+      "type": "statement",
+      "sizing": "container",
+      "meta": {
+        "orbColor": "#ec4899"
+      },
+      "tag": "Minimal",
+      "title": "Impactful Headlines",
+      "subtitle": "The standard statement slide allows for massive typography to drive a point home."
+    },
+    {
+      "type": "features",
+      "sizing": "container",
+      "title": "Grid System",
+      "description": "The features layout automatically arranges cards into a responsive grid.",
+      "features": [
+        { "title": "Card One", "desc": "Standard card with an icon.", "icon": "fa-bolt" },
+        { "title": "Card Two", "desc": "Cards scale on hover.", "icon": "fa-star" },
+        { "title": "Card Three", "desc": "Fully responsive on mobile.", "icon": "fa-mobile" }
+      ]
+    },
+    {
+      "type": "timeline",
+      "sizing": "container",
+      "title": "Project History",
+      "subtitle": "A visual journey through our milestones.",
+      "timeline": [
+        { "date": "Q1 2023", "title": "Inception", "description": "The initial concept was drafted." },
+        { "date": "Q3 2023", "title": "Prototype", "description": "First functional MVP released." },
+        { "date": "Q1 2024", "title": "Beta Launch", "description": "Public beta opened to users." }
+      ]
+    }
+  ]
+}`;
+
+async function runDemo() {
+    demoInput.value = '';
+    demoStarted.value = true;
+
+    // Initialize Engine if needed
+    if (!demoEngine) {
+        // Ensure container is cleared to avoid duplicates
+        const container = document.getElementById('streaming-demo-container');
+        if (container) container.innerHTML = '';
+
+        nextTick(() => {
+            demoEngine = new Lumina('#streaming-demo-container', {
+                ui: { visible: true, showControls: true },
+                keyboard: false,
+                animation: { enabled: true, durationIn: 0.5 }
+            });
+        });
+    }
+
+    let i = 0;
+    // Faster typing for examples
+    const interval = setInterval(() => {
+        demoInput.value += TARGET_JSON[i];
+        i++;
+        if (i >= TARGET_JSON.length) clearInterval(interval);
+    }, 10);
+}
+
+function loadIntoDemo(json: string) {
+    activeSection.value = 'agents-streaming';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    demoInput.value = '';
+    demoStarted.value = true;
+
+    setTimeout(() => {
+        if (!demoEngine) {
+            const container = document.getElementById('streaming-demo-container');
+            if (container) container.innerHTML = '';
+            demoEngine = new Lumina('#streaming-demo-container', {
+                ui: { visible: true },
+                keyboard: false,
+                animation: { enabled: true, durationIn: 0.5 }
+            });
+        }
+
+        let i = 0;
+        const interval = setInterval(() => {
+            demoInput.value += json[i];
+            i++;
+            if (i >= json.length) clearInterval(interval);
+        }, 5);
+    }, 100);
+}
+
+const EXAMPLES = {
+    statement: `{
+  "type": "statement",
+  "sizing": "container",
+  "t": "Big Impact",
+  "s": "Created instantly from JSON.",
+  "meta": { "variant": "v:g" }
+}`,
+    features: `{
+  "type": "features",
+  "sizing": "container",
+  "t": "Core Capabilities",
+  "fs": [
+    { "t": "Fast", "desc": "60fps", "icon": "bolt" },
+    { "t": "AI", "desc": "Native", "icon": "robot" },
+    { "t": "Typed", "desc": "TS", "icon": "code" }
+  ]
+}`,
+    timeline: `{
+  "type": "timeline",
+  "sizing": "container",
+  "t": "Product Roadmap",
+  "tl": [
+    { "date": "Q1", "t": "Alpha", "desc": "Core Engine" },
+    { "date": "Q2", "t": "Beta", "desc": "Public API" },
+    { "date": "Q3", "t": "Launch", "desc": "Global Scale" }
+  ]
+}`
+};
+
+// Watch input and parse
+watch(demoInput, (val) => {
+    if (!demoEngine) return;
+    const parsed = parsePartialJson(val);
+    if (parsed) {
+        // Handle Deck vs Slide
+        if (parsed.slides && Array.isArray(parsed.slides)) {
+            // Apply sizing: container to all slides if missing
+            parsed.slides.forEach((s: any) => s.sizing = 'container');
+            demoEngine.load(parsed);
+
+            // Auto-advance logic: check if we have a new slide that is ready
+            const availableSlides = parsed.slides.filter((s: any) => s.title || s.type);
+            const targetIndex = availableSlides.length - 1;
+
+            if (targetIndex > demoEngine.currentSlideIndex) {
+                demoEngine.goTo(targetIndex);
+            }
+        } else {
+            // Wrap single slide
+            demoEngine.load({
+                meta: { title: "Demo" },
+                slides: [{ ...parsed, sizing: 'container' }]
+            });
+        }
+    }
+});
+
+onUnmounted(() => {
+    if (demoEngine) demoEngine.destroy();
+});
+
 
 
 const navigation = [
@@ -322,16 +775,38 @@ const navigation = [
         ]
     },
     {
+        title: 'Agents & LLMs',
+        items: [
+            { id: 'agents-streaming', label: 'Streaming & Realtime' },
+            { id: 'agents-intro', label: 'The Agent Protocol' },
+            { id: 'agents-tokens', label: 'Token Optimization' },
+            { id: 'agents-layouts', label: 'Layout Gallery' },
+            { id: 'agents-auto', label: 'Auto-Layouts' },
+            { id: 'agents-state', label: 'State & Feedback' }
+        ]
+    },
+    {
         title: 'Core Concepts',
         items: [
             { id: 'deck', label: 'Deck Structure' },
             { id: 'slides', label: 'Slide Layouts' },
+            { id: 'sizing', label: 'Embedding & Sizing' },
             { id: 'config', label: 'Configuration' },
             { id: 'events', label: 'Events & API' },
             { id: 'theming', label: 'Theming' }
         ]
     }
 ];
+
+
+function scroll(id: string) {
+    nextTick(() => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    });
+}
 
 function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -345,6 +820,10 @@ function scrollToTop() {
 
 .doc-content h2 {
     @apply text-2xl md:text-3xl font-bold text-white mt-16 mb-6 tracking-tight font-heading;
+}
+
+.doc-content h3 {
+    @apply text-[20px] font-extrabold text-white mb-[15px] mt-8 font-heading;
 }
 
 .doc-content p {

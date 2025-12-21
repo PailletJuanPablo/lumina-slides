@@ -1,5 +1,5 @@
 <template>
-    <div class="h-screen w-screen relative flex flex-col bg-[#030303] text-white overflow-hidden">
+    <div class="h-full w-full relative flex flex-col bg-[#030303] text-white overflow-hidden">
 
         <!-- DYNAMIC BACKGROUND -->
         <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -16,11 +16,32 @@
         </div>
 
         <!-- JSON INSPECTOR -->
-        <transition name="slide-fade">
-            <div v-if="ui.showJson"
-                class="fixed right-0 top-0 h-full w-full md:w-[450px] bg-[#0a0a0a]/95 backdrop-blur-2xl border-l border-white/10 z-[100] p-6 shadow-2xl overflow-auto text-left">
-                <pre
-                    class="text-[10px] font-mono text-green-400 whitespace-pre-wrap">{{ JSON.stringify(slide, null, 2) }}</pre>
+        <transition name="fade">
+            <div v-if="ui.showJson" class="fixed inset-0 z-[100] flex justify-end" @click.self="ui.showJson = false">
+                <!-- Backdrop -->
+                <div class="absolute inset-0 bg-black/20 backdrop-blur-sm transition-opacity"
+                    @click="ui.showJson = false">
+                </div>
+
+                <!-- Panel -->
+                <div
+                    class="relative h-full w-full md:w-[450px] bg-[#0a0a0a]/95 border-l border-white/10 shadow-2xl overflow-auto text-left flex flex-col transform transition-transform duration-300">
+
+                    <!-- Header -->
+                    <div class="p-6 pb-2 border-b border-white/5 flex items-center justify-between shrink-0">
+                        <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Slide Data</span>
+                        <button @click="ui.showJson = false"
+                            class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/50 hover:text-white transition">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="p-6">
+                        <pre
+                            class="text-[10px] font-mono text-green-400 whitespace-pre-wrap">{{ JSON.stringify(slide, null, 2) }}</pre>
+                    </div>
+                </div>
             </div>
         </transition>
 
@@ -35,7 +56,7 @@
 
         <!-- NAV BAR -->
         <div v-if="uiOptions?.visible"
-            class="fixed bottom-0 left-0 w-full z-40 px-8 py-6 bg-gradient-to-t from-black via-black/80 to-transparent flex justify-between items-end pointer-events-none">
+            class="absolute bottom-0 left-0 w-full z-40 px-8 py-6 bg-gradient-to-t from-black via-black/80 to-transparent flex justify-between items-end pointer-events-none">
             <div v-if="uiOptions?.showSlideCount" class="pointer-events-auto text-left">
                 <h2 class="text-[10px] font-bold text-gray-500 tracking-[0.2em] uppercase mb-1">{{ deckTitle }}</h2>
                 <div class="flex items-center gap-2 text-white/50 text-sm font-mono">

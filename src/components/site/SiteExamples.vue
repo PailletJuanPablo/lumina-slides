@@ -3,9 +3,9 @@
         <h2 class="text-4xl font-bold mb-12 text-center">Interactive Examples</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div v-for="deck in decks" :key="deck.id"
+            <a v-for="deck in decks" :key="deck.id" :href="baseUrl + '?deck=' + deck.id"
                 class="group relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 hover:border-blue-500/50 transition duration-500 cursor-pointer"
-                @click="openDeck(deck.id)">
+                @click.prevent="$emit('select-deck', deck.id)">
                 <div
                     class="aspect-video bg-gradient-to-br from-gray-800 to-black group-hover:scale-105 transition duration-700 flex items-center justify-center">
                     <span class="text-4xl">{{ deck.icon }}</span>
@@ -18,7 +18,7 @@
                         View Demo <span class="ml-2">→</span>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </template>
@@ -31,9 +31,10 @@ const decks = [
     { id: 'layout-features', title: 'Feature Grid', description: 'Responsive grids for feature lists.', icon: '🍱' },
     { id: 'layout-timeline', title: 'Timeline', description: 'Vertical chronological sequence.', icon: '⏱️' },
     { id: 'layout-steps', title: 'Process Steps', description: 'Horizontal sequential flow.', icon: '👣' },
+    { id: 'layout-embedded', title: 'Embedded Widget', description: 'Container-sized, perfect for embedding.', icon: '🧩' },
 ];
 
-const openDeck = (id: string) => {
-    window.location.href = `/?deck=${id}`;
-};
+const baseUrl = import.meta.env.BASE_URL;
+
+defineEmits(['select-deck']);
 </script>

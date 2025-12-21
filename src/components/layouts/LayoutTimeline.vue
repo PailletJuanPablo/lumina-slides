@@ -1,6 +1,7 @@
 <template>
     <BaseSlide :data="data">
-        <div class="min-h-screen w-full flex flex-col justify-center p-8 lg:p-24">
+        <div
+            :class="['w-full flex flex-col justify-center p-8 lg:p-24', data.sizing === 'container' ? 'min-h-full py-12 lg:py-16' : 'min-h-screen']">
             <!-- Header -->
             <div class="text-center mb-16 reveal-up">
                 <h2 class="text-5xl font-heading font-bold mb-4">{{ data.title }}</h2>
@@ -22,8 +23,8 @@
                         <div
                             :class="['w-full md:w-1/2 pl-12 md:pl-0 flex flex-col justify-center', i % 2 === 0 ? 'md:pr-12 md:text-right md:items-end' : 'md:pl-12 md:text-left md:items-start']">
                             <span class="text-sm font-bold tracking-widest uppercase text-blue-400 mb-1">{{ item.date
-                            }}</span>
-                            <h3 class="text-2xl font-bold">{{ item.title }}</h3>
+                                }}</span>
+                            <h3 class="text-2xl font-bold">{{ item.title || item.t }}</h3>
                         </div>
 
                         <!-- Center Node -->
@@ -34,7 +35,7 @@
                         <!-- Description Side -->
                         <div
                             :class="['w-full md:w-1/2 pl-12 md:pl-0', i % 2 === 0 ? 'md:pl-12' : 'md:pr-12 md:text-right']">
-                            <p class="text-lg opacity-60 leading-relaxed">{{ item.description }}</p>
+                            <p class="text-lg opacity-60 leading-relaxed">{{ item.description || item.desc }}</p>
                         </div>
                     </div>
                 </div>

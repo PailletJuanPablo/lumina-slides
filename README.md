@@ -3,24 +3,34 @@
 <div align="center">
   <br />
   <p>
-    <b>The Declarative Presentation Engine for the Modern Web</b>
+    <b>The Interface Layer for the Agentic Era</b>
   </p>
   <p>
-    Create cinematic, timeline-driven presentations using simple JSON and the full power of Vue 3 + GSAP.
+    The first presentation engine designed for <b>LLMs</b>. Turn JSON into cinematic, interactive experiences.
   </p>
   <br />
 </div>
 
-**Lumina Engine** is a high-performance, drop-in library that turns declarative JSON definitions into GPU-accelerated, interactive slide decks. It is designed for developers who want to build immersive storytelling experiences without getting bogged down in animation logic.
+**Lumina Engine** is a high-performance, declarative library that enables AI agents and LLMs to generate professional, interactive UI and slide decks by simply outputting JSON. It bridges the gap between text generation and visual storytelling, offering deterministic, GPU-accelerated rendering without the hallucination of pixel-generation.
+
+> [!IMPORTANT] > **Building an Agent?**
+> Read the complete **[Lumina for Agents Guide](./AGENTS.md)** to learn about Streaming, Auto-Layouts, and Token Optimization.
+
+## 🤖 Why for LLMs?
+
+Traditional UI libraries require understanding complex component trees, CSS modules, and state management. Lumina abstracts this into a **single, flat JSON schema**.
+
+- **structured_output Friendly**: Designed to match the capabilities of models like GPT-4o, Claude 3.5 Sonnet, and Gemini Pro.
+- **Hallucination Proof**: The renderer handles the "how", the LLM only cares about the "what".
+- **Zero Config**: No build steps or bundler configuration needed to generate visual content dynamically.
 
 ## ✨ Features
 
-- **� Declarative First**: Define your entire deck structure, content, and flow in a single JSON object.
-- **🚀 Performance Core**: Built on Vue 3's Composition API for reactivity and GSAP for buttery smooth standard-compliant animations.
-- **🎨 Cinematic Layouts**: Comes with 5+ responsive, production-ready layouts (`statement`, `timeline`, `features`, `half`, `steps`).
-- **🛡️ Type Safe**: Written in 100% strict TypeScript.
-- **🔌 Event Driven**: Hook into every slide change, interaction, and state update with a robust event system.
-- **� Theming API**: Runtime CSS variable generation for instant branding (Dark/Light mode ready).
+- **📄 JSON-First Architecture**: Define entire decks, including content, styling, and flow, in one serializable object.
+- **⚡ Reactive & Performant**: Built on Vue 3 + GSAP for 60fps animations even on mobile.
+- **🎨 Cinematic Layouts**: "Pro" layouts (`timeline`, `statement`, `features`) that look good by default.
+- **🛡️ Type Safe**: Full TypeScript support with exported types for your AI system prompts.
+- **🔌 Event Driven**: Hook into every user interaction to feed state back to your agent.
 
 ## 📦 Installation
 
@@ -28,104 +38,81 @@
 npm install lumina-slides gsap
 ```
 
-## ⚡ Quick Start
+## ⚡ Quick Start for Agents
 
-### 1. Initialize the Engine
+### 1. The "System Prompt"
 
-Mount the engine to any DOM element.
+Your agent generates this structure:
+
+```json
+{
+  "meta": { "title": "Quarterly Review" },
+  "slides": [
+    {
+      "type": "statement",
+      "title": "Q4 Performance",
+      "subtitle": "Exceeding expectations.",
+      "meta": { "variant": "gradient" }
+    },
+    {
+      "type": "features",
+      "title": "Key Metrics",
+      "features": [
+        {
+          "title": "Growth",
+          "description": "+145% YoY",
+          "icon": "trending-up"
+        },
+        { "title": "Retention", "description": "98% Renewal", "icon": "users" }
+      ]
+    }
+  ]
+}
+```
+
+### 2. The Engine Renders
+
+You pass that JSON directly to Lumina.
 
 ```typescript
 import { Lumina } from "lumina-slides";
 import "lumina-slides/style.css";
 
-const engine = new Lumina("#app", {
-  theme: {
-    colors: { primary: "#6366f1" }, // Customize your brand color
-  },
-});
-```
+const engine = new Lumina("#app");
 
-### 2. Load Your Deck
+// Imagine this comes from your LLM stream
+const llmOutput = await agent.generatePresentation();
 
-Pass your declarative JSON structure to the `load` method.
-
-```typescript
-engine.load({
-  meta: { title: "Project Roadmap" },
-  slides: [
-    {
-      type: "statement",
-      title: "Welcome to Lumina",
-      subtitle: "Declarative presentations for the web.",
-      meta: { orbColor: "#4f46e5" },
-    },
-    {
-      type: "timeline",
-      title: "History",
-      timeline: [
-        { date: "2023", title: "Inception", description: "Project started." },
-        { date: "2024", title: "Launch", description: "v1.0 Release." },
-      ],
-    },
-  ],
-});
+engine.load(llmOutput);
 ```
 
 ## 🧩 Built-in Layouts
 
-Lumina comes with a set of "Pro" layouts out of the box. Just specify the `type` property in your slide object.
+Lumina provides semantic layout types that LLMs can easily select based on context.
 
-| Type            | Description                                                | Key Props                          |
-| :-------------- | :--------------------------------------------------------- | :--------------------------------- |
-| **`statement`** | High-impact text focus. Perfect for covers and quotes.     | `title`, `subtitle`, `tag`         |
-| **`half`**      | Split layout with image on one side, content on the other. | `image`, `imageSide`, `paragraphs` |
-| **`features`**  | Responsive grid of cards with icons.                       | `features` (array of cards)        |
-| **`timeline`**  | Vertical interactive chronological list.                   | `timeline` (array of events)       |
-| **`steps`**     | Sequential process steps with numbers.                     | `steps` (array of steps)           |
+| Type            | Best Used For...                                     |
+| :-------------- | :--------------------------------------------------- |
+| **`statement`** | Big ideas, quotes, titles. Great for "cover" slides. |
+| **`half`**      | Comparisons, text + image context.                   |
+| **`features`**  | Lists of benefits, KPIs, or grid items.              |
+| **`timeline`**  | Chronological events, roadmaps, history.             |
+| **`steps`**     | Tutorials, flows, numbered processes.                |
 
 ## 📚 API Reference
 
+### `engine.load(deck: DeckDefinition)`
+
+Loads a new deck. This is reactive - calling it again with new data (e.g. streaming chunks) will update the view seamlessly.
+
 ### `engine.on(event, callback)`
 
-Listen to engine events to build custom navigational controls or analytics.
+Listen to interactions to create loops where the user's action prompts the AI for the next step.
 
 ```typescript
-// Slide Change Event
-engine.on("slideChange", (payload) => {
-  console.log(`Current Slide Index: ${payload.index}`);
-  console.log("Active Slide Data:", payload.slide);
-});
-
-// User Actions (Buttons, Links)
 engine.on("action", (payload) => {
-  if (payload.type === "cta-click") {
-    window.open(payload.value, "_blank");
-  }
+  // Feed user interaction back to the AI
+  agent.send(`User clicked on button: ${payload.value}`);
 });
-```
-
-### Configuration Options
-
-Pass these to the constructor `new Lumina(selector, options)`.
-
-```typescript
-interface LuminaOptions {
-  /** Enable infinite looping of slides */
-  loop?: boolean;
-  /** Enable keyboard arrow navigation */
-  keyboard?: boolean;
-  /** UI Visibility Settings */
-  ui?: {
-    showProgressBar?: boolean;
-    showControls?: boolean;
-    showSlideCount?: boolean;
-  };
-  /** Animation Tunings */
-  animation?: {
-    stagger?: number; // Time between element entries
-    durationIn?: number; // Slide entry speed
-  };
-}
 ```
 
 ## 📄 License

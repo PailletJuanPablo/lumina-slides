@@ -17,7 +17,9 @@ export type SlideType = 'statement' | 'half' | 'features' | 'timeline' | 'steps'
 export interface TimelineItem {
     date: string;
     title: string;
+    t?: string;        // Alias for title
     description: string;
+    desc?: string;     // Alias for description
     icon?: string;
 }
 
@@ -49,6 +51,8 @@ interface SlideBase {
     id?: string;
     /** Slide-specific metadata. */
     meta?: SlideMeta;
+    /** Sizing mode: 'viewport' (100vh) or 'container' (100%). Default: 'viewport' */
+    sizing?: 'viewport' | 'container';
 }
 
 /**
