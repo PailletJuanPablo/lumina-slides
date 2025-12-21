@@ -1,0 +1,37 @@
+{
+    "meta": {
+        "title": "Layout: Timeline Gallery"
+    },
+    "slides": [
+        {
+            "type": "timeline",
+            "meta": {
+                "orbColor": "#3b82f6"
+            },
+            "title": "Project History",
+            "subtitle": "A visual journey through our milestones.",
+            "timeline": [
+                {
+                    "date": "Q1 2023",
+                    "title": "Inception",
+                    "description": "The initial concept was drafted and the core team was assembled to begin research."
+                },
+                {
+                    "date": "Q3 2023",
+                    "title": "Prototype",
+                    "description": "First functional MVP was released to a closed group of testers for feedback."
+                },
+                {
+                    "date": "Q1 2024",
+                    "title": "Beta Launch",
+                    "description": "Public beta opened, bringing in over 10,000 active users in the first month."
+                },
+                {
+                    "date": "Q4 2024",
+                    "title": "Global Expansion",
+                    "description": "Scaling infrastructure to support enterprise clients across 3 continents."
+                }
+            ]
+        }
+    ]
+}

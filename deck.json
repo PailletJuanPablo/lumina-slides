@@ -1,0 +1,93 @@
+{
+    "meta": {
+        "title": "Lumina V8 Showcase"
+    },
+    "slides": [
+        {
+            "type": "statement",
+            "meta": {
+                "orbColor": "#3b82f6"
+            },
+            "tag": "Declarative Engine",
+            "title": "Lumina V8",
+            "subtitle": "A highly modular, performance-first presentation engine for the modern web."
+        },
+        {
+            "type": "features",
+            "meta": {
+                "orbColor": "#10b981",
+                "orbPos": {
+                    "top": "10%",
+                    "left": "60%"
+                }
+            },
+            "title": "Core Capabilities",
+            "description": "Built to scale from simple decks to complex interactive apps.",
+            "features": [
+                {
+                    "title": "Reactive Store",
+                    "desc": "Centralized state management with external control.",
+                    "icon": "fa-database"
+                },
+                {
+                    "title": "Type Safety",
+                    "desc": "End-to-end strict TypeScript definitions.",
+                    "icon": "fa-shield-halved"
+                },
+                {
+                    "title": "Theming API",
+                    "desc": "CSS Variable generation for instant branding.",
+                    "icon": "fa-palette"
+                },
+                {
+                    "title": "GSAP Context",
+                    "desc": "Memory-leak free animation scoping.",
+                    "icon": "fa-film"
+                },
+                {
+                    "title": "Input Manager",
+                    "desc": "Keyboard, touch, and remote control ready.",
+                    "icon": "fa-keyboard"
+                },
+                {
+                    "title": "Modular",
+                    "desc": "Tree-shakable component architecture.",
+                    "icon": "fa-cube"
+                }
+            ]
+        },
+        {
+            "type": "half",
+            "meta": {
+                "orbColor": "#f43f5e"
+            },
+            "imageSide": "left",
+            "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000",
+            "tag": "Layout Engine",
+            "title": "Smart Split Layouts",
+            "paragraphs": [
+                "Lumina's split layout automatically adapts to viewport size. On desktop, it pins the image and allows content to scroll independently.",
+                "This ensures that even slides with substantial amounts of text remain readable and accessible without breaking the visual hierarchy.",
+                "Try resizing the browser window to see how the layout transforms into a vertical stack on mobile devices.",
+                "Content is King. We prioritize legibility and typographic rhythm above all else."
+            ],
+            "cta": "Read Documentation"
+        },
+        {
+            "type": "half",
+            "meta": {
+                "orbColor": "#8b5cf6"
+            },
+            "imageSide": "right",
+            "image": "https://images.unsplash.com/photo-1558655146-d09347e0c766?q=80&w=2000",
+            "tag": "Event System",
+            "title": "Interactive by Design",
+            "paragraphs": [
+                "Events are emitted from deep within components and bubbled up to your main application.",
+                "You can listen for specific actions like button clicks, slide transitions, or even custom triggers defined in your own components.",
+                "Click the button below to fire a test action event to the console."
+            ],
+            "cta": "Test Event Emit"
+        }
+    ]
+}

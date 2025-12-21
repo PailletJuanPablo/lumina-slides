@@ -1,0 +1,72 @@
+{
+    "meta": {
+        "title": "Layout: Features Gallery"
+    },
+    "slides": [
+        {
+            "type": "features",
+            "meta": {
+                "orbColor": "#06b6d4"
+            },
+            "title": "Grid System",
+            "description": "The features layout automatically arranges cards into a responsive grid.",
+            "features": [
+                {
+                    "title": "Card One",
+                    "desc": "Standard card with an icon.",
+                    "icon": "fa-bolt"
+                },
+                {
+                    "title": "Card Two",
+                    "desc": "Cards scale on hover.",
+                    "icon": "fa-star"
+                },
+                {
+                    "title": "Card Three",
+                    "desc": "Fully responsive on mobile.",
+                    "icon": "fa-mobile"
+                },
+                {
+                    "title": "Card Four",
+                    "desc": "Supports 1-4 columns.",
+                    "icon": "fa-table"
+                },
+                {
+                    "title": "Card Five",
+                    "desc": "Glassmorphism simplicity.",
+                    "icon": "fa-glass-water"
+                },
+                {
+                    "title": "Card Six",
+                    "desc": "Auto-flow grid placement.",
+                    "icon": "fa-border-all"
+                }
+            ]
+        },
+        {
+            "type": "features",
+            "meta": {
+                "orbColor": "#f59e0b"
+            },
+            "title": "Few Items",
+            "description": "It looks great with just a few items too.",
+            "features": [
+                {
+                    "title": "Focus",
+                    "desc": "Less items means more attention on each.",
+                    "icon": "fa-eye"
+                },
+                {
+                    "title": "Clarity",
+                    "desc": "Great for high-level overviews.",
+                    "icon": "fa-list-check"
+                },
+                {
+                    "title": "Impact",
+                    "desc": "Icons drive the visual message.",
+                    "icon": "fa-fire"
+                }
+            ]
+        }
+    ]
+}
