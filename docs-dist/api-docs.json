@@ -1,7 +1,7 @@
 {
 	"schemaVersion": "2.0",
 	"id": 0,
-	"name": "lumina-engine",
+	"name": "lumina-slides",
 	"variant": "project",
 	"kind": 1,
 	"flags": {},
@@ -41,8 +41,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/Lumina.ts",
-							"line": 34,
-							"character": 4
+							"line": 35,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L35"
 						}
 					],
 					"signatures": [
@@ -63,8 +64,9 @@
 							"sources": [
 								{
 									"fileName": "src/core/Lumina.ts",
-									"line": 34,
-									"character": 4
+									"line": 35,
+									"character": 4,
+									"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L35"
 								}
 							],
 							"parameters": [
@@ -103,9 +105,9 @@
 									},
 									"type": {
 										"type": "reference",
-										"target": 286,
+										"target": 389,
 										"name": "LuminaOptions",
-										"package": "lumina-engine"
+										"package": "lumina-slides"
 									},
 									"defaultValue": "{}"
 								}
@@ -114,13 +116,13 @@
 								"type": "reference",
 								"target": 1,
 								"name": "Lumina",
-								"package": "lumina-engine"
+								"package": "lumina-slides"
 							}
 						}
 					]
 				},
 				{
-					"id": 264,
+					"id": 336,
 					"name": "selector",
 					"variant": "declaration",
 					"kind": 1024,
@@ -138,8 +140,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/Lumina.ts",
-							"line": 34,
-							"character": 23
+							"line": 35,
+							"character": 23,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L35"
 						}
 					],
 					"type": {
@@ -148,7 +151,51 @@
 					}
 				},
 				{
-					"id": 284,
+					"id": 380,
+					"name": "currentSlideIndex",
+					"variant": "declaration",
+					"kind": 262144,
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Lumina.ts",
+							"line": 147,
+							"character": 15,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L147"
+						}
+					],
+					"getSignature": {
+						"id": 381,
+						"name": "currentSlideIndex",
+						"variant": "signature",
+						"kind": 524288,
+						"flags": {},
+						"comment": {
+							"summary": [
+								{
+									"kind": "text",
+									"text": "Navigation API"
+								}
+							]
+						},
+						"sources": [
+							{
+								"fileName": "src/core/Lumina.ts",
+								"line": 147,
+								"character": 15,
+								"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L147"
+							}
+						],
+						"type": {
+							"type": "intrinsic",
+							"name": "number"
+						}
+					}
+				},
+				{
+					"id": 378,
 					"name": "destroy",
 					"variant": "declaration",
 					"kind": 2048,
@@ -158,13 +205,14 @@
 					"sources": [
 						{
 							"fileName": "src/core/Lumina.ts",
-							"line": 91,
-							"character": 11
+							"line": 135,
+							"character": 11,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L135"
 						}
 					],
 					"signatures": [
 						{
-							"id": 285,
+							"id": 379,
 							"name": "destroy",
 							"variant": "signature",
 							"kind": 4096,
@@ -172,8 +220,9 @@
 							"sources": [
 								{
 									"fileName": "src/core/Lumina.ts",
-									"line": 91,
-									"character": 11
+									"line": 135,
+									"character": 11,
+									"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L135"
 								}
 							],
 							"type": {
@@ -184,7 +233,545 @@
 					]
 				},
 				{
-					"id": 265,
+					"id": 343,
+					"name": "exportState",
+					"variant": "declaration",
+					"kind": 2048,
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Lumina.ts",
+							"line": 90,
+							"character": 11,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L90"
+						}
+					],
+					"signatures": [
+						{
+							"id": 344,
+							"name": "exportState",
+							"variant": "signature",
+							"kind": 4096,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Feature: Feedback Loop\r\nExports the current session state for LLM consumption.\r\nIncludes: Narrative Log, Context Window, and Interest \"Heatmap\"."
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "src/core/Lumina.ts",
+									"line": 90,
+									"character": 11,
+									"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L90"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": {
+									"packageName": "typescript",
+									"packagePath": "lib/lib.es5.d.ts",
+									"qualifiedName": "Readonly"
+								},
+								"typeArguments": [
+									{
+										"type": "reflection",
+										"declaration": {
+											"id": 345,
+											"name": "__type",
+											"variant": "declaration",
+											"kind": 65536,
+											"flags": {},
+											"children": [
+												{
+													"id": 347,
+													"name": "currentSlide",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "src/core/Lumina.ts",
+															"line": 102,
+															"character": 12,
+															"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L102"
+														}
+													],
+													"type": {
+														"type": "reflection",
+														"declaration": {
+															"id": 348,
+															"name": "__type",
+															"variant": "declaration",
+															"kind": 65536,
+															"flags": {},
+															"children": [
+																{
+																	"id": 350,
+																	"name": "id",
+																	"variant": "declaration",
+																	"kind": 1024,
+																	"flags": {},
+																	"sources": [
+																		{
+																			"fileName": "src/core/Lumina.ts",
+																			"line": 104,
+																			"character": 16,
+																			"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L104"
+																		}
+																	],
+																	"type": {
+																		"type": "union",
+																		"types": [
+																			{
+																				"type": "intrinsic",
+																				"name": "string"
+																			},
+																			{
+																				"type": "intrinsic",
+																				"name": "number"
+																			}
+																		]
+																	},
+																	"defaultValue": "..."
+																},
+																{
+																	"id": 349,
+																	"name": "index",
+																	"variant": "declaration",
+																	"kind": 1024,
+																	"flags": {},
+																	"sources": [
+																		{
+																			"fileName": "src/core/Lumina.ts",
+																			"line": 103,
+																			"character": 16,
+																			"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L103"
+																		}
+																	],
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "number"
+																	},
+																	"defaultValue": "currentIndex"
+																},
+																{
+																	"id": 353,
+																	"name": "title",
+																	"variant": "declaration",
+																	"kind": 1024,
+																	"flags": {},
+																	"sources": [
+																		{
+																			"fileName": "src/core/Lumina.ts",
+																			"line": 106,
+																			"character": 16,
+																			"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L106"
+																		}
+																	],
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "any"
+																	},
+																	"defaultValue": "..."
+																},
+																{
+																	"id": 351,
+																	"name": "type",
+																	"variant": "declaration",
+																	"kind": 1024,
+																	"flags": {},
+																	"sources": [
+																		{
+																			"fileName": "src/core/Lumina.ts",
+																			"line": 105,
+																			"character": 16,
+																			"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L105"
+																		}
+																	],
+																	"type": {
+																		"type": "union",
+																		"types": [
+																			{
+																				"type": "literal",
+																				"value": "features"
+																			},
+																			{
+																				"type": "literal",
+																				"value": "timeline"
+																			},
+																			{
+																				"type": "literal",
+																				"value": "steps"
+																			},
+																			{
+																				"type": "literal",
+																				"value": "statement"
+																			},
+																			{
+																				"type": "literal",
+																				"value": "half"
+																			},
+																			{
+																				"type": "intersection",
+																				"types": [
+																					{
+																						"type": "intrinsic",
+																						"name": "string"
+																					},
+																					{
+																						"type": "reflection",
+																						"declaration": {
+																							"id": 352,
+																							"name": "__type",
+																							"variant": "declaration",
+																							"kind": 65536,
+																							"flags": {}
+																						}
+																					}
+																				]
+																			},
+																			{
+																				"type": "intrinsic",
+																				"name": "undefined"
+																			}
+																		]
+																	},
+																	"defaultValue": "slide.type"
+																}
+															],
+															"groups": [
+																{
+																	"title": "Properties",
+																	"children": [
+																		350,
+																		349,
+																		353,
+																		351
+																	]
+																}
+															],
+															"sources": [
+																{
+																	"fileName": "src/core/Lumina.ts",
+																	"line": 102,
+																	"character": 26,
+																	"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L102"
+																}
+															]
+														}
+													},
+													"defaultValue": "..."
+												},
+												{
+													"id": 355,
+													"name": "engagementLevel",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "src/core/Lumina.ts",
+															"line": 109,
+															"character": 12,
+															"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L109"
+														}
+													],
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "literal",
+																"value": "High Engagement"
+															},
+															{
+																"type": "literal",
+																"value": "Low Engagement"
+															}
+														]
+													},
+													"defaultValue": "interest"
+												},
+												{
+													"id": 356,
+													"name": "history",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "src/core/Lumina.ts",
+															"line": 110,
+															"character": 12,
+															"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L110"
+														}
+													],
+													"type": {
+														"type": "array",
+														"elementType": {
+															"type": "reflection",
+															"declaration": {
+																"id": 357,
+																"name": "__type",
+																"variant": "declaration",
+																"kind": 65536,
+																"flags": {},
+																"children": [
+																	{
+																		"id": 359,
+																		"name": "label",
+																		"variant": "declaration",
+																		"kind": 1024,
+																		"flags": {
+																			"isOptional": true,
+																			"isReadonly": true
+																		},
+																		"sources": [
+																			{
+																				"fileName": "src/core/types.ts",
+																				"line": 311,
+																				"character": 4,
+																				"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L311"
+																			}
+																		],
+																		"type": {
+																			"type": "intrinsic",
+																			"name": "string"
+																		}
+																	},
+																	{
+																		"id": 361,
+																		"name": "origin",
+																		"variant": "declaration",
+																		"kind": 1024,
+																		"flags": {
+																			"isOptional": true,
+																			"isReadonly": true
+																		},
+																		"sources": [
+																			{
+																				"fileName": "src/core/types.ts",
+																				"line": 313,
+																				"character": 4,
+																				"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L313"
+																			}
+																		],
+																		"type": {
+																			"type": "intrinsic",
+																			"name": "string"
+																		}
+																	},
+																	{
+																		"id": 358,
+																		"name": "type",
+																		"variant": "declaration",
+																		"kind": 1024,
+																		"flags": {
+																			"isReadonly": true
+																		},
+																		"sources": [
+																			{
+																				"fileName": "src/core/types.ts",
+																				"line": 310,
+																				"character": 4,
+																				"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L310"
+																			}
+																		],
+																		"type": {
+																			"type": "intrinsic",
+																			"name": "string"
+																		}
+																	},
+																	{
+																		"id": 360,
+																		"name": "value",
+																		"variant": "declaration",
+																		"kind": 1024,
+																		"flags": {
+																			"isOptional": true,
+																			"isReadonly": true
+																		},
+																		"sources": [
+																			{
+																				"fileName": "src/core/types.ts",
+																				"line": 312,
+																				"character": 4,
+																				"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L312"
+																			}
+																		],
+																		"type": {
+																			"type": "intrinsic",
+																			"name": "any"
+																		}
+																	}
+																],
+																"groups": [
+																	{
+																		"title": "Properties",
+																		"children": [
+																			359,
+																			361,
+																			358,
+																			360
+																		]
+																	}
+																],
+																"sources": [
+																	{
+																		"fileName": "node_modules/@vue/reactivity/dist/reactivity.d.ts",
+																		"line": 82,
+																		"character": 622
+																	}
+																]
+															}
+														}
+													},
+													"defaultValue": "..."
+												},
+												{
+													"id": 354,
+													"name": "narrative",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "src/core/Lumina.ts",
+															"line": 108,
+															"character": 12,
+															"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L108"
+														}
+													],
+													"type": {
+														"type": "templateLiteral",
+														"head": "User is currently on slide ",
+														"tail": [
+															[
+																{
+																	"type": "intrinsic",
+																	"name": "number"
+																},
+																". Session Flow: "
+															],
+															[
+																{
+																	"type": "intrinsic",
+																	"name": "string"
+																},
+																"."
+															]
+														]
+													},
+													"defaultValue": "..."
+												},
+												{
+													"id": 346,
+													"name": "status",
+													"variant": "declaration",
+													"kind": 1024,
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "src/core/Lumina.ts",
+															"line": 101,
+															"character": 12,
+															"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L101"
+														}
+													],
+													"type": {
+														"type": "literal",
+														"value": "active"
+													},
+													"defaultValue": "\"active\""
+												}
+											],
+											"groups": [
+												{
+													"title": "Properties",
+													"children": [
+														347,
+														355,
+														356,
+														354,
+														346
+													]
+												}
+											],
+											"sources": [
+												{
+													"fileName": "src/core/Lumina.ts",
+													"line": 100,
+													"character": 29,
+													"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L100"
+												}
+											]
+										}
+									}
+								],
+								"name": "Readonly",
+								"package": "typescript"
+							}
+						}
+					]
+				},
+				{
+					"id": 382,
+					"name": "goTo",
+					"variant": "declaration",
+					"kind": 2048,
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Lumina.ts",
+							"line": 151,
+							"character": 11,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L151"
+						}
+					],
+					"signatures": [
+						{
+							"id": 383,
+							"name": "goTo",
+							"variant": "signature",
+							"kind": 4096,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/core/Lumina.ts",
+									"line": 151,
+									"character": 11,
+									"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L151"
+								}
+							],
+							"parameters": [
+								{
+									"id": 384,
+									"name": "index",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				},
+				{
+					"id": 337,
 					"name": "load",
 					"variant": "declaration",
 					"kind": 2048,
@@ -194,13 +781,14 @@
 					"sources": [
 						{
 							"fileName": "src/core/Lumina.ts",
-							"line": 65,
-							"character": 11
+							"line": 72,
+							"character": 11,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L72"
 						}
 					],
 					"signatures": [
 						{
-							"id": 266,
+							"id": 338,
 							"name": "load",
 							"variant": "signature",
 							"kind": 4096,
@@ -216,13 +804,14 @@
 							"sources": [
 								{
 									"fileName": "src/core/Lumina.ts",
-									"line": 65,
-									"character": 11
+									"line": 72,
+									"character": 11,
+									"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L72"
 								}
 							],
 							"parameters": [
 								{
-									"id": 267,
+									"id": 339,
 									"name": "deckData",
 									"variant": "param",
 									"kind": 32768,
@@ -237,9 +826,9 @@
 									},
 									"type": {
 										"type": "reference",
-										"target": 297,
+										"target": 400,
 										"name": "Deck",
-										"package": "lumina-engine"
+										"package": "lumina-slides"
 									}
 								}
 							],
@@ -251,7 +840,45 @@
 					]
 				},
 				{
-					"id": 276,
+					"id": 385,
+					"name": "next",
+					"variant": "declaration",
+					"kind": 2048,
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Lumina.ts",
+							"line": 155,
+							"character": 11,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L155"
+						}
+					],
+					"signatures": [
+						{
+							"id": 386,
+							"name": "next",
+							"variant": "signature",
+							"kind": 4096,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/core/Lumina.ts",
+									"line": 155,
+									"character": 11,
+									"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L155"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				},
+				{
+					"id": 370,
 					"name": "off",
 					"variant": "declaration",
 					"kind": 2048,
@@ -261,13 +888,14 @@
 					"sources": [
 						{
 							"fileName": "src/core/Lumina.ts",
-							"line": 87,
-							"character": 11
+							"line": 131,
+							"character": 11,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L131"
 						}
 					],
 					"signatures": [
 						{
-							"id": 277,
+							"id": 371,
 							"name": "off",
 							"variant": "signature",
 							"kind": 4096,
@@ -283,13 +911,14 @@
 							"sources": [
 								{
 									"fileName": "src/core/Lumina.ts",
-									"line": 87,
-									"character": 11
+									"line": 131,
+									"character": 11,
+									"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L131"
 								}
 							],
 							"typeParameters": [
 								{
-									"id": 278,
+									"id": 372,
 									"name": "K",
 									"variant": "typeParam",
 									"kind": 131072,
@@ -299,16 +928,16 @@
 										"operator": "keyof",
 										"target": {
 											"type": "reference",
-											"target": 313,
+											"target": 416,
 											"name": "LuminaEventMap",
-											"package": "lumina-engine"
+											"package": "lumina-slides"
 										}
 									}
 								}
 							],
 							"parameters": [
 								{
-									"id": 279,
+									"id": 373,
 									"name": "event",
 									"variant": "param",
 									"kind": 32768,
@@ -323,14 +952,14 @@
 									},
 									"type": {
 										"type": "reference",
-										"target": 278,
+										"target": 372,
 										"name": "K",
-										"package": "lumina-engine",
+										"package": "lumina-slides",
 										"refersToTypeParameter": true
 									}
 								},
 								{
-									"id": 280,
+									"id": 374,
 									"name": "handler",
 									"variant": "param",
 									"kind": 32768,
@@ -346,7 +975,7 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 281,
+											"id": 375,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
@@ -354,13 +983,14 @@
 											"sources": [
 												{
 													"fileName": "src/core/Lumina.ts",
-													"line": 87,
-													"character": 66
+													"line": 131,
+													"character": 66,
+													"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L131"
 												}
 											],
 											"signatures": [
 												{
-													"id": 282,
+													"id": 376,
 													"name": "__type",
 													"variant": "signature",
 													"kind": 4096,
@@ -368,13 +998,14 @@
 													"sources": [
 														{
 															"fileName": "src/core/Lumina.ts",
-															"line": 87,
-															"character": 66
+															"line": 131,
+															"character": 66,
+															"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L131"
 														}
 													],
 													"parameters": [
 														{
-															"id": 283,
+															"id": 377,
 															"name": "e",
 															"variant": "param",
 															"kind": 32768,
@@ -383,16 +1014,16 @@
 																"type": "indexedAccess",
 																"indexType": {
 																	"type": "reference",
-																	"target": 278,
+																	"target": 372,
 																	"name": "K",
-																	"package": "lumina-engine",
+																	"package": "lumina-slides",
 																	"refersToTypeParameter": true
 																},
 																"objectType": {
 																	"type": "reference",
-																	"target": 313,
+																	"target": 416,
 																	"name": "LuminaEventMap",
-																	"package": "lumina-engine"
+																	"package": "lumina-slides"
 																}
 															}
 														}
@@ -415,7 +1046,7 @@
 					]
 				},
 				{
-					"id": 268,
+					"id": 362,
 					"name": "on",
 					"variant": "declaration",
 					"kind": 2048,
@@ -425,13 +1056,14 @@
 					"sources": [
 						{
 							"fileName": "src/core/Lumina.ts",
-							"line": 77,
-							"character": 11
+							"line": 121,
+							"character": 11,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L121"
 						}
 					],
 					"signatures": [
 						{
-							"id": 269,
+							"id": 363,
 							"name": "on",
 							"variant": "signature",
 							"kind": 4096,
@@ -447,13 +1079,14 @@
 							"sources": [
 								{
 									"fileName": "src/core/Lumina.ts",
-									"line": 77,
-									"character": 11
+									"line": 121,
+									"character": 11,
+									"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L121"
 								}
 							],
 							"typeParameters": [
 								{
-									"id": 270,
+									"id": 364,
 									"name": "K",
 									"variant": "typeParam",
 									"kind": 131072,
@@ -463,16 +1096,16 @@
 										"operator": "keyof",
 										"target": {
 											"type": "reference",
-											"target": 313,
+											"target": 416,
 											"name": "LuminaEventMap",
-											"package": "lumina-engine"
+											"package": "lumina-slides"
 										}
 									}
 								}
 							],
 							"parameters": [
 								{
-									"id": 271,
+									"id": 365,
 									"name": "event",
 									"variant": "param",
 									"kind": 32768,
@@ -487,14 +1120,14 @@
 									},
 									"type": {
 										"type": "reference",
-										"target": 270,
+										"target": 364,
 										"name": "K",
-										"package": "lumina-engine",
+										"package": "lumina-slides",
 										"refersToTypeParameter": true
 									}
 								},
 								{
-									"id": 272,
+									"id": 366,
 									"name": "handler",
 									"variant": "param",
 									"kind": 32768,
@@ -510,7 +1143,7 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 273,
+											"id": 367,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
@@ -518,13 +1151,14 @@
 											"sources": [
 												{
 													"fileName": "src/core/Lumina.ts",
-													"line": 77,
-													"character": 65
+													"line": 121,
+													"character": 65,
+													"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L121"
 												}
 											],
 											"signatures": [
 												{
-													"id": 274,
+													"id": 368,
 													"name": "__type",
 													"variant": "signature",
 													"kind": 4096,
@@ -532,13 +1166,14 @@
 													"sources": [
 														{
 															"fileName": "src/core/Lumina.ts",
-															"line": 77,
-															"character": 65
+															"line": 121,
+															"character": 65,
+															"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L121"
 														}
 													],
 													"parameters": [
 														{
-															"id": 275,
+															"id": 369,
 															"name": "e",
 															"variant": "param",
 															"kind": 32768,
@@ -547,16 +1182,16 @@
 																"type": "indexedAccess",
 																"indexType": {
 																	"type": "reference",
-																	"target": 270,
+																	"target": 364,
 																	"name": "K",
-																	"package": "lumina-engine",
+																	"package": "lumina-slides",
 																	"refersToTypeParameter": true
 																},
 																"objectType": {
 																	"type": "reference",
-																	"target": 313,
+																	"target": 416,
 																	"name": "LuminaEventMap",
-																	"package": "lumina-engine"
+																	"package": "lumina-slides"
 																}
 															}
 														}
@@ -569,6 +1204,103 @@
 											]
 										}
 									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				},
+				{
+					"id": 340,
+					"name": "patch",
+					"variant": "declaration",
+					"kind": 2048,
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Lumina.ts",
+							"line": 81,
+							"character": 11,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L81"
+						}
+					],
+					"signatures": [
+						{
+							"id": 341,
+							"name": "patch",
+							"variant": "signature",
+							"kind": 4096,
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Feature: Diff Updates\r\nUpdates the existing deck with partial changes."
+									}
+								]
+							},
+							"sources": [
+								{
+									"fileName": "src/core/Lumina.ts",
+									"line": 81,
+									"character": 11,
+									"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L81"
+								}
+							],
+							"parameters": [
+								{
+									"id": 342,
+									"name": "diff",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				},
+				{
+					"id": 387,
+					"name": "prev",
+					"variant": "declaration",
+					"kind": 2048,
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/Lumina.ts",
+							"line": 159,
+							"character": 11,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L159"
+						}
+					],
+					"signatures": [
+						{
+							"id": 388,
+							"name": "prev",
+							"variant": "signature",
+							"kind": 4096,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/core/Lumina.ts",
+									"line": 159,
+									"character": 11,
+									"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L159"
 								}
 							],
 							"type": {
@@ -589,29 +1321,41 @@
 				{
 					"title": "Properties",
 					"children": [
-						264
+						336
+					]
+				},
+				{
+					"title": "Accessors",
+					"children": [
+						380
 					]
 				},
 				{
 					"title": "Methods",
 					"children": [
-						284,
-						265,
-						276,
-						268
+						378,
+						343,
+						382,
+						337,
+						385,
+						370,
+						362,
+						340,
+						387
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "src/core/Lumina.ts",
-					"line": 24,
-					"character": 13
+					"line": 25,
+					"character": 13,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/Lumina.ts#L25"
 				}
 			]
 		},
 		{
-			"id": 376,
+			"id": 492,
 			"name": "ActionPayload",
 			"variant": "declaration",
 			"kind": 256,
@@ -626,7 +1370,7 @@
 			},
 			"children": [
 				{
-					"id": 378,
+					"id": 494,
 					"name": "label",
 					"variant": "declaration",
 					"kind": 1024,
@@ -636,8 +1380,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 294,
-							"character": 4
+							"line": 311,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L311"
 						}
 					],
 					"type": {
@@ -646,7 +1391,7 @@
 					}
 				},
 				{
-					"id": 380,
+					"id": 496,
 					"name": "origin",
 					"variant": "declaration",
 					"kind": 1024,
@@ -656,8 +1401,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 296,
-							"character": 4
+							"line": 313,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L313"
 						}
 					],
 					"type": {
@@ -666,7 +1412,7 @@
 					}
 				},
 				{
-					"id": 377,
+					"id": 493,
 					"name": "type",
 					"variant": "declaration",
 					"kind": 1024,
@@ -674,8 +1420,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 293,
-							"character": 4
+							"line": 310,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L310"
 						}
 					],
 					"type": {
@@ -684,7 +1431,7 @@
 					}
 				},
 				{
-					"id": 379,
+					"id": 495,
 					"name": "value",
 					"variant": "declaration",
 					"kind": 1024,
@@ -694,8 +1441,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 295,
-							"character": 4
+							"line": 312,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L312"
 						}
 					],
 					"type": {
@@ -708,23 +1456,24 @@
 				{
 					"title": "Properties",
 					"children": [
-						378,
-						380,
-						377,
-						379
+						494,
+						496,
+						493,
+						495
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "src/core/types.ts",
-					"line": 292,
-					"character": 17
+					"line": 309,
+					"character": 17,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L309"
 				}
 			]
 		},
 		{
-			"id": 297,
+			"id": 400,
 			"name": "Deck",
 			"variant": "declaration",
 			"kind": 256,
@@ -747,7 +1496,7 @@
 			},
 			"children": [
 				{
-					"id": 298,
+					"id": 401,
 					"name": "meta",
 					"variant": "declaration",
 					"kind": 1024,
@@ -755,19 +1504,20 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 179,
-							"character": 4
+							"line": 196,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L196"
 						}
 					],
 					"type": {
 						"type": "reference",
-						"target": 318,
+						"target": 421,
 						"name": "DeckMeta",
-						"package": "lumina-engine"
+						"package": "lumina-slides"
 					}
 				},
 				{
-					"id": 299,
+					"id": 402,
 					"name": "slides",
 					"variant": "declaration",
 					"kind": 1024,
@@ -775,17 +1525,18 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 180,
-							"character": 4
+							"line": 197,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L197"
 						}
 					],
 					"type": {
 						"type": "array",
 						"elementType": {
 							"type": "reference",
-							"target": 300,
+							"target": 403,
 							"name": "BaseSlideData",
-							"package": "lumina-engine"
+							"package": "lumina-slides"
 						}
 					}
 				}
@@ -794,21 +1545,22 @@
 				{
 					"title": "Properties",
 					"children": [
-						298,
-						299
+						401,
+						402
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "src/core/types.ts",
-					"line": 178,
-					"character": 17
+					"line": 195,
+					"character": 17,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L195"
 				}
 			]
 		},
 		{
-			"id": 318,
+			"id": 421,
 			"name": "DeckMeta",
 			"variant": "declaration",
 			"kind": 256,
@@ -823,7 +1575,7 @@
 			},
 			"children": [
 				{
-					"id": 320,
+					"id": 423,
 					"name": "author",
 					"variant": "declaration",
 					"kind": 1024,
@@ -833,8 +1585,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 169,
-							"character": 4
+							"line": 186,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L186"
 						}
 					],
 					"type": {
@@ -843,7 +1596,7 @@
 					}
 				},
 				{
-					"id": 321,
+					"id": 424,
 					"name": "date",
 					"variant": "declaration",
 					"kind": 1024,
@@ -853,8 +1606,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 170,
-							"character": 4
+							"line": 187,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L187"
 						}
 					],
 					"type": {
@@ -863,7 +1617,7 @@
 					}
 				},
 				{
-					"id": 319,
+					"id": 422,
 					"name": "title",
 					"variant": "declaration",
 					"kind": 1024,
@@ -871,8 +1625,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 168,
-							"character": 4
+							"line": 185,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L185"
 						}
 					],
 					"type": {
@@ -885,22 +1640,23 @@
 				{
 					"title": "Properties",
 					"children": [
-						320,
-						321,
-						319
+						423,
+						424,
+						422
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "src/core/types.ts",
-					"line": 167,
-					"character": 17
+					"line": 184,
+					"character": 17,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L184"
 				}
 			],
 			"indexSignatures": [
 				{
-					"id": 322,
+					"id": 425,
 					"name": "__index",
 					"variant": "signature",
 					"kind": 8192,
@@ -908,13 +1664,14 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 171,
-							"character": 4
+							"line": 188,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L188"
 						}
 					],
 					"parameters": [
 						{
-							"id": 323,
+							"id": 426,
 							"name": "key",
 							"variant": "param",
 							"kind": 32768,
@@ -933,7 +1690,7 @@
 			]
 		},
 		{
-			"id": 354,
+			"id": 470,
 			"name": "FeatureItem",
 			"variant": "declaration",
 			"kind": 256,
@@ -948,7 +1705,7 @@
 			},
 			"children": [
 				{
-					"id": 356,
+					"id": 472,
 					"name": "desc",
 					"variant": "declaration",
 					"kind": 1024,
@@ -956,8 +1713,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 80,
-							"character": 4
+							"line": 84,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L84"
 						}
 					],
 					"type": {
@@ -966,7 +1724,7 @@
 					}
 				},
 				{
-					"id": 357,
+					"id": 473,
 					"name": "icon",
 					"variant": "declaration",
 					"kind": 1024,
@@ -974,8 +1732,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 81,
-							"character": 4
+							"line": 85,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L85"
 						}
 					],
 					"type": {
@@ -984,7 +1743,7 @@
 					}
 				},
 				{
-					"id": 355,
+					"id": 471,
 					"name": "title",
 					"variant": "declaration",
 					"kind": 1024,
@@ -992,8 +1751,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 79,
-							"character": 4
+							"line": 83,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L83"
 						}
 					],
 					"type": {
@@ -1006,22 +1766,23 @@
 				{
 					"title": "Properties",
 					"children": [
-						356,
-						357,
-						355
+						472,
+						473,
+						471
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "src/core/types.ts",
-					"line": 78,
-					"character": 17
+					"line": 82,
+					"character": 17,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L82"
 				}
 			]
 		},
 		{
-			"id": 386,
+			"id": 502,
 			"name": "LuminaAnimationOptions",
 			"variant": "declaration",
 			"kind": 256,
@@ -1036,7 +1797,7 @@
 			},
 			"children": [
 				{
-					"id": 389,
+					"id": 505,
 					"name": "durationIn",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1054,8 +1815,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 238,
-							"character": 4
+							"line": 255,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L255"
 						}
 					],
 					"type": {
@@ -1064,7 +1826,7 @@
 					}
 				},
 				{
-					"id": 390,
+					"id": 506,
 					"name": "durationOut",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1082,8 +1844,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 240,
-							"character": 4
+							"line": 257,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L257"
 						}
 					],
 					"type": {
@@ -1092,7 +1855,7 @@
 					}
 				},
 				{
-					"id": 392,
+					"id": 508,
 					"name": "ease",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1110,8 +1873,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 244,
-							"character": 4
+							"line": 261,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L261"
 						}
 					],
 					"type": {
@@ -1120,7 +1884,7 @@
 					}
 				},
 				{
-					"id": 387,
+					"id": 503,
 					"name": "enabled",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1138,8 +1902,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 234,
-							"character": 4
+							"line": 251,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L251"
 						}
 					],
 					"type": {
@@ -1148,7 +1913,7 @@
 					}
 				},
 				{
-					"id": 391,
+					"id": 507,
 					"name": "stagger",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1166,8 +1931,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 242,
-							"character": 4
+							"line": 259,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L259"
 						}
 					],
 					"type": {
@@ -1176,7 +1942,7 @@
 					}
 				},
 				{
-					"id": 388,
+					"id": 504,
 					"name": "type",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1194,8 +1960,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 236,
-							"character": 4
+							"line": 253,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L253"
 						}
 					],
 					"type": {
@@ -1225,25 +1992,26 @@
 				{
 					"title": "Properties",
 					"children": [
-						389,
-						390,
-						392,
-						387,
-						391,
-						388
+						505,
+						506,
+						508,
+						503,
+						507,
+						504
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "src/core/types.ts",
-					"line": 232,
-					"character": 17
+					"line": 249,
+					"character": 17,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L249"
 				}
 			]
 		},
 		{
-			"id": 313,
+			"id": 416,
 			"name": "LuminaEventMap",
 			"variant": "declaration",
 			"kind": 256,
@@ -1258,7 +2026,7 @@
 			},
 			"children": [
 				{
-					"id": 316,
+					"id": 419,
 					"name": "action",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1274,19 +2042,20 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 308,
-							"character": 4
+							"line": 325,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L325"
 						}
 					],
 					"type": {
 						"type": "reference",
-						"target": 376,
+						"target": 492,
 						"name": "ActionPayload",
-						"package": "lumina-engine"
+						"package": "lumina-slides"
 					}
 				},
 				{
-					"id": 317,
+					"id": 420,
 					"name": "error",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1302,8 +2071,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 310,
-							"character": 4
+							"line": 327,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L327"
 						}
 					],
 					"type": {
@@ -1318,7 +2088,7 @@
 					}
 				},
 				{
-					"id": 314,
+					"id": 417,
 					"name": "ready",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1334,19 +2104,20 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 304,
-							"character": 4
+							"line": 321,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L321"
 						}
 					],
 					"type": {
 						"type": "reference",
-						"target": 297,
+						"target": 400,
 						"name": "Deck",
-						"package": "lumina-engine"
+						"package": "lumina-slides"
 					}
 				},
 				{
-					"id": 315,
+					"id": 418,
 					"name": "slideChange",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1362,15 +2133,16 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 306,
-							"character": 4
+							"line": 323,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L323"
 						}
 					],
 					"type": {
 						"type": "reference",
-						"target": 372,
+						"target": 488,
 						"name": "SlideChangePayload",
-						"package": "lumina-engine"
+						"package": "lumina-slides"
 					}
 				}
 			],
@@ -1378,23 +2150,24 @@
 				{
 					"title": "Properties",
 					"children": [
-						316,
-						317,
-						314,
-						315
+						419,
+						420,
+						417,
+						418
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "src/core/types.ts",
-					"line": 302,
-					"character": 17
+					"line": 319,
+					"character": 17,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L319"
 				}
 			]
 		},
 		{
-			"id": 393,
+			"id": 509,
 			"name": "LuminaKeyBindings",
 			"variant": "declaration",
 			"kind": 256,
@@ -1409,7 +2182,7 @@
 			},
 			"children": [
 				{
-					"id": 394,
+					"id": 510,
 					"name": "next",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1417,8 +2190,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 215,
-							"character": 4
+							"line": 232,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L232"
 						}
 					],
 					"type": {
@@ -1430,7 +2204,7 @@
 					}
 				},
 				{
-					"id": 395,
+					"id": 511,
 					"name": "prev",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1438,8 +2212,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 216,
-							"character": 4
+							"line": 233,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L233"
 						}
 					],
 					"type": {
@@ -1455,21 +2230,22 @@
 				{
 					"title": "Properties",
 					"children": [
-						394,
-						395
+						510,
+						511
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "src/core/types.ts",
-					"line": 214,
-					"character": 17
+					"line": 231,
+					"character": 17,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L231"
 				}
 			]
 		},
 		{
-			"id": 286,
+			"id": 389,
 			"name": "LuminaOptions",
 			"variant": "declaration",
 			"kind": 256,
@@ -1484,7 +2260,7 @@
 			},
 			"children": [
 				{
-					"id": 296,
+					"id": 399,
 					"name": "animation",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1502,19 +2278,20 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 270,
-							"character": 4
+							"line": 287,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L287"
 						}
 					],
 					"type": {
 						"type": "reference",
-						"target": 386,
+						"target": 502,
 						"name": "LuminaAnimationOptions",
-						"package": "lumina-engine"
+						"package": "lumina-slides"
 					}
 				},
 				{
-					"id": 292,
+					"id": 395,
 					"name": "debug",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1532,8 +2309,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 262,
-							"character": 4
+							"line": 279,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L279"
 						}
 					],
 					"type": {
@@ -1542,7 +2320,7 @@
 					}
 				},
 				{
-					"id": 290,
+					"id": 393,
 					"name": "keyboard",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1560,8 +2338,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 258,
-							"character": 4
+							"line": 275,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L275"
 						}
 					],
 					"type": {
@@ -1570,7 +2349,7 @@
 					}
 				},
 				{
-					"id": 295,
+					"id": 398,
 					"name": "keys",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1588,19 +2367,20 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 268,
-							"character": 4
+							"line": 285,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L285"
 						}
 					],
 					"type": {
 						"type": "reference",
-						"target": 393,
+						"target": 509,
 						"name": "LuminaKeyBindings",
-						"package": "lumina-engine"
+						"package": "lumina-slides"
 					}
 				},
 				{
-					"id": 288,
+					"id": 391,
 					"name": "loop",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1618,8 +2398,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 254,
-							"character": 4
+							"line": 271,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L271"
 						}
 					],
 					"type": {
@@ -1628,7 +2409,7 @@
 					}
 				},
 				{
-					"id": 289,
+					"id": 392,
 					"name": "navigation",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1646,8 +2427,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 256,
-							"character": 4
+							"line": 273,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L273"
 						}
 					],
 					"type": {
@@ -1656,7 +2438,7 @@
 					}
 				},
 				{
-					"id": 287,
+					"id": 390,
 					"name": "selector",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1674,8 +2456,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 252,
-							"character": 4
+							"line": 269,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L269"
 						}
 					],
 					"type": {
@@ -1684,7 +2467,7 @@
 					}
 				},
 				{
-					"id": 293,
+					"id": 396,
 					"name": "theme",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1702,8 +2485,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 264,
-							"character": 4
+							"line": 281,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L281"
 						}
 					],
 					"type": {
@@ -1715,15 +2499,15 @@
 							},
 							{
 								"type": "reference",
-								"target": 301,
+								"target": 404,
 								"name": "ThemeConfig",
-								"package": "lumina-engine"
+								"package": "lumina-slides"
 							}
 						]
 					}
 				},
 				{
-					"id": 291,
+					"id": 394,
 					"name": "touch",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1741,8 +2525,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 260,
-							"character": 4
+							"line": 277,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L277"
 						}
 					],
 					"type": {
@@ -1751,7 +2536,7 @@
 					}
 				},
 				{
-					"id": 294,
+					"id": 397,
 					"name": "ui",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1769,15 +2554,16 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 266,
-							"character": 4
+							"line": 283,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L283"
 						}
 					],
 					"type": {
 						"type": "reference",
-						"target": 381,
+						"target": 497,
 						"name": "LuminaUIOptions",
-						"package": "lumina-engine"
+						"package": "lumina-slides"
 					}
 				}
 			],
@@ -1785,29 +2571,30 @@
 				{
 					"title": "Properties",
 					"children": [
-						296,
-						292,
-						290,
-						295,
-						288,
-						289,
-						287,
-						293,
-						291,
-						294
+						399,
+						395,
+						393,
+						398,
+						391,
+						392,
+						390,
+						396,
+						394,
+						397
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "src/core/types.ts",
-					"line": 250,
-					"character": 17
+					"line": 267,
+					"character": 17,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L267"
 				}
 			]
 		},
 		{
-			"id": 381,
+			"id": 497,
 			"name": "LuminaUIOptions",
 			"variant": "declaration",
 			"kind": 256,
@@ -1822,7 +2609,7 @@
 			},
 			"children": [
 				{
-					"id": 385,
+					"id": 501,
 					"name": "showControls",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1832,8 +2619,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 226,
-							"character": 4
+							"line": 243,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L243"
 						}
 					],
 					"type": {
@@ -1842,7 +2630,7 @@
 					}
 				},
 				{
-					"id": 383,
+					"id": 499,
 					"name": "showProgressBar",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1852,8 +2640,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 224,
-							"character": 4
+							"line": 241,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L241"
 						}
 					],
 					"type": {
@@ -1862,7 +2651,7 @@
 					}
 				},
 				{
-					"id": 384,
+					"id": 500,
 					"name": "showSlideCount",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1872,8 +2661,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 225,
-							"character": 4
+							"line": 242,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L242"
 						}
 					],
 					"type": {
@@ -1882,7 +2672,7 @@
 					}
 				},
 				{
-					"id": 382,
+					"id": 498,
 					"name": "visible",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1892,8 +2682,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 223,
-							"character": 4
+							"line": 240,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L240"
 						}
 					],
 					"type": {
@@ -1906,23 +2697,24 @@
 				{
 					"title": "Properties",
 					"children": [
-						385,
-						383,
-						384,
-						382
+						501,
+						499,
+						500,
+						498
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "src/core/types.ts",
-					"line": 222,
-					"character": 17
+					"line": 239,
+					"character": 17,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L239"
 				}
 			]
 		},
 		{
-			"id": 372,
+			"id": 488,
 			"name": "SlideChangePayload",
 			"variant": "declaration",
 			"kind": 256,
@@ -1937,7 +2729,7 @@
 			},
 			"children": [
 				{
-					"id": 373,
+					"id": 489,
 					"name": "index",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1945,8 +2737,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 284,
-							"character": 4
+							"line": 301,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L301"
 						}
 					],
 					"type": {
@@ -1955,7 +2748,7 @@
 					}
 				},
 				{
-					"id": 374,
+					"id": 490,
 					"name": "previousIndex",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1963,8 +2756,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 285,
-							"character": 4
+							"line": 302,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L302"
 						}
 					],
 					"type": {
@@ -1973,7 +2767,7 @@
 					}
 				},
 				{
-					"id": 375,
+					"id": 491,
 					"name": "slide",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1981,15 +2775,16 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 286,
-							"character": 4
+							"line": 303,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L303"
 						}
 					],
 					"type": {
 						"type": "reference",
-						"target": 300,
+						"target": 403,
 						"name": "BaseSlideData",
-						"package": "lumina-engine"
+						"package": "lumina-slides"
 					}
 				}
 			],
@@ -1997,22 +2792,23 @@
 				{
 					"title": "Properties",
 					"children": [
-						373,
-						374,
-						375
+						489,
+						490,
+						491
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "src/core/types.ts",
-					"line": 283,
-					"character": 17
+					"line": 300,
+					"character": 17,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L300"
 				}
 			]
 		},
 		{
-			"id": 331,
+			"id": 435,
 			"name": "SlideFeatures",
 			"variant": "declaration",
 			"kind": 256,
@@ -2038,7 +2834,7 @@
 			},
 			"children": [
 				{
-					"id": 334,
+					"id": 438,
 					"name": "description",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2048,8 +2844,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 103,
-							"character": 4
+							"line": 107,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L107"
 						}
 					],
 					"type": {
@@ -2058,7 +2855,7 @@
 					}
 				},
 				{
-					"id": 335,
+					"id": 439,
 					"name": "features",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2074,22 +2871,23 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 105,
-							"character": 4
+							"line": 109,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L109"
 						}
 					],
 					"type": {
 						"type": "array",
 						"elementType": {
 							"type": "reference",
-							"target": 354,
+							"target": 470,
 							"name": "FeatureItem",
-							"package": "lumina-engine"
+							"package": "lumina-slides"
 						}
 					}
 				},
 				{
-					"id": 336,
+					"id": 440,
 					"name": "id",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2108,8 +2906,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 49,
-							"character": 4
+							"line": 51,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L51"
 						}
 					],
 					"type": {
@@ -2123,7 +2922,7 @@
 					}
 				},
 				{
-					"id": 337,
+					"id": 441,
 					"name": "meta",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2142,15 +2941,16 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 51,
-							"character": 4
+							"line": 53,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L53"
 						}
 					],
 					"type": {
 						"type": "reference",
-						"target": 363,
+						"target": 479,
 						"name": "SlideMeta",
-						"package": "lumina-engine"
+						"package": "lumina-slides"
 					},
 					"inheritedFrom": {
 						"type": "reference",
@@ -2159,7 +2959,51 @@
 					}
 				},
 				{
-					"id": 333,
+					"id": 442,
+					"name": "sizing",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true,
+						"isInherited": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Sizing mode: 'viewport' (100vh) or 'container' (100%). Default: 'viewport'"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 55,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L55"
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "literal",
+								"value": "viewport"
+							},
+							{
+								"type": "literal",
+								"value": "container"
+							}
+						]
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "SlideBase.sizing"
+					}
+				},
+				{
+					"id": 437,
 					"name": "title",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2167,8 +3011,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 102,
-							"character": 4
+							"line": 106,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L106"
 						}
 					],
 					"type": {
@@ -2177,7 +3022,7 @@
 					}
 				},
 				{
-					"id": 332,
+					"id": 436,
 					"name": "type",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2185,8 +3030,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 101,
-							"character": 4
+							"line": 105,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L105"
 						}
 					],
 					"type": {
@@ -2199,37 +3045,39 @@
 				{
 					"title": "Properties",
 					"children": [
-						334,
-						335,
-						336,
-						337,
-						333,
-						332
+						438,
+						439,
+						440,
+						441,
+						442,
+						437,
+						436
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "src/core/types.ts",
-					"line": 100,
-					"character": 17
+					"line": 104,
+					"character": 17,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L104"
 				}
 			],
 			"extendedTypes": [
 				{
 					"type": "reference",
 					"target": {
-						"packageName": "lumina-engine",
+						"packageName": "lumina-slides",
 						"packagePath": "src/core/types.ts",
 						"qualifiedName": "SlideBase"
 					},
 					"name": "SlideBase",
-					"package": "lumina-engine"
+					"package": "lumina-slides"
 				}
 			]
 		},
 		{
-			"id": 338,
+			"id": 443,
 			"name": "SlideHalf",
 			"variant": "declaration",
 			"kind": 256,
@@ -2255,7 +3103,7 @@
 			},
 			"children": [
 				{
-					"id": 345,
+					"id": 450,
 					"name": "cta",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2265,8 +3113,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 131,
-							"character": 4
+							"line": 135,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L135"
 						}
 					],
 					"type": {
@@ -2275,7 +3124,7 @@
 					}
 				},
 				{
-					"id": 346,
+					"id": 451,
 					"name": "id",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2294,8 +3143,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 49,
-							"character": 4
+							"line": 51,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L51"
 						}
 					],
 					"type": {
@@ -2309,7 +3159,7 @@
 					}
 				},
 				{
-					"id": 341,
+					"id": 446,
 					"name": "image",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2317,8 +3167,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 127,
-							"character": 4
+							"line": 131,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L131"
 						}
 					],
 					"type": {
@@ -2327,7 +3178,7 @@
 					}
 				},
 				{
-					"id": 340,
+					"id": 445,
 					"name": "imageSide",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2343,8 +3194,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 126,
-							"character": 4
+							"line": 130,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L130"
 						}
 					],
 					"type": {
@@ -2362,7 +3214,7 @@
 					}
 				},
 				{
-					"id": 347,
+					"id": 452,
 					"name": "meta",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2381,15 +3233,16 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 51,
-							"character": 4
+							"line": 53,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L53"
 						}
 					],
 					"type": {
 						"type": "reference",
-						"target": 363,
+						"target": 479,
 						"name": "SlideMeta",
-						"package": "lumina-engine"
+						"package": "lumina-slides"
 					},
 					"inheritedFrom": {
 						"type": "reference",
@@ -2398,7 +3251,7 @@
 					}
 				},
 				{
-					"id": 344,
+					"id": 449,
 					"name": "paragraphs",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2406,8 +3259,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 130,
-							"character": 4
+							"line": 134,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L134"
 						}
 					],
 					"type": {
@@ -2419,7 +3273,51 @@
 					}
 				},
 				{
-					"id": 342,
+					"id": 453,
+					"name": "sizing",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true,
+						"isInherited": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Sizing mode: 'viewport' (100vh) or 'container' (100%). Default: 'viewport'"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 55,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L55"
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "literal",
+								"value": "viewport"
+							},
+							{
+								"type": "literal",
+								"value": "container"
+							}
+						]
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "SlideBase.sizing"
+					}
+				},
+				{
+					"id": 447,
 					"name": "tag",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2429,8 +3327,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 128,
-							"character": 4
+							"line": 132,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L132"
 						}
 					],
 					"type": {
@@ -2439,7 +3338,7 @@
 					}
 				},
 				{
-					"id": 343,
+					"id": 448,
 					"name": "title",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2447,8 +3346,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 129,
-							"character": 4
+							"line": 133,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L133"
 						}
 					],
 					"type": {
@@ -2457,7 +3357,7 @@
 					}
 				},
 				{
-					"id": 339,
+					"id": 444,
 					"name": "type",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2465,8 +3365,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 124,
-							"character": 4
+							"line": 128,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L128"
 						}
 					],
 					"type": {
@@ -2479,40 +3380,42 @@
 				{
 					"title": "Properties",
 					"children": [
-						345,
-						346,
-						341,
-						340,
-						347,
-						344,
-						342,
-						343,
-						339
+						450,
+						451,
+						446,
+						445,
+						452,
+						449,
+						453,
+						447,
+						448,
+						444
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "src/core/types.ts",
-					"line": 123,
-					"character": 17
+					"line": 127,
+					"character": 17,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L127"
 				}
 			],
 			"extendedTypes": [
 				{
 					"type": "reference",
 					"target": {
-						"packageName": "lumina-engine",
+						"packageName": "lumina-slides",
 						"packagePath": "src/core/types.ts",
 						"qualifiedName": "SlideBase"
 					},
 					"name": "SlideBase",
-					"package": "lumina-engine"
+					"package": "lumina-slides"
 				}
 			]
 		},
 		{
-			"id": 363,
+			"id": 479,
 			"name": "SlideMeta",
 			"variant": "declaration",
 			"kind": 256,
@@ -2527,7 +3430,7 @@
 			},
 			"children": [
 				{
-					"id": 364,
+					"id": 480,
 					"name": "orbColor",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2537,8 +3440,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 39,
-							"character": 4
+							"line": 41,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L41"
 						}
 					],
 					"type": {
@@ -2547,7 +3451,7 @@
 					}
 				},
 				{
-					"id": 365,
+					"id": 481,
 					"name": "orbPos",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2557,21 +3461,22 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 40,
-							"character": 4
+							"line": 42,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L42"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 366,
+							"id": 482,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 368,
+									"id": 484,
 									"name": "left",
 									"variant": "declaration",
 									"kind": 1024,
@@ -2579,8 +3484,9 @@
 									"sources": [
 										{
 											"fileName": "src/core/types.ts",
-											"line": 40,
-											"character": 28
+											"line": 42,
+											"character": 28,
+											"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L42"
 										}
 									],
 									"type": {
@@ -2589,7 +3495,7 @@
 									}
 								},
 								{
-									"id": 367,
+									"id": 483,
 									"name": "top",
 									"variant": "declaration",
 									"kind": 1024,
@@ -2597,8 +3503,9 @@
 									"sources": [
 										{
 											"fileName": "src/core/types.ts",
-											"line": 40,
-											"character": 15
+											"line": 42,
+											"character": 15,
+											"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L42"
 										}
 									],
 									"type": {
@@ -2611,16 +3518,17 @@
 								{
 									"title": "Properties",
 									"children": [
-										368,
-										367
+										484,
+										483
 									]
 								}
 							],
 							"sources": [
 								{
 									"fileName": "src/core/types.ts",
-									"line": 40,
-									"character": 13
+									"line": 42,
+									"character": 13,
+									"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L42"
 								}
 							]
 						}
@@ -2631,21 +3539,22 @@
 				{
 					"title": "Properties",
 					"children": [
-						364,
-						365
+						480,
+						481
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "src/core/types.ts",
-					"line": 38,
-					"character": 17
+					"line": 40,
+					"character": 17,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L40"
 				}
 			],
 			"indexSignatures": [
 				{
-					"id": 369,
+					"id": 485,
 					"name": "__index",
 					"variant": "signature",
 					"kind": 8192,
@@ -2653,13 +3562,14 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 41,
-							"character": 4
+							"line": 43,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L43"
 						}
 					],
 					"parameters": [
 						{
-							"id": 370,
+							"id": 486,
 							"name": "key",
 							"variant": "param",
 							"kind": 32768,
@@ -2678,7 +3588,7 @@
 			]
 		},
 		{
-			"id": 324,
+			"id": 427,
 			"name": "SlideStatement",
 			"variant": "declaration",
 			"kind": 256,
@@ -2704,7 +3614,7 @@
 			},
 			"children": [
 				{
-					"id": 329,
+					"id": 432,
 					"name": "id",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2723,8 +3633,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 49,
-							"character": 4
+							"line": 51,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L51"
 						}
 					],
 					"type": {
@@ -2738,7 +3649,7 @@
 					}
 				},
 				{
-					"id": 330,
+					"id": 433,
 					"name": "meta",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2757,15 +3668,16 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 51,
-							"character": 4
+							"line": 53,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L53"
 						}
 					],
 					"type": {
 						"type": "reference",
-						"target": 363,
+						"target": 479,
 						"name": "SlideMeta",
-						"package": "lumina-engine"
+						"package": "lumina-slides"
 					},
 					"inheritedFrom": {
 						"type": "reference",
@@ -2774,7 +3686,51 @@
 					}
 				},
 				{
-					"id": 328,
+					"id": 434,
+					"name": "sizing",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true,
+						"isInherited": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Sizing mode: 'viewport' (100vh) or 'container' (100%). Default: 'viewport'"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 55,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L55"
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "literal",
+								"value": "viewport"
+							},
+							{
+								"type": "literal",
+								"value": "container"
+							}
+						]
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "SlideBase.sizing"
+					}
+				},
+				{
+					"id": 431,
 					"name": "subtitle",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2784,8 +3740,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 72,
-							"character": 4
+							"line": 76,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L76"
 						}
 					],
 					"type": {
@@ -2794,7 +3751,7 @@
 					}
 				},
 				{
-					"id": 326,
+					"id": 429,
 					"name": "tag",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2804,8 +3761,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 70,
-							"character": 4
+							"line": 74,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L74"
 						}
 					],
 					"type": {
@@ -2814,7 +3772,7 @@
 					}
 				},
 				{
-					"id": 327,
+					"id": 430,
 					"name": "title",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2822,8 +3780,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 71,
-							"character": 4
+							"line": 75,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L75"
 						}
 					],
 					"type": {
@@ -2832,7 +3791,7 @@
 					}
 				},
 				{
-					"id": 325,
+					"id": 428,
 					"name": "type",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2840,8 +3799,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 69,
-							"character": 4
+							"line": 73,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L73"
 						}
 					],
 					"type": {
@@ -2854,37 +3814,289 @@
 				{
 					"title": "Properties",
 					"children": [
-						329,
-						330,
-						328,
-						326,
-						327,
-						325
+						432,
+						433,
+						434,
+						431,
+						429,
+						430,
+						428
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "src/core/types.ts",
-					"line": 68,
-					"character": 17
+					"line": 72,
+					"character": 17,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L72"
 				}
 			],
 			"extendedTypes": [
 				{
 					"type": "reference",
 					"target": {
-						"packageName": "lumina-engine",
+						"packageName": "lumina-slides",
 						"packagePath": "src/core/types.ts",
 						"qualifiedName": "SlideBase"
 					},
 					"name": "SlideBase",
-					"package": "lumina-engine"
+					"package": "lumina-slides"
 				}
 			]
 		},
 		{
-			"id": 348,
+			"id": 462,
+			"name": "SlideSteps",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "Slide: Steps / Process Layout\r\nNumbered steps with descriptions."
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 467,
+					"name": "id",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true,
+						"isInherited": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Unique ID for keying loop optimization (optional)."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 51,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L51"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "SlideBase.id"
+					}
+				},
+				{
+					"id": 468,
+					"name": "meta",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true,
+						"isInherited": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Slide-specific metadata."
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 53,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L53"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 479,
+						"name": "SlideMeta",
+						"package": "lumina-slides"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "SlideBase.meta"
+					}
+				},
+				{
+					"id": 469,
+					"name": "sizing",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true,
+						"isInherited": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Sizing mode: 'viewport' (100vh) or 'container' (100%). Default: 'viewport'"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 55,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L55"
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "literal",
+								"value": "viewport"
+							},
+							{
+								"type": "literal",
+								"value": "container"
+							}
+						]
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "SlideBase.sizing"
+					}
+				},
+				{
+					"id": 466,
+					"name": "steps",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 157,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L157"
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": 474,
+							"name": "StepItem",
+							"package": "lumina-slides"
+						}
+					}
+				},
+				{
+					"id": 465,
+					"name": "subtitle",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 156,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L156"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 464,
+					"name": "title",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 155,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L155"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 463,
+					"name": "type",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 154,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L154"
+						}
+					],
+					"type": {
+						"type": "literal",
+						"value": "steps"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						467,
+						468,
+						469,
+						466,
+						465,
+						464,
+						463
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/core/types.ts",
+					"line": 153,
+					"character": 17,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L153"
+				}
+			],
+			"extendedTypes": [
+				{
+					"type": "reference",
+					"target": {
+						"packageName": "lumina-slides",
+						"packagePath": "src/core/types.ts",
+						"qualifiedName": "SlideBase"
+					},
+					"name": "SlideBase",
+					"package": "lumina-slides"
+				}
+			]
+		},
+		{
+			"id": 454,
 			"name": "SlideTimeline",
 			"variant": "declaration",
 			"kind": 256,
@@ -2899,7 +4111,7 @@
 			},
 			"children": [
 				{
-					"id": 352,
+					"id": 459,
 					"name": "id",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2918,8 +4130,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 49,
-							"character": 4
+							"line": 51,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L51"
 						}
 					],
 					"type": {
@@ -2933,34 +4146,7 @@
 					}
 				},
 				{
-					"id": 351,
-					"name": "items",
-					"variant": "declaration",
-					"kind": 1024,
-					"flags": {},
-					"sources": [
-						{
-							"fileName": "src/core/types.ts",
-							"line": 141,
-							"character": 4
-						}
-					],
-					"type": {
-						"type": "array",
-						"elementType": {
-							"type": "reference",
-							"target": {
-								"packageName": "lumina-engine",
-								"packagePath": "src/core/types.ts",
-								"qualifiedName": "TimelineItem"
-							},
-							"name": "TimelineItem",
-							"package": "lumina-engine"
-						}
-					}
-				},
-				{
-					"id": 353,
+					"id": 460,
 					"name": "meta",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2979,15 +4165,16 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 51,
-							"character": 4
+							"line": 53,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L53"
 						}
 					],
 					"type": {
 						"type": "reference",
-						"target": 363,
+						"target": 479,
 						"name": "SlideMeta",
-						"package": "lumina-engine"
+						"package": "lumina-slides"
 					},
 					"inheritedFrom": {
 						"type": "reference",
@@ -2996,16 +4183,63 @@
 					}
 				},
 				{
-					"id": 350,
-					"name": "title",
+					"id": 461,
+					"name": "sizing",
 					"variant": "declaration",
 					"kind": 1024,
-					"flags": {},
+					"flags": {
+						"isOptional": true,
+						"isInherited": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "Sizing mode: 'viewport' (100vh) or 'container' (100%). Default: 'viewport'"
+							}
+						]
+					},
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 140,
-							"character": 4
+							"line": 55,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L55"
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "literal",
+								"value": "viewport"
+							},
+							{
+								"type": "literal",
+								"value": "container"
+							}
+						]
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "SlideBase.sizing"
+					}
+				},
+				{
+					"id": 457,
+					"name": "subtitle",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 145,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L145"
 						}
 					],
 					"type": {
@@ -3014,7 +4248,54 @@
 					}
 				},
 				{
-					"id": 349,
+					"id": 458,
+					"name": "timeline",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 146,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L146"
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": {
+								"packageName": "lumina-slides",
+								"packagePath": "src/core/types.ts",
+								"qualifiedName": "TimelineItem"
+							},
+							"name": "TimelineItem",
+							"package": "lumina-slides"
+						}
+					}
+				},
+				{
+					"id": 456,
+					"name": "title",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/core/types.ts",
+							"line": 144,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L144"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 455,
 					"name": "type",
 					"variant": "declaration",
 					"kind": 1024,
@@ -3022,8 +4303,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 139,
-							"character": 4
+							"line": 143,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L143"
 						}
 					],
 					"type": {
@@ -3036,36 +4318,39 @@
 				{
 					"title": "Properties",
 					"children": [
-						352,
-						351,
-						353,
-						350,
-						349
+						459,
+						460,
+						461,
+						457,
+						458,
+						456,
+						455
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "src/core/types.ts",
-					"line": 138,
-					"character": 17
+					"line": 142,
+					"character": 17,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L142"
 				}
 			],
 			"extendedTypes": [
 				{
 					"type": "reference",
 					"target": {
-						"packageName": "lumina-engine",
+						"packageName": "lumina-slides",
 						"packagePath": "src/core/types.ts",
 						"qualifiedName": "SlideBase"
 					},
 					"name": "SlideBase",
-					"package": "lumina-engine"
+					"package": "lumina-slides"
 				}
 			]
 		},
 		{
-			"id": 358,
+			"id": 474,
 			"name": "StepItem",
 			"variant": "declaration",
 			"kind": 256,
@@ -3080,7 +4365,7 @@
 			},
 			"children": [
 				{
-					"id": 361,
+					"id": 477,
 					"name": "description",
 					"variant": "declaration",
 					"kind": 1024,
@@ -3090,8 +4375,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 30,
-							"character": 4
+							"line": 32,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L32"
 						}
 					],
 					"type": {
@@ -3100,7 +4386,7 @@
 					}
 				},
 				{
-					"id": 362,
+					"id": 478,
 					"name": "icon",
 					"variant": "declaration",
 					"kind": 1024,
@@ -3110,8 +4396,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 31,
-							"character": 4
+							"line": 33,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L33"
 						}
 					],
 					"type": {
@@ -3120,7 +4407,7 @@
 					}
 				},
 				{
-					"id": 359,
+					"id": 475,
 					"name": "step",
 					"variant": "declaration",
 					"kind": 1024,
@@ -3128,8 +4415,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 28,
-							"character": 4
+							"line": 30,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L30"
 						}
 					],
 					"type": {
@@ -3138,7 +4426,7 @@
 					}
 				},
 				{
-					"id": 360,
+					"id": 476,
 					"name": "title",
 					"variant": "declaration",
 					"kind": 1024,
@@ -3146,8 +4434,9 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 29,
-							"character": 4
+							"line": 31,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L31"
 						}
 					],
 					"type": {
@@ -3160,23 +4449,24 @@
 				{
 					"title": "Properties",
 					"children": [
-						361,
-						362,
-						359,
-						360
+						477,
+						478,
+						475,
+						476
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "src/core/types.ts",
-					"line": 27,
-					"character": 17
+					"line": 29,
+					"character": 17,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L29"
 				}
 			]
 		},
 		{
-			"id": 301,
+			"id": 404,
 			"name": "ThemeConfig",
 			"variant": "declaration",
 			"kind": 256,
@@ -3191,7 +4481,7 @@
 			},
 			"children": [
 				{
-					"id": 302,
+					"id": 405,
 					"name": "colors",
 					"variant": "declaration",
 					"kind": 1024,
@@ -3209,21 +4499,22 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 193,
-							"character": 4
+							"line": 210,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L210"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 303,
+							"id": 406,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 305,
+									"id": 408,
 									"name": "background",
 									"variant": "declaration",
 									"kind": 1024,
@@ -3233,8 +4524,9 @@
 									"sources": [
 										{
 											"fileName": "src/core/types.ts",
-											"line": 195,
-											"character": 8
+											"line": 212,
+											"character": 8,
+											"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L212"
 										}
 									],
 									"type": {
@@ -3243,7 +4535,7 @@
 									}
 								},
 								{
-									"id": 307,
+									"id": 410,
 									"name": "muted",
 									"variant": "declaration",
 									"kind": 1024,
@@ -3253,8 +4545,9 @@
 									"sources": [
 										{
 											"fileName": "src/core/types.ts",
-											"line": 197,
-											"character": 8
+											"line": 214,
+											"character": 8,
+											"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L214"
 										}
 									],
 									"type": {
@@ -3263,7 +4556,7 @@
 									}
 								},
 								{
-									"id": 304,
+									"id": 407,
 									"name": "primary",
 									"variant": "declaration",
 									"kind": 1024,
@@ -3273,8 +4566,9 @@
 									"sources": [
 										{
 											"fileName": "src/core/types.ts",
-											"line": 194,
-											"character": 8
+											"line": 211,
+											"character": 8,
+											"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L211"
 										}
 									],
 									"type": {
@@ -3283,7 +4577,7 @@
 									}
 								},
 								{
-									"id": 306,
+									"id": 409,
 									"name": "text",
 									"variant": "declaration",
 									"kind": 1024,
@@ -3293,8 +4587,9 @@
 									"sources": [
 										{
 											"fileName": "src/core/types.ts",
-											"line": 196,
-											"character": 8
+											"line": 213,
+											"character": 8,
+											"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L213"
 										}
 									],
 									"type": {
@@ -3307,25 +4602,26 @@
 								{
 									"title": "Properties",
 									"children": [
-										305,
-										307,
-										304,
-										306
+										408,
+										410,
+										407,
+										409
 									]
 								}
 							],
 							"sources": [
 								{
 									"fileName": "src/core/types.ts",
-									"line": 193,
-									"character": 13
+									"line": 210,
+									"character": 13,
+									"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L210"
 								}
 							]
 						}
 					}
 				},
 				{
-					"id": 308,
+					"id": 411,
 					"name": "fonts",
 					"variant": "declaration",
 					"kind": 1024,
@@ -3343,21 +4639,22 @@
 					"sources": [
 						{
 							"fileName": "src/core/types.ts",
-							"line": 203,
-							"character": 4
+							"line": 220,
+							"character": 4,
+							"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L220"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 309,
+							"id": 412,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 311,
+									"id": 414,
 									"name": "body",
 									"variant": "declaration",
 									"kind": 1024,
@@ -3367,8 +4664,9 @@
 									"sources": [
 										{
 											"fileName": "src/core/types.ts",
-											"line": 205,
-											"character": 8
+											"line": 222,
+											"character": 8,
+											"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L222"
 										}
 									],
 									"type": {
@@ -3377,7 +4675,7 @@
 									}
 								},
 								{
-									"id": 310,
+									"id": 413,
 									"name": "heading",
 									"variant": "declaration",
 									"kind": 1024,
@@ -3387,8 +4685,9 @@
 									"sources": [
 										{
 											"fileName": "src/core/types.ts",
-											"line": 204,
-											"character": 8
+											"line": 221,
+											"character": 8,
+											"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L221"
 										}
 									],
 									"type": {
@@ -3397,7 +4696,7 @@
 									}
 								},
 								{
-									"id": 312,
+									"id": 415,
 									"name": "mono",
 									"variant": "declaration",
 									"kind": 1024,
@@ -3407,8 +4706,9 @@
 									"sources": [
 										{
 											"fileName": "src/core/types.ts",
-											"line": 206,
-											"character": 8
+											"line": 223,
+											"character": 8,
+											"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L223"
 										}
 									],
 									"type": {
@@ -3421,17 +4721,18 @@
 								{
 									"title": "Properties",
 									"children": [
-										311,
-										310,
-										312
+										414,
+										413,
+										415
 									]
 								}
 							],
 							"sources": [
 								{
 									"fileName": "src/core/types.ts",
-									"line": 203,
-									"character": 12
+									"line": 220,
+									"character": 12,
+									"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L220"
 								}
 							]
 						}
@@ -3442,21 +4743,22 @@
 				{
 					"title": "Properties",
 					"children": [
-						302,
-						308
+						405,
+						411
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "src/core/types.ts",
-					"line": 188,
-					"character": 17
+					"line": 205,
+					"character": 17,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L205"
 				}
 			]
 		},
 		{
-			"id": 371,
+			"id": 487,
 			"name": "LuminaEventType",
 			"variant": "declaration",
 			"kind": 2097152,
@@ -3472,8 +4774,9 @@
 			"sources": [
 				{
 					"fileName": "src/core/types.ts",
-					"line": 278,
-					"character": 12
+					"line": 295,
+					"character": 12,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L295"
 				}
 			],
 			"type": {
@@ -3499,7 +4802,7 @@
 			}
 		},
 		{
-			"id": 300,
+			"id": 403,
 			"name": "SlideData",
 			"variant": "declaration",
 			"kind": 2097152,
@@ -3515,8 +4818,9 @@
 			"sources": [
 				{
 					"fileName": "src/core/types.ts",
-					"line": 157,
-					"character": 12
+					"line": 173,
+					"character": 12,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/types.ts#L173"
 				}
 			],
 			"type": {
@@ -3524,43 +4828,49 @@
 				"types": [
 					{
 						"type": "reference",
-						"target": 324,
+						"target": 427,
 						"name": "SlideStatement",
-						"package": "lumina-engine"
+						"package": "lumina-slides"
 					},
 					{
 						"type": "reference",
-						"target": 331,
+						"target": 435,
 						"name": "SlideFeatures",
-						"package": "lumina-engine"
+						"package": "lumina-slides"
 					},
 					{
 						"type": "reference",
-						"target": 338,
+						"target": 443,
 						"name": "SlideHalf",
-						"package": "lumina-engine"
+						"package": "lumina-slides"
 					},
 					{
 						"type": "reference",
-						"target": 348,
+						"target": 454,
 						"name": "SlideTimeline",
-						"package": "lumina-engine"
+						"package": "lumina-slides"
+					},
+					{
+						"type": "reference",
+						"target": 462,
+						"name": "SlideSteps",
+						"package": "lumina-slides"
 					},
 					{
 						"type": "reference",
 						"target": {
-							"packageName": "lumina-engine",
+							"packageName": "lumina-slides",
 							"packagePath": "src/core/types.ts",
 							"qualifiedName": "SlideGeneric"
 						},
 						"name": "SlideGeneric",
-						"package": "lumina-engine"
+						"package": "lumina-slides"
 					}
 				]
 			}
 		},
 		{
-			"id": 396,
+			"id": 512,
 			"name": "bus",
 			"variant": "declaration",
 			"kind": 32,
@@ -3571,23 +4881,24 @@
 				{
 					"fileName": "src/core/events.ts",
 					"line": 50,
-					"character": 13
+					"character": 13,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/core/events.ts#L50"
 				}
 			],
 			"type": {
 				"type": "reference",
 				"target": {
-					"packageName": "lumina-engine",
+					"packageName": "lumina-slides",
 					"packagePath": "src/core/events.ts",
 					"qualifiedName": "EventBus"
 				},
 				"name": "EventBus",
-				"package": "lumina-engine"
+				"package": "lumina-slides"
 			},
 			"defaultValue": "..."
 		},
 		{
-			"id": 397,
+			"id": 513,
 			"name": "LuminaDeck",
 			"variant": "declaration",
 			"kind": 32,
@@ -3598,7 +4909,8 @@
 				{
 					"fileName": "src/vite-env.d.ts",
 					"line": 4,
-					"character": 10
+					"character": 10,
+					"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/vite-env.d.ts#L4"
 				}
 			],
 			"type": {
@@ -3612,7 +4924,7 @@
 					{
 						"type": "reflection",
 						"declaration": {
-							"id": 398,
+							"id": 514,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
@@ -3621,7 +4933,8 @@
 								{
 									"fileName": "src/vite-env.d.ts",
 									"line": 4,
-									"character": 37
+									"character": 37,
+									"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/vite-env.d.ts#L4"
 								}
 							]
 						}
@@ -3629,7 +4942,7 @@
 					{
 						"type": "reflection",
 						"declaration": {
-							"id": 399,
+							"id": 515,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
@@ -3638,7 +4951,8 @@
 								{
 									"fileName": "src/vite-env.d.ts",
 									"line": 4,
-									"character": 41
+									"character": 41,
+									"url": "https://github.com/PailletJuanPablo/lumina-slides/blob/8c51562d5bc3dcc1fd5b2b3332d18f08d0daf11e/src/vite-env.d.ts#L4"
 								}
 							]
 						}
@@ -3663,69 +4977,63 @@
 		{
 			"title": "Interfaces",
 			"children": [
-				376,
-				297,
-				318,
-				354,
-				386,
-				313,
-				393,
-				286,
-				381,
-				372,
-				331,
-				338,
-				363,
-				324,
-				348,
-				358,
-				301
+				492,
+				400,
+				421,
+				470,
+				502,
+				416,
+				509,
+				389,
+				497,
+				488,
+				435,
+				443,
+				479,
+				427,
+				462,
+				454,
+				474,
+				404
 			]
 		},
 		{
 			"title": "Type Aliases",
 			"children": [
-				371,
-				300
+				487,
+				403
 			]
 		},
 		{
 			"title": "Variables",
 			"children": [
-				396,
-				397
+				512,
+				513
 			]
 		}
 	],
-	"packageName": "lumina-engine",
+	"packageName": "lumina-slides",
 	"readme": [
 		{
 			"kind": "text",
-			"text": "# Lumina Engine v8\n\nA high-performance, declarative presentation engine for Vue 3, built for creating cinematic, web-based slide decks.\n\n## Features\n\n- **🚀 Vue 3 & TypeScript**: Built with the Composition API for maximum performance and type safety.\n- **✨ GSAP Animations**: Cinema-quality, GPU-accelerated transitions out of the box.\n- **🎨 Theming System**: CSS Variable-based theming engine with dark/light mode support.\n- **🔌 Pluggable Architecture**: Dependency Injection based store allows for multiple instances.\n- **📱 Responsive**: Touch and Swipe support (coming soon, keyboard ready).\n\n## Installation\n\n"
+			"text": "# Lumina Engine\n\n<div align=\"center\">\n  <br />\n  <p>\n    <b>The Interface Layer for the Agentic Era</b>\n  </p>\n  <p>\n    The first presentation engine designed for <b>LLMs</b>. Turn JSON into cinematic, interactive experiences.\n  </p>\n  <br />\n</div>\n\n**Lumina Engine** is a high-performance, declarative library that enables AI agents and LLMs to generate professional, interactive UI and slide decks by simply outputting JSON. It bridges the gap between text generation and visual storytelling, offering deterministic, GPU-accelerated rendering without the hallucination of pixel-generation.\n\n> [!IMPORTANT] > **Building an Agent?**\n> Read the complete **[Lumina for Agents Guide]("
 		},
 		{
-			"kind": "code",
-			"text": "```bash\nnpm install lumina-engine gsap\n```"
-		},
-		{
-			"kind": "text",
-			"text": "\n\n## Usage\n\n### 1. Basic Setup\n\n"
-		},
-		{
-			"kind": "code",
-			"text": "```typescript\nimport { Lumina } from \"lumina-engine\";\nimport \"lumina-engine/style.css\";\n\n// Mount to a DOM element\nconst deck = new Lumina(\"#app\", {\n  loop: false,\n  theme: {\n    colors: {\n      primary: \"#10b981\",\n    },\n  },\n});\n\n// Load Data\ndeck.load({\n  meta: { title: \"My Deck\" },\n  slides: [\n    {\n      type: \"statement\",\n      title: \"Hello World\",\n      subtitle: \"Powered by Lumina\",\n    },\n  ],\n});\n```"
+			"kind": "relative-link",
+			"text": "./AGENTS.md",
+			"target": 2
 		},
 		{
 			"kind": "text",
-			"text": "\n\n### 2. Event Handling\n\n"
+			"text": ")** to learn about Streaming, Auto-Layouts, and Token Optimization.\n\n## 🤖 Why for LLMs?\n\nTraditional UI libraries require understanding complex component trees, CSS modules, and state management. Lumina abstracts this into a **single, flat JSON schema**.\n\n- **structured_output Friendly**: Designed to match the capabilities of models like GPT-4o, Claude 3.5 Sonnet, and Gemini Pro.\n- **Hallucination Proof**: The renderer handles the \"how\", the LLM only cares about the \"what\".\n- **Zero Config**: No build steps or bundler configuration needed to generate visual content dynamically.\n\n## ✨ Features\n\n- **📄 JSON-First Architecture**: Define entire decks, including content, styling, and flow, in one serializable object.\n- **⚡ Reactive & Performant**: Built on Vue 3 + GSAP for 60fps animations even on mobile.\n- **🎨 Cinematic Layouts**: \"Pro\" layouts ("
 		},
 		{
 			"kind": "code",
-			"text": "```typescript\ndeck.on(\"slideChange\", (e) => {\n  console.log(`Slide changed to ${e.index}`);\n});\n\ndeck.on(\"action\", (e) => {\n  console.log(\"User interaction:\", e);\n});\n```"
+			"text": "`timeline`"
 		},
 		{
 			"kind": "text",
-			"text": "\n\n## Slide Types\n\n- "
+			"text": ", "
 		},
 		{
 			"kind": "code",
@@ -3733,15 +5041,7 @@
 		},
 		{
 			"kind": "text",
-			"text": ": Big bold text for impact.\n- "
-		},
-		{
-			"kind": "code",
-			"text": "`half`"
-		},
-		{
-			"kind": "text",
-			"text": ": Split screen image + text.\n- "
+			"text": ", "
 		},
 		{
 			"kind": "code",
@@ -3749,707 +5049,1015 @@
 		},
 		{
 			"kind": "text",
-			"text": ": Grid of cards with icons.\n\n## License\n\nMIT"
+			"text": ") that look good by default.\n- **🛡️ Type Safe**: Full TypeScript support with exported types for your AI system prompts.\n- **🔌 Event Driven**: Hook into every user interaction to feed state back to your agent.\n\n## 📦 Installation\n\n"
+		},
+		{
+			"kind": "code",
+			"text": "```bash\nnpm install lumina-slides gsap\n```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\n## ⚡ Quick Start for Agents\n\n### 1. The \"System Prompt\"\n\nYour agent generates this structure:\n\n"
+		},
+		{
+			"kind": "code",
+			"text": "```json\n{\n  \"meta\": { \"title\": \"Quarterly Review\" },\n  \"slides\": [\n    {\n      \"type\": \"statement\",\n      \"title\": \"Q4 Performance\",\n      \"subtitle\": \"Exceeding expectations.\",\n      \"meta\": { \"variant\": \"gradient\" }\n    },\n    {\n      \"type\": \"features\",\n      \"title\": \"Key Metrics\",\n      \"features\": [\n        {\n          \"title\": \"Growth\",\n          \"description\": \"+145% YoY\",\n          \"icon\": \"trending-up\"\n        },\n        { \"title\": \"Retention\", \"description\": \"98% Renewal\", \"icon\": \"users\" }\n      ]\n    }\n  ]\n}\n```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\n### 2. The Engine Renders\n\nYou pass that JSON directly to Lumina.\n\n"
+		},
+		{
+			"kind": "code",
+			"text": "```typescript\nimport { Lumina } from \"lumina-slides\";\nimport \"lumina-slides/style.css\";\n\nconst engine = new Lumina(\"#app\");\n\n// Imagine this comes from your LLM stream\nconst llmOutput = await agent.generatePresentation();\n\nengine.load(llmOutput);\n```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\n## 🧩 Built-in Layouts\n\nLumina provides semantic layout types that LLMs can easily select based on context.\n\n| Type            | Best Used For...                                     |\n| :-------------- | :--------------------------------------------------- |\n| **"
+		},
+		{
+			"kind": "code",
+			"text": "`statement`"
+		},
+		{
+			"kind": "text",
+			"text": "** | Big ideas, quotes, titles. Great for \"cover\" slides. |\n| **"
+		},
+		{
+			"kind": "code",
+			"text": "`half`"
+		},
+		{
+			"kind": "text",
+			"text": "**      | Comparisons, text + image context.                   |\n| **"
+		},
+		{
+			"kind": "code",
+			"text": "`features`"
+		},
+		{
+			"kind": "text",
+			"text": "**  | Lists of benefits, KPIs, or grid items.              |\n| **"
+		},
+		{
+			"kind": "code",
+			"text": "`timeline`"
+		},
+		{
+			"kind": "text",
+			"text": "**  | Chronological events, roadmaps, history.             |\n| **"
+		},
+		{
+			"kind": "code",
+			"text": "`steps`"
+		},
+		{
+			"kind": "text",
+			"text": "**     | Tutorials, flows, numbered processes.                |\n\n## 📚 API Reference\n\n### "
+		},
+		{
+			"kind": "code",
+			"text": "`engine.load(deck: DeckDefinition)`"
+		},
+		{
+			"kind": "text",
+			"text": "\n\nLoads a new deck. This is reactive - calling it again with new data (e.g. streaming chunks) will update the view seamlessly.\n\n### "
+		},
+		{
+			"kind": "code",
+			"text": "`engine.on(event, callback)`"
+		},
+		{
+			"kind": "text",
+			"text": "\n\nListen to interactions to create loops where the user's action prompts the AI for the next step.\n\n"
+		},
+		{
+			"kind": "code",
+			"text": "```typescript\nengine.on(\"action\", (payload) => {\n  // Feed user interaction back to the AI\n  agent.send(`User clicked on button: ${payload.value}`);\n});\n```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\n## 📄 License\n\nMIT"
 		}
 	],
 	"symbolIdMap": {
 		"0": {
-			"packageName": "lumina-engine",
+			"packageName": "lumina-slides",
 			"packagePath": "src/index.ts",
 			"qualifiedName": ""
 		},
 		"1": {
-			"packageName": "lumina-engine",
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "Lumina"
 		},
 		"2": {
-			"packageName": "lumina-engine",
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "Lumina.__constructor"
 		},
 		"3": {
-			"packageName": "lumina-engine",
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "Lumina"
 		},
 		"4": {
-			"packageName": "lumina-engine",
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "selector"
 		},
 		"5": {
-			"packageName": "lumina-engine",
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "options"
 		},
-		"264": {
-			"packageName": "lumina-engine",
+		"336": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "Lumina.selector"
 		},
-		"265": {
-			"packageName": "lumina-engine",
+		"337": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "Lumina.load"
 		},
-		"266": {
-			"packageName": "lumina-engine",
+		"338": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "Lumina.load"
 		},
-		"267": {
-			"packageName": "lumina-engine",
+		"339": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "deckData"
 		},
-		"268": {
-			"packageName": "lumina-engine",
+		"340": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina.patch"
+		},
+		"341": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina.patch"
+		},
+		"342": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "diff"
+		},
+		"343": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina.exportState"
+		},
+		"344": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina.exportState"
+		},
+		"345": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "__object"
+		},
+		"346": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "__object.status"
+		},
+		"347": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "__object.currentSlide"
+		},
+		"348": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "__object"
+		},
+		"349": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "__object.index"
+		},
+		"350": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "__object.id"
+		},
+		"351": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "__object.type"
+		},
+		"352": {
+			"packageName": "lumina-slides",
+			"packagePath": "",
+			"qualifiedName": "__type"
+		},
+		"353": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "__object.title"
+		},
+		"354": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "__object.narrative"
+		},
+		"355": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "__object.engagementLevel"
+		},
+		"356": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "__object.history"
+		},
+		"357": {
+			"packageName": "@vue/reactivity",
+			"packagePath": "dist/reactivity.d.ts",
+			"qualifiedName": "__type"
+		},
+		"358": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "type"
+		},
+		"359": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "label"
+		},
+		"360": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "value"
+		},
+		"361": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "origin"
+		},
+		"362": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "Lumina.on"
 		},
-		"269": {
-			"packageName": "lumina-engine",
+		"363": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "Lumina.on"
 		},
-		"270": {
-			"packageName": "lumina-engine",
+		"364": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "K"
 		},
-		"271": {
-			"packageName": "lumina-engine",
+		"365": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "event"
 		},
-		"272": {
-			"packageName": "lumina-engine",
+		"366": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "handler"
 		},
-		"273": {
-			"packageName": "lumina-engine",
+		"367": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "__type"
 		},
-		"274": {
-			"packageName": "lumina-engine",
+		"368": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "__type"
 		},
-		"275": {
-			"packageName": "lumina-engine",
+		"369": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "e"
 		},
-		"276": {
-			"packageName": "lumina-engine",
+		"370": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "Lumina.off"
 		},
-		"277": {
-			"packageName": "lumina-engine",
+		"371": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "Lumina.off"
 		},
-		"278": {
-			"packageName": "lumina-engine",
+		"372": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "K"
 		},
-		"279": {
-			"packageName": "lumina-engine",
+		"373": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "event"
 		},
-		"280": {
-			"packageName": "lumina-engine",
+		"374": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "handler"
 		},
-		"281": {
-			"packageName": "lumina-engine",
+		"375": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "__type"
 		},
-		"282": {
-			"packageName": "lumina-engine",
+		"376": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "__type"
 		},
-		"283": {
-			"packageName": "lumina-engine",
+		"377": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "e"
 		},
-		"284": {
-			"packageName": "lumina-engine",
+		"378": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "Lumina.destroy"
 		},
-		"285": {
-			"packageName": "lumina-engine",
+		"379": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/Lumina.ts",
 			"qualifiedName": "Lumina.destroy"
 		},
-		"286": {
-			"packageName": "lumina-engine",
+		"380": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina.currentSlideIndex"
+		},
+		"381": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina.currentSlideIndex"
+		},
+		"382": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina.goTo"
+		},
+		"383": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina.goTo"
+		},
+		"384": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "index"
+		},
+		"385": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina.next"
+		},
+		"386": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina.next"
+		},
+		"387": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina.prev"
+		},
+		"388": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/Lumina.ts",
+			"qualifiedName": "Lumina.prev"
+		},
+		"389": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaOptions"
 		},
-		"287": {
-			"packageName": "lumina-engine",
+		"390": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaOptions.selector"
 		},
-		"288": {
-			"packageName": "lumina-engine",
+		"391": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaOptions.loop"
 		},
-		"289": {
-			"packageName": "lumina-engine",
+		"392": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaOptions.navigation"
 		},
-		"290": {
-			"packageName": "lumina-engine",
+		"393": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaOptions.keyboard"
 		},
-		"291": {
-			"packageName": "lumina-engine",
+		"394": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaOptions.touch"
 		},
-		"292": {
-			"packageName": "lumina-engine",
+		"395": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaOptions.debug"
 		},
-		"293": {
-			"packageName": "lumina-engine",
+		"396": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaOptions.theme"
 		},
-		"294": {
-			"packageName": "lumina-engine",
+		"397": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaOptions.ui"
 		},
-		"295": {
-			"packageName": "lumina-engine",
+		"398": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaOptions.keys"
 		},
-		"296": {
-			"packageName": "lumina-engine",
+		"399": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaOptions.animation"
 		},
-		"297": {
-			"packageName": "lumina-engine",
+		"400": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "Deck"
 		},
-		"298": {
-			"packageName": "lumina-engine",
+		"401": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "Deck.meta"
 		},
-		"299": {
-			"packageName": "lumina-engine",
+		"402": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "Deck.slides"
 		},
-		"300": {
-			"packageName": "lumina-engine",
+		"403": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "BaseSlideData"
 		},
-		"301": {
-			"packageName": "lumina-engine",
+		"404": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "ThemeConfig"
 		},
-		"302": {
-			"packageName": "lumina-engine",
+		"405": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "ThemeConfig.colors"
 		},
-		"303": {
-			"packageName": "lumina-engine",
+		"406": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "__type"
 		},
-		"304": {
-			"packageName": "lumina-engine",
+		"407": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "__type.primary"
 		},
-		"305": {
-			"packageName": "lumina-engine",
+		"408": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "__type.background"
 		},
-		"306": {
-			"packageName": "lumina-engine",
+		"409": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "__type.text"
 		},
-		"307": {
-			"packageName": "lumina-engine",
+		"410": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "__type.muted"
 		},
-		"308": {
-			"packageName": "lumina-engine",
+		"411": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "ThemeConfig.fonts"
 		},
-		"309": {
-			"packageName": "lumina-engine",
+		"412": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "__type"
 		},
-		"310": {
-			"packageName": "lumina-engine",
+		"413": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "__type.heading"
 		},
-		"311": {
-			"packageName": "lumina-engine",
+		"414": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "__type.body"
 		},
-		"312": {
-			"packageName": "lumina-engine",
+		"415": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "__type.mono"
 		},
-		"313": {
-			"packageName": "lumina-engine",
+		"416": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaEventMap"
 		},
-		"314": {
-			"packageName": "lumina-engine",
+		"417": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaEventMap.ready"
 		},
-		"315": {
-			"packageName": "lumina-engine",
+		"418": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaEventMap.slideChange"
 		},
-		"316": {
-			"packageName": "lumina-engine",
+		"419": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaEventMap.action"
 		},
-		"317": {
-			"packageName": "lumina-engine",
+		"420": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaEventMap.error"
 		},
-		"318": {
-			"packageName": "lumina-engine",
+		"421": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "DeckMeta"
 		},
-		"319": {
-			"packageName": "lumina-engine",
+		"422": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "DeckMeta.title"
 		},
-		"320": {
-			"packageName": "lumina-engine",
+		"423": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "DeckMeta.author"
 		},
-		"321": {
-			"packageName": "lumina-engine",
+		"424": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "DeckMeta.date"
 		},
-		"322": {
-			"packageName": "lumina-engine",
+		"425": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "DeckMeta.__index"
 		},
-		"324": {
-			"packageName": "lumina-engine",
+		"427": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideStatement"
 		},
-		"325": {
-			"packageName": "lumina-engine",
+		"428": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideStatement.type"
 		},
-		"326": {
-			"packageName": "lumina-engine",
+		"429": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideStatement.tag"
 		},
-		"327": {
-			"packageName": "lumina-engine",
+		"430": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideStatement.title"
 		},
-		"328": {
-			"packageName": "lumina-engine",
+		"431": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideStatement.subtitle"
 		},
-		"329": {
-			"packageName": "lumina-engine",
+		"432": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideBase.id"
 		},
-		"330": {
-			"packageName": "lumina-engine",
+		"433": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideBase.meta"
 		},
-		"331": {
-			"packageName": "lumina-engine",
+		"434": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideBase.sizing"
+		},
+		"435": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideFeatures"
 		},
-		"332": {
-			"packageName": "lumina-engine",
+		"436": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideFeatures.type"
 		},
-		"333": {
-			"packageName": "lumina-engine",
+		"437": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideFeatures.title"
 		},
-		"334": {
-			"packageName": "lumina-engine",
+		"438": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideFeatures.description"
 		},
-		"335": {
-			"packageName": "lumina-engine",
+		"439": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideFeatures.features"
 		},
-		"336": {
-			"packageName": "lumina-engine",
+		"440": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideBase.id"
 		},
-		"337": {
-			"packageName": "lumina-engine",
+		"441": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideBase.meta"
 		},
-		"338": {
-			"packageName": "lumina-engine",
+		"442": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideBase.sizing"
+		},
+		"443": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideHalf"
 		},
-		"339": {
-			"packageName": "lumina-engine",
+		"444": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideHalf.type"
 		},
-		"340": {
-			"packageName": "lumina-engine",
+		"445": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideHalf.imageSide"
 		},
-		"341": {
-			"packageName": "lumina-engine",
+		"446": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideHalf.image"
 		},
-		"342": {
-			"packageName": "lumina-engine",
+		"447": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideHalf.tag"
 		},
-		"343": {
-			"packageName": "lumina-engine",
+		"448": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideHalf.title"
 		},
-		"344": {
-			"packageName": "lumina-engine",
+		"449": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideHalf.paragraphs"
 		},
-		"345": {
-			"packageName": "lumina-engine",
+		"450": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideHalf.cta"
 		},
-		"346": {
-			"packageName": "lumina-engine",
+		"451": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideBase.id"
 		},
-		"347": {
-			"packageName": "lumina-engine",
+		"452": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideBase.meta"
 		},
-		"348": {
-			"packageName": "lumina-engine",
+		"453": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideBase.sizing"
+		},
+		"454": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideTimeline"
 		},
-		"349": {
-			"packageName": "lumina-engine",
+		"455": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideTimeline.type"
 		},
-		"350": {
-			"packageName": "lumina-engine",
+		"456": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideTimeline.title"
 		},
-		"351": {
-			"packageName": "lumina-engine",
+		"457": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
-			"qualifiedName": "SlideTimeline.items"
+			"qualifiedName": "SlideTimeline.subtitle"
 		},
-		"352": {
-			"packageName": "lumina-engine",
+		"458": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideTimeline.timeline"
+		},
+		"459": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideBase.id"
 		},
-		"353": {
-			"packageName": "lumina-engine",
+		"460": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideBase.meta"
 		},
-		"354": {
-			"packageName": "lumina-engine",
+		"461": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideBase.sizing"
+		},
+		"462": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideSteps"
+		},
+		"463": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideSteps.type"
+		},
+		"464": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideSteps.title"
+		},
+		"465": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideSteps.subtitle"
+		},
+		"466": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideSteps.steps"
+		},
+		"467": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideBase.id"
+		},
+		"468": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideBase.meta"
+		},
+		"469": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/types.ts",
+			"qualifiedName": "SlideBase.sizing"
+		},
+		"470": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "FeatureItem"
 		},
-		"355": {
-			"packageName": "lumina-engine",
+		"471": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "FeatureItem.title"
 		},
-		"356": {
-			"packageName": "lumina-engine",
+		"472": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "FeatureItem.desc"
 		},
-		"357": {
-			"packageName": "lumina-engine",
+		"473": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "FeatureItem.icon"
 		},
-		"358": {
-			"packageName": "lumina-engine",
+		"474": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "StepItem"
 		},
-		"359": {
-			"packageName": "lumina-engine",
+		"475": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "StepItem.step"
 		},
-		"360": {
-			"packageName": "lumina-engine",
+		"476": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "StepItem.title"
 		},
-		"361": {
-			"packageName": "lumina-engine",
+		"477": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "StepItem.description"
 		},
-		"362": {
-			"packageName": "lumina-engine",
+		"478": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "StepItem.icon"
 		},
-		"363": {
-			"packageName": "lumina-engine",
+		"479": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideMeta"
 		},
-		"364": {
-			"packageName": "lumina-engine",
+		"480": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideMeta.orbColor"
 		},
-		"365": {
-			"packageName": "lumina-engine",
+		"481": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideMeta.orbPos"
 		},
-		"366": {
-			"packageName": "lumina-engine",
+		"482": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "__type"
 		},
-		"367": {
-			"packageName": "lumina-engine",
+		"483": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "__type.top"
 		},
-		"368": {
-			"packageName": "lumina-engine",
+		"484": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "__type.left"
 		},
-		"369": {
-			"packageName": "lumina-engine",
+		"485": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideMeta.__index"
 		},
-		"371": {
-			"packageName": "lumina-engine",
+		"487": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaEventType"
 		},
-		"372": {
-			"packageName": "lumina-engine",
+		"488": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideChangePayload"
 		},
-		"373": {
-			"packageName": "lumina-engine",
+		"489": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideChangePayload.index"
 		},
-		"374": {
-			"packageName": "lumina-engine",
+		"490": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideChangePayload.previousIndex"
 		},
-		"375": {
-			"packageName": "lumina-engine",
+		"491": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "SlideChangePayload.slide"
 		},
-		"376": {
-			"packageName": "lumina-engine",
+		"492": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "ActionPayload"
 		},
-		"377": {
-			"packageName": "lumina-engine",
+		"493": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "ActionPayload.type"
 		},
-		"378": {
-			"packageName": "lumina-engine",
+		"494": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "ActionPayload.label"
 		},
-		"379": {
-			"packageName": "lumina-engine",
+		"495": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "ActionPayload.value"
 		},
-		"380": {
-			"packageName": "lumina-engine",
+		"496": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "ActionPayload.origin"
 		},
-		"381": {
-			"packageName": "lumina-engine",
+		"497": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaUIOptions"
 		},
-		"382": {
-			"packageName": "lumina-engine",
+		"498": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaUIOptions.visible"
 		},
-		"383": {
-			"packageName": "lumina-engine",
+		"499": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaUIOptions.showProgressBar"
 		},
-		"384": {
-			"packageName": "lumina-engine",
+		"500": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaUIOptions.showSlideCount"
 		},
-		"385": {
-			"packageName": "lumina-engine",
+		"501": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaUIOptions.showControls"
 		},
-		"386": {
-			"packageName": "lumina-engine",
+		"502": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaAnimationOptions"
 		},
-		"387": {
-			"packageName": "lumina-engine",
+		"503": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaAnimationOptions.enabled"
 		},
-		"388": {
-			"packageName": "lumina-engine",
+		"504": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaAnimationOptions.type"
 		},
-		"389": {
-			"packageName": "lumina-engine",
+		"505": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaAnimationOptions.durationIn"
 		},
-		"390": {
-			"packageName": "lumina-engine",
+		"506": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaAnimationOptions.durationOut"
 		},
-		"391": {
-			"packageName": "lumina-engine",
+		"507": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaAnimationOptions.stagger"
 		},
-		"392": {
-			"packageName": "lumina-engine",
+		"508": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaAnimationOptions.ease"
 		},
-		"393": {
-			"packageName": "lumina-engine",
+		"509": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaKeyBindings"
 		},
-		"394": {
-			"packageName": "lumina-engine",
+		"510": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaKeyBindings.next"
 		},
-		"395": {
-			"packageName": "lumina-engine",
+		"511": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/types.ts",
 			"qualifiedName": "LuminaKeyBindings.prev"
 		},
-		"396": {
-			"packageName": "lumina-engine",
+		"512": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/core/events.ts",
 			"qualifiedName": "bus"
 		},
-		"397": {
-			"packageName": "lumina-engine",
+		"513": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/vite-env.d.ts",
 			"qualifiedName": "component"
 		},
-		"398": {
-			"packageName": "lumina-engine",
+		"514": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/vite-env.d.ts",
 			"qualifiedName": "__type"
 		},
-		"399": {
-			"packageName": "lumina-engine",
+		"515": {
+			"packageName": "lumina-slides",
 			"packagePath": "src/vite-env.d.ts",
 			"qualifiedName": "__type"
 		}
@@ -4457,13 +6065,14 @@
 	"files": {
 		"entries": {
 			"1": "src/index.ts",
-			"2": "README.md",
-			"3": ""
+			"2": "AGENTS.md",
+			"3": "README.md",
+			"4": ""
 		},
 		"reflections": {
 			"1": 0,
-			"2": 0,
-			"3": 0
+			"3": 0,
+			"4": 0
 		}
 	}
 }

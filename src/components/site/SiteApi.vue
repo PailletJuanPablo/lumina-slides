@@ -273,9 +273,13 @@ const renderParams = (sig: any) => {
 
 onMounted(async () => {
     try {
-        const baseUrl = import.meta.env.BASE_URL;
-        const res = await fetch(`${baseUrl}api-docs.json`);
-        if (!res.ok) throw new Error('Docs not found');
+        // Use relative path to ensure it works on both local and GH pages
+        // The base URL is handled by the browser resolving relative paths
+        const res = await fetch('./api-docs.json');
+        if (!res.ok) {
+            console.error('Fetch failed:', res.status, res.statusText, res.url);
+            throw new Error(`Docs not found (${res.status})`);
+        }
         const json = await res.json();
         // TypeDoc structure often wraps everything in a root object
         // We ensure we have an array for the loop

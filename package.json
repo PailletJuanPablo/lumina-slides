@@ -26,12 +26,13 @@
     "dev": "vite",
     "build": "vite build",
     "build:docs": "vite build -c vite.docs.config.ts",
-    "predeploy": "npm run build:docs",
+    "predeploy": "npm run docs:generate && npm run build:docs",
     "deploy": "gh-pages -d docs-dist",
     "prepublishOnly": "npm run build",
     "docs:generate": "typedoc --json public/api-docs.json src/index.ts --skipErrorChecking",
     "type-check": "vue-tsc --noEmit",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "screenshots": "node scripts/screenshot-decks.js"
   },
   "peerDependencies": {
     "vue": "^3.3.0"
@@ -47,6 +48,7 @@
     "autoprefixer": "^10.4.16",
     "gh-pages": "^6.3.0",
     "postcss": "^8.4.31",
+    "puppeteer": "^24.34.0",
     "tailwindcss": "^3.3.5",
     "typedoc": "^0.28.15",
     "typescript": "^5.2.2",
