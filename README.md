@@ -5,9 +5,12 @@
   <p>
     <b>The Interface Layer for the Agentic Era</b>
   </p>
-  <p>
     The first presentation engine designed for <b>LLMs</b>. Turn JSON into cinematic, interactive experiences.
   </p>
+  <br />
+
+  <img src="public/demo.gif" alt="Lumina Engine Demo" width="100%" style="border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);" />
+
   <br />
 </div>
 
