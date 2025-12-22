@@ -9,7 +9,7 @@
   </p>
   <br />
 
-  <img src="public/demo.gif" alt="Lumina Engine Demo" width="100%" style="border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);" />
+  <img src="https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/demo.gif" alt="Lumina Engine Demo" width="100%" style="border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);" />
 
   <br />
 </div>
@@ -97,42 +97,42 @@ Lumina provides semantic layout types that LLMs can easily select based on conte
 
 Big ideas, quotes, titles. Great for "cover" slides.
 
-[![Statement Layout](public/layout-statement.png)](public/layout-statement.json)
+[![Statement Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-statement.png)](public/layout-statement.json)
 [View JSON Source](public/layout-statement.json)
 
 ### **Half**
 
 Comparisons, text + image context.
 
-[![Half Layout](public/layout-half.png)](public/layout-half.json)
+[![Half Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-half.png)](public/layout-half.json)
 [View JSON Source](public/layout-half.json)
 
 ### **Features**
 
 Lists of benefits, KPIs, or grid items.
 
-[![Features Layout](public/layout-features.png)](public/layout-features.json)
+[![Features Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-features.png)](public/layout-features.json)
 [View JSON Source](public/layout-features.json)
 
 ### **Timeline**
 
 Chronological events, roadmaps, history.
 
-[![Timeline Layout](public/layout-timeline.png)](public/layout-timeline.json)
+[![Timeline Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-timeline.png)](public/layout-timeline.json)
 [View JSON Source](public/layout-timeline.json)
 
 ### **Steps**
 
 Tutorials, flows, numbered processes.
 
-[![Steps Layout](public/layout-steps.png)](public/layout-steps.json)
+[![Steps Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-steps.png)](public/layout-steps.json)
 [View JSON Source](public/layout-steps.json)
 
 ### **Embedded (Widget Mode)**
 
 Slides constrained to a container, perfect for dashboards.
 
-[![Embedded Layout](public/layout-embedded.png)](public/layout-embedded.json)
+[![Embedded Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-embedded.png)](public/layout-embedded.json)
 [View JSON Source](public/layout-embedded.json)
 
 ## 📚 API Reference
