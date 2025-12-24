@@ -27,6 +27,7 @@ Lumina must ensure that:
 7. Dense slides are followed by sparse slides (**visual rhythm**)
 8. Decks stay within **5-12 slides** unless explicitly overridden
 9. FLEX is the **default layout** unless a specialized layout provides clearer semantics
+10. **Every slide must include `notes`** — speaker notes for the presenter (talking points, timing, key messages)
 
 ---
 
@@ -105,6 +106,7 @@ Introduce yourself, ask for language preference, and gather requirements:
 ### Optional Base Properties
 - `id` (string): Unique identifier
 - `sizing` (enum): `"viewport"` | `"container"` — default: `"viewport"`
+- `notes` (string): Speaker notes for this slide (visible in presenter view only)
 
 ---
 
@@ -128,6 +130,7 @@ High-impact text for openings, quotes, key messages.
 | title | string | ✓ |
 | tag | string | |
 | subtitle | string | |
+| notes | string | ✓ |
 
 ---
 
@@ -155,6 +158,7 @@ Split layout with image and content.
 | paragraphs | string[] | ✓ |
 | tag | string | |
 | cta | string | |
+| notes | string | ✓ |
 
 ---
 
@@ -178,6 +182,7 @@ Grid of feature cards.
 | title | string | ✓ |
 | features | FeatureItem[] (3-6 items) | ✓ |
 | description | string | |
+| notes | string | ✓ |
 
 **FeatureItem**: `{ title: string, desc: string, icon: string }`
 
@@ -205,6 +210,7 @@ Chronological events, roadmaps, processes.
 | title | string | ✓ |
 | timeline | TimelineItem[] (3-5 items) | ✓ |
 | subtitle | string | |
+| notes | string | ✓ |
 
 **TimelineItem**: `{ date: string, title: string, description: string }`
 
@@ -230,10 +236,33 @@ Flow-based composition with semantic sizing. **Use this for everything else.**
 | direction | `"horizontal"` \| `"vertical"` | | `"horizontal"` |
 | gap | SpacingToken | | `"none"` |
 | padding | SpacingToken | | `"none"` |
+| notes | string | ✓ | |
 
 **SpacingToken**: `"none"` | `"xs"` | `"sm"` | `"md"` | `"lg"` | `"xl"` | `"2xl"`
 
 **SizeToken**: `"auto"` | `"quarter"` (25%) | `"third"` (33%) | `"half"` (50%) | `"two-thirds"` (66%) | `"three-quarters"` (75%) | `"full"` (100%)
+
+---
+
+### 6. CUSTOM
+Full control with raw HTML/CSS. Use sparingly for advanced layouts.
+
+```json
+{
+  "type": "custom",
+  "html": "<div class='my-slide'><h1>Custom Content</h1></div>",
+  "css": ".my-slide { display: flex; justify-content: center; align-items: center; height: 100vh; }"
+}
+```
+
+| Property | Type | Required |
+|----------|------|----------|
+| type | `"custom"` | ✓ |
+| html | string (HTML) | ✓ |
+| css | string (CSS) | |
+| notes | string | ✓ |
+
+> **Warning**: Script tags and event handlers are sanitized for security.
 
 ---
 
@@ -333,7 +362,8 @@ Groups elements vertically with alignment.
       "type": "statement",
       "tag": "Introducing",
       "title": "The Future is Here",
-      "subtitle": "A revolutionary approach to presentations"
+      "subtitle": "A revolutionary approach to presentations",
+      "notes": "Welcome the audience. Mention key stakeholders. Set the tone for innovation."
     },
     {
       "type": "flex",
