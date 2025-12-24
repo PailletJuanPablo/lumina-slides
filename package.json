@@ -1,12 +1,11 @@
 {
   "name": "lumina-slides",
-  "version": "8.2.3",
+  "version": "8.2.5",
   "homepage": "https://pailletjuanpablo.github.io/lumina-slides/",
   "description": "The interface layer for the agentic era. Turn text to UI with declarative JSON.",
   "type": "module",
   "files": [
     "dist",
-    "public",
     "README.md"
   ],
   "main": "./dist/lumina-slides.umd.cjs",

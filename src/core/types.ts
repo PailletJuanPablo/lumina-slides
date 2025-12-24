@@ -222,6 +222,8 @@ interface SlideBase {
     meta?: SlideMeta;
     /** Sizing mode: 'viewport' (100vh) or 'container' (100%). Default: 'viewport' */
     sizing?: 'viewport' | 'container';
+    /** Speaker notes for this slide (supports basic markdown). */
+    notes?: string;
 }
 
 /**
@@ -358,6 +360,27 @@ export interface SlideFlex extends SlideBase {
 }
 
 /**
+ * Slide: Custom HTML
+ * Renders arbitrary HTML content fullscreen.
+ * Use with caution - HTML is injected directly.
+ * @example
+ * ```json
+ * {
+ *   "type": "custom",
+ *   "html": "<div class='my-custom-slide'>Custom Content</div>",
+ *   "css": ".my-custom-slide { color: white; }"
+ * }
+ * ```
+ */
+export interface SlideCustom extends SlideBase {
+    type: 'custom';
+    /** Raw HTML content to render */
+    html: string;
+    /** Optional scoped CSS styles */
+    css?: string;
+}
+
+/**
  * Slide: Generic / Custom
  * Fallback for custom layouts or unknown types.
  */
@@ -377,6 +400,7 @@ export type BaseSlideData =
     | SlideTimeline
     | SlideSteps
     | SlideFlex
+    | SlideCustom
     | SlideGeneric;
 
 /**
@@ -526,4 +550,30 @@ export interface LuminaEventMap {
     action: ActionPayload;
     /** Fired when an internal error occurs. */
     error: Error;
+}
+
+// --- Speaker Notes ---
+
+/**
+ * Message payload for Speaker Notes cross-window synchronization.
+ * Used by BroadcastChannel for bidirectional communication.
+ */
+export interface SpeakerSyncPayload {
+    /** Action type for the sync message. */
+    action: 'goto' | 'next' | 'prev' | 'state' | 'ping' | 'pong' | 'close';
+    /** Current slide index (for 'goto' and 'state'). */
+    index?: number;
+    /** Total number of slides in the deck. */
+    totalSlides?: number;
+    /** Notes content for current slide. */
+    currentNotes?: string;
+    /** Preview info for the next slide. */
+    nextSlidePreview?: {
+        title?: string;
+        type?: string;
+    };
+    /** Timestamp to prevent echo loops. */
+    timestamp?: number;
+    /** Channel ID for multi-instance support. */
+    channelId?: string;
 }

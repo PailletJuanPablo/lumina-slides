@@ -8,6 +8,7 @@ export default defineConfig({
         'process.env.NODE_ENV': '"production"'
     },
     build: {
+        copyPublicDir: false,
         lib: {
             entry: resolve(__dirname, 'src/index.ts'),
             name: 'LuminaSlides',

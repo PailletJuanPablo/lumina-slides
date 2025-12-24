@@ -1,6 +1,5 @@
 export { Lumina } from './core/Lumina';
 
-// Types
 export type {
     LuminaOptions,
     Deck,
@@ -15,6 +14,7 @@ export type {
     SlideHalf,
     SlideTimeline,
     SlideSteps,
+    SlideCustom,
     FeatureItem,
     StepItem,
     SlideMeta,
@@ -23,10 +23,17 @@ export type {
     ActionPayload,
     LuminaUIOptions,
     LuminaAnimationOptions,
-    LuminaKeyBindings
+    LuminaKeyBindings,
+    // Speaker Notes
+    SpeakerSyncPayload
 } from './core/types';
 
 // Events
 export { bus } from './core/events';
+
+// Speaker Notes
+export { SpeakerChannel } from './core/speaker-channel';
+
 export { default as LuminaDeck } from './components/LuminaDeck.vue';
 import './style/main.css';
+

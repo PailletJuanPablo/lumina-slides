@@ -1,4 +1,4 @@
-import { createApp, h, App as VueApp } from 'vue';
+import { createApp, h, App as VueApp, watch } from 'vue';
 import LuminaDeck from '../components/LuminaDeck.vue';
 import LayoutStatement from '../components/layouts/LayoutStatement.vue';
 import LayoutHalf from '../components/layouts/LayoutHalf.vue';
@@ -7,10 +7,12 @@ import LayoutTimeline from '../components/layouts/LayoutTimeline.vue';
 import LayoutSteps from '../components/layouts/LayoutSteps.vue';
 import LayoutFlex from '../components/layouts/LayoutFlex.vue';
 import LayoutAuto from '../components/layouts/LayoutAuto.vue';
+import LayoutCustom from '../components/layouts/LayoutCustom.vue';
 import { createStore, StoreKey, LuminaStore } from './store';
 import { bus } from './events';
 import { ThemeManager } from './theme';
-import type { Deck, LuminaOptions, LuminaEventMap } from './types';
+import { SpeakerChannel } from './speaker-channel';
+import type { Deck, LuminaOptions, LuminaEventMap, SpeakerSyncPayload, BaseSlideData } from './types';
 import '../style/main.css';
 
 /**
@@ -27,6 +29,12 @@ export class Lumina {
     private app: VueApp;
     private store: LuminaStore;
 
+    // Speaker Notes state
+    private speakerWindow: Window | null = null;
+    private speakerChannel: SpeakerChannel | null = null;
+    private speakerChannelId: string;
+    private speakerUnsubscribe: (() => void) | null = null;
+
     /**
      * Creates a new Lumina instance.
      * 
@@ -34,6 +42,9 @@ export class Lumina {
      * @param options - Configuration options (theme, loop, keys, etc.).
      */
     constructor(public selector: string, options: LuminaOptions = {}) {
+        // Generate unique channel ID for this instance
+        this.speakerChannelId = `lumina-speaker-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+
         // Create isolated store for this instance
         this.store = createStore(options);
 
@@ -56,6 +67,7 @@ export class Lumina {
         this.app.component('layout-steps', LayoutSteps);
         this.app.component('layout-flex', LayoutFlex);
         this.app.component('layout-auto', LayoutAuto);
+        this.app.component('layout-custom', LayoutCustom);
 
         // Internal Event Listeners
         bus.on('action', (payload) => {
@@ -74,6 +86,9 @@ export class Lumina {
     public load(deckData: Deck) {
         this.store.loadDeck(deckData);
         bus.emit('ready', deckData);
+
+        // Sync speaker notes if open
+        this.syncSpeakerNotes();
     }
 
     /**
@@ -82,6 +97,9 @@ export class Lumina {
      */
     public patch(diff: any) {
         this.store.patchDeck(diff);
+
+        // Sync speaker notes if open
+        this.syncSpeakerNotes();
     }
 
     /**
@@ -135,6 +153,9 @@ export class Lumina {
     }
 
     public destroy() {
+        // Close speaker notes
+        this.closeSpeakerNotes();
+
         if (this.app) {
             this.app.unmount();
             // @ts-ignore - Explicitly clearing reference
@@ -152,13 +173,174 @@ export class Lumina {
 
     public goTo(index: number) {
         this.store.goto(index);
+        this.syncSpeakerNotes();
     }
 
     public next() {
         this.store.next();
+        this.syncSpeakerNotes();
     }
 
     public prev() {
         this.store.prev();
+        this.syncSpeakerNotes();
+    }
+
+    // =========================================================================
+    // SPEAKER NOTES API
+    // =========================================================================
+
+    /**
+     * Opens the speaker notes in a new window.
+     * Establishes bidirectional sync via BroadcastChannel.
+     * 
+     * @returns The popup window reference, or null if blocked by browser
+     * 
+     * @example
+     * const notesWindow = engine.openSpeakerNotes();
+     * if (!notesWindow) {
+     *   alert('Popup blocked! Please allow popups for speaker notes.');
+     * }
+     */
+    public openSpeakerNotes(): Window | null {
+        // Check if already open
+        if (this.speakerWindow && !this.speakerWindow.closed) {
+            this.speakerWindow.focus();
+            return this.speakerWindow;
+        }
+
+        // Check browser support
+        if (!SpeakerChannel.isSupported()) {
+            console.error('[Lumina] BroadcastChannel not supported. Speaker notes require a modern browser.');
+            return null;
+        }
+
+        // Calculate popup dimensions (optimized for second screen)
+        const width = 600;
+        const height = 800;
+        const left = window.screenX + window.outerWidth; // Position to the right of main window
+        const top = window.screenY;
+
+        // Open popup window
+        const baseUrl = import.meta.env.BASE_URL || '/';
+        const speakerNotesUrl = `${baseUrl}speaker-notes.html?channel=${encodeURIComponent(this.speakerChannelId)}`;
+
+        this.speakerWindow = window.open(
+            speakerNotesUrl,
+            `lumina-speaker-notes-${this.speakerChannelId}`,
+            `width=${width},height=${height},left=${left},top=${top},resizable=yes,scrollbars=yes`
+        );
+
+        if (!this.speakerWindow) {
+            console.warn('[Lumina] Popup blocked. Please allow popups for speaker notes.');
+            return null;
+        }
+
+        // Initialize channel
+        this.initSpeakerChannel();
+
+        return this.speakerWindow;
+    }
+
+    /**
+     * Closes the speaker notes window if open.
+     */
+    public closeSpeakerNotes(): void {
+        if (this.speakerUnsubscribe) {
+            this.speakerUnsubscribe();
+            this.speakerUnsubscribe = null;
+        }
+
+        if (this.speakerChannel) {
+            this.speakerChannel.notifyClose();
+            this.speakerChannel.destroy();
+            this.speakerChannel = null;
+        }
+
+        if (this.speakerWindow && !this.speakerWindow.closed) {
+            this.speakerWindow.close();
+        }
+        this.speakerWindow = null;
+    }
+
+    /**
+     * Checks if the speaker notes window is currently open.
+     */
+    public get isSpeakerNotesOpen(): boolean {
+        return this.speakerWindow !== null && !this.speakerWindow.closed;
+    }
+
+    /**
+     * Initializes the SpeakerChannel for bidirectional communication.
+     */
+    private initSpeakerChannel(): void {
+        this.speakerChannel = SpeakerChannel.getInstance(this.speakerChannelId);
+
+        // Handle incoming commands from speaker notes window
+        this.speakerUnsubscribe = this.speakerChannel.subscribe((msg: SpeakerSyncPayload) => {
+            switch (msg.action) {
+                case 'next':
+                    this.store.next();
+                    this.syncSpeakerNotes();
+                    break;
+                case 'prev':
+                    this.store.prev();
+                    this.syncSpeakerNotes();
+                    break;
+                case 'goto':
+                    if (msg.index !== undefined) {
+                        this.store.goto(msg.index);
+                        this.syncSpeakerNotes();
+                    }
+                    break;
+                case 'ping':
+                    // Auto-respond and sync state
+                    this.syncSpeakerNotes();
+                    break;
+            }
+        });
+
+        // Send initial state
+        this.syncSpeakerNotes();
+
+        // Monitor for window close
+        const checkWindow = setInterval(() => {
+            if (this.speakerWindow?.closed) {
+                clearInterval(checkWindow);
+                this.closeSpeakerNotes();
+            }
+        }, 1000);
+    }
+
+    /**
+     * Syncs the current state to the speaker notes window.
+     */
+    private syncSpeakerNotes(): void {
+        if (!this.speakerChannel) return;
+
+        const { currentIndex, deck } = this.store.state;
+        if (!deck) return;
+
+        const currentSlide = deck.slides[currentIndex];
+        const nextSlide = deck.slides[currentIndex + 1];
+
+        // Helper to extract title from slide
+        const getSlideTitle = (slide: BaseSlideData | undefined): string | undefined => {
+            if (!slide) return undefined;
+            if ('title' in slide && typeof slide.title === 'string') return slide.title;
+            return undefined;
+        };
+
+        this.speakerChannel.send({
+            action: 'state',
+            index: currentIndex,
+            totalSlides: deck.slides.length,
+            currentNotes: currentSlide?.notes,
+            nextSlidePreview: nextSlide ? {
+                title: getSlideTitle(nextSlide),
+                type: nextSlide.type
+            } : undefined
+        });
     }
 }
+

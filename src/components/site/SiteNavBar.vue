@@ -16,6 +16,9 @@
                 :class="['text-sm font-medium transition', activePage === 'docs' ? 'text-white' : 'text-white/60 hover:text-white']">Docs</a>
             <a :href="baseUrl + '?page=playground'" @click.prevent="$emit('navigate', 'playground')"
                 :class="['text-sm font-medium transition', activePage === 'playground' ? 'text-white' : 'text-white/60 hover:text-white']">Playground</a>
+            <a :href="baseUrl + '?page=prompt-builder'" @click.prevent="$emit('navigate', 'prompt-builder')"
+                :class="['text-sm font-medium transition', activePage === 'prompt-builder' ? 'text-white' : 'text-white/60 hover:text-white']">Prompt
+                Builder</a>
             <a :href="baseUrl + '?page=api'" @click.prevent="$emit('navigate', 'api')"
                 :class="['text-sm font-medium transition', activePage === 'api' ? 'text-white' : 'text-white/60 hover:text-white']">API</a>
         </div>

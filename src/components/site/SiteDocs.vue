@@ -350,6 +350,89 @@ engine.<span class="text-yellow-400">on</span>('action', (payload) => {
 }</code></pre>
                     </div>
 
+                    <!-- SPEAKER NOTES -->
+                    <div v-else-if="activeSection === 'speaker-notes'">
+                        <h1>Speaker Notes</h1>
+                        <p class="lead">Open a separate presenter view with notes, timer, and bidirectional navigation
+                            controls.</p>
+
+                        <h2>Adding Notes to Slides</h2>
+                        <p>Add the <code>notes</code> property to any slide. Notes are only visible in the presenter
+                            view, not on the main display.</p>
+
+                        <pre><code>{
+  <span class="text-blue-400">"type"</span>: <span class="text-green-400">"statement"</span>,
+  <span class="text-blue-400">"title"</span>: <span class="text-green-400">"Welcome"</span>,
+  <span class="text-blue-400">"subtitle"</span>: <span class="text-green-400">"An introduction to our platform"</span>,
+  <span class="text-blue-400">"notes"</span>: <span class="text-green-400">"Greet the audience. Mention key stakeholders. Time: 2 minutes."</span>
+}</code></pre>
+
+                        <h2>Opening the Presenter View</h2>
+                        <p>Call <code>openSpeakerNotes()</code> on your Lumina instance to open the presenter window.
+                        </p>
+
+                        <pre><code><span class="text-blue-400">const</span> engine = <span class="text-blue-400">new</span> Lumina('#app');
+engine.load(deckData);
+
+<span class="text-gray-500">// Open presenter view</span>
+engine.<span class="text-yellow-400">openSpeakerNotes</span>();
+
+<span class="text-gray-500">// Check if open</span>
+<span class="text-blue-400">if</span> (engine.isSpeakerNotesOpen) {
+    console.log('Presenter view active');
+}
+
+<span class="text-gray-500">// Close programmatically</span>
+engine.<span class="text-yellow-400">closeSpeakerNotes</span>();</code></pre>
+
+                        <h3>Presenter View Features</h3>
+                        <ul>
+                            <li><strong>Current Notes</strong> — Formatted notes for the current slide</li>
+                            <li><strong>Next Slide Preview</strong> — Title and type of the upcoming slide</li>
+                            <li><strong>Timer</strong> — Start/pause/reset presentation timer</li>
+                            <li><strong>Navigation</strong> — Synced controls (changes reflect in main window)</li>
+                            <li><strong>Connection Status</strong> — Visual indicator of sync state</li>
+                        </ul>
+
+                        <h3>Keyboard Shortcuts (Presenter View)</h3>
+                        <div class="overflow-x-auto border border-white/10 rounded-lg my-6">
+                            <table class="w-full text-left text-sm text-gray-400">
+                                <thead class="bg-white/5 text-white font-bold">
+                                    <tr>
+                                        <th class="p-3 border-b border-white/10">Key</th>
+                                        <th class="p-3 border-b border-white/10">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-white/5">
+                                    <tr>
+                                        <td class="p-3 font-mono">→ / Space / Enter</td>
+                                        <td class="p-3">Next slide</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-mono">← / Backspace</td>
+                                        <td class="p-3">Previous slide</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-mono">T</td>
+                                        <td class="p-3">Toggle timer</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-mono">R</td>
+                                        <td class="p-3">Reset timer</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-8 p-4 bg-blue-500/10 border border-blue-500/20 rounded-lg">
+                            <h4 class="text-blue-400 font-bold mb-2"><i class="fa-solid fa-lightbulb mr-2"></i>Pro Tip
+                            </h4>
+                            <p class="text-sm text-blue-200/80 m-0">Position the presenter window on your secondary
+                                monitor while the presentation runs on the main display. Navigation from either window
+                                stays synchronized.</p>
+                        </div>
+                    </div>
+
 
                     <!-- AGENTS: INTRO -->
                     <div v-else-if="activeSection === 'agents-intro'">
@@ -1330,7 +1413,7 @@ const EXAMPLES = {
   "sizing": "container",
   "direction": "horizontal",
   "elements": [
-    { "type": "image", "src": "/brains.png", "size": "half", "fill": true },
+    { "type": "image", "src": "./brains.png", "size": "half", "fill": true },
     { "type": "content", "size": "half", "valign": "center", "padding": "xl", "gap": "md", "elements": [
       { "type": "title", "text": "Visual Story", "size": "2xl" },
       { "type": "bullets", "items": ["Image fills height", "Content centered", "No coordinates"] },
@@ -1403,6 +1486,7 @@ const navigation = [
             { id: 'ref-timeline', label: 'Timeline' },
             { id: 'ref-steps', label: 'Steps' },
             { id: 'ref-flex', label: 'Flex' },
+            { id: 'ref-custom', label: 'Custom HTML' },
             { id: 'ref-auto', label: 'Auto Strategy' }
         ]
     },
@@ -1414,7 +1498,8 @@ const navigation = [
             { id: 'sizing', label: 'Embedding & Sizing' },
             { id: 'config', label: 'Configuration' },
             { id: 'events', label: 'Events & API' },
-            { id: 'theming', label: 'Theming' }
+            { id: 'theming', label: 'Theming' },
+            { id: 'speaker-notes', label: 'Speaker Notes' }
         ]
     }
 ];

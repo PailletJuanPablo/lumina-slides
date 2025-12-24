@@ -17,7 +17,7 @@
 **Lumina Engine** is a high-performance, declarative library that enables AI agents and LLMs to generate professional, interactive UI and slide decks by simply outputting JSON. It bridges the gap between text generation and visual storytelling, offering deterministic, GPU-accelerated rendering without the hallucination of pixel-generation.
 
 > [!IMPORTANT] > **Building an Agent?**
-> Read the complete **[Lumina for Agents Guide](./AGENTS.md)** to learn about Streaming, Auto-Layouts, and Token Optimization.
+> Read the complete **[Lumina for Agents Guide](https://github.com/PailletJuanPablo/lumina-slides/blob/main/AGENTS.md)** to learn about Streaming, Auto-Layouts, and Token Optimization.
 
 ## 🤖 Why for LLMs?
 
@@ -101,43 +101,43 @@ Lumina provides semantic layout types that LLMs can easily select based on conte
 
 Big ideas, quotes, titles. Great for "cover" slides.
 
-[![Statement Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-statement.png)](public/layout-statement.json)
-[View JSON Source](public/layout-statement.json)
+[![Statement Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-statement.png)](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-statement.json)
+[View JSON Source](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-statement.json)
 
 ### **Half**
 
 Comparisons, text + image context.
 
-[![Half Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-half.png)](public/layout-half.json)
-[View JSON Source](public/layout-half.json)
+[![Half Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-half.png)](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-half.json)
+[View JSON Source](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-half.json)
 
 ### **Features**
 
 Lists of benefits, KPIs, or grid items.
 
-[![Features Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-features.png)](public/layout-features.json)
-[View JSON Source](public/layout-features.json)
+[![Features Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-features.png)](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-features.json)
+[View JSON Source](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-features.json)
 
 ### **Timeline**
 
 Chronological events, roadmaps, history.
 
-[![Timeline Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-timeline.png)](public/layout-timeline.json)
-[View JSON Source](public/layout-timeline.json)
+[![Timeline Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-timeline.png)](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-timeline.json)
+[View JSON Source](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-timeline.json)
 
 ### **Steps**
 
 Tutorials, flows, numbered processes.
 
-[![Steps Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-steps.png)](public/layout-steps.json)
-[View JSON Source](public/layout-steps.json)
+[![Steps Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-steps.png)](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-steps.json)
+[View JSON Source](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-steps.json)
 
 ### **Embedded (Widget Mode)**
 
 Slides constrained to a container, perfect for dashboards.
 
-[![Embedded Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-embedded.png)](public/layout-embedded.json)
-[View JSON Source](public/layout-embedded.json)
+[![Embedded Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-embedded.png)](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-embedded.json)
+[View JSON Source](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-embedded.json)
 
 ## 📚 API Reference
 

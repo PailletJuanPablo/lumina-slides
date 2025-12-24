@@ -9,6 +9,7 @@
             <SiteExamples v-if="activePage === 'examples'" @select-deck="openDeck" />
             <SiteDocs v-if="activePage === 'docs'" />
             <SitePlayground v-if="activePage === 'playground'" />
+            <SitePromptBuilder v-if="activePage === 'prompt-builder'" />
             <SiteApi v-if="activePage === 'api'" />
 
             <!-- Simple Footer -->
@@ -65,6 +66,7 @@ import SiteHome from './components/site/SiteHome.vue';
 import SiteExamples from './components/site/SiteExamples.vue';
 import SiteDocs from './components/site/SiteDocs.vue';
 import SitePlayground from './components/site/SitePlayground.vue';
+import SitePromptBuilder from './components/site/SitePromptBuilder.vue';
 import SiteApi from './components/site/SiteApi.vue';
 
 const activePage = ref('home');

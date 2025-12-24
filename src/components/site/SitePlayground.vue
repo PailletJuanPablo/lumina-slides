@@ -9,11 +9,15 @@
                     <div class="flex gap-2">
                         <button @click="loadTemplate('flex')"
                             class="px-3 py-1.5 text-xs font-bold uppercase bg-blue-500/20 text-blue-400 rounded-lg hover:bg-blue-500/30 transition">
-                            Flex Template
+                            Flex
                         </button>
                         <button @click="loadTemplate('statement')"
                             class="px-3 py-1.5 text-xs font-bold uppercase bg-purple-500/20 text-purple-400 rounded-lg hover:bg-purple-500/30 transition">
                             Statement
+                        </button>
+                        <button @click="loadTemplate('custom')"
+                            class="px-3 py-1.5 text-xs font-bold uppercase bg-green-500/20 text-green-400 rounded-lg hover:bg-green-500/30 transition">
+                            Custom
                         </button>
                         <button @click="formatJson"
                             class="px-3 py-1.5 text-xs font-bold uppercase bg-white/10 text-white/60 rounded-lg hover:bg-white/20 transition">
@@ -45,12 +49,26 @@
                         </span>
                         <div class="flex gap-1">
                             <button @click="prevSlide"
-                                class="w-8 h-8 rounded-lg bg-white/10 text-white/60 hover:bg-white/20 transition flex items-center justify-center">
+                                class="w-8 h-8 rounded-lg bg-white/10 text-white/60 hover:bg-white/20 transition flex items-center justify-center"
+                                title="Previous slide (←)">
                                 ←
                             </button>
                             <button @click="nextSlide"
-                                class="w-8 h-8 rounded-lg bg-white/10 text-white/60 hover:bg-white/20 transition flex items-center justify-center">
+                                class="w-8 h-8 rounded-lg bg-white/10 text-white/60 hover:bg-white/20 transition flex items-center justify-center"
+                                title="Next slide (→)">
                                 →
+                            </button>
+                            <button @click="openSpeakerNotes"
+                                class="ml-2 px-3 py-1.5 text-xs font-bold uppercase rounded-lg transition flex items-center gap-1.5"
+                                :class="speakerNotesOpen ? 'bg-green-500/20 text-green-400' : 'bg-amber-500/20 text-amber-400 hover:bg-amber-500/30'"
+                                title="Open Speaker Notes (S)">
+                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                                    <path d="M2 17l10 5 10-5" />
+                                    <path d="M2 12l10 5 10-5" />
+                                </svg>
+                                {{ speakerNotesOpen ? 'Notes Open' : 'Notes' }}
                             </button>
                         </div>
                     </div>
@@ -83,6 +101,7 @@ const hasValidJson = ref(false);
 const editorRef = ref<HTMLTextAreaElement | null>(null);
 const slideIndex = ref<number | null>(null);
 const totalSlides = ref(0);
+const speakerNotesOpen = ref(false);
 
 let engine: Lumina | null = null;
 let debounceTimer: ReturnType<typeof setTimeout> | null = null;
@@ -94,10 +113,11 @@ const TEMPLATES = {
     {
       "type": "flex",
       "direction": "horizontal",
+      "notes": "**Demo slide** - Show how the flex layout works. Point out the image on the left. Explain content stacking. Mention the button actions.",
       "elements": [
         {
           "type": "image",
-          "src": "/brains.png",
+          "src": "./brains.png",
           "size": "half",
           "fill": true
         },
@@ -115,6 +135,13 @@ const TEMPLATES = {
           ]
         }
       ]
+    },
+    {
+      "type": "statement",
+      "tag": "Next Steps",
+      "title": "Try the Speaker Notes!",
+      "subtitle": "Click the Notes button above to open the presenter view.",
+      "notes": "This is the second slide. Encourage them to try the bidirectional sync. Show the timer functionality. Press T to toggle timer."
     }
   ]
 }`,
@@ -125,7 +152,19 @@ const TEMPLATES = {
       "type": "statement",
       "tag": "Welcome",
       "title": "Hello World",
-      "subtitle": "Edit this JSON to see changes instantly."
+      "subtitle": "Edit this JSON to see changes instantly.",
+      "notes": "Remember to greet the audience! Introduce yourself. Set expectations for the presentation."
+    }
+  ]
+}`,
+    custom: `{
+  "meta": { "title": "Custom Slide" },
+  "slides": [
+    {
+      "type": "custom",
+      "html": "<div class='custom-container'><h1 class='custom-title'>Custom HTML Slide</h1><p class='custom-text'>This slide uses raw HTML content!</p><div class='custom-grid'><div class='custom-card'>Card 1</div><div class='custom-card'>Card 2</div><div class='custom-card'>Card 3</div></div></div>",
+      "css": ".custom-container { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; padding: 2rem; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); } .custom-title { font-size: 4rem; font-weight: bold; background: linear-gradient(90deg, #00d4ff, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; } .custom-text { font-size: 1.5rem; color: rgba(255,255,255,0.7); margin-bottom: 3rem; } .custom-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } .custom-card { padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 1rem; border: 1px solid rgba(255,255,255,0.1); color: white; font-weight: 600; }",
+      "notes": "This is a custom HTML slide with inline CSS. You have full control over the layout!"
     }
   ]
 }`
@@ -216,6 +255,23 @@ const prevSlide = () => {
 
 const nextSlide = () => {
     if (engine) engine.next();
+};
+
+const openSpeakerNotes = () => {
+    if (!engine) return;
+    const win = engine.openSpeakerNotes();
+    if (win) {
+        speakerNotesOpen.value = true;
+        // Monitor for close
+        const checkClosed = setInterval(() => {
+            if (win.closed) {
+                speakerNotesOpen.value = false;
+                clearInterval(checkClosed);
+            }
+        }, 500);
+    } else {
+        alert('Popup blocked! Please allow popups for speaker notes.');
+    }
 };
 
 onMounted(() => {
