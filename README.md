@@ -38,7 +38,7 @@ Traditional UI libraries require understanding complex component trees, CSS modu
 ## 📦 Installation
 
 ```bash
-npm install lumina-slides gsap
+npm install lumina-slides
 ```
 
 ## ⚡ Quick Start for Agents
@@ -81,7 +81,11 @@ You pass that JSON directly to Lumina.
 import { Lumina } from "lumina-slides";
 import "lumina-slides/style.css";
 
-const engine = new Lumina("#app");
+// Works in Vanilla JS, React, Angular, Svelte, etc.
+// No Vue installation required.
+const engine = new Lumina("#app", {
+  theme: "dark",
+});
 
 // Imagine this comes from your LLM stream
 const llmOutput = await agent.generatePresentation();

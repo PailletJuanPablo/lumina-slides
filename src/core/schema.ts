@@ -5,8 +5,14 @@ import { z } from 'zod';
 /**
  * Normalizes short aliases (t -> title, s -> subtitle) to full property names.
  */
-const normalizeAliases = (obj: any) => {
+export const normalizeAliases = (obj: any): any => {
     if (!obj || typeof obj !== 'object') return obj;
+
+    // Handle Arrays Recursively
+    if (Array.isArray(obj)) {
+        return obj.map(item => normalizeAliases(item));
+    }
+
     const map: Record<string, string> = {
         't': 'title',
         's': 'subtitle',
@@ -18,11 +24,15 @@ const normalizeAliases = (obj: any) => {
         'tl': 'timeline',
         'st': 'steps'
     };
-    const newObj: any = { ...obj };
-    for (const [short, full] of Object.entries(map)) {
-        if (short in newObj && !(full in newObj)) {
-            newObj[full] = newObj[short];
-            delete newObj[short]; // Optional: keep clean
+
+    const newObj: any = {};
+    for (const key in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key)) {
+            const normalizedKey = map[key] || key;
+            const value = obj[key];
+
+            // Recurse into values (objects or arrays)
+            newObj[normalizedKey] = normalizeAliases(value);
         }
     }
     return newObj;
@@ -80,7 +90,7 @@ const SlideStatementSchema = SlideBaseShape.extend({
 // Layout: Features
 const FeatureItemSchema = z.object({
     title: fuzzyString.describe("Feature name."),
-    desc: fuzzyString.describe("Short benefit description."),
+    description: fuzzyString.describe("Short benefit description."),
     icon: IconSchema.optional().describe("Visual icon for the feature."),
 });
 
@@ -132,6 +142,116 @@ const SlideHalfSchema = SlideBaseShape.extend({
     cta: fuzzyString.optional().describe("Call to Action label (button)."),
 });
 
+// Layout: Flex - Spacing and Size Tokens
+const SpacingTokenSchema = z.enum(['none', 'xs', 'sm', 'md', 'lg', 'xl', '2xl']).describe("Spacing size token.");
+const FlexSizeSchema = z.enum(['auto', 'quarter', 'third', 'half', 'two-thirds', 'three-quarters', 'full']).describe("Element size in container.");
+const VAlignSchema = z.enum(['top', 'center', 'bottom']).describe("Vertical alignment.");
+const HAlignSchema = z.enum(['left', 'center', 'right']).describe("Horizontal alignment.");
+const TextAlignSchema = z.enum(['left', 'center', 'right']).describe("Text alignment.");
+
+// Flex Element Schemas
+const FlexElementTitleSchema = z.object({
+    type: z.literal('title').describe("Large heading text."),
+    text: fuzzyString.describe("The heading text."),
+    size: z.enum(['lg', 'xl', '2xl', '3xl']).optional().describe("Heading size. Default: 'xl'."),
+    align: TextAlignSchema.optional().describe("Text alignment. Default: 'left'."),
+});
+
+const FlexElementTextSchema = z.object({
+    type: z.literal('text').describe("Body paragraph text."),
+    text: fuzzyString.describe("The paragraph text."),
+    align: TextAlignSchema.optional().describe("Text alignment. Default: 'left'."),
+    muted: z.boolean().optional().describe("Muted/subtle appearance. Default: false."),
+});
+
+const FlexElementBulletsSchema = z.object({
+    type: z.literal('bullets').describe("Unordered bullet list."),
+    items: fuzzyArray(z.string()).describe("List items."),
+});
+
+const FlexElementOrderedSchema = z.object({
+    type: z.literal('ordered').describe("Numbered list."),
+    items: fuzzyArray(z.string()).describe("List items."),
+});
+
+const FlexElementImageSchema = z.object({
+    type: z.literal('image').describe("Visual media element."),
+    src: fuzzyString.describe("Image URL."),
+    alt: fuzzyString.optional().describe("Alt text for accessibility."),
+    fill: z.boolean().optional().describe("Fill container edge-to-edge. Default: true."),
+    fit: z.enum(['cover', 'contain']).optional().describe("Object-fit when fill. Default: 'cover'."),
+    rounded: z.enum(['none', 'sm', 'md', 'lg', 'xl', 'full']).optional().describe("Border radius."),
+});
+
+const FlexElementButtonSchema = z.object({
+    type: z.literal('button').describe("Call-to-action button."),
+    label: fuzzyString.describe("Button label text."),
+    action: fuzzyString.optional().describe("Action identifier emitted on click."),
+    variant: z.enum(['primary', 'secondary', 'outline', 'ghost']).optional().describe("Visual variant. Default: 'primary'."),
+    fullWidth: z.boolean().optional().describe("Full width button. Default: false."),
+});
+
+const FlexElementTimelineSchema = z.object({
+    type: z.literal('timeline').describe("Embedded timeline with events."),
+    items: fuzzyArray(TimelineItemSchema).describe("Timeline events."),
+    compact: z.boolean().optional().describe("Compact display mode. Default: false."),
+});
+
+const FlexElementStepperSchema = z.object({
+    type: z.literal('stepper').describe("Embedded step-by-step process."),
+    items: fuzzyArray(StepItemSchema).describe("Step items."),
+    compact: z.boolean().optional().describe("Compact display mode. Default: false."),
+});
+
+const FlexElementSpacerSchema = z.object({
+    type: z.literal('spacer').describe("Adds visual spacing."),
+    size: SpacingTokenSchema.optional().describe("Size of the space. Default: 'md'."),
+});
+
+// Child elements (inside content container)
+const FlexChildElementSchema = z.discriminatedUnion('type', [
+    FlexElementTitleSchema,
+    FlexElementTextSchema,
+    FlexElementBulletsSchema,
+    FlexElementOrderedSchema,
+    FlexElementButtonSchema,
+    FlexElementTimelineSchema,
+    FlexElementStepperSchema,
+    FlexElementSpacerSchema,
+]);
+
+// Content container schema
+const FlexElementContentSchema = z.object({
+    type: z.literal('content').describe("Groups child elements vertically with alignment control."),
+    elements: fuzzyArray(FlexChildElementSchema).describe("Child elements."),
+    valign: VAlignSchema.optional().describe("Vertical alignment. Default: 'center'."),
+    halign: HAlignSchema.optional().describe("Horizontal alignment. Default: 'left'."),
+    gap: SpacingTokenSchema.optional().describe("Gap between children. Default: 'md'."),
+    padding: SpacingTokenSchema.optional().describe("Internal padding. Default: 'lg'."),
+    size: FlexSizeSchema.optional().describe("Size in parent flex container."),
+});
+
+// Top-level flex element (with size property)
+const FlexElementSchema = z.discriminatedUnion('type', [
+    FlexElementImageSchema.extend({ size: FlexSizeSchema.optional() }),
+    FlexElementContentSchema,
+    FlexElementTitleSchema.extend({ size: FlexSizeSchema.optional() }),
+    FlexElementTextSchema.extend({ size: FlexSizeSchema.optional() }),
+    FlexElementBulletsSchema.extend({ size: FlexSizeSchema.optional() }),
+    FlexElementOrderedSchema.extend({ size: FlexSizeSchema.optional() }),
+    FlexElementButtonSchema.extend({ size: FlexSizeSchema.optional() }),
+    FlexElementTimelineSchema.extend({ size: FlexSizeSchema.optional() }),
+    FlexElementStepperSchema.extend({ size: FlexSizeSchema.optional() }),
+]);
+
+const SlideFlexSchema = SlideBaseShape.extend({
+    type: z.literal('flex').describe("Flow-based layout. Elements flow in order with semantic sizing."),
+    direction: z.enum(['horizontal', 'vertical']).optional().describe("Main flow direction. Default: 'horizontal'."),
+    gap: SpacingTokenSchema.optional().describe("Gap between elements. Default: 'none'."),
+    padding: SpacingTokenSchema.optional().describe("Container padding. Default: 'none'."),
+    elements: fuzzyArray(FlexElementSchema).describe("Flex elements in flow order."),
+});
+
 // Union of all Slides (Validation Layer)
 export const SlideSchema = z.discriminatedUnion('type', [
     SlideStatementSchema,
@@ -139,6 +259,7 @@ export const SlideSchema = z.discriminatedUnion('type', [
     SlideTimelineSchema,
     SlideStepsSchema,
     SlideHalfSchema,
+    SlideFlexSchema,
 ]);
 
 // Deck Schema

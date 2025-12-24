@@ -4,6 +4,9 @@ import { resolve } from 'path'
 
 export default defineConfig({
     plugins: [vue()],
+    define: {
+        'process.env.NODE_ENV': '"production"'
+    },
     build: {
         lib: {
             entry: resolve(__dirname, 'src/index.ts'),
@@ -11,11 +14,9 @@ export default defineConfig({
             fileName: 'lumina-slides',
         },
         rollupOptions: {
-            external: ['vue'],
+            // Vue is now bundled!
             output: {
-                globals: {
-                    vue: 'Vue',
-                },
+                // No globals needed
             },
         },
     },

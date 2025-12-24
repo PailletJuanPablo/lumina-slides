@@ -3,7 +3,7 @@
         <div
             :class="['w-full flex flex-col justify-center p-8 lg:p-24', data.sizing === 'container' ? 'min-h-full' : 'min-h-screen']">
             <!-- Header -->
-            <div class="mb-16 reveal-up text-center lg:text-left max-w-4xl">
+            <div class="mb-16 reveal-up text-center lg:text-left max-w-6xl">
                 <h2 :class="['font-heading font-bold mb-4', data.sizing === 'container' ? 'text-3xl' : 'text-5xl']">{{
                     data.title }}</h2>
                 <p :class="[data.sizing === 'container' ? 'text-sm' : 'text-xl']"

@@ -5,6 +5,7 @@ import LayoutHalf from '../components/layouts/LayoutHalf.vue';
 import LayoutFeatures from '../components/layouts/LayoutFeatures.vue';
 import LayoutTimeline from '../components/layouts/LayoutTimeline.vue';
 import LayoutSteps from '../components/layouts/LayoutSteps.vue';
+import LayoutFlex from '../components/layouts/LayoutFlex.vue';
 import LayoutAuto from '../components/layouts/LayoutAuto.vue';
 import { createStore, StoreKey, LuminaStore } from './store';
 import { bus } from './events';
@@ -53,6 +54,7 @@ export class Lumina {
         this.app.component('layout-features', LayoutFeatures);
         this.app.component('layout-timeline', LayoutTimeline);
         this.app.component('layout-steps', LayoutSteps);
+        this.app.component('layout-flex', LayoutFlex);
         this.app.component('layout-auto', LayoutAuto);
 
         // Internal Event Listeners
@@ -103,7 +105,7 @@ export class Lumina {
                 index: currentIndex,
                 id: slide?.id || currentIndex,
                 type: slide?.type,
-                title: slide?.title || "(No Title)"
+                title: (slide && 'title' in slide ? slide.title : null) || "(No Title)"
             },
             narrative: `User is currently on slide ${currentIndex + 1}. Session Flow: ${context || "Just started"}.`,
             engagementLevel: interest,

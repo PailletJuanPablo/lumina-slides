@@ -29,13 +29,13 @@
         <!-- Main Content Area -->
         <main class="flex-1 w-full min-w-0 pb-32">
             <Transition name="fade" mode="out-in">
-                <div :key="activeSection" class="doc-content max-w-4xl">
+                <div :key="activeSection" class="doc-content max-w-6xl">
 
                     <!-- INTRODUCTION -->
                     <div v-if="activeSection === 'intro'">
                         <h1>Introduction</h1>
                         <p class="lead text-2xl text-white font-light">
-                            Lumina is a high-performance, declarative presentation engine built for Vue 3.
+                            Lumina is a high-performance, Universal Presentation Engine.
                         </p>
                         <p>
                             Unlike traditional tools that trap your content in proprietary file formats, Lumina defines
@@ -53,7 +53,7 @@
                                 <h3
                                     class="text-xl font-bold mb-2 text-white group-hover:text-yellow-400 transition-colors">
                                     Fast by default</h3>
-                                <p class="text-sm text-white/50 leading-relaxed">Built on top of Vite and Vue 3 to
+                                <p class="text-sm text-white/50 leading-relaxed">Bundles Vue 3 and GSAP internally to
                                     ensure instant load times and buttery smooth 60fps animations.</p>
                             </div>
 
@@ -75,8 +75,8 @@
                     <!-- INSTALLATION -->
                     <div v-else-if="activeSection === 'install'">
                         <h1>Installation</h1>
-                        <p>Lumina is available as an NPM package. It is designed to work seamlessly within existing Vue
-                            3 applications.</p>
+                        <p>Lumina is available as a Universal NPM package. It works in any JavaScript environment
+                            (Vanilla, React, Vue, Svelte, etc.) without external dependencies.</p>
 
                         <div class="not-prose my-8">
                             <div class="bg-[#0f0f0f] border border-white/10 rounded-xl overflow-hidden shadow-2xl">
@@ -98,31 +98,28 @@
 
                         <h3>Requirements</h3>
                         <ul>
-                            <li><strong>Vue 3.3+</strong> (Script Setup recommended)</li>
-                            <li><strong>Vite 4+</strong> (Required for optimized asset handling)</li>
-                            <li><strong>GSAP</strong> (Automatically installed as a dependency)</li>
+                            <li><strong>Node.js 18+</strong> (For development)</li>
+                            <li><strong>That's it!</strong> (Vue and GSAP are bundled)</li>
                         </ul>
                     </div>
 
                     <!-- SETUP -->
                     <div v-else-if="activeSection === 'setup'">
-                        <h1>Vue Setup</h1>
-                        <p>Import the stylesheet and initialize the engine in your main entry file (usually
-                            <code>main.ts</code>).
+                        <h1>Quick Start</h1>
+                        <p>Import the stylesheet and initialize the engine in your main entry file.
                         </p>
 
-                        <pre class="language-js"><code><span class="text-purple-400">import</span> { createApp } <span class="text-purple-400">from</span> 'vue';
-<span class="text-purple-400">import</span> { Lumina } <span class="text-purple-400">from</span> 'lumina-slides';
+                        <pre class="language-js"><code><span class="text-purple-400">import</span> { Lumina } <span class="text-purple-400">from</span> 'lumina-slides';
 <span class="text-purple-400">import</span> 'lumina-slides/dist/style.css';
-<span class="text-purple-400">import</span> App <span class="text-purple-400">from</span> './App.vue';
 
-<span class="text-gray-500">// Initialize seamlessly</span>
+<span class="text-gray-500">// Initialize seamlessly in any app</span>
 <span class="text-blue-400">const</span> engine = <span class="text-blue-400">new</span> Lumina('#app', {
     loop: <span class="text-yellow-400">true</span>,
     theme: 'ocean' 
 });
 
-createApp(App).mount('#app');</code></pre>
+<span class="text-gray-500">// Load your deck</span>
+engine.load(myDeckData);</code></pre>
                     </div>
 
                     <!-- DECK STRUCTURE -->
@@ -233,6 +230,29 @@ createApp(App).mount('#app');</code></pre>
   <span class="text-blue-400">"title"</span>: <span class="text-green-400">"History"</span>,
   <span class="text-blue-400">"timeline"</span>: [
     { <span class="text-blue-400">"date"</span>: <span class="text-green-400">"2024"</span>, <span class="text-blue-400">"title"</span>: <span class="text-green-400">"Launch"</span>, <span class="text-blue-400">"description"</span>: <span class="text-green-400">"V1 Released"</span> }
+  ]
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <!-- Grid -->
+                            <div class="p-8 rounded-2xl bg-white/[0.02] border border-white/5 shadow-2xl">
+                                <div class="flex items-center gap-4 mb-6">
+                                    <div
+                                        class="w-10 h-10 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-lg">
+                                        5</div>
+                                    <div>
+                                        <h2 class="text-2xl font-bold text-white mb-1">Grid</h2>
+                                        <p class="text-sm text-white/50">Flexible grid-based layout. Position elements
+                                            with row/col. LLM-friendly.</p>
+                                    </div>
+                                </div>
+                                <div class="prose prose-invert max-w-none prose-pre:bg-black/50 prose-pre:border-none">
+                                    <pre><code>{
+  <span class="text-blue-400">"type"</span>: <span class="text-green-400">"grid"</span>,
+  <span class="text-blue-400">"gridSize"</span>: <span class="text-yellow-400">4</span>,
+  <span class="text-blue-400">"elements"</span>: [
+    { <span class="text-blue-400">"type"</span>: <span class="text-green-400">"title"</span>, <span class="text-blue-400">"text"</span>: <span class="text-green-400">"Hello"</span>, <span class="text-blue-400">"row"</span>: <span class="text-yellow-400">1</span>, <span class="text-blue-400">"col"</span>: <span class="text-yellow-400">1</span>, <span class="text-blue-400">"colSpan"</span>: <span class="text-yellow-400">4</span> }
   ]
 }</code></pre>
                                 </div>
@@ -558,10 +578,75 @@ engine.<span class="text-yellow-400">on</span>('action', (payload) => {
                         </p>
                         <p>Lumina analyzes the content structure to pick the best view automatically.</p>
 
+                        <div class="p-6 bg-blue-500/10 border border-blue-500/20 rounded-xl my-8">
+                            <h3 class="text-blue-400 font-bold mb-2">Detection Priority</h3>
+                            <ul class="list-disc list-inside text-sm text-blue-200/80 space-y-1">
+                                <li>If <code>timeline</code> array exists -> <strong>Timeline Layout</strong></li>
+                                <li>If <code>steps</code> array exists -> <strong>Steps Layout</strong></li>
+                                <li>If <code>features</code> array exists -> <strong>Features Layout</strong></li>
+                                <li>If <code>image</code> exists -> <strong>Half Layout</strong></li>
+                                <li>Otherwise -> <strong>Statement Layout</strong></li>
+                            </ul>
+                        </div>
+
+                        <h3>Example: Multi-Slide Auto Detection</h3>
+                        <p class="text-sm text-gray-400 mb-4">Each slide uses <code>type: "auto"</code> but renders
+                            differently based on its content structure.</p>
+
                         <pre><code>{
-  <span class="text-blue-400">"type"</span>: <span class="text-green-400">"auto"</span>,
-  <span class="text-blue-400">"timeline"</span>: [ ... ] <span class="text-gray-500">// Engine detects timeline data -> Renders Timeline Layout</span>
+  <span class="text-blue-400">"slides"</span>: [
+    <span class="text-gray-500">// Renders as Statement (no special arrays detected)</span>
+    {
+      <span class="text-blue-400">"type"</span>: <span class="text-green-400">"auto"</span>,
+      <span class="text-blue-400">"title"</span>: <span class="text-green-400">"Welcome to Our Platform"</span>,
+      <span class="text-blue-400">"subtitle"</span>: <span class="text-green-400">"The future of presentations"</span>
+    },
+    <span class="text-gray-500">// Renders as Features (features array detected)</span>
+    {
+      <span class="text-blue-400">"type"</span>: <span class="text-green-400">"auto"</span>,
+      <span class="text-blue-400">"title"</span>: <span class="text-green-400">"Why Choose Us"</span>,
+      <span class="text-blue-400">"features"</span>: [
+        { <span class="text-blue-400">"title"</span>: <span class="text-green-400">"Fast"</span>, <span class="text-blue-400">"desc"</span>: <span class="text-green-400">"60fps animations"</span>, <span class="text-blue-400">"icon"</span>: <span class="text-green-400">"fa-bolt"</span> },
+        { <span class="text-blue-400">"title"</span>: <span class="text-green-400">"Simple"</span>, <span class="text-blue-400">"desc"</span>: <span class="text-green-400">"JSON-first"</span>, <span class="text-blue-400">"icon"</span>: <span class="text-green-400">"fa-code"</span> },
+        { <span class="text-blue-400">"title"</span>: <span class="text-green-400">"Smart"</span>, <span class="text-blue-400">"desc"</span>: <span class="text-green-400">"AI-ready"</span>, <span class="text-blue-400">"icon"</span>: <span class="text-green-400">"fa-brain"</span> }
+      ]
+    },
+    <span class="text-gray-500">// Renders as Timeline (timeline array detected)</span>
+    {
+      <span class="text-blue-400">"type"</span>: <span class="text-green-400">"auto"</span>,
+      <span class="text-blue-400">"title"</span>: <span class="text-green-400">"Our Journey"</span>,
+      <span class="text-blue-400">"timeline"</span>: [
+        { <span class="text-blue-400">"date"</span>: <span class="text-green-400">"2023"</span>, <span class="text-blue-400">"title"</span>: <span class="text-green-400">"Concept"</span>, <span class="text-blue-400">"description"</span>: <span class="text-green-400">"The idea was born"</span> },
+        { <span class="text-blue-400">"date"</span>: <span class="text-green-400">"2024"</span>, <span class="text-blue-400">"title"</span>: <span class="text-green-400">"Launch"</span>, <span class="text-blue-400">"description"</span>: <span class="text-green-400">"V1.0 released"</span> }
+      ]
+    },
+    <span class="text-gray-500">// Renders as Steps (steps array detected)</span>
+    {
+      <span class="text-blue-400">"type"</span>: <span class="text-green-400">"auto"</span>,
+      <span class="text-blue-400">"title"</span>: <span class="text-green-400">"Getting Started"</span>,
+      <span class="text-blue-400">"steps"</span>: [
+        { <span class="text-blue-400">"step"</span>: <span class="text-yellow-400">1</span>, <span class="text-blue-400">"title"</span>: <span class="text-green-400">"Install"</span>, <span class="text-blue-400">"description"</span>: <span class="text-green-400">"npm install lumina-slides"</span> },
+        { <span class="text-blue-400">"step"</span>: <span class="text-yellow-400">2</span>, <span class="text-blue-400">"title"</span>: <span class="text-green-400">"Import"</span>, <span class="text-blue-400">"description"</span>: <span class="text-green-400">"Import Lumina class"</span> },
+        { <span class="text-blue-400">"step"</span>: <span class="text-yellow-400">3</span>, <span class="text-blue-400">"title"</span>: <span class="text-green-400">"Create"</span>, <span class="text-blue-400">"description"</span>: <span class="text-green-400">"Define your slides"</span> }
+      ]
+    },
+    <span class="text-gray-500">// Renders as Half (image property detected)</span>
+    {
+      <span class="text-blue-400">"type"</span>: <span class="text-green-400">"auto"</span>,
+      <span class="text-blue-400">"title"</span>: <span class="text-green-400">"Visual Storytelling"</span>,
+      <span class="text-blue-400">"image"</span>: <span class="text-green-400">"https://images.unsplash.com/..."</span>,
+      <span class="text-blue-400">"paragraphs"</span>: [<span class="text-green-400">"Combine text and visuals seamlessly."</span>]
+    }
+  ]
 }</code></pre>
+
+                        <div class="mt-8 p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
+                            <h4 class="text-yellow-400 font-bold mb-2"><i class="fa-solid fa-lightbulb mr-2"></i>Pro Tip
+                            </h4>
+                            <p class="text-sm text-yellow-200/80 m-0">Using <code>type: "auto"</code> simplifies prompt
+                                engineering for AI agents. The LLM only needs to provide the data structure, and Lumina
+                                will handle the visual representation automatically.</p>
+                        </div>
                     </div>
 
                     <!-- AGENTS: STATE -->
@@ -575,6 +660,497 @@ engine.<span class="text-yellow-400">on</span>('action', (payload) => {
   <span class="text-blue-400">"engagementLevel"</span>: <span class="text-green-400">"High"</span>
 }</code></pre>
                     </div>
+
+                    <!-- REF: STATEMENT -->
+                    <div v-else-if="activeSection === 'ref-statement'">
+                        <h1>Statement Slide</h1>
+                        <p class="lead">Used for high-impact titles, opening covers, or emphatic quotes. It is designed
+                            to be punchy and minimal.</p>
+
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Configuration</h2>
+                            <div class="overflow-x-auto border border-white/10 rounded-lg">
+                                <table class="w-full text-left text-sm text-gray-400">
+                                    <thead class="bg-white/5 text-white font-bold">
+                                        <tr>
+                                            <th class="p-3 border-b border-white/10">Property</th>
+                                            <th class="p-3 border-b border-white/10">Type</th>
+                                            <th class="p-3 border-b border-white/10">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-white/5">
+                                        <tr>
+                                            <td class="p-3 font-mono text-purple-400">type</td>
+                                            <td class="p-3 font-mono text-xs">"statement"</td>
+                                            <td class="p-3">Required. Identifies the layout.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">title</td>
+                                            <td class="p-3 font-mono text-xs">string</td>
+                                            <td class="p-3">Main headline. Keep it short (3-6 words).</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">subtitle</td>
+                                            <td class="p-3 font-mono text-xs">string?</td>
+                                            <td class="p-3">Optional supporting text.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">tag</td>
+                                            <td class="p-3 font-mono text-xs">string?</td>
+                                            <td class="p-3">Small eyebrow tag above the title.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Example</h2>
+                            <LivePreview :initial-code="EXAMPLES.statement" />
+                        </div>
+                    </div>
+
+                    <!-- REF: HALF -->
+                    <div v-else-if="activeSection === 'ref-half'">
+                        <h1>Half / Split Slide</h1>
+                        <p class="lead">Combines a strong visual with explanatory text. Ideal for product showcases or
+                            "about me" sections.</p>
+
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Configuration</h2>
+                            <div class="overflow-x-auto border border-white/10 rounded-lg">
+                                <table class="w-full text-left text-sm text-gray-400">
+                                    <thead class="bg-white/5 text-white font-bold">
+                                        <tr>
+                                            <th class="p-3 border-b border-white/10">Property</th>
+                                            <th class="p-3 border-b border-white/10">Type</th>
+                                            <th class="p-3 border-b border-white/10">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-white/5">
+                                        <tr>
+                                            <td class="p-3 font-mono text-purple-400">type</td>
+                                            <td class="p-3 font-mono text-xs">"half"</td>
+                                            <td class="p-3">Required.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">image</td>
+                                            <td class="p-3 font-mono text-xs">string</td>
+                                            <td class="p-3">URL to the image.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">imageSide</td>
+                                            <td class="p-3 font-mono text-xs">"left" | "right"</td>
+                                            <td class="p-3">Defaults to 'left'.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">title</td>
+                                            <td class="p-3 font-mono text-xs">string</td>
+                                            <td class="p-3">Headline text.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">paragraphs</td>
+                                            <td class="p-3 font-mono text-xs">string[]</td>
+                                            <td class="p-3">Array of text blocks.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">cta</td>
+                                            <td class="p-3 font-mono text-xs">string?</td>
+                                            <td class="p-3">Button label.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Example</h2>
+                            <LivePreview :initial-code="EXAMPLES.half" />
+                        </div>
+                    </div>
+
+                    <!-- REF: FEATURES -->
+                    <div v-else-if="activeSection === 'ref-features'">
+                        <h1>Features Slide</h1>
+                        <p class="lead">Displays a grid of cards, perfect for listing benefits, stats, or services.</p>
+
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Configuration</h2>
+                            <div class="overflow-x-auto border border-white/10 rounded-lg">
+                                <table class="w-full text-left text-sm text-gray-400">
+                                    <thead class="bg-white/5 text-white font-bold">
+                                        <tr>
+                                            <th class="p-3 border-b border-white/10">Property</th>
+                                            <th class="p-3 border-b border-white/10">Type</th>
+                                            <th class="p-3 border-b border-white/10">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-white/5">
+                                        <tr>
+                                            <td class="p-3 font-mono text-purple-400">type</td>
+                                            <td class="p-3 font-mono text-xs">"features"</td>
+                                            <td class="p-3">Required.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">title</td>
+                                            <td class="p-3 font-mono text-xs">string</td>
+                                            <td class="p-3">Section header.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">description</td>
+                                            <td class="p-3 font-mono text-xs">string?</td>
+                                            <td class="p-3">Optional context.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">features</td>
+                                            <td class="p-3 font-mono text-xs">Feature[]</td>
+                                            <td class="p-3">Array of objects: <code>{ title, desc, icon? }</code>.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Example</h2>
+                            <LivePreview :initial-code="EXAMPLES.features" />
+                        </div>
+                    </div>
+
+                    <!-- REF: TIMELINE -->
+                    <div v-else-if="activeSection === 'ref-timeline'">
+                        <h1>Timeline Slide</h1>
+                        <p class="lead">Horizontal scrolling view for chronological events, roadmaps, or history.</p>
+
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Configuration</h2>
+                            <div class="overflow-x-auto border border-white/10 rounded-lg">
+                                <table class="w-full text-left text-sm text-gray-400">
+                                    <thead class="bg-white/5 text-white font-bold">
+                                        <tr>
+                                            <th class="p-3 border-b border-white/10">Property</th>
+                                            <th class="p-3 border-b border-white/10">Type</th>
+                                            <th class="p-3 border-b border-white/10">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-white/5">
+                                        <tr>
+                                            <td class="p-3 font-mono text-purple-400">type</td>
+                                            <td class="p-3 font-mono text-xs">"timeline"</td>
+                                            <td class="p-3">Required.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">title</td>
+                                            <td class="p-3 font-mono text-xs">string</td>
+                                            <td class="p-3">Header.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">timeline</td>
+                                            <td class="p-3 font-mono text-xs">Event[]</td>
+                                            <td class="p-3">Array: <code>{ date, title, description }</code>.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Example</h2>
+                            <LivePreview :initial-code="EXAMPLES.timeline" />
+                        </div>
+                    </div>
+
+                    <!-- REF: STEPS -->
+                    <div v-else-if="activeSection === 'ref-steps'">
+                        <h1>Steps Slide</h1>
+                        <p class="lead">Used for tutorials, "how-to" guides, or process flows.</p>
+
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Configuration</h2>
+                            <div class="overflow-x-auto border border-white/10 rounded-lg">
+                                <table class="w-full text-left text-sm text-gray-400">
+                                    <thead class="bg-white/5 text-white font-bold">
+                                        <tr>
+                                            <th class="p-3 border-b border-white/10">Property</th>
+                                            <th class="p-3 border-b border-white/10">Type</th>
+                                            <th class="p-3 border-b border-white/10">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-white/5">
+                                        <tr>
+                                            <td class="p-3 font-mono text-purple-400">type</td>
+                                            <td class="p-3 font-mono text-xs">"steps"</td>
+                                            <td class="p-3">Required.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">title</td>
+                                            <td class="p-3 font-mono text-xs">string</td>
+                                            <td class="p-3">Process name.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">steps</td>
+                                            <td class="p-3 font-mono text-xs">Step[]</td>
+                                            <td class="p-3">Array: <code>{ step, title, description }</code>.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Example</h2>
+                            <LivePreview :initial-code="EXAMPLES.steps" />
+                        </div>
+                    </div>
+
+                    <!-- REF: FLEX -->
+                    <div v-else-if="activeSection === 'ref-flex'">
+                        <h1>Flex Layout</h1>
+                        <p class="lead">Flow-based layout for composing slides using semantic sizing. No coordinates
+                            needed—perfect for LLM generation.</p>
+
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Slide Options</h2>
+                            <div class="overflow-x-auto border border-white/10 rounded-lg">
+                                <table class="w-full text-left text-sm text-gray-400">
+                                    <thead class="bg-white/5 text-white font-bold">
+                                        <tr>
+                                            <th class="p-3 border-b border-white/10">Property</th>
+                                            <th class="p-3 border-b border-white/10">Type</th>
+                                            <th class="p-3 border-b border-white/10">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-white/5">
+                                        <tr>
+                                            <td class="p-3 font-mono text-purple-400">type</td>
+                                            <td class="p-3 font-mono text-xs">"flex"</td>
+                                            <td class="p-3">Required.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">direction</td>
+                                            <td class="p-3 font-mono text-xs">"horizontal" | "vertical"</td>
+                                            <td class="p-3">Main flow direction. Default: "horizontal".</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">gap</td>
+                                            <td class="p-3 font-mono text-xs">SpacingToken</td>
+                                            <td class="p-3">Gap between elements. Default: "none".</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">padding</td>
+                                            <td class="p-3 font-mono text-xs">SpacingToken</td>
+                                            <td class="p-3">Container padding. Default: "none".</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">elements</td>
+                                            <td class="p-3 font-mono text-xs">FlexElement[]</td>
+                                            <td class="p-3">Array of flex elements in flow order.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Size Tokens</h2>
+                            <p>Each element can have a <code>size</code> property to control how much space it occupies:
+                            </p>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-6 not-prose">
+                                <div class="p-4 bg-white/5 rounded-lg text-center"><code>auto</code><br><span
+                                        class="text-xs text-white/40">flexible</span></div>
+                                <div class="p-4 bg-white/5 rounded-lg text-center"><code>quarter</code><br><span
+                                        class="text-xs text-white/40">25%</span></div>
+                                <div class="p-4 bg-white/5 rounded-lg text-center"><code>third</code><br><span
+                                        class="text-xs text-white/40">33%</span></div>
+                                <div class="p-4 bg-white/5 rounded-lg text-center"><code>half</code><br><span
+                                        class="text-xs text-white/40">50%</span></div>
+                                <div class="p-4 bg-white/5 rounded-lg text-center"><code>two-thirds</code><br><span
+                                        class="text-xs text-white/40">66%</span></div>
+                                <div class="p-4 bg-white/5 rounded-lg text-center"><code>three-quarters</code><br><span
+                                        class="text-xs text-white/40">75%</span></div>
+                                <div class="p-4 bg-white/5 rounded-lg text-center"><code>full</code><br><span
+                                        class="text-xs text-white/40">100%</span></div>
+                            </div>
+                        </div>
+
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Element Types</h2>
+                            <div class="overflow-x-auto border border-white/10 rounded-lg">
+                                <table class="w-full text-left text-sm text-gray-400">
+                                    <thead class="bg-white/5 text-white font-bold">
+                                        <tr>
+                                            <th class="p-3 border-b border-white/10">Type</th>
+                                            <th class="p-3 border-b border-white/10">Properties</th>
+                                            <th class="p-3 border-b border-white/10">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-white/5">
+                                        <tr>
+                                            <td class="p-3 font-mono text-cyan-400">content</td>
+                                            <td class="p-3 font-mono text-xs">elements, valign, halign, gap, padding
+                                            </td>
+                                            <td class="p-3">Container that groups child elements vertically.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-cyan-400">image</td>
+                                            <td class="p-3 font-mono text-xs">src, alt?, fill?, fit?, rounded?</td>
+                                            <td class="p-3">Visual media element.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-cyan-400">title</td>
+                                            <td class="p-3 font-mono text-xs">text, size?, align?</td>
+                                            <td class="p-3">Large heading (lg | xl | 2xl | 3xl).</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-cyan-400">text</td>
+                                            <td class="p-3 font-mono text-xs">text, align?, muted?</td>
+                                            <td class="p-3">Body paragraph text.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-cyan-400">bullets</td>
+                                            <td class="p-3 font-mono text-xs">items: string[]</td>
+                                            <td class="p-3">Unordered bullet list.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-cyan-400">ordered</td>
+                                            <td class="p-3 font-mono text-xs">items: string[]</td>
+                                            <td class="p-3">Numbered list.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-cyan-400">button</td>
+                                            <td class="p-3 font-mono text-xs">label, action?, variant?, fullWidth?</td>
+                                            <td class="p-3">CTA button (primary | secondary | outline | ghost).</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-cyan-400">timeline</td>
+                                            <td class="p-3 font-mono text-xs">items: TimelineItem[], compact?</td>
+                                            <td class="p-3">Embedded timeline.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-cyan-400">stepper</td>
+                                            <td class="p-3 font-mono text-xs">items: StepItem[], compact?</td>
+                                            <td class="p-3">Embedded step process.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-cyan-400">spacer</td>
+                                            <td class="p-3 font-mono text-xs">size?: SpacingToken</td>
+                                            <td class="p-3">Adds visual spacing.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Content Container</h2>
+                            <p>Use <code>content</code> to group related elements with alignment control:</p>
+                            <div class="overflow-x-auto border border-white/10 rounded-lg mt-6">
+                                <table class="w-full text-left text-sm text-gray-400">
+                                    <thead class="bg-white/5 text-white font-bold">
+                                        <tr>
+                                            <th class="p-3 border-b border-white/10">Property</th>
+                                            <th class="p-3 border-b border-white/10">Values</th>
+                                            <th class="p-3 border-b border-white/10">Default</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-white/5">
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">valign</td>
+                                            <td class="p-3 font-mono text-xs">top | center | bottom</td>
+                                            <td class="p-3">center</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">halign</td>
+                                            <td class="p-3 font-mono text-xs">left | center | right</td>
+                                            <td class="p-3">left</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">gap</td>
+                                            <td class="p-3 font-mono text-xs">none | xs | sm | md | lg | xl | 2xl</td>
+                                            <td class="p-3">md</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">padding</td>
+                                            <td class="p-3 font-mono text-xs">none | xs | sm | md | lg | xl | 2xl</td>
+                                            <td class="p-3">lg</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Example</h2>
+                            <LivePreview :initial-code="EXAMPLES.flex" />
+                        </div>
+                    </div>
+
+                    <!-- REF: AUTO -->
+                    <div v-else-if="activeSection === 'ref-auto'">
+                        <h1>Auto Strategy</h1>
+                        <p class="lead">Smartly chooses the best layout based on the data structure provided. Useful for
+                            AI agents or rapid prototyping.</p>
+
+                        <div class="p-6 bg-blue-500/10 border border-blue-500/20 rounded-xl my-8">
+                            <h3 class="text-blue-400 font-bold mb-2">How it works</h3>
+                            <ul class="list-disc list-inside text-sm text-blue-200/80 space-y-1">
+                                <li>If <code>timeline</code> array exists -> <strong>Timeline</strong></li>
+                                <li>If <code>steps</code> array exists -> <strong>Steps</strong></li>
+                                <li>If <code>features</code> array exists -> <strong>Features</strong></li>
+                                <li>If <code>image</code> exists -> <strong>Half</strong></li>
+                                <li>Otherwise -> <strong>Statement</strong></li>
+                            </ul>
+                        </div>
+
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Live Examples</h2>
+                            <p class="text-sm text-gray-400 mb-6">Use the navigation arrows to see how each slide
+                                renders with the same <code>type: "auto"</code> but different data structures.</p>
+                            <LivePreview initial-code='{
+  "slides": [
+    {
+      "type": "auto",
+      "title": "Welcome to Lumina",
+      "subtitle": "The AI-Native Presentation Engine"
+    },
+    {
+      "type": "auto",
+      "title": "Core Features",
+      "features": [
+        { "title": "Fast", "desc": "60fps animations", "icon": "fa-bolt" },
+        { "title": "Simple", "desc": "JSON-first API", "icon": "fa-code" },
+        { "title": "Smart", "desc": "AI-ready engine", "icon": "fa-brain" }
+      ]
+    },
+    {
+      "type": "auto",
+      "title": "Our Roadmap",
+      "timeline": [
+        { "date": "Q1", "title": "Alpha", "description": "Core Engine" },
+        { "date": "Q2", "title": "Beta", "description": "Public Testing" },
+        { "date": "Q4", "title": "Launch", "description": "V1.0 Release" }
+      ]
+    },
+    {
+      "type": "auto",
+      "title": "Getting Started",
+      "steps": [
+        { "step": 1, "title": "Install", "description": "npm install lumina-slides" },
+        { "step": 2, "title": "Import", "description": "Import the Lumina class" },
+        { "step": 3, "title": "Create", "description": "Define your JSON slides" }
+      ]
+    },
+    {
+      "type": "auto",
+      "title": "Visual Content",
+      "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800",
+      "paragraphs": ["Auto-detect image slides for visual storytelling."]
+    }
+  ]
+}' />
+                        </div>
+                    </div>
+
                 </div>
             </Transition>
         </main>
@@ -585,6 +1161,7 @@ engine.<span class="text-yellow-400">on</span>('action', (payload) => {
 import { ref, watch, onUnmounted, nextTick } from 'vue';
 import { Lumina } from '../../core/Lumina';
 import { parsePartialJson } from '../../utils/streaming';
+import LivePreview from './LivePreview.vue';
 
 const activeSection = ref('intro');
 
@@ -728,6 +1305,38 @@ const EXAMPLES = {
     { "date": "Q2", "t": "Beta", "desc": "Public API" },
     { "date": "Q3", "t": "Launch", "desc": "Global Scale" }
   ]
+}`,
+    half: `{
+  "type": "half",
+  "sizing": "container",
+  "imageSide": "left",
+  "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2000",
+  "t": "Split Layout",
+  "tag": "Visual",
+  "paragraphs": ["Image on left, text on right."]
+}`,
+    steps: `{
+  "type": "steps",
+  "sizing": "container",
+  "t": "Process Flow",
+  "steps": [
+    { "step": "01", "t": "Install", "desc": "npm install" },
+    { "step": "02", "t": "Import", "desc": "import { Lumina }..." },
+    { "step": "03", "t": "Launch", "desc": "new Lumina(...)" }
+  ]
+}`,
+    flex: `{
+  "type": "flex",
+  "sizing": "container",
+  "direction": "horizontal",
+  "elements": [
+    { "type": "image", "src": "/brains.png", "size": "half", "fill": true },
+    { "type": "content", "size": "half", "valign": "center", "padding": "xl", "gap": "md", "elements": [
+      { "type": "title", "text": "Visual Story", "size": "2xl" },
+      { "type": "bullets", "items": ["Image fills height", "Content centered", "No coordinates"] },
+      { "type": "button", "label": "Learn More", "variant": "primary" }
+    ]}
+  ]
 }`
 };
 
@@ -771,7 +1380,7 @@ const navigation = [
         items: [
             { id: 'intro', label: 'Introduction' },
             { id: 'install', label: 'Installation' },
-            { id: 'setup', label: 'Vue Setup' }
+            { id: 'setup', label: 'Quick Start' }
         ]
     },
     {
@@ -783,6 +1392,18 @@ const navigation = [
             { id: 'agents-layouts', label: 'Layout Gallery' },
             { id: 'agents-auto', label: 'Auto-Layouts' },
             { id: 'agents-state', label: 'State & Feedback' }
+        ]
+    },
+    {
+        title: 'Layout Reference',
+        items: [
+            { id: 'ref-statement', label: 'Statement' },
+            { id: 'ref-half', label: 'Half / Split' },
+            { id: 'ref-features', label: 'Features' },
+            { id: 'ref-timeline', label: 'Timeline' },
+            { id: 'ref-steps', label: 'Steps' },
+            { id: 'ref-flex', label: 'Flex' },
+            { id: 'ref-auto', label: 'Auto Strategy' }
         ]
     },
     {

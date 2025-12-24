@@ -9,7 +9,7 @@
             </div>
 
             <!-- Timeline Container -->
-            <div class="relative max-w-4xl mx-auto w-full">
+            <div class="relative max-w-6xl mx-auto w-full">
                 <!-- Vertical Line -->
                 <div
                     class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-white/20 -translate-x-1/2 reveal-zoom origin-top">
@@ -23,7 +23,7 @@
                         <div
                             :class="['w-full md:w-1/2 pl-12 md:pl-0 flex flex-col justify-center', i % 2 === 0 ? 'md:pr-12 md:text-right md:items-end' : 'md:pl-12 md:text-left md:items-start']">
                             <span class="text-sm font-bold tracking-widest uppercase text-blue-400 mb-1">{{ item.date
-                                }}</span>
+                            }}</span>
                             <h3 class="text-2xl font-bold">{{ item.title || item.t }}</h3>
                         </div>
 

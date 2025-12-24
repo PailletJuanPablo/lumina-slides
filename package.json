@@ -36,15 +36,10 @@
     "preview": "vite preview",
     "screenshots": "node scripts/screenshot-decks.js"
   },
-  "peerDependencies": {
-    "vue": "^3.3.0"
-  },
-  "dependencies": {
+  "devDependencies": {
     "gsap": "^3.12.2",
     "zod": "^4.2.1",
-    "zod-to-json-schema": "^3.25.0"
-  },
-  "devDependencies": {
+    "zod-to-json-schema": "^3.25.0",
     "@types/node": "^20.10.0",
     "@vitejs/plugin-vue": "^4.5.0",
     "autoprefixer": "^10.4.16",

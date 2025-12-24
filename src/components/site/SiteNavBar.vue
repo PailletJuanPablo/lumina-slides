@@ -14,6 +14,8 @@
                 :class="['text-sm font-medium transition', activePage === 'examples' ? 'text-white' : 'text-white/60 hover:text-white']">Examples</a>
             <a :href="baseUrl + '?page=docs'" @click.prevent="$emit('navigate', 'docs')"
                 :class="['text-sm font-medium transition', activePage === 'docs' ? 'text-white' : 'text-white/60 hover:text-white']">Docs</a>
+            <a :href="baseUrl + '?page=playground'" @click.prevent="$emit('navigate', 'playground')"
+                :class="['text-sm font-medium transition', activePage === 'playground' ? 'text-white' : 'text-white/60 hover:text-white']">Playground</a>
             <a :href="baseUrl + '?page=api'" @click.prevent="$emit('navigate', 'api')"
                 :class="['text-sm font-medium transition', activePage === 'api' ? 'text-white' : 'text-white/60 hover:text-white']">API</a>
         </div>

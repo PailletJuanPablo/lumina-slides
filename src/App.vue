@@ -8,6 +8,7 @@
             <SiteHome v-if="activePage === 'home'" @navigate="navigate" />
             <SiteExamples v-if="activePage === 'examples'" @select-deck="openDeck" />
             <SiteDocs v-if="activePage === 'docs'" />
+            <SitePlayground v-if="activePage === 'playground'" />
             <SiteApi v-if="activePage === 'api'" />
 
             <!-- Simple Footer -->
@@ -63,6 +64,7 @@ import SiteNavBar from './components/site/SiteNavBar.vue';
 import SiteHome from './components/site/SiteHome.vue';
 import SiteExamples from './components/site/SiteExamples.vue';
 import SiteDocs from './components/site/SiteDocs.vue';
+import SitePlayground from './components/site/SitePlayground.vue';
 import SiteApi from './components/site/SiteApi.vue';
 
 const activePage = ref('home');

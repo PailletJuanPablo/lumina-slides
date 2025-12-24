@@ -9,7 +9,7 @@
  * Supported slide layout types.
  * Each type corresponds to a registered Vue component (e.g. 'statement' -> LayoutStatement).
  */
-export type SlideType = 'statement' | 'half' | 'features' | 'timeline' | 'steps' | (string & {});
+export type SlideType = 'statement' | 'half' | 'features' | 'timeline' | 'steps' | 'flex' | (string & {});
 
 /**
  * Structure for items in the 'timeline' layout.
@@ -32,6 +32,175 @@ export interface StepItem {
     description?: string;
     icon?: string;
 }
+
+// --- Flex Layout Types ---
+
+/**
+ * Size tokens for flex element sizing.
+ * Determines how much horizontal/vertical space an element occupies.
+ */
+export type FlexSize = 'auto' | 'quarter' | 'third' | 'half' | 'two-thirds' | 'three-quarters' | 'full';
+
+/**
+ * Spacing tokens used for gaps and padding.
+ */
+export type SpacingToken = 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+
+/**
+ * Vertical alignment options.
+ */
+export type VAlign = 'top' | 'center' | 'bottom';
+
+/**
+ * Horizontal alignment options.
+ */
+export type HAlign = 'left' | 'center' | 'right';
+
+/**
+ * Text alignment options.
+ */
+export type TextAlign = 'left' | 'center' | 'right';
+
+/**
+ * Title element - Large heading text.
+ */
+export interface FlexElementTitle {
+    type: 'title';
+    text: string;
+    /** Heading size. Default: 'xl' */
+    size?: 'lg' | 'xl' | '2xl' | '3xl';
+    /** Text alignment. Default: 'left' */
+    align?: TextAlign;
+}
+
+/**
+ * Text element - Body paragraph text.
+ */
+export interface FlexElementText {
+    type: 'text';
+    text: string;
+    /** Text alignment. Default: 'left' */
+    align?: TextAlign;
+    /** Muted/subtle appearance. Default: false */
+    muted?: boolean;
+}
+
+/**
+ * Bullets element - Unordered list.
+ */
+export interface FlexElementBullets {
+    type: 'bullets';
+    items: string[];
+}
+
+/**
+ * Ordered element - Numbered list.
+ */
+export interface FlexElementOrdered {
+    type: 'ordered';
+    items: string[];
+}
+
+/**
+ * Image element - Visual media.
+ */
+export interface FlexElementImage {
+    type: 'image';
+    src: string;
+    alt?: string;
+    /** Fill entire container edge-to-edge. Default: true */
+    fill?: boolean;
+    /** Object-fit mode when fill is true. Default: 'cover' */
+    fit?: 'cover' | 'contain';
+    /** Border radius. Default: 'none' when fill, 'lg' otherwise */
+    rounded?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
+}
+
+/**
+ * Button element - Call-to-action button.
+ */
+export interface FlexElementButton {
+    type: 'button';
+    label: string;
+    /** Action identifier emitted on click. */
+    action?: string;
+    /** Visual variant. Default: 'primary' */
+    variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+    /** Full width button. Default: false */
+    fullWidth?: boolean;
+}
+
+/**
+ * Timeline element - Embedded timeline with events.
+ */
+export interface FlexElementTimeline {
+    type: 'timeline';
+    items: TimelineItem[];
+    /** Compact display mode. Default: false */
+    compact?: boolean;
+}
+
+/**
+ * Stepper element - Embedded step-by-step process.
+ */
+export interface FlexElementStepper {
+    type: 'stepper';
+    items: StepItem[];
+    /** Compact display mode. Default: false */
+    compact?: boolean;
+}
+
+/**
+ * Spacer element - Adds visual spacing.
+ */
+export interface FlexElementSpacer {
+    type: 'spacer';
+    /** Size of the space. Default: 'md' */
+    size?: SpacingToken;
+}
+
+/**
+ * Content container - Groups child elements vertically with alignment control.
+ */
+export interface FlexElementContent {
+    type: 'content';
+    elements: FlexChildElement[];
+    /** Vertical alignment of content. Default: 'center' */
+    valign?: VAlign;
+    /** Horizontal alignment of content. Default: 'left' */
+    halign?: HAlign;
+    /** Gap between child elements. Default: 'md' */
+    gap?: SpacingToken;
+    /** Internal padding. Default: 'lg' */
+    padding?: SpacingToken;
+}
+
+/**
+ * Child elements that can appear inside a content container.
+ */
+export type FlexChildElement =
+    | FlexElementTitle
+    | FlexElementText
+    | FlexElementBullets
+    | FlexElementOrdered
+    | FlexElementButton
+    | FlexElementTimeline
+    | FlexElementStepper
+    | FlexElementSpacer;
+
+/**
+ * Top-level flex elements that can have size.
+ */
+export type FlexElement =
+    | (FlexElementImage & { size?: FlexSize })
+    | (FlexElementContent & { size?: FlexSize })
+    | (FlexElementTitle & { size?: FlexSize })
+    | (FlexElementText & { size?: FlexSize })
+    | (FlexElementBullets & { size?: FlexSize })
+    | (FlexElementOrdered & { size?: FlexSize })
+    | (FlexElementButton & { size?: FlexSize })
+    | (FlexElementTimeline & { size?: FlexSize })
+    | (FlexElementStepper & { size?: FlexSize });
 
 /**
  * Metadata for individual slides.
@@ -158,6 +327,37 @@ export interface SlideSteps extends SlideBase {
 }
 
 /**
+ * Slide: Flex Layout
+ * Flow-based layout for composing slides using semantic sizing.
+ * Elements flow in order with size tokens (half, third, etc.) instead of coordinates.
+ * @example
+ * ```json
+ * {
+ *   "type": "flex",
+ *   "direction": "horizontal",
+ *   "elements": [
+ *     { "type": "image", "src": "photo.jpg", "size": "half", "fill": true },
+ *     { "type": "content", "size": "half", "valign": "center", "elements": [
+ *       { "type": "title", "text": "Hello World" },
+ *       { "type": "bullets", "items": ["Point A", "Point B"] }
+ *     ]}
+ *   ]
+ * }
+ * ```
+ */
+export interface SlideFlex extends SlideBase {
+    type: 'flex';
+    /** Main flow direction. Default: 'horizontal' */
+    direction?: 'horizontal' | 'vertical';
+    /** Gap between top-level elements. Default: 'none' */
+    gap?: SpacingToken;
+    /** Padding around the entire container. Default: 'none' */
+    padding?: SpacingToken;
+    /** Array of flex elements to render. */
+    elements: FlexElement[];
+}
+
+/**
  * Slide: Generic / Custom
  * Fallback for custom layouts or unknown types.
  */
@@ -176,6 +376,7 @@ export type BaseSlideData =
     | SlideHalf
     | SlideTimeline
     | SlideSteps
+    | SlideFlex
     | SlideGeneric;
 
 /**

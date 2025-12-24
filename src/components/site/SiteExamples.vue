@@ -31,6 +31,7 @@ const decks = [
     { id: 'layout-features', title: 'Feature Grid', description: 'Responsive grids for feature lists.', icon: '🍱' },
     { id: 'layout-timeline', title: 'Timeline', description: 'Vertical chronological sequence.', icon: '⏱️' },
     { id: 'layout-steps', title: 'Process Steps', description: 'Horizontal sequential flow.', icon: '👣' },
+    { id: 'layout-flex-demo', title: 'Flex Layout', description: 'Flow-based composition for LLMs.', icon: '🧬' },
     { id: 'layout-embedded', title: 'Embedded Widget', description: 'Container-sized, perfect for embedding.', icon: '🧩' },
 ];
 

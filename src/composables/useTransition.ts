@@ -50,11 +50,12 @@ export function useTransition(containerRef: Ref<HTMLElement | null>, onComplete?
             const initScale = isZoom ? 0.8 : (type === 'cascade' ? 0.95 : 1);
 
             // Set Initial States
-            gsap.set('.reveal-up', { y: initY, opacity: 0 });
-            gsap.set('.reveal-zoom', { scale: initScale, opacity: 0 });
-            gsap.set('.reveal-content > *', { y: isFade ? 0 : 30, opacity: 0 });
-            gsap.set('.reveal-card', { y: isFade ? 0 : 50, opacity: 0, scale: initScale });
-            gsap.set('.reveal-img', { scale: 1.1, opacity: 0 });
+            // Set Initial States (Only if elements exist to avoid warnings)
+            if (el.querySelector('.reveal-up')) gsap.set('.reveal-up', { y: initY, opacity: 0 });
+            if (el.querySelector('.reveal-zoom')) gsap.set('.reveal-zoom', { scale: initScale, opacity: 0 });
+            if (el.querySelector('.reveal-content > *')) gsap.set('.reveal-content > *', { y: isFade ? 0 : 30, opacity: 0 });
+            if (el.querySelector('.reveal-card')) gsap.set('.reveal-card', { y: isFade ? 0 : 50, opacity: 0, scale: initScale });
+            if (el.querySelector('.reveal-img')) gsap.set('.reveal-img', { scale: 1.1, opacity: 0 });
 
             // Timeline
             const tl = gsap.timeline({

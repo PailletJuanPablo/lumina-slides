@@ -1,6 +1,7 @@
 import { reactive, readonly, InjectionKey } from 'vue';
 import type { Deck, LuminaOptions, ActionPayload } from './types';
 import { expandValue } from './compression';
+import { normalizeAliases } from './schema';
 
 /**
  * LUMINA STORE FACTORY
@@ -174,8 +175,10 @@ export function createStore(initialOptions: LuminaOptions = {}) {
             console.error('[LuminaStore] Invalid deck format');
             return;
         }
+        // Apply Feature: Alias Normalization (t -> title, etc.)
+        const normalizedDeck = normalizeAliases(deck);
         // Apply Feature: Token Optimization (Expansion)
-        state.deck = deepExpand(deck);
+        state.deck = deepExpand(normalizedDeck);
         state.currentIndex = 0;
         state.isReady = true;
         state.actionHistory = []; // Reset history
