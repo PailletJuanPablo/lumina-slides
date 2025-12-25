@@ -340,14 +340,295 @@ engine.<span class="text-yellow-400">on</span>('action', (payload) => {
                     <!-- THEMING -->
                     <div v-else-if="activeSection === 'theming'">
                         <h1>Theming</h1>
-                        <p>Customize the look and feel using CSS variables or the configuration object.</p>
+                        <p class="lead">Customize colors, fonts, and visual style with built-in presets or create your
+                            own theme.</p>
 
-                        <pre class="language-css"><code><span class="text-gray-500">/* In your CSS */</span>
+                        <!-- Theme Presets Section -->
+                        <div class="my-12">
+                            <h2 class="text-2xl font-bold text-white mb-6">Built-in Presets</h2>
+                            <p class="text-white/60 mb-8">Lumina comes with 6 beautiful theme presets. Pass the preset
+                                name as a string to instantly apply a complete look.</p>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 not-prose">
+                                <!-- Default Theme -->
+                                <div
+                                    class="rounded-xl overflow-hidden border border-white/10 group hover:border-blue-500/50 transition-all duration-300">
+                                    <div class="h-32 p-6 flex items-center justify-center" style="background: #030303;">
+                                        <span class="text-2xl font-bold" style="color: #3b82f6;">Lumina</span>
+                                    </div>
+                                    <div class="p-4 bg-black/50">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <h3 class="font-bold text-white">default</h3>
+                                            <div class="flex gap-1">
+                                                <span class="w-4 h-4 rounded-full" style="background: #3b82f6;"></span>
+                                                <span class="w-4 h-4 rounded-full" style="background: #030303;"></span>
+                                            </div>
+                                        </div>
+                                        <p class="text-xs text-white/50">Clean blue on dark. Professional and modern.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Ocean Theme -->
+                                <div
+                                    class="rounded-xl overflow-hidden border border-white/10 group hover:border-cyan-500/50 transition-all duration-300">
+                                    <div class="h-32 p-6 flex items-center justify-center" style="background: #0f172a;">
+                                        <span class="text-2xl font-bold" style="color: #06b6d4;">Lumina</span>
+                                    </div>
+                                    <div class="p-4 bg-black/50">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <h3 class="font-bold text-white">ocean</h3>
+                                            <div class="flex gap-1">
+                                                <span class="w-4 h-4 rounded-full" style="background: #06b6d4;"></span>
+                                                <span class="w-4 h-4 rounded-full" style="background: #0f172a;"></span>
+                                            </div>
+                                        </div>
+                                        <p class="text-xs text-white/50">Cyan accents on slate. Calm and focused.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Midnight Theme -->
+                                <div
+                                    class="rounded-xl overflow-hidden border border-white/10 group hover:border-indigo-500/50 transition-all duration-300">
+                                    <div class="h-32 p-6 flex items-center justify-center" style="background: #000000;">
+                                        <span class="text-2xl font-bold" style="color: #6366f1;">Lumina</span>
+                                    </div>
+                                    <div class="p-4 bg-black/50">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <h3 class="font-bold text-white">midnight</h3>
+                                            <div class="flex gap-1">
+                                                <span class="w-4 h-4 rounded-full" style="background: #6366f1;"></span>
+                                                <span class="w-4 h-4 rounded-full" style="background: #000000;"></span>
+                                            </div>
+                                        </div>
+                                        <p class="text-xs text-white/50">Indigo on pure black. Bold and dramatic.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Forest Theme -->
+                                <div
+                                    class="rounded-xl overflow-hidden border border-white/10 group hover:border-emerald-500/50 transition-all duration-300">
+                                    <div class="h-32 p-6 flex items-center justify-center" style="background: #022c22;">
+                                        <span class="text-2xl font-bold" style="color: #10b981;">Lumina</span>
+                                    </div>
+                                    <div class="p-4 bg-black/50">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <h3 class="font-bold text-white">forest</h3>
+                                            <div class="flex gap-1">
+                                                <span class="w-4 h-4 rounded-full" style="background: #10b981;"></span>
+                                                <span class="w-4 h-4 rounded-full" style="background: #022c22;"></span>
+                                            </div>
+                                        </div>
+                                        <p class="text-xs text-white/50">Emerald green tones. Natural and fresh.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Cyber Theme -->
+                                <div
+                                    class="rounded-xl overflow-hidden border border-white/10 group hover:border-pink-500/50 transition-all duration-300">
+                                    <div class="h-32 p-6 flex items-center justify-center" style="background: #18181b;">
+                                        <span class="text-2xl font-bold"
+                                            style="color: #f472b6; font-family: 'Orbitron', sans-serif;">Lumina</span>
+                                    </div>
+                                    <div class="p-4 bg-black/50">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <h3 class="font-bold text-white">cyber</h3>
+                                            <div class="flex gap-1">
+                                                <span class="w-4 h-4 rounded-full" style="background: #f472b6;"></span>
+                                                <span class="w-4 h-4 rounded-full" style="background: #18181b;"></span>
+                                            </div>
+                                        </div>
+                                        <p class="text-xs text-white/50">Neon pink futuristic. Sci-fi vibes.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Latte Theme -->
+                                <div
+                                    class="rounded-xl overflow-hidden border border-white/10 group hover:border-amber-500/50 transition-all duration-300">
+                                    <div class="h-32 p-6 flex items-center justify-center" style="background: #fffbeb;">
+                                        <span class="text-2xl font-bold"
+                                            style="color: #d97706; font-family: 'Playfair Display', serif;">Lumina</span>
+                                    </div>
+                                    <div class="p-4 bg-black/50">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <h3 class="font-bold text-white">latte</h3>
+                                            <div class="flex gap-1">
+                                                <span class="w-4 h-4 rounded-full" style="background: #d97706;"></span>
+                                                <span class="w-4 h-4 rounded-full" style="background: #fffbeb;"></span>
+                                            </div>
+                                        </div>
+                                        <p class="text-xs text-white/50">Light mode with warm amber. Elegant.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Using Presets -->
+                        <div class="my-12">
+                            <h2 class="text-2xl font-bold text-white mb-6">Using a Preset</h2>
+                            <p class="text-white/60 mb-4">Pass the preset name as a string to the <code>theme</code>
+                                option:</p>
+
+                            <pre><code><span class="text-blue-400">const</span> engine = <span class="text-blue-400">new</span> Lumina('#app', {
+  theme: <span class="text-green-400">'ocean'</span>  <span class="text-gray-500">// or 'midnight', 'forest', 'cyber', 'latte'</span>
+});
+
+engine.load(myDeck);</code></pre>
+                        </div>
+
+                        <!-- CSS Variables -->
+                        <div class="my-12">
+                            <h2 class="text-2xl font-bold text-white mb-6">CSS Variables Reference</h2>
+                            <p class="text-white/60 mb-4">Lumina injects CSS custom properties that you can override in
+                                your stylesheets:</p>
+
+                            <div class="overflow-x-auto border border-white/10 rounded-lg">
+                                <table class="w-full text-left text-sm text-gray-400">
+                                    <thead class="bg-white/5 text-white font-bold">
+                                        <tr>
+                                            <th class="p-3 border-b border-white/10">Variable</th>
+                                            <th class="p-3 border-b border-white/10">Description</th>
+                                            <th class="p-3 border-b border-white/10">Default</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-white/5">
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">--lumina-colors-primary</td>
+                                            <td class="p-3">Primary accent color</td>
+                                            <td class="p-3"><span class="inline-block w-4 h-4 rounded mr-2"
+                                                    style="background: #3b82f6;"></span>#3b82f6</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">--lumina-colors-background</td>
+                                            <td class="p-3">Slide background color</td>
+                                            <td class="p-3"><span
+                                                    class="inline-block w-4 h-4 rounded mr-2 border border-white/20"
+                                                    style="background: #030303;"></span>#030303</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">--lumina-colors-text</td>
+                                            <td class="p-3">Primary text color</td>
+                                            <td class="p-3"><span class="inline-block w-4 h-4 rounded mr-2"
+                                                    style="background: #ffffff;"></span>#ffffff</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">--lumina-colors-muted</td>
+                                            <td class="p-3">Secondary/muted text</td>
+                                            <td class="p-3"><span class="inline-block w-4 h-4 rounded mr-2"
+                                                    style="background: #9ca3af;"></span>#9ca3af</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-purple-400">--lumina-font-heading</td>
+                                            <td class="p-3">Font family for headings</td>
+                                            <td class="p-3">Inter, sans-serif</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-purple-400">--lumina-font-body</td>
+                                            <td class="p-3">Font family for body text</td>
+                                            <td class="p-3">Inter, sans-serif</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-purple-400">--lumina-font-mono</td>
+                                            <td class="p-3">Monospace font</td>
+                                            <td class="p-3">monospace</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="mt-6">
+                                <h3>Using CSS Override</h3>
+                                <pre class="language-css"><code><span class="text-gray-500">/* Override in your CSS */</span>
 <span class="text-yellow-400">:root</span> {
-    --lumina-primary: <span class="text-blue-400">#3b82f6</span>;
-    --lumina-bg: <span class="text-blue-400">#050505</span>;
-    --lumina-font-heading: 'Inter', sans-serif;
+  --lumina-colors-primary: <span class="text-green-400">#ec4899</span>;
+  --lumina-colors-background: <span class="text-green-400">#1e1e2e</span>;
+  --lumina-colors-text: <span class="text-green-400">#cdd6f4</span>;
+  --lumina-colors-muted: <span class="text-green-400">#6c7086</span>;
+  --lumina-font-heading: <span class="text-green-400">'Poppins'</span>, sans-serif;
 }</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Custom Theme Object -->
+                        <div class="my-12">
+                            <h2 class="text-2xl font-bold text-white mb-6">Custom Theme Configuration</h2>
+                            <p class="text-white/60 mb-4">Pass a configuration object for full control over colors and
+                                fonts:</p>
+
+                            <pre><code><span class="text-blue-400">const</span> engine = <span class="text-blue-400">new</span> Lumina('#app', {
+  theme: {
+    colors: {
+      primary: <span class="text-green-400">'#ec4899'</span>,      <span class="text-gray-500">// Pink accent</span>
+      background: <span class="text-green-400">'#1a1a2e'</span>,  <span class="text-gray-500">// Dark purple bg</span>
+      text: <span class="text-green-400">'#eaeaea'</span>,        <span class="text-gray-500">// Light text</span>
+      muted: <span class="text-green-400">'#888888'</span>        <span class="text-gray-500">// Subdued text</span>
+    },
+    fonts: {
+      heading: <span class="text-green-400">'Outfit, sans-serif'</span>,
+      body: <span class="text-green-400">'Inter, sans-serif'</span>,
+      mono: <span class="text-green-400">'Fira Code, monospace'</span>
+    }
+  }
+});</code></pre>
+                        </div>
+
+                        <!-- Partial Override -->
+                        <div class="my-12">
+                            <h2 class="text-2xl font-bold text-white mb-6">Partial Overrides</h2>
+                            <p class="text-white/60 mb-4">You don't need to specify every property. Lumina merges your
+                                values with the default theme:</p>
+
+                            <pre><code><span class="text-gray-500">// Only change the primary color</span>
+<span class="text-blue-400">const</span> engine = <span class="text-blue-400">new</span> Lumina('#app', {
+  theme: {
+    colors: {
+      primary: <span class="text-green-400">'#f59e0b'</span>  <span class="text-gray-500">// Amber accent</span>
+    }
+  }
+});
+
+<span class="text-gray-500">// Everything else uses defaults!</span></code></pre>
+                        </div>
+
+                        <!-- Font Loading -->
+                        <div class="my-12">
+                            <h2 class="text-2xl font-bold text-white mb-6">Custom Fonts</h2>
+                            <p class="text-white/60 mb-4">For custom fonts, load them via Google Fonts or your own
+                                stylesheet first:</p>
+
+                            <pre
+                                class="language-html"><code><span class="text-gray-500">&lt;!-- In your HTML head --&gt;</span>
+<span class="text-blue-400">&lt;link</span> rel=<span class="text-green-400">"preconnect"</span> href=<span class="text-green-400">"https://fonts.googleapis.com"</span><span class="text-blue-400">&gt;</span>
+<span class="text-blue-400">&lt;link</span> href=<span class="text-green-400">"https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Rajdhani&display=swap"</span> rel=<span class="text-green-400">"stylesheet"</span><span class="text-blue-400">&gt;</span></code></pre>
+
+                            <p class="text-white/60 mt-4 mb-4">Then reference them in your theme config:</p>
+
+                            <pre><code><span class="text-blue-400">const</span> engine = <span class="text-blue-400">new</span> Lumina('#app', {
+  theme: {
+    fonts: {
+      heading: <span class="text-green-400">'Outfit, sans-serif'</span>,
+      body: <span class="text-green-400">'Rajdhani, sans-serif'</span>
+    }
+  }
+});</code></pre>
+                        </div>
+
+                        <!-- Tips -->
+                        <div class="mt-8 p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
+                            <h4 class="text-yellow-400 font-bold mb-2"><i class="fa-solid fa-lightbulb mr-2"></i>Pro
+                                Tips</h4>
+                            <ul class="text-sm text-yellow-200/80 space-y-2 m-0 list-none">
+                                <li>🎨 <strong>Brand colors:</strong> Set <code>primary</code> to your brand color for
+                                    instant recognition</li>
+                                <li>🌙 <strong>Dark vs Light:</strong> Use <code>latte</code> preset for light mode
+                                    presentations</li>
+                                <li>📱 <strong>Accessibility:</strong> Ensure sufficient contrast between
+                                    <code>text</code> and <code>background</code>
+                                </li>
+                                <li>🔤 <strong>Performance:</strong> Only load font weights you actually use (400, 700)
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
                     <!-- SPEAKER NOTES -->
@@ -483,13 +764,14 @@ engine.<span class="text-yellow-400">closeSpeakerNotes</span>();</code></pre>
                     <!-- AGENTS: TOKENS -->
                     <div v-else-if="activeSection === 'agents-tokens'">
                         <h1>Token Optimization</h1>
-                        <p>LLM tokens cost money and latency. Lumina supports a <strong>Hybrid Schema</strong> that
-                            accepts short aliases.</p>
+                        <p class="lead">Reduce output size with short property aliases. Less characters = faster
+                            rendering and lower costs.</p>
 
                         <div class="not-prose grid gap-6 mt-8">
                             <div class="bg-[#0A0A0A] border border-white/10 rounded-xl p-6">
                                 <h3 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Standard JSON
-                                    (120 Tokens)</h3>
+                                    <span class="text-white/30 font-normal normal-case ml-2">~95 characters</span>
+                                </h3>
                                 <pre class="!mb-0 !p-0 !bg-transparent !border-none"><code>{
   "type": "statement",
   "title": "Quarterly Review",
@@ -500,10 +782,11 @@ engine.<span class="text-yellow-400">closeSpeakerNotes</span>();</code></pre>
                             <div class="bg-[#0A0A0A] border border-green-500/20 rounded-xl p-6 relative">
                                 <span
                                     class="absolute top-4 right-4 text-xs font-bold text-green-400 bg-green-500/10 px-2 py-1 rounded">
-                                    ~40% Less Tokens
+                                    ~25% Shorter
                                 </span>
                                 <h3 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Optimized
-                                    JSON (70 Tokens)</h3>
+                                    JSON <span class="text-white/30 font-normal normal-case ml-2">~70 characters</span>
+                                </h3>
                                 <pre class="!mb-0 !p-0 !bg-transparent !border-none"><code>{
   "type": "statement",
   "t": "Quarterly Review",
@@ -512,37 +795,78 @@ engine.<span class="text-yellow-400">closeSpeakerNotes</span>();</code></pre>
                             </div>
                         </div>
 
-                        <h3>Supported Aliases</h3>
-                        <table class="w-full text-left text-sm text-gray-400">
-                            <thead class="bg-white/5 text-white">
-                                <tr>
-                                    <th class="p-3">Full Key</th>
-                                    <th class="p-3">Alias</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-white/5">
-                                <tr>
-                                    <td class="p-3">title</td>
-                                    <td class="p-3 text-green-400">t</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3">subtitle</td>
-                                    <td class="p-3 text-green-400">s</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3">description</td>
-                                    <td class="p-3 text-green-400">d</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3">features</td>
-                                    <td class="p-3 text-green-400">fs</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3">timeline</td>
-                                    <td class="p-3 text-green-400">tl</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Supported Aliases</h2>
+                            <p class="text-white/60 mb-4">Both full property names and aliases work interchangeably. Mix
+                                and match as needed.</p>
+
+                            <div class="overflow-x-auto border border-white/10 rounded-lg">
+                                <table class="w-full text-left text-sm text-gray-400">
+                                    <thead class="bg-white/5 text-white font-bold">
+                                        <tr>
+                                            <th class="p-3 border-b border-white/10">Full Key</th>
+                                            <th class="p-3 border-b border-white/10">Alias</th>
+                                            <th class="p-3 border-b border-white/10">Used In</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-white/5">
+                                        <tr>
+                                            <td class="p-3 font-mono">title</td>
+                                            <td class="p-3 font-mono text-green-400">t</td>
+                                            <td class="p-3 text-white/50">All layouts</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono">subtitle</td>
+                                            <td class="p-3 font-mono text-green-400">s</td>
+                                            <td class="p-3 text-white/50">Statement, Timeline, Steps</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono">description</td>
+                                            <td class="p-3 font-mono text-green-400">d</td>
+                                            <td class="p-3 text-white/50">Features, Timeline items, Steps items</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono">features</td>
+                                            <td class="p-3 font-mono text-green-400">fs</td>
+                                            <td class="p-3 text-white/50">Features layout</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono">timeline</td>
+                                            <td class="p-3 font-mono text-green-400">tl</td>
+                                            <td class="p-3 text-white/50">Timeline layout</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono">steps</td>
+                                            <td class="p-3 font-mono text-green-400">st</td>
+                                            <td class="p-3 text-white/50">Steps layout</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono">paragraphs</td>
+                                            <td class="p-3 font-mono text-green-400">p</td>
+                                            <td class="p-3 text-white/50">Half layout</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono">image</td>
+                                            <td class="p-3 font-mono text-green-400">img</td>
+                                            <td class="p-3 text-white/50">Half layout</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono">imageSide</td>
+                                            <td class="p-3 font-mono text-green-400">side</td>
+                                            <td class="p-3 text-white/50">Half layout</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 p-4 bg-blue-500/10 border border-blue-500/20 rounded-lg">
+                            <h4 class="text-blue-400 font-bold mb-2"><i class="fa-solid fa-info-circle mr-2"></i>How It
+                                Works</h4>
+                            <p class="text-sm text-blue-200/80 m-0">Lumina's normalizer automatically expands aliases to
+                                full property names before rendering. You can use standard JSON for readability or
+                                aliases for efficiency—both produce identical results.</p>
+                        </div>
                     </div>
 
                     <!-- AGENTS: STREAMING -->
@@ -1168,6 +1492,307 @@ engine.<span class="text-yellow-400">closeSpeakerNotes</span>();</code></pre>
                         </div>
                     </div>
 
+                    <!-- REF: CHART -->
+                    <div v-else-if="activeSection === 'ref-chart'">
+                        <h1>Chart Slide</h1>
+                        <p class="lead">Visualize data extracted from CSV/Excel files. Perfect for LLM-generated reports
+                            and dashboards.</p>
+
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Configuration</h2>
+                            <div class="overflow-x-auto border border-white/10 rounded-lg">
+                                <table class="w-full text-left text-sm text-gray-400">
+                                    <thead class="bg-white/5 text-white font-bold">
+                                        <tr>
+                                            <th class="p-3 border-b border-white/10">Property</th>
+                                            <th class="p-3 border-b border-white/10">Type</th>
+                                            <th class="p-3 border-b border-white/10">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-white/5">
+                                        <tr>
+                                            <td class="p-3 font-mono text-purple-400">type</td>
+                                            <td class="p-3 font-mono text-xs">"chart"</td>
+                                            <td class="p-3">Required.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">chartType</td>
+                                            <td class="p-3 font-mono text-xs">"bar" | "line" | "pie" | "doughnut"</td>
+                                            <td class="p-3">Type of chart to render.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">title</td>
+                                            <td class="p-3 font-mono text-xs">string?</td>
+                                            <td class="p-3">Chart title (optional).</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">subtitle</td>
+                                            <td class="p-3 font-mono text-xs">string?</td>
+                                            <td class="p-3">Subtitle text (optional).</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">data</td>
+                                            <td class="p-3 font-mono text-xs">ChartData</td>
+                                            <td class="p-3">Object with <code>labels</code> and <code>datasets</code>.
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Data Structure</h2>
+                            <div class="overflow-x-auto border border-white/10 rounded-lg">
+                                <table class="w-full text-left text-sm text-gray-400">
+                                    <thead class="bg-white/5 text-white font-bold">
+                                        <tr>
+                                            <th class="p-3 border-b border-white/10">Property</th>
+                                            <th class="p-3 border-b border-white/10">Type</th>
+                                            <th class="p-3 border-b border-white/10">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-white/5">
+                                        <tr>
+                                            <td class="p-3 font-mono text-cyan-400">data.labels</td>
+                                            <td class="p-3 font-mono text-xs">string[]</td>
+                                            <td class="p-3">X-axis labels or pie segment names.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-cyan-400">data.datasets</td>
+                                            <td class="p-3 font-mono text-xs">Dataset[]</td>
+                                            <td class="p-3">Each with <code>label</code>, <code>values</code>, and
+                                                optional <code>color</code>.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-cyan-400">dataset.color</td>
+                                            <td class="p-3 font-mono text-xs">string?</td>
+                                            <td class="p-3"><code>c:p</code> (primary), <code>c:s</code> (secondary),
+                                                <code>c:m</code> (muted), or hex.
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Chart Types Section -->
+                        <div class="my-12">
+                            <h2 class="text-2xl font-bold text-white mb-6">Chart Types</h2>
+
+                            <div class="space-y-12">
+                                <!-- Bar Chart -->
+                                <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/5">
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <div
+                                            class="w-10 h-10 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center">
+                                            <i class="fa-solid fa-chart-column"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-xl font-bold text-white">Bar Chart</h3>
+                                            <p class="text-sm text-white/50">Best for comparing discrete categories</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-white/60 text-sm mb-4">Use bar charts to compare values across
+                                        categories. Ideal for revenue by quarter, sales by region, or any categorical
+                                        comparison.</p>
+                                    <LivePreview initial-code='{
+  "type": "chart",
+  "chartType": "bar",
+  "title": "Sales by Region",
+  "subtitle": "Q4 2024 Performance",
+  "data": {
+    "labels": ["North", "South", "East", "West"],
+    "datasets": [{
+      "label": "Sales ($K)",
+      "values": [420, 380, 510, 290],
+      "color": "c:p"
+    }]
+  }
+}' />
+                                </div>
+
+                                <!-- Line Chart -->
+                                <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/5">
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <div
+                                            class="w-10 h-10 rounded-lg bg-green-500/20 text-green-400 flex items-center justify-center">
+                                            <i class="fa-solid fa-chart-line"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-xl font-bold text-white">Line Chart</h3>
+                                            <p class="text-sm text-white/50">Best for trends over time</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-white/60 text-sm mb-4">Use line charts to show trends and changes
+                                        over time. Perfect for growth metrics, stock prices, or any time-series data.
+                                    </p>
+                                    <LivePreview initial-code='{
+  "type": "chart",
+  "chartType": "line",
+  "title": "Monthly Active Users",
+  "subtitle": "2024 Growth Trend",
+  "data": {
+    "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    "datasets": [{
+      "label": "Users (K)",
+      "values": [45, 52, 61, 78, 95, 120],
+      "color": "#10b981"
+    }]
+  }
+}' />
+                                </div>
+
+                                <!-- Pie Chart -->
+                                <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/5">
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <div
+                                            class="w-10 h-10 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center">
+                                            <i class="fa-solid fa-chart-pie"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-xl font-bold text-white">Pie Chart</h3>
+                                            <p class="text-sm text-white/50">Best for showing proportions</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-white/60 text-sm mb-4">Use pie charts to show how parts make up a
+                                        whole. Ideal for market share, budget allocation, or percentage distributions.
+                                    </p>
+                                    <LivePreview initial-code='{
+  "type": "chart",
+  "chartType": "pie",
+  "title": "Market Share",
+  "subtitle": "Industry Distribution Q4 2024",
+  "data": {
+    "labels": ["Product A", "Product B", "Product C", "Others"],
+    "datasets": [{
+      "label": "Share %",
+      "values": [35, 28, 22, 15]
+    }]
+  }
+}' />
+                                </div>
+
+                                <!-- Doughnut Chart -->
+                                <div class="p-6 rounded-2xl bg-white/[0.02] border border-white/5">
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <div
+                                            class="w-10 h-10 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center">
+                                            <i class="fa-solid fa-circle-notch"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-xl font-bold text-white">Doughnut Chart</h3>
+                                            <p class="text-sm text-white/50">Modern alternative to pie charts</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-white/60 text-sm mb-4">Similar to pie charts but with a hollow
+                                        center. The modern look works great for dashboards and can display a metric in
+                                        the center.</p>
+                                    <LivePreview initial-code='{
+  "type": "chart",
+  "chartType": "doughnut",
+  "title": "Budget Allocation",
+  "subtitle": "2025 Planned Spend",
+  "data": {
+    "labels": ["Engineering", "Marketing", "Sales", "Operations"],
+    "datasets": [{
+      "label": "Budget",
+      "values": [40, 25, 20, 15]
+    }]
+  }
+}' />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Multiple Datasets Example -->
+                        <div class="my-12">
+                            <h2 class="text-2xl font-bold text-white mb-6">Advanced: Multiple Datasets</h2>
+                            <p class="text-white/60 mb-6">Bar and line charts support multiple datasets for comparisons.
+                                Each dataset gets its own color and legend entry.</p>
+                            <LivePreview initial-code='{
+  "type": "chart",
+  "chartType": "bar",
+  "title": "Year-over-Year Comparison",
+  "subtitle": "Revenue by Quarter",
+  "data": {
+    "labels": ["Q1", "Q2", "Q3", "Q4"],
+    "datasets": [
+      {
+        "label": "2023",
+        "values": [100, 120, 140, 160],
+        "color": "#6b7280"
+      },
+      {
+        "label": "2024",
+        "values": [120, 150, 180, 220],
+        "color": "c:p"
+      }
+    ]
+  }
+}' />
+                        </div>
+
+                        <!-- Color Tokens -->
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Color Tokens</h2>
+                            <div class="overflow-x-auto border border-white/10 rounded-lg">
+                                <table class="w-full text-left text-sm text-gray-400">
+                                    <thead class="bg-white/5 text-white font-bold">
+                                        <tr>
+                                            <th class="p-3 border-b border-white/10">Token</th>
+                                            <th class="p-3 border-b border-white/10">Maps To</th>
+                                            <th class="p-3 border-b border-white/10">Default</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-white/5">
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">c:p</td>
+                                            <td class="p-3">--lumina-colors-primary</td>
+                                            <td class="p-3"><span
+                                                    class="inline-block w-4 h-4 rounded bg-blue-500 mr-2"></span>#3b82f6
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-green-400">c:s</td>
+                                            <td class="p-3">--lumina-colors-secondary</td>
+                                            <td class="p-3"><span
+                                                    class="inline-block w-4 h-4 rounded bg-emerald-500 mr-2"></span>#10b981
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-gray-400">c:m</td>
+                                            <td class="p-3">--lumina-colors-muted</td>
+                                            <td class="p-3"><span
+                                                    class="inline-block w-4 h-4 rounded bg-gray-400 mr-2"></span>#9ca3af
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-pink-400">#ec4899</td>
+                                            <td class="p-3">Direct hex color</td>
+                                            <td class="p-3"><span
+                                                    class="inline-block w-4 h-4 rounded bg-pink-500 mr-2"></span>Custom
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
+                            <h4 class="text-yellow-400 font-bold mb-2"><i class="fa-solid fa-lightbulb mr-2"></i>Pro
+                                Tips
+                            </h4>
+                            <ul class="text-sm text-yellow-200/80 space-y-2 m-0 list-none">
+                                <li>📊 <strong>Bar charts</strong> work best with 4-8 categories</li>
+                                <li>📈 <strong>Line charts</strong> need at least 3 data points for smooth curves</li>
+                                <li>🥧 <strong>Pie/Doughnut</strong> should have 3-6 segments max for clarity</li>
+                                <li>🤖 <strong>LLM Tip:</strong> Have agents extract tabular data from CSVs and generate
+                                    charts automatically</li>
+                            </ul>
+                        </div>
+                    </div>
+
                     <!-- REF: AUTO -->
                     <div v-else-if="activeSection === 'ref-auto'">
                         <h1>Auto Strategy</h1>
@@ -1177,6 +1802,9 @@ engine.<span class="text-yellow-400">closeSpeakerNotes</span>();</code></pre>
                         <div class="p-6 bg-blue-500/10 border border-blue-500/20 rounded-xl my-8">
                             <h3 class="text-blue-400 font-bold mb-2">How it works</h3>
                             <ul class="list-disc list-inside text-sm text-blue-200/80 space-y-1">
+                                <li>If <code>chartType</code> + <code>data.datasets</code> exist ->
+                                    <strong>Chart</strong>
+                                </li>
                                 <li>If <code>timeline</code> array exists -> <strong>Timeline</strong></li>
                                 <li>If <code>steps</code> array exists -> <strong>Steps</strong></li>
                                 <li>If <code>features</code> array exists -> <strong>Features</strong></li>
@@ -1463,22 +2091,12 @@ const navigation = [
         items: [
             { id: 'intro', label: 'Introduction' },
             { id: 'install', label: 'Installation' },
-            { id: 'setup', label: 'Quick Start' }
+            { id: 'setup', label: 'Quick Start' },
+            { id: 'theming', label: 'Theming & Presets' }
         ]
     },
     {
-        title: 'Agents & LLMs',
-        items: [
-            { id: 'agents-streaming', label: 'Streaming & Realtime' },
-            { id: 'agents-intro', label: 'The Agent Protocol' },
-            { id: 'agents-tokens', label: 'Token Optimization' },
-            { id: 'agents-layouts', label: 'Layout Gallery' },
-            { id: 'agents-auto', label: 'Auto-Layouts' },
-            { id: 'agents-state', label: 'State & Feedback' }
-        ]
-    },
-    {
-        title: 'Layout Reference',
+        title: 'Layouts',
         items: [
             { id: 'ref-statement', label: 'Statement' },
             { id: 'ref-half', label: 'Half / Split' },
@@ -1486,19 +2104,25 @@ const navigation = [
             { id: 'ref-timeline', label: 'Timeline' },
             { id: 'ref-steps', label: 'Steps' },
             { id: 'ref-flex', label: 'Flex' },
+            { id: 'ref-chart', label: 'Chart' },
             { id: 'ref-custom', label: 'Custom HTML' },
             { id: 'ref-auto', label: 'Auto Strategy' }
         ]
     },
     {
-        title: 'Core Concepts',
+        title: 'AI & LLM Integration',
         items: [
-            { id: 'deck', label: 'Deck Structure' },
-            { id: 'slides', label: 'Slide Layouts' },
-            { id: 'sizing', label: 'Embedding & Sizing' },
+            { id: 'agents-streaming', label: 'Streaming & Realtime' },
+            { id: 'agents-intro', label: 'Agent Protocol' },
+            { id: 'agents-tokens', label: 'Token Optimization' }
+        ]
+    },
+    {
+        title: 'Advanced',
+        items: [
             { id: 'config', label: 'Configuration' },
             { id: 'events', label: 'Events & API' },
-            { id: 'theming', label: 'Theming' },
+            { id: 'sizing', label: 'Embedding' },
             { id: 'speaker-notes', label: 'Speaker Notes' }
         ]
     }

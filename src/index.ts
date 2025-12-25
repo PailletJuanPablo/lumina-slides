@@ -14,9 +14,13 @@ export type {
     SlideHalf,
     SlideTimeline,
     SlideSteps,
+    SlideFlex,
+    SlideChart,
+    SlideGeneric,
     SlideCustom,
     FeatureItem,
     StepItem,
+    TimelineItem,
     SlideMeta,
     LuminaEventType,
     SlideChangePayload,
@@ -29,10 +33,10 @@ export type {
 } from './core/types';
 
 // Events
-export { bus } from './core/events';
+export { bus, EventBus } from './core/events';
 
 // Speaker Notes
-export { SpeakerChannel } from './core/speaker-channel';
+export { SpeakerChannel, type MessageHandler } from './core/speaker-channel';
 
 export { default as LuminaDeck } from './components/LuminaDeck.vue';
 import './style/main.css';

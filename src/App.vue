@@ -114,11 +114,32 @@ onMounted(async () => {
 });
 
 async function initEngine(deckName: string) {
-    // Get Theme from URL
+    // Get Theme from URL (fallback)
     const urlParams = new URLSearchParams(window.location.search);
-    const themeParam = urlParams.get('theme') || 'default';
+    const urlTheme = urlParams.get('theme');
 
-    // Initialize Engine
+    // First fetch the deck to check for embedded theme
+    let deckData: any;
+    let themeToUse = urlTheme || 'default';
+
+    try {
+        console.log(`📂 Loading deck: public/${deckName}.json ...`);
+        const response = await fetch(`${baseUrl}${deckName}.json`);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        deckData = await response.json();
+
+        // If deck has embedded theme and no URL override, use deck theme
+        if (deckData.theme && !urlTheme) {
+            themeToUse = deckData.theme;
+            console.log(`🎨 Using embedded theme: ${themeToUse}`);
+        }
+    } catch (error) {
+        console.error("Failed to load deck:", error);
+        alert(`Could not load 'public/${deckName}.json'. Check console for details.`);
+        return;
+    }
+
+    // Initialize Engine with the determined theme
     const engine = new Lumina('#demo-container', {
         loop: true,
         debug: true,
@@ -141,7 +162,7 @@ async function initEngine(deckName: string) {
             stagger: 0.15,
             ease: 'expo.out'
         },
-        theme: themeParam // dynamic theme
+        theme: themeToUse
     });
 
     // Event Listeners
@@ -158,17 +179,7 @@ async function initEngine(deckName: string) {
         alert(`Action Triggered: ${e.label}`);
     });
 
-    try {
-        console.log(`📂 Loading deck: public/${deckName}.json ...`);
-        const response = await fetch(`${baseUrl}${deckName}.json`);
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
-        const deckData = await response.json();
-        engine.load(deckData);
-        console.log("✅ Deck loaded successfully");
-    } catch (error) {
-        console.error("Failed to load deck:", error);
-        alert(`Could not load 'public/${deckName}.json'. Check console for details.`);
-    }
+    engine.load(deckData);
+    console.log("✅ Deck loaded successfully");
 }
 </script>

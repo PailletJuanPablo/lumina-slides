@@ -12,7 +12,7 @@ import { LuminaEventMap } from './types';
 
 type Handler<T> = (payload: T) => void;
 
-class EventBus {
+export class EventBus {
     private handlers: Map<keyof LuminaEventMap, Set<Handler<any>>> = new Map();
 
     public on<K extends keyof LuminaEventMap>(event: K, handler: Handler<LuminaEventMap[K]>): void {

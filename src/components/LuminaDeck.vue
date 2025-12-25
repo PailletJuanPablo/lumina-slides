@@ -1,5 +1,6 @@
 <template>
-    <div class="h-full w-full relative flex flex-col bg-[#030303] text-white overflow-hidden">
+    <div class="h-full w-full relative flex flex-col text-white overflow-hidden"
+        style="background-color: var(--lumina-colors-background, #030303); color: var(--lumina-colors-text, #ffffff);">
 
         <!-- DYNAMIC BACKGROUND -->
         <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -118,7 +119,7 @@ const currentSlideComponent = computed(() => {
 });
 
 const orbStyle = computed(() => ({
-    backgroundColor: slide.value?.meta?.orbColor || '#3b82f6',
+    backgroundColor: slide.value?.meta?.orbColor || 'var(--lumina-colors-primary, #3b82f6)',
     width: '60vw',
     height: '60vw',
     top: slide.value?.meta?.orbPos?.top || '-20%',

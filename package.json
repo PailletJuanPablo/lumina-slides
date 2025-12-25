@@ -36,13 +36,12 @@
     "screenshots": "node scripts/screenshot-decks.js"
   },
   "devDependencies": {
-    "gsap": "^3.12.2",
-    "zod": "^4.2.1",
-    "zod-to-json-schema": "^3.25.0",
     "@types/node": "^20.10.0",
     "@vitejs/plugin-vue": "^4.5.0",
     "autoprefixer": "^10.4.16",
+    "chart.js": "^4.5.1",
     "gh-pages": "^6.3.0",
+    "gsap": "^3.12.2",
     "postcss": "^8.4.31",
     "puppeteer": "^24.34.0",
     "tailwindcss": "^3.3.5",
@@ -50,7 +49,9 @@
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
     "vue": "^3.3.8",
-    "vue-tsc": "^1.8.22"
+    "vue-tsc": "^1.8.22",
+    "zod": "^4.2.1",
+    "zod-to-json-schema": "^3.25.0"
   },
   "keywords": [
     "vue",

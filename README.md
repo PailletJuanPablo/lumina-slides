@@ -77,14 +77,15 @@ graph LR
 
 Lumina comes with **"Pro" Layouts** built-in. Your agent just needs to pick the `type`.
 
-| Layout        | Description                                                                                                                   | Visual Preview                                                                                                                                        |
-| :------------ | :---------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Statement** | High-impact text. Perfect for titles, big ideas, or "cover" slides. <br><br> `type: "statement"`                              | <img src="https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-statement.png" width="200" style="border-radius: 6px;"> |
-| **Features**  | A powerful grid system for benefits, stats, or KPIs. Automatically adapts to the number of items. <br><br> `type: "features"` | <img src="https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-features.png" width="200" style="border-radius: 6px;">  |
-| **Timeline**  | Chronological events, roadmaps, or history. Horizontal scrolling with snap points. <br><br> `type: "timeline"`                | <img src="https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-timeline.png" width="200" style="border-radius: 6px;">  |
-| **Steps**     | Numbered process flows, tutorials, or "How-To" guides. <br><br> `type: "steps"`                                               | <img src="https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-steps.png" width="200" style="border-radius: 6px;">     |
-| **Half**      | Visual context. Image on one side, text on the other. Responsive. <br><br> `type: "half"`                                     | <img src="https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-half.png" width="200" style="border-radius: 6px;">      |
-| **Embedded**  | **Widget Mode**. Embed slides inside dashboards or smaller containers. <br><br> `type: "features" (compact)`                  | <img src="https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-embedded.png" width="200" style="border-radius: 6px;">  |
+| Layout        | Description                                                                                                                   | Visual Preview                                                                                                            |
+| :------------ | :---------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------ |
+| **Statement** | High-impact text. Perfect for titles, big ideas, or "cover" slides. <br><br> `type: "statement"`                              | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-statement.png" width="200" style="border-radius: 6px;"> |
+| **Features**  | A powerful grid system for benefits, stats, or KPIs. Automatically adapts to the number of items. <br><br> `type: "features"` | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-features.png" width="200" style="border-radius: 6px;">  |
+| **Timeline**  | Chronological events, roadmaps, or history. Horizontal scrolling with snap points. <br><br> `type: "timeline"`                | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-timeline.png" width="200" style="border-radius: 6px;">  |
+| **Steps**     | Numbered process flows, tutorials, or "How-To" guides. <br><br> `type: "steps"`                                               | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-steps.png" width="200" style="border-radius: 6px;">     |
+| **Half**      | Visual context. Image on one side, text on the other. Responsive. <br><br> `type: "half"`                                     | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-half.png" width="200" style="border-radius: 6px;">      |
+| **Chart**     | Data visualization with Chart.js. Bar, line, pie, doughnut charts. <br><br> `type: "chart"`                                   | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-chart.png" width="200" style="border-radius: 6px;">     |
+| **Embedded**  | **Widget Mode**. Embed slides inside dashboards or smaller containers. <br><br> `type: "features" (compact)`                  | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-embedded.png" width="200" style="border-radius: 6px;">  |
 
 > [!TIP] > **See the Code**: Click on the dropdowns below to see the exact JSON used to generate these slides.
 
@@ -113,27 +114,42 @@ Lumina comes with **"Pro" Layouts** built-in. Your agent just needs to pick the 
 </details>
 
 <details>
-<summary><b>Example: Flex (Advanced) JSON</b></summary>
+<summary><b>Example: Chart JSON</b></summary>
 
 ```json
 {
-  "type": "flex",
-  "direction": "horizontal",
-  "elements": [
-    { "type": "image", "src": "data.png", "size": "half" },
-    {
-      "type": "content",
-      "size": "half",
-      "elements": [
-        { "type": "title", "text": "Deep Dive" },
-        { "type": "text", "text": "Detailed analysis here..." }
-      ]
-    }
-  ]
+  "type": "chart",
+  "chartType": "bar",
+  "title": "Quarterly Revenue",
+  "data": {
+    "labels": ["Q1", "Q2", "Q3", "Q4"],
+    "datasets": [
+      { "label": "Revenue", "values": [120, 150, 180, 220], "color": "c:p" }
+    ]
+  }
 }
 ```
 
 </details>
+
+---
+
+## 🎭 Theming
+
+Lumina includes **6 beautiful theme presets** out-of-the-box. Just pass the name:
+
+```typescript
+const engine = new Lumina("#app", { theme: "ocean" });
+```
+
+| Theme        | Description                         | Preview                                                                                                                 |
+| :----------- | :---------------------------------- | :---------------------------------------------------------------------------------------------------------------------- |
+| **default**  | Clean blue on dark. Professional.   | <img src="https://pailletjuanpablo.github.io/lumina-slides/theme-default.png" width="180" style="border-radius: 6px;">  |
+| **ocean**    | Cyan on slate. Calm and focused.    | <img src="https://pailletjuanpablo.github.io/lumina-slides/theme-ocean.png" width="180" style="border-radius: 6px;">    |
+| **midnight** | Indigo on black. Bold and dramatic. | <img src="https://pailletjuanpablo.github.io/lumina-slides/theme-midnight.png" width="180" style="border-radius: 6px;"> |
+| **forest**   | Emerald greens. Natural and fresh.  | <img src="https://pailletjuanpablo.github.io/lumina-slides/theme-forest.png" width="180" style="border-radius: 6px;">   |
+| **cyber**    | Neon pink. Sci-fi futuristic.       | <img src="https://pailletjuanpablo.github.io/lumina-slides/theme-cyber.png" width="180" style="border-radius: 6px;">    |
+| **latte**    | Light mode. Warm amber on cream.    | <img src="https://pailletjuanpablo.github.io/lumina-slides/theme-latte.png" width="180" style="border-radius: 6px;">    |
 
 ---
 

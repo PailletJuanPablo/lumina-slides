@@ -1,0 +1,57 @@
+{
+    "meta": {
+        "title": "Forest Theme"
+    },
+    "theme": "forest",
+    "slides": [
+        {
+            "type": "statement",
+            "tag": "Theme: Forest",
+            "title": "Natural & Fresh",
+            "subtitle": "Emerald greens for eco-friendly and organic presentations."
+        },
+        {
+            "type": "features",
+            "title": "Forest Theme Colors",
+            "description": "Earthy and sustainable vibes",
+            "features": [
+                {
+                    "title": "Primary",
+                    "desc": "Emerald #10b981",
+                    "icon": "fa-leaf"
+                },
+                {
+                    "title": "Background",
+                    "desc": "Deep green #022c22",
+                    "icon": "fa-tree"
+                },
+                {
+                    "title": "Muted",
+                    "desc": "Soft green #6ee7b7",
+                    "icon": "fa-seedling"
+                }
+            ]
+        },
+        {
+            "type": "steps",
+            "title": "Go Green Process",
+            "steps": [
+                {
+                    "step": "01",
+                    "title": "Audit",
+                    "description": "Assess current impact"
+                },
+                {
+                    "step": "02",
+                    "title": "Plan",
+                    "description": "Set sustainability goals"
+                },
+                {
+                    "step": "03",
+                    "title": "Act",
+                    "description": "Implement changes"
+                }
+            ]
+        }
+    ]
+}

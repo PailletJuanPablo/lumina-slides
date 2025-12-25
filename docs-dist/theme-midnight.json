@@ -1,0 +1,14 @@
+{
+    "meta": {
+        "title": "Midnight Theme"
+    },
+    "theme": "midnight",
+    "slides": [
+        {
+            "type": "statement",
+            "tag": "Theme: Midnight",
+            "title": "Bold & Dramatic",
+            "subtitle": "Indigo accents on pure black. High contrast elegance."
+        }
+    ]
+}

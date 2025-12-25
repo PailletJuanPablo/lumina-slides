@@ -24,12 +24,15 @@ const resolvedLayout = computed(() => {
     const hasSteps = Array.isArray(d.steps) && d.steps.length > 0;
     const hasFeatures = Array.isArray(d.features) && d.features.length > 0;
     const hasImage = !!d.image;
+    const hasChart = !!d.chartType && !!d.data?.datasets;
 
     let candidate = 'layout-statement'; // Default
     let alternate = null;
 
     // 2. Semantic Priority
-    if (hasTimeline) {
+    if (hasChart) {
+        candidate = 'layout-chart';
+    } else if (hasTimeline) {
         candidate = 'layout-timeline';
     } else if (hasSteps) {
         candidate = 'layout-steps';

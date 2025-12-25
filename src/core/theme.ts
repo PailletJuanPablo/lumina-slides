@@ -61,13 +61,13 @@ export class ThemeManager {
         if (theme.colors) {
             for (const [key, value] of Object.entries(theme.colors)) {
                 if (value) {
-                    // Standard var
-                    cssVars.push(`--lumina-${key}: ${value};`);
+                    // Standard var with 'colors-' prefix
+                    cssVars.push(`--lumina-colors-${key}: ${value};`);
 
                     // RGB conversion for opacity usage
                     const rgb = this.hexToRgb(value);
                     if (rgb) {
-                        cssVars.push(`--lumina-${key}-rgb: ${rgb.r}, ${rgb.g}, ${rgb.b};`);
+                        cssVars.push(`--lumina-colors-${key}-rgb: ${rgb.r}, ${rgb.g}, ${rgb.b};`);
                     }
                 }
             }

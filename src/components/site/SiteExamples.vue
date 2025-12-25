@@ -32,8 +32,15 @@ const decks = [
     { id: 'layout-timeline', title: 'Timeline', description: 'Vertical chronological sequence.', icon: '⏱️' },
     { id: 'layout-steps', title: 'Process Steps', description: 'Horizontal sequential flow.', icon: '👣' },
     { id: 'layout-flex-demo', title: 'Flex Layout', description: 'Flow-based composition for LLMs.', icon: '🧬' },
+    { id: 'layout-chart', title: 'Chart Layout', description: 'Data visualization with Chart.js.', icon: '📊' },
     { id: 'layout-custom', title: 'Custom HTML', description: 'Full control with raw HTML/CSS.', icon: '🎨' },
     { id: 'layout-embedded', title: 'Embedded Widget', description: 'Container-sized, perfect for embedding.', icon: '🧩' },
+    { id: 'theme-default', title: 'Theme: Default', description: 'Clean blue on dark. Professional.', icon: '💎' },
+    { id: 'theme-ocean', title: 'Theme: Ocean', description: 'Cyan on slate. Calm and professional.', icon: '🌊' },
+    { id: 'theme-midnight', title: 'Theme: Midnight', description: 'Indigo on black. Bold and dramatic.', icon: '🌙' },
+    { id: 'theme-forest', title: 'Theme: Forest', description: 'Emerald greens for eco-friendly vibes.', icon: '🌲' },
+    { id: 'theme-cyber', title: 'Theme: Cyber', description: 'Neon pink futuristic with sci-fi fonts.', icon: '🤖' },
+    { id: 'theme-latte', title: 'Theme: Latte', description: 'Light mode with warm amber accents.', icon: '☕' },
 ];
 
 const baseUrl = import.meta.env.BASE_URL;

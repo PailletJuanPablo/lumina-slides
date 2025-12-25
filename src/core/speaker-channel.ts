@@ -18,7 +18,10 @@ import type { SpeakerSyncPayload } from './types';
  * channel.send({ action: 'next' });
  */
 
-type MessageHandler = (payload: SpeakerSyncPayload) => void;
+/**
+ * Handler function type for processing speaker sync messages.
+ */
+export type MessageHandler = (payload: SpeakerSyncPayload) => void;
 
 export class SpeakerChannel {
     private static instances = new Map<string, SpeakerChannel>();

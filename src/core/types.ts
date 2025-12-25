@@ -9,7 +9,7 @@
  * Supported slide layout types.
  * Each type corresponds to a registered Vue component (e.g. 'statement' -> LayoutStatement).
  */
-export type SlideType = 'statement' | 'half' | 'features' | 'timeline' | 'steps' | 'flex' | (string & {});
+export type SlideType = 'statement' | 'half' | 'features' | 'timeline' | 'steps' | 'flex' | 'chart' | (string & {});
 
 /**
  * Structure for items in the 'timeline' layout.
@@ -31,6 +31,41 @@ export interface StepItem {
     title: string;
     description?: string;
     icon?: string;
+}
+
+// --- Chart Layout Types ---
+
+/**
+ * Supported chart types.
+ */
+export type ChartType = 'bar' | 'line' | 'pie' | 'doughnut';
+
+/**
+ * A single dataset for chart visualization.
+ */
+export interface ChartDataset {
+    /** Label for this dataset (appears in legend). */
+    label: string;
+    /** Numeric values corresponding to each label. */
+    values: number[];
+    /** 
+     * Color for this dataset. Supports Lumina tokens:
+     * - 'c:p' → primary color
+     * - 'c:s' → secondary color  
+     * - 'c:m' → muted color
+     * - Or any valid CSS color (hex, rgb, etc.)
+     */
+    color?: string;
+}
+
+/**
+ * Data structure for chart visualization.
+ */
+export interface ChartData {
+    /** Labels for the x-axis or pie segments. */
+    labels: string[];
+    /** Array of datasets to display. */
+    datasets: ChartDataset[];
 }
 
 // --- Flex Layout Types ---
@@ -381,6 +416,34 @@ export interface SlideCustom extends SlideBase {
 }
 
 /**
+ * Slide: Chart Layout
+ * Renders data visualizations using Chart.js.
+ * @example
+ * ```json
+ * {
+ *   "type": "chart",
+ *   "chartType": "bar",
+ *   "title": "Revenue by Quarter",
+ *   "data": {
+ *     "labels": ["Q1", "Q2", "Q3", "Q4"],
+ *     "datasets": [{ "label": "2024", "values": [120, 150, 180, 220], "color": "c:p" }]
+ *   }
+ * }
+ * ```
+ */
+export interface SlideChart extends SlideBase {
+    type: 'chart';
+    /** The type of chart to render. */
+    chartType: ChartType;
+    /** Chart title displayed above the chart. */
+    title?: string;
+    /** Subtitle or description. */
+    subtitle?: string;
+    /** The chart data configuration. */
+    data: ChartData;
+}
+
+/**
  * Slide: Generic / Custom
  * Fallback for custom layouts or unknown types.
  */
@@ -400,6 +463,7 @@ export type BaseSlideData =
     | SlideTimeline
     | SlideSteps
     | SlideFlex
+    | SlideChart
     | SlideCustom
     | SlideGeneric;
 
