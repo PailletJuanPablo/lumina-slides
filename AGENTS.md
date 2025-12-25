@@ -1,190 +1,162 @@
-# Lumina for Agents: The Complete Guide
+# Building Agents with Lumina: Integration Guide
 
-Lumina is the first presentation engine built from the ground up for **Agentic AI**. It allows LLMs (Large Language Models) to control a high-performance, cinematic UI using simple, deterministic JSON.
+This guide describes how to integrate **Lumina Engine** with an AI Agent (powered by OpenAI, Anthropic, Gemini, etc.).
 
-This guide covers everything you need to build a "Presentation Agent" or "UI Generator" using Lumina.
+Lumina is designed to be the "Display Implementation" for your agent. Your agent generates JSON, and Lumina renders it.
+
+## 1. The Core Loop
+
+The basic architecture of a Lumina-powered Agent application is:
+
+1.  **User** sends a prompt ("Show me Q3 financial results").
+2.  **Agent** generates a declarative JSON structure (The "Deck").
+3.  **App** feeds this JSON to `Lumina.load(json)`.
+4.  **Lumina** renders the UI.
+5.  **User** clicks a button or changes slide.
+6.  **Lumina** emits an event.
+7.  **App** captures event and feeds it back to **Agent** as context for the next turn.
 
 ---
 
-## 1. The Core Philosophy
+## 2. System Prompting
 
-**"Fuzzy JSON in, 60fps UI out."**
+The key to high-quality output is a good System Prompt. You need to teach the LLM the schema.
 
-Agents struggle with strict pixel-perfect CSS or complex component trees. Lumina solves this by exposing a **Semantic JSON API**.
+### Recommended System Instructions
 
-- **Role of the Agent**: Decide _what_ to show (Content + Intent).
-- **Role of Lumina**: Decide _how_ to show it (Layout + Animation + Typography).
-
----
-
-## 2. The Protocol (JSON Schema)
-
-Lumina accepts a flat standard JSON structure. It features "Fuzzy Validation" (autocorrection) and "Hybrid Aliases" (token saving).
-
-### 2.1 Standard Structure
+We recommend dynamically generating your system prompt using the helper, or copying the structure below.
 
 ```typescript
-interface Deck {
-  meta: { title: string; theme?: string };
-  slides: Slide[];
-}
-```
-
-### 2.2 Token-Optimized Aliases
-
-To save tokens, you can use these short-codes. The engine normalizes them automatically.
-
-| Field           | Alias       | Target        |
-| :-------------- | :---------- | :------------ |
-| **Title**       | `t`         | `title`       |
-| **Subtitle**    | `s`         | `subtitle`    |
-| **Description** | `d`, `desc` | `description` |
-| **Image**       | `img`       | `image`       |
-| **Background**  | `bg`        | `background`  |
-| **Timeline**    | `tl`        | `timeline`    |
-| **Features**    | `fs`        | `features`    |
-| **Steps**       | `st`        | `steps`       |
-
-**Example (Ultra-Low Token Usage):**
-
-```json
-{
-  "type": "statement",
-  "t": "Q3 Analysis",
-  "s": "Growth is steady.",
-  "meta": { "variant": "v:g" }
-}
-```
-
----
-
-## 3. Runtime Features for Agents
-
-### 3.1 Streaming Support (Real-time Generation)
-
-Lumina includes a robust **Partial JSON Parser**. You can feed the raw string stream from OpenAI/Anthropic directly into the engine.
-
-```typescript
-import { parsePartialJson } from "lumina-slides/utils";
-
-// As tokens arrive...
-engine.load(parsePartialJson(incompleteString));
-```
-
-- **Ghost Loading**: If a slide is incomplete, Lumina shows a skeleton state automatically.
-- **Debouncing**: Updates are throttled to 60fps to prevent layout thrashing.
-
-### 3.2 Auto-Layout (`type: "auto"`)
-
-If your Agent isn't sure which layout fits best, use `type: "auto"`. Lumina uses **Semantic Heuristics** to pick the best view:
-
-- **Has Dates?** -> Selects `Timeline`.
-- **Has Numbers/List?** -> Selects `Features`.
-- **Has Image?** -> Selects `Half`.
-- **Just Title?** -> Selects `Statement`.
-
-It also avoids repetition (e.g., won't picking `Statement` 3 times in a row).
-
-### 3.3 Diff Updates (Patching)
-
-For corrections, you don't need to generate the whole deck again. Use the `patch` method.
-
-```typescript
-// Agent realizes it made a typo on Slide 2
-engine.patch({
-  slides: [
-    {}, // Skip slide 0
-    {}, // Skip slide 1
-    { title: "Corrected Title" }, // Patch slide 2
-  ],
-});
-```
-
----
-
-## 4. The Feedback Loop
-
-Lumina provides a standardized way to feed user interaction back to the Agent.
-
-### `engine.exportState()`
-
-Returns a snapshot of the session tailored for LLM context windows.
-
-**Output Example:**
-
-```json
-{
-  "status": "active",
-  "narrative": "User is currently on slide 3. Session Flow: User clicked on 'Pricing' -> User Next -> User Back.",
-  "engagementLevel": "High Engagement",
-  "currentSlide": { "id": "pricing", "type": "features" }
-}
-```
-
-**Usage Strategy:**
-
-1. Agent generates Deck.
-2. User interacts.
-3. App calls `exportState()`.
-4. App sends new prompt to Agent: _"Here is the user's current state. They seem stuck on the pricing slide. What should we show next?"_
-
----
-
-## 5. System Prompts
-
-We export a dynamic prompt generator to help you configure your Agent.
-
-```typescript
+// Option A: Use the helper (Recommended)
 import { generateSystemPrompt } from "lumina-slides/core";
 
-const prompt = generateSystemPrompt({
-  mode: "reasoning", // or 'fast'
+const systemMessage = generateSystemPrompt({
+  mode: "reasoning", // 'fast' | 'reasoning'
   includeSchema: true,
 });
 ```
 
-### Modes
+### Manual Prompt Structure
 
-- **`fast`**: Instructions optimized for direct JSON output. minimal tokens.
-- **`reasoning`**: Instructions to use `<thinking>` tags before JSON. Better for complex narratives.
+If you are manually crafting the prompt, ensure you include:
+
+1.  **Role**: "You are a UI Generator. You output JSON only."
+2.  **Schema Definition**: Briefly describe the available `type` values (`statement`, `timeline`, `features`, `flex`, etc.).
+3.  **Alias Usage**: Tell the model to use aliases (`t`, `s`, `desc`) to save tokens.
+
+---
+
+## 3. Token Optimization (Aliases)
+
+Lumina supports (and encourages) the use of "Aliases" — short keys that map to full property names. This significantly reduces token usage and generation latency.
+
+| Property        | Full Name     | Alias        |
+| :-------------- | :------------ | :----------- |
+| **Title**       | `title`       | `t`          |
+| **Subtitle**    | `subtitle`    | `s`          |
+| **Description** | `description` | `d` / `desc` |
+| **Background**  | `background`  | `bg`         |
+| **Image**       | `image`       | `img`        |
+| **Features**    | `features`    | `fs`         |
+| **Steps**       | `steps`       | `st`         |
+| **Timeline**    | `timeline`    | `tl`         |
+
+**Example Output:**
+
+```json
+{
+  "type": "statement",
+  "t": "Analysis Complete",
+  "s": "Here are the results found.",
+  "bg": "dark"
+}
+```
+
+---
+
+## 4. Streaming & Partial Parsing
+
+For a perceived "instant" response, you should stream the Layout to the engine as it is being generated.
+
+Lumina provides a `parsePartialJson` utility that can take a broken/incomplete JSON string and return a valid object (filling missing closing braces, quotes, etc.).
+
+```typescript
+import { parsePartialJson } from "lumina-slides/utils";
+
+// In your LLM stream handler
+async function onStreamChunk(chunk) {
+  fullString += chunk;
+
+  // 1. Repair the broken JSON
+  const validJson = parsePartialJson(fullString);
+
+  // 2. Update the engine immediately
+  // Lumina diffs the changes, so this is cheap.
+  engine.load(validJson);
+}
+```
+
+---
+
+## 5. Handling User Interaction (The Feedback Loop)
+
+To make your presentation "Agentic", it needs to respond to the user.
+
+### Listening to Actions
+
+When a user clicks a button in a `features` list or a `flex` button, Lumina emits an `action` event.
+
+```typescript
+engine.on("action", (payload) => {
+  // payload: { type: 'button', value: 'view_details', label: 'More Info' }
+
+  // Send this back to the Agent!
+  chatHistory.push({
+    role: "user",
+    content: `User clicked button "${payload.label}" with value "${payload.value}"`,
+  });
+
+  generateNextResponse();
+});
+```
+
+### Exporting State
+
+If the user navigates around, the Agent needs to know where they are.
+
+```typescript
+const state = engine.exportState();
+// Returns:
+// {
+//   currentSlideIndex: 2,
+//   currentSlideType: "features",
+//   ...
+// }
+```
+
+Include this state in your next prompt so the Agent knows context: _"The user is currently looking at slide 3 (Features)."_
 
 ---
 
 ## 6. Compression Dictionary
 
-Use these short-values for common assets to save tokens.
+To further save tokens, Lumina recognizes standardized short-codes for common values.
 
-- **Colors**: `c:p` (Primary), `c:s` (Success), `c:d` (Danger).
-- **Icons**: `i:s` (Star), `i:u` (Users), `i:a` (Arrow).
-- **Styles**: `v:g` (Gradient), `v:o` (Outlined).
+**Colors:**
+
+- `c:p` -> Primary Color
+- `c:s` -> Success Color
+- `c:d` -> Danger/Error Color
+
+**Icons:**
+
+- `i:s` -> Star
+- `i:u` -> Users
+- `i:a` -> Arrow Right
+- `i:c` -> Checkmark
 
 **Example:**
 
 ```json
-{ "icon": "i:s", "meta": { "color": "c:p" } }
+{ "icon": "i:c", "meta": { "color": "c:s" } }
 ```
-
----
-
-## 7. Scenarios
-
-### Scenario A: The "Co-Pilot" (Chat Interface)
-
-1. User types "Make a slide about our Q3 goals".
-2. Agent calls `generateSystemPrompt({ mode: 'fast' })`.
-3. Agent streams JSON using `parsePartialJson`.
-4. Lumina renders in real-time.
-
-### Scenario B: The "Analyst" (Data -> Slides)
-
-1. You feed a CSV/PDF to the Agent.
-2. Agent uses `type: "auto"` for each row of data.
-3. Lumina automatically chooses `Timeline` for dates and `Features` for financial stats.
-
-### Scenario C: The "Interactive Tutor"
-
-1. Agent generates a "Question" slide using `features`.
-2. User clicks an option.
-3. `engine.on('action')` captures the click.
-4. App sends selection to Agent.
-5. Agent `patch()`es the next slide to show specific feedback based on the answer.

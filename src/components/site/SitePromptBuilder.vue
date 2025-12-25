@@ -99,6 +99,22 @@
                         class="w-12 h-12 rounded-full bg-white/10 text-xl font-bold hover:bg-white/20">+</button>
                 </div>
                 <p class="text-center text-white/40 text-sm">Recommended: 5-12 slides</p>
+
+                <!-- Speaker Notes Toggle -->
+                <div class="flex items-center justify-center gap-3 pt-4">
+                    <button @click="form.includeNotes = !form.includeNotes" :class="[
+                        'relative w-12 h-6 rounded-full transition-colors duration-200 ease-in-out',
+                        form.includeNotes ? 'bg-blue-500' : 'bg-white/10'
+                    ]">
+                        <span :class="[
+                            'absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform duration-200',
+                            form.includeNotes ? 'translate-x-6' : 'translate-x-0'
+                        ]"></span>
+                    </button>
+                    <span class="text-white font-medium cursor-pointer" @click="form.includeNotes = !form.includeNotes">
+                        Include Speaker Notes
+                    </span>
+                </div>
                 <button @click="nextStep()"
                     class="w-full py-4 rounded-xl bg-blue-500 text-white font-bold hover:bg-blue-600 transition">
                     Generate Prompt →
@@ -183,7 +199,8 @@ const form = ref({
     style: 'minimalist',
     topic: '',
     audience: 'general',
-    slideCount: 8
+    slideCount: 8,
+    includeNotes: true
 });
 
 const nextStep = () => {
@@ -210,8 +227,8 @@ const generatedPrompt = computed(() => {
 **Topic**: ${form.value.topic}
 
 **Requirements**:
-- **JSON Schema**: Every slide object MUST include the "notes" property.
-- Include key talking points and timing in the notes.
+${form.value.includeNotes ? `- **JSON Schema**: Every slide object MUST include the "notes" property.
+- Include key talking points and timing in the notes.` : ''}
 - Follow all quality constraints defined in the system prompt.
 
 Please generate the presentation now.`;
@@ -229,10 +246,17 @@ const copyPrompt = async () => {
 
 onMounted(async () => {
     try {
-        const res = await fetch('/lumina-llm-prompt.txt');
+        // Use relative path which is safer for GitHub Pages subdirectories
+        // assuming index.html is at the project root which it is.
+        const url = './lumina-llm-prompt.txt';
+        console.log('Fetching system prompt from:', new URL(url, window.location.href).href);
+
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
         basePrompt.value = await res.text();
     } catch (e) {
         console.error('Failed to load base prompt:', e);
+        basePrompt.value = "Error loading system prompt. Please ensure 'lumina-llm-prompt.txt' is in the public folder.";
     }
 });
 </script>
