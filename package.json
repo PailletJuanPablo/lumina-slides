@@ -1,6 +1,6 @@
 {
   "name": "lumina-slides",
-  "version": "8.4.1",
+  "version": "8.4.2",
   "homepage": "https://pailletjuanpablo.github.io/lumina-slides/",
   "description": "The interface layer for the agentic era. Turn text to UI with declarative JSON.",
   "type": "module",
@@ -52,6 +52,14 @@
     "vue-tsc": "^1.8.22",
     "zod": "^4.2.1",
     "zod-to-json-schema": "^3.25.0"
+  },
+  "peerDependencies": {
+    "chart.js": "^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "chart.js": {
+      "optional": true
+    }
   },
   "keywords": [
     "presentation",

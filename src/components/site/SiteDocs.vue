@@ -1793,6 +1793,81 @@ engine.<span class="text-yellow-400">closeSpeakerNotes</span>();</code></pre>
                         </div>
                     </div>
 
+                    <!-- REF: CUSTOM HTML -->
+                    <div v-else-if="activeSection === 'ref-custom'">
+                        <h1>Custom HTML Slide</h1>
+                        <p class="lead">Full control with raw HTML content. Inject any HTML structure with custom
+                            styling.</p>
+
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Configuration</h2>
+                            <div class="overflow-x-auto border border-white/10 rounded-lg">
+                                <table class="w-full text-left text-sm text-gray-400">
+                                    <thead class="bg-white/5 text-white font-bold">
+                                        <tr>
+                                            <th class="p-3 border-b border-white/10">Property</th>
+                                            <th class="p-3 border-b border-white/10">Type</th>
+                                            <th class="p-3 border-b border-white/10">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-white/5">
+                                        <tr>
+                                            <td class="p-3 font-mono text-purple-400">type</td>
+                                            <td class="p-3 font-mono text-xs">"custom"</td>
+                                            <td class="p-3">Required.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">html</td>
+                                            <td class="p-3 font-mono text-xs">string</td>
+                                            <td class="p-3">Raw HTML content to render.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-mono text-blue-400">css</td>
+                                            <td class="p-3 font-mono text-xs">string?</td>
+                                            <td class="p-3">Optional scoped CSS styles.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Basic Example</h2>
+                            <p class="text-white/60 mb-6">Render any HTML structure with full styling control.</p>
+                            <LivePreview initial-code='{
+  "type": "custom",
+  "html": "<div class=\"custom-slide\"><h1 class=\"custom-title\">Welcome!</h1><p class=\"custom-text\">This is fully custom HTML content.</p><div class=\"custom-grid\"><div class=\"custom-card\">Card 1</div><div class=\"custom-card\">Card 2</div><div class=\"custom-card\">Card 3</div></div></div>",
+  "css": ".custom-slide { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100%; padding: 2rem; } .custom-title { font-size: 3rem; font-weight: bold; margin-bottom: 1rem; background: linear-gradient(90deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; } .custom-text { font-size: 1.25rem; opacity: 0.7; margin-bottom: 2rem; } .custom-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; } .custom-card { padding: 2rem; background: rgba(255,255,255,0.05); border-radius: 1rem; border: 1px solid rgba(255,255,255,0.1); text-align: center; transition: transform 0.2s; } .custom-card:hover { transform: translateY(-4px); }"
+}' />
+                        </div>
+
+                        <div class="my-8">
+                            <h2 class="text-xl font-bold text-white mb-4">Use Cases</h2>
+                            <ul class="space-y-3 text-white/70">
+                                <li><strong>Embedding iframes:</strong> YouTube videos, maps, or external widgets</li>
+                                <li><strong>Custom visualizations:</strong> D3.js charts, SVG animations</li>
+                                <li><strong>Brand-specific layouts:</strong> Complex designs not covered by built-in
+                                    layouts</li>
+                                <li><strong>Interactive components:</strong> Forms, quizzes, or custom buttons</li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-8 p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
+                            <h4 class="text-yellow-400 font-bold mb-2"><i class="fa-solid fa-lightbulb mr-2"></i>Pro
+                                Tips</h4>
+                            <ul class="text-sm text-yellow-200/80 space-y-2 m-0 list-none">
+                                <li>🎨 <strong>Scoped CSS:</strong> Styles are scoped to prevent conflicts with Lumina's
+                                    base styles</li>
+                                <li>📱 <strong>Responsive:</strong> Use CSS Grid or Flexbox with relative units for
+                                    mobile support</li>
+                                <li>🤖 <strong>LLM Usage:</strong> Custom slides are great when the AI needs complete
+                                    creative freedom</li>
+                                <li>⚠️ <strong>Sanitization:</strong> HTML is rendered as-is; sanitize user input if
+                                    needed</li>
+                            </ul>
+                        </div>
+                    </div>
+
                     <!-- REF: AUTO -->
                     <div v-else-if="activeSection === 'ref-auto'">
                         <h1>Auto Strategy</h1>

@@ -46,7 +46,7 @@ Lumina includes **7 built-in layouts** ready to use. Just set the `type` propert
 | **Timeline**  | Horizontal timeline with snap navigation. Great for roadmaps, history, or process flows. <br><br> `type: "timeline"`                      | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-timeline.png" width="200" style="border-radius: 6px;">  |
 | **Steps**     | Numbered step-by-step guide. Perfect for tutorials, instructions, or procedures. <br><br> `type: "steps"`                                 | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-steps.png" width="200" style="border-radius: 6px;">     |
 | **Half**      | Split layout with image on one side, content on the other. Fully responsive. <br><br> `type: "half"`                                      | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-half.png" width="200" style="border-radius: 6px;">      |
-| **Chart**     | Data visualization with Chart.js. Supports bar, line, pie, and doughnut charts. <br><br> `type: "chart"`                                  | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-chart.png" width="200" style="border-radius: 6px;">     |
+| **Chart**     | Data visualization with Chart.js. Supports bar, line, pie, and doughnut charts. <br><br> `type: "chart"` <br>⚠️ _Requires `chart.js`_     | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-chart.png" width="200" style="border-radius: 6px;">     |
 | **Flex**      | Declarative auto-layout system. Define structure with rows, columns, and nested containers. <br><br> `type: "flex"`                       | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-flex-demo.png" width="200" style="border-radius: 6px;"> |
 
 > [!TIP] > **Embedded Mode**: All layouts can be rendered in compact containers (dashboards, widgets) by using the `compact: true` option.
@@ -122,7 +122,11 @@ const engine = new Lumina("#app", { theme: "ocean" });
 ### 1. Install
 
 ```bash
+# Core installation
 npm install lumina-slides
+
+# With Chart support (optional - only if using chart slides)
+npm install lumina-slides chart.js
 ```
 
 ### 2. Implementation
@@ -176,13 +180,13 @@ Lumina includes a built-in normalizer. Your LLM can output "lazy" JSON to save m
 
 ## 📚 Documentation & Resources
 
-| Resource                                                                                | Description                                                      |
-| :-------------------------------------------------------------------------------------- | :--------------------------------------------------------------- |
-| 📖 **[Full Documentation](https://pailletjuanpablo.github.io/lumina-slides/)**          | Complete guides, examples, and live playground                   |
-| 🔧 **[API Reference](https://pailletjuanpablo.github.io/lumina-slides/#/api)**          | TypeDoc-generated API docs with all methods and types            |
-| 🤖 **[Agent Integration Guide](./AGENTS.md)**                                           | How to integrate Lumina with AI agents (OpenAI, Anthropic, etc.) |
-| 📝 **[LLM System Prompt](https://pailletjuanpablo.github.io/lumina-slides/prompt.txt)** | Ready-to-use system prompt for your AI to generate slides        |
-| 🎮 **[Live Playground](https://pailletjuanpablo.github.io/lumina-slides/#/playground)** | Try Lumina in your browser with live JSON editing                |
+| Resource                                                                                           | Description                                                      |
+| :------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------- |
+| 📖 **[Full Documentation](https://pailletjuanpablo.github.io/lumina-slides/)**                     | Complete guides, examples, and live playground                   |
+| 🔧 **[API Reference](https://pailletjuanpablo.github.io/lumina-slides/#/api)**                     | TypeDoc-generated API docs with all methods and types            |
+| 🤖 **[Agent Integration Guide](./AGENTS.md)**                                                      | How to integrate Lumina with AI agents (OpenAI, Anthropic, etc.) |
+| 📝 **[LLM System Prompt](https://pailletjuanpablo.github.io/lumina-slides/lumina-llm-prompt.txt)** | Ready-to-use system prompt for your AI to generate slides        |
+| 🎮 **[Live Playground](https://pailletjuanpablo.github.io/lumina-slides/#/playground)**            | Try Lumina in your browser with live JSON editing                |
 
 ---
 

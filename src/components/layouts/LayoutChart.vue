@@ -8,8 +8,26 @@
                 <p v-if="data.subtitle" class="text-lg lg:text-xl opacity-60">{{ data.subtitle }}</p>
             </div>
 
+            <!-- Error State -->
+            <div v-if="chartError" class="flex-1 flex items-center justify-center">
+                <div class="text-center p-8 bg-red-500/10 border border-red-500/30 rounded-xl max-w-lg">
+                    <svg class="w-12 h-12 mx-auto mb-4 text-red-400" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    <p class="text-red-300 font-medium mb-2">Chart.js Required</p>
+                    <code class="text-sm bg-black/30 px-3 py-1 rounded text-red-200">npm install chart.js</code>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div v-else-if="chartLoading" class="flex-1 flex items-center justify-center">
+                <div class="animate-pulse text-white/40">Loading chart...</div>
+            </div>
+
             <!-- Chart Container -->
-            <div class="flex-1 flex items-center justify-center reveal-zoom max-w-5xl mx-auto w-full">
+            <div v-else class="flex-1 flex items-center justify-center reveal-zoom max-w-5xl mx-auto w-full">
                 <div class="w-full h-full min-h-[300px] lg:min-h-[400px] relative">
                     <canvas ref="chartCanvas"></canvas>
                 </div>
@@ -20,19 +38,36 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, watch, computed } from 'vue';
-import { Chart, registerables } from 'chart.js';
 import BaseSlide from '../base/BaseSlide.vue';
 import type { SlideChart, ChartDataset } from '../../core/types';
 
-// Register Chart.js components
-Chart.register(...registerables);
+// Chart.js is loaded dynamically - it's an optional dependency
+let ChartJS: typeof import('chart.js').Chart | null = null;
+const chartError = ref<string | null>(null);
+const chartLoading = ref(true);
 
 const props = defineProps<{
     data: SlideChart
 }>();
 
 const chartCanvas = ref<HTMLCanvasElement | null>(null);
-let chartInstance: Chart | null = null;
+let chartInstance: any = null;
+
+// Try to load Chart.js dynamically
+const loadChartJS = async () => {
+    try {
+        const chartModule = await import('chart.js');
+        ChartJS = chartModule.Chart;
+        ChartJS.register(...chartModule.registerables);
+        chartLoading.value = false;
+        return true;
+    } catch (e) {
+        chartError.value = 'Chart.js is required for chart slides. Install it with: npm install chart.js';
+        chartLoading.value = false;
+        console.warn('[Lumina] chart.js not found. Install with: npm install chart.js');
+        return false;
+    }
+};
 
 // Color token resolver
 const resolveColor = (colorToken: string | undefined, index: number): string => {
@@ -153,7 +188,7 @@ const chartConfig = computed(() => {
 });
 
 const createChart = () => {
-    if (!chartCanvas.value) return;
+    if (!chartCanvas.value || !ChartJS) return;
 
     // Destroy existing chart
     if (chartInstance) {
@@ -163,12 +198,16 @@ const createChart = () => {
     const ctx = chartCanvas.value.getContext('2d');
     if (!ctx) return;
 
-    chartInstance = new Chart(ctx, chartConfig.value as any);
+    chartInstance = new ChartJS(ctx, chartConfig.value as any);
 };
 
-onMounted(() => {
-    // Small delay to ensure canvas is ready
-    setTimeout(createChart, 50);
+onMounted(async () => {
+    // Load Chart.js dynamically
+    const loaded = await loadChartJS();
+    if (loaded) {
+        // Small delay to ensure canvas is ready
+        setTimeout(createChart, 50);
+    }
 });
 
 onUnmounted(() => {

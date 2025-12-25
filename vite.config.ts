@@ -15,9 +15,12 @@ export default defineConfig({
             fileName: 'lumina-slides',
         },
         rollupOptions: {
-            // Vue is now bundled!
+            // Externalize chart.js - it's optional and heavy (~200KB)
+            external: ['chart.js'],
             output: {
-                // No globals needed
+                globals: {
+                    'chart.js': 'Chart'
+                }
             },
         },
     },
