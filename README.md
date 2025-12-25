@@ -7,13 +7,15 @@
   <br />
   <br />
 
-  <h1>The Interface Layer for the Agentic Era</h1>
+  <h1>JSON-Driven Presentation Engine</h1>
   
-  <p style="font-size: 1.2em; max-width: 600px;">
-    <b>Stop making your AI write HTML.</b>
-    <br>
-    Lumina turns "fuzzy" Agent thoughts into <br> 
-    cinematic, 60fps GPU-accelerated experiences.
+  <p style="font-size: 1.2em; max-width: 700px;">
+    A lightweight, framework-agnostic library that renders beautiful, animated slide decks from simple JSON. 
+    Perfect for AI-generated content, dynamic dashboards, and interactive presentations.
+  </p>
+  
+  <p style="font-size: 1em; max-width: 600px; opacity: 0.8;">
+    ✨ <b>60fps animations</b> · 🎨 <b>6 built-in themes</b> · 📱 <b>Responsive</b> · ⚡ <b>Zero dependencies UI</b>
   </p>
 
   <p>
@@ -35,17 +37,19 @@
 
 ## 🎨 Layouts & Gallery
 
-Lumina comes with **"Pro" Layouts** built-in. Your agent just needs to pick the `type`.
+Lumina includes **7 built-in layouts** ready to use. Just set the `type` property in your JSON:
 
-| Layout        | Description                                                                                                                   | Visual Preview                                                                                                            |
-| :------------ | :---------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------ |
-| **Statement** | High-impact text. Perfect for titles, big ideas, or "cover" slides. <br><br> `type: "statement"`                              | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-statement.png" width="200" style="border-radius: 6px;"> |
-| **Features**  | A powerful grid system for benefits, stats, or KPIs. Automatically adapts to the number of items. <br><br> `type: "features"` | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-features.png" width="200" style="border-radius: 6px;">  |
-| **Timeline**  | Chronological events, roadmaps, or history. Horizontal scrolling with snap points. <br><br> `type: "timeline"`                | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-timeline.png" width="200" style="border-radius: 6px;">  |
-| **Steps**     | Numbered process flows, tutorials, or "How-To" guides. <br><br> `type: "steps"`                                               | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-steps.png" width="200" style="border-radius: 6px;">     |
-| **Half**      | Visual context. Image on one side, text on the other. Responsive. <br><br> `type: "half"`                                     | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-half.png" width="200" style="border-radius: 6px;">      |
-| **Chart**     | Data visualization with Chart.js. Bar, line, pie, doughnut charts. <br><br> `type: "chart"`                                   | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-chart.png" width="200" style="border-radius: 6px;">     |
-| **Embedded**  | **Widget Mode**. Embed slides inside dashboards or smaller containers. <br><br> `type: "features" (compact)`                  | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-embedded.png" width="200" style="border-radius: 6px;">  |
+| Layout        | Description                                                                                                                               | Visual Preview                                                                                                            |
+| :------------ | :---------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------ |
+| **Statement** | Bold title slides for introductions, transitions, or key messages. Supports title, subtitle, and background. <br><br> `type: "statement"` | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-statement.png" width="200" style="border-radius: 6px;"> |
+| **Features**  | Auto-grid layout for showcasing features, benefits, or stats. Adapts columns based on item count. <br><br> `type: "features"`             | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-features.png" width="200" style="border-radius: 6px;">  |
+| **Timeline**  | Horizontal timeline with snap navigation. Great for roadmaps, history, or process flows. <br><br> `type: "timeline"`                      | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-timeline.png" width="200" style="border-radius: 6px;">  |
+| **Steps**     | Numbered step-by-step guide. Perfect for tutorials, instructions, or procedures. <br><br> `type: "steps"`                                 | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-steps.png" width="200" style="border-radius: 6px;">     |
+| **Half**      | Split layout with image on one side, content on the other. Fully responsive. <br><br> `type: "half"`                                      | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-half.png" width="200" style="border-radius: 6px;">      |
+| **Chart**     | Data visualization with Chart.js. Supports bar, line, pie, and doughnut charts. <br><br> `type: "chart"`                                  | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-chart.png" width="200" style="border-radius: 6px;">     |
+| **Flex**      | Declarative auto-layout system. Define structure with rows, columns, and nested containers. <br><br> `type: "flex"`                       | <img src="https://pailletjuanpablo.github.io/lumina-slides/layout-flex-demo.png" width="200" style="border-radius: 6px;"> |
+
+> [!TIP] > **Embedded Mode**: All layouts can be rendered in compact containers (dashboards, widgets) by using the `compact: true` option.
 
 > [!TIP] > **See the Code**: Click on the dropdowns below to see the exact JSON used to generate these slides.
 
@@ -170,33 +174,15 @@ Lumina includes a built-in normalizer. Your LLM can output "lazy" JSON to save m
 
 ---
 
-## 🛠 API Reference
+## 📚 Documentation & Resources
 
-### `engine.load(deck)`
-
-Replaces the entire deck. Use this for the initial load.
-
-### `engine.patch(diff)`
-
-Updates **parts** of the deck. Use this for:
-
-- Real-time streaming (appending slides).
-- Correcting typos live.
-- Updating a "Status" slide based on live data.
-
-### `engine.on(event, handler)`
-
-Listen to user behavior.
-
-- `action`: User clicked a button.
-- `slideChange`: User navigated.
-
-```typescript
-engine.on("action", (e) => {
-  // e.value = "buy_now_clicked"
-  // Tell the Agent to proceed to checkout!
-});
-```
+| Resource                                                                                | Description                                                      |
+| :-------------------------------------------------------------------------------------- | :--------------------------------------------------------------- |
+| 📖 **[Full Documentation](https://pailletjuanpablo.github.io/lumina-slides/)**          | Complete guides, examples, and live playground                   |
+| 🔧 **[API Reference](https://pailletjuanpablo.github.io/lumina-slides/#/api)**          | TypeDoc-generated API docs with all methods and types            |
+| 🤖 **[Agent Integration Guide](./AGENTS.md)**                                           | How to integrate Lumina with AI agents (OpenAI, Anthropic, etc.) |
+| 📝 **[LLM System Prompt](https://pailletjuanpablo.github.io/lumina-slides/prompt.txt)** | Ready-to-use system prompt for your AI to generate slides        |
+| 🎮 **[Live Playground](https://pailletjuanpablo.github.io/lumina-slides/#/playground)** | Try Lumina in your browser with live JSON editing                |
 
 ---
 

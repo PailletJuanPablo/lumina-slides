@@ -1,162 +1,289 @@
-# Building Agents with Lumina: Integration Guide
+# Lumina Agent Integration Guide
 
-This guide describes how to integrate **Lumina Engine** with an AI Agent (powered by OpenAI, Anthropic, Gemini, etc.).
+<div align="center">
 
-Lumina is designed to be the "Display Implementation" for your agent. Your agent generates JSON, and Lumina renders it.
+**Build AI-powered presentations with Lumina**
 
-## 1. The Core Loop
+Turn your LLM's JSON output into beautiful, animated slide decks.
 
-The basic architecture of a Lumina-powered Agent application is:
-
-1.  **User** sends a prompt ("Show me Q3 financial results").
-2.  **Agent** generates a declarative JSON structure (The "Deck").
-3.  **App** feeds this JSON to `Lumina.load(json)`.
-4.  **Lumina** renders the UI.
-5.  **User** clicks a button or changes slide.
-6.  **Lumina** emits an event.
-7.  **App** captures event and feeds it back to **Agent** as context for the next turn.
+</div>
 
 ---
 
-## 2. System Prompting
+## Overview
 
-The key to high-quality output is a good System Prompt. You need to teach the LLM the schema.
+Lumina is designed as a **display layer** for AI agents. Your agent generates simple JSON, and Lumina handles:
 
-### Recommended System Instructions
+- ✨ **Rendering** — Beautiful, responsive layouts
+- 🎬 **Animations** — 60fps GPU-accelerated transitions
+- 🎨 **Theming** — 6 built-in themes, fully customizable
+- 📊 **Charts** — Built-in Chart.js integration
+- 🔄 **Streaming** — Real-time updates as content generates
 
-We recommend dynamically generating your system prompt using the helper, or copying the structure below.
+---
+
+## Quick Links
+
+| Resource                                                                            | Description                                    |
+| :---------------------------------------------------------------------------------- | :--------------------------------------------- |
+| 📝 **[System Prompt](https://pailletjuanpablo.github.io/lumina-slides/prompt.txt)** | Copy-paste this into your LLM's system message |
+| 🎮 **[Playground](https://pailletjuanpablo.github.io/lumina-slides/#/playground)**  | Test JSON output live in your browser          |
+| 📖 **[Full Docs](https://pailletjuanpablo.github.io/lumina-slides/)**               | Complete documentation with examples           |
+| 🔧 **[API Reference](https://pailletjuanpablo.github.io/lumina-slides/#/api)**      | TypeDoc-generated API documentation            |
+
+---
+
+## The Integration Loop
+
+```
+┌─────────────┐     JSON      ┌─────────────┐     Render     ┌─────────────┐
+│   AI Agent  │ ─────────────▶│   Lumina    │ ──────────────▶│    User     │
+│  (GPT, etc) │               │   Engine    │                │   Screen    │
+└─────────────┘               └─────────────┘                └─────────────┘
+       ▲                                                            │
+       │                         Events                             │
+       └────────────────────────────────────────────────────────────┘
+```
+
+1. **User** sends a prompt ("Show me Q3 results")
+2. **Agent** generates declarative JSON
+3. **Lumina** renders the presentation
+4. **User** interacts (clicks, navigates)
+5. **Lumina** emits events back to your app
+6. **App** feeds context to agent for next turn
+
+---
+
+## Setting Up Your LLM
+
+### Option 1: Use the Ready-Made Prompt (Recommended)
+
+Download and use our optimized system prompt:
+
+```
+https://pailletjuanpablo.github.io/lumina-slides/prompt.txt
+```
+
+This prompt includes:
+
+- Complete JSON schema for all slide types
+- Token-saving aliases
+- Best practices for generating slides
+- Example outputs
+
+### Option 2: Programmatic Generation
 
 ```typescript
-// Option A: Use the helper (Recommended)
-import { generateSystemPrompt } from "lumina-slides/core";
+import { generateSystemPrompt } from "lumina-slides";
 
 const systemMessage = generateSystemPrompt({
   mode: "reasoning", // 'fast' | 'reasoning'
   includeSchema: true,
 });
+
+// Use systemMessage in your OpenAI/Anthropic/etc. call
 ```
-
-### Manual Prompt Structure
-
-If you are manually crafting the prompt, ensure you include:
-
-1.  **Role**: "You are a UI Generator. You output JSON only."
-2.  **Schema Definition**: Briefly describe the available `type` values (`statement`, `timeline`, `features`, `flex`, etc.).
-3.  **Alias Usage**: Tell the model to use aliases (`t`, `s`, `desc`) to save tokens.
 
 ---
 
-## 3. Token Optimization (Aliases)
+## Token Optimization
 
-Lumina supports (and encourages) the use of "Aliases" — short keys that map to full property names. This significantly reduces token usage and generation latency.
+Lumina supports **short aliases** to reduce token usage by ~30%:
 
-| Property        | Full Name     | Alias        |
-| :-------------- | :------------ | :----------- |
-| **Title**       | `title`       | `t`          |
-| **Subtitle**    | `subtitle`    | `s`          |
-| **Description** | `description` | `d` / `desc` |
-| **Background**  | `background`  | `bg`         |
-| **Image**       | `image`       | `img`        |
-| **Features**    | `features`    | `fs`         |
-| **Steps**       | `steps`       | `st`         |
-| **Timeline**    | `timeline`    | `tl`         |
+### Property Aliases
 
-**Example Output:**
+| Property    | Full Name     | Alias         |
+| :---------- | :------------ | :------------ |
+| Title       | `title`       | `t`           |
+| Subtitle    | `subtitle`    | `s`           |
+| Description | `description` | `d` or `desc` |
+| Background  | `background`  | `bg`          |
+| Image       | `image`       | `img`         |
+| Features    | `features`    | `fs`          |
+| Steps       | `steps`       | `st`          |
+| Timeline    | `timeline`    | `tl`          |
+
+### Example: Standard vs Optimized
+
+**Standard (42 tokens):**
+
+```json
+{
+  "type": "statement",
+  "title": "Analysis Complete",
+  "subtitle": "Here are the results",
+  "background": "dark"
+}
+```
+
+**Optimized (28 tokens):**
 
 ```json
 {
   "type": "statement",
   "t": "Analysis Complete",
-  "s": "Here are the results found.",
+  "s": "Here are the results",
   "bg": "dark"
 }
 ```
 
+### Color & Icon Shortcuts
+
+```json
+{ "icon": "i:c", "color": "c:s" }
+```
+
+| Type  | Shortcut | Meaning   |
+| :---- | :------- | :-------- |
+| Color | `c:p`    | Primary   |
+| Color | `c:s`    | Success   |
+| Color | `c:d`    | Danger    |
+| Icon  | `i:s`    | Star      |
+| Icon  | `i:c`    | Checkmark |
+| Icon  | `i:a`    | Arrow     |
+| Icon  | `i:u`    | Users     |
+
 ---
 
-## 4. Streaming & Partial Parsing
+## Streaming Support
 
-For a perceived "instant" response, you should stream the Layout to the engine as it is being generated.
-
-Lumina provides a `parsePartialJson` utility that can take a broken/incomplete JSON string and return a valid object (filling missing closing braces, quotes, etc.).
+For instant perceived response, stream the JSON as it generates:
 
 ```typescript
-import { parsePartialJson } from "lumina-slides/utils";
+import { Lumina, parsePartialJson } from "lumina-slides";
 
-// In your LLM stream handler
-async function onStreamChunk(chunk) {
-  fullString += chunk;
+const engine = new Lumina("#app");
+let buffer = "";
 
-  // 1. Repair the broken JSON
-  const validJson = parsePartialJson(fullString);
+// In your stream handler
+async function onChunk(chunk: string) {
+  buffer += chunk;
 
-  // 2. Update the engine immediately
-  // Lumina diffs the changes, so this is cheap.
-  engine.load(validJson);
+  // Parse incomplete JSON safely
+  const validJson = parsePartialJson(buffer);
+
+  // Lumina diffs changes efficiently
+  if (validJson) {
+    engine.load(validJson);
+  }
 }
 ```
 
+Lumina will render partial content as it arrives, creating a "typing" effect.
+
 ---
 
-## 5. Handling User Interaction (The Feedback Loop)
+## Handling User Interactions
 
-To make your presentation "Agentic", it needs to respond to the user.
-
-### Listening to Actions
-
-When a user clicks a button in a `features` list or a `flex` button, Lumina emits an `action` event.
+### Listening to Events
 
 ```typescript
+// User clicked a button
 engine.on("action", (payload) => {
-  // payload: { type: 'button', value: 'view_details', label: 'More Info' }
+  console.log(payload);
+  // { type: 'button', value: 'learn_more', label: 'Learn More' }
 
-  // Send this back to the Agent!
+  // Feed back to agent
   chatHistory.push({
     role: "user",
-    content: `User clicked button "${payload.label}" with value "${payload.value}"`,
+    content: `User clicked: "${payload.label}"`,
   });
+});
 
-  generateNextResponse();
+// User changed slides
+engine.on("slideChange", (data) => {
+  console.log(`Now on slide ${data.index}: ${data.slide.type}`);
 });
 ```
 
-### Exporting State
-
-If the user navigates around, the Agent needs to know where they are.
+### Exporting State for Context
 
 ```typescript
 const state = engine.exportState();
-// Returns:
 // {
 //   currentSlideIndex: 2,
 //   currentSlideType: "features",
-//   ...
+//   totalSlides: 5
 // }
-```
 
-Include this state in your next prompt so the Agent knows context: _"The user is currently looking at slide 3 (Features)."_
+// Add to next prompt
+const context = `User is viewing slide ${state.currentSlideIndex + 1} of ${
+  state.totalSlides
+} (${state.currentSlideType} layout).`;
+```
 
 ---
 
-## 6. Compression Dictionary
+## Example: Full Integration
 
-To further save tokens, Lumina recognizes standardized short-codes for common values.
+```typescript
+import { Lumina, parsePartialJson } from "lumina-slides";
+import "lumina-slides/style.css";
 
-**Colors:**
+// 1. Initialize engine
+const engine = new Lumina("#presentation", {
+  theme: "midnight",
+  loop: true,
+});
 
-- `c:p` -> Primary Color
-- `c:s` -> Success Color
-- `c:d` -> Danger/Error Color
+// 2. Handle user actions
+engine.on("action", async (payload) => {
+  await callAgent(`User clicked: ${payload.value}`);
+});
 
-**Icons:**
+// 3. Stream from your LLM
+async function callAgent(userMessage: string) {
+  let buffer = "";
 
-- `i:s` -> Star
-- `i:u` -> Users
-- `i:a` -> Arrow Right
-- `i:c` -> Checkmark
+  const stream = await openai.chat.completions.create({
+    model: "gpt-4",
+    stream: true,
+    messages: [
+      { role: "system", content: LUMINA_SYSTEM_PROMPT },
+      { role: "user", content: userMessage },
+    ],
+  });
 
-**Example:**
+  for await (const chunk of stream) {
+    buffer += chunk.choices[0]?.delta?.content || "";
+    const json = parsePartialJson(buffer);
+    if (json) engine.load(json);
+  }
+}
+
+// 4. Start
+callAgent("Create a presentation about our Q3 results");
+```
+
+---
+
+## Troubleshooting
+
+### JSON Parse Errors
+
+Use `parsePartialJson()` — it handles incomplete/malformed JSON gracefully.
+
+### Slides Not Updating
+
+Ensure you're calling `engine.load()` with the complete deck structure:
 
 ```json
-{ "icon": "i:c", "meta": { "color": "c:s" } }
+{
+  "meta": { "title": "My Deck" },
+  "slides": [...]
+}
 ```
+
+### Performance Issues
+
+- Use aliases to reduce token count
+- Limit slides to 10-15 per deck
+- Use `compact: true` for embedded widgets
+
+---
+
+<div align="center">
+
+**Need help?** [Open an issue](https://github.com/PailletJuanPablo/lumina-slides/issues) or check the [full documentation](https://pailletjuanpablo.github.io/lumina-slides/).
+
+</div>
