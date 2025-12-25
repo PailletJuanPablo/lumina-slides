@@ -16,6 +16,11 @@ import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
 import { SpeakerChannel } from '../core/speaker-channel';
 import type { SpeakerSyncPayload } from '../core/types';
 
+// --- Props ---
+const props = defineProps<{
+    channelId?: string;
+}>();
+
 // --- State ---
 const currentIndex = ref(0);
 const totalSlides = ref(0);
@@ -71,11 +76,13 @@ function renderMarkdown(text: string): string {
 
 // --- Channel Communication ---
 function initChannel() {
-    // Get channel ID from URL params or use default
+    // Get channel ID from props or URL params or use default
     const urlParams = new URLSearchParams(window.location.search);
-    const channelId = urlParams.get('channel') || 'lumina-speaker-default';
+    const channelId = props.channelId || urlParams.get('channel') || 'lumina-speaker-default';
 
-    channel.value = SpeakerChannel.getInstance(channelId);
+    // Force new instance to ensure we have a distinct BoradcastChannel object
+    // capable of receiving messages from the main window (even in same context)
+    channel.value = SpeakerChannel.getInstance(channelId, true);
 
     // Subscribe to connection changes
     channel.value.onConnectionChange((connected) => {
@@ -236,25 +243,7 @@ onUnmounted(() => {
                 </div>
             </section>
 
-            <!-- Next Slide Preview -->
-            <section class="sn-preview-section" v-if="nextSlidePreview">
-                <h2 class="sn-section-title">Coming Up Next</h2>
-                <div class="sn-preview-card">
-                    <div class="sn-preview-type">{{ nextSlidePreview.type || 'slide' }}</div>
-                    <div class="sn-preview-title">{{ nextSlidePreview.title || 'Untitled' }}</div>
-                </div>
-            </section>
-            <section class="sn-preview-section" v-else-if="hasNext">
-                <h2 class="sn-section-title">Coming Up Next</h2>
-                <div class="sn-preview-card sn-preview-empty">
-                    <span>Preview not available</span>
-                </div>
-            </section>
-            <section class="sn-preview-section sn-preview-end" v-else>
-                <div class="sn-preview-card">
-                    <span>🎉 End of presentation</span>
-                </div>
-            </section>
+            <!-- Next Slide Preview (Removed) -->
         </main>
 
         <!-- Footer Controls -->
@@ -317,7 +306,7 @@ onUnmounted(() => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 24px;
+    padding: 8px 12px;
     background: var(--sn-surface);
     border-bottom: 1px solid var(--sn-border);
 }
@@ -325,26 +314,26 @@ onUnmounted(() => {
 .sn-title {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 16px;
+    gap: 8px;
+    font-size: 12px;
     font-weight: 600;
 }
 
 .sn-logo {
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
     color: var(--sn-accent);
 }
 
 .sn-status {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
 }
 
 .sn-indicator {
-    width: 10px;
-    height: 10px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: var(--sn-text-muted);
     transition: background 0.3s ease;
@@ -356,7 +345,7 @@ onUnmounted(() => {
 }
 
 .sn-slide-count {
-    font-size: 14px;
+    font-size: 11px;
     color: var(--sn-text-muted);
     font-variant-numeric: tabular-nums;
 }
@@ -364,20 +353,20 @@ onUnmounted(() => {
 /* --- Content --- */
 .sn-content {
     flex: 1;
-    padding: 24px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
     overflow-y: auto;
 }
 
 .sn-section-title {
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 10px;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--sn-text-muted);
-    margin-bottom: 12px;
+    margin-bottom: 6px;
 }
 
 /* --- Notes Section --- */
@@ -388,10 +377,10 @@ onUnmounted(() => {
 .sn-notes-content {
     background: var(--sn-surface);
     border-radius: var(--sn-radius);
-    padding: 24px;
-    font-size: 18px;
-    line-height: 1.7;
-    min-height: 200px;
+    padding: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 100px;
 }
 
 .sn-notes-content :deep(strong) {
@@ -405,68 +394,32 @@ onUnmounted(() => {
 }
 
 .sn-notes-content :deep(ul) {
-    margin: 12px 0;
-    padding-left: 24px;
+    margin: 8px 0;
+    padding-left: 20px;
 }
 
 .sn-notes-content :deep(li) {
-    margin: 8px 0;
+    margin: 4px 0;
 }
 
 .sn-notes-empty {
     background: var(--sn-surface);
     border-radius: var(--sn-radius);
-    padding: 48px 24px;
+    padding: 24px 16px;
     text-align: center;
     color: var(--sn-text-muted);
-    font-size: 16px;
-    min-height: 200px;
+    font-size: 13px;
+    min-height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* --- Preview Section --- */
-.sn-preview-section {
-    flex-shrink: 0;
-}
-
-.sn-preview-card {
-    background: var(--sn-surface-alt);
-    border-radius: var(--sn-radius);
-    padding: 16px 20px;
-    border-left: 3px solid var(--sn-accent);
-}
-
-.sn-preview-type {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--sn-accent);
-    margin-bottom: 4px;
-}
-
-.sn-preview-title {
-    font-size: 16px;
-    font-weight: 500;
-}
-
-.sn-preview-empty {
-    border-left-color: var(--sn-text-muted);
-    color: var(--sn-text-muted);
-    font-style: italic;
-}
-
-.sn-preview-end .sn-preview-card {
-    border-left-color: var(--sn-success);
-    text-align: center;
-    font-size: 18px;
-}
+/* --- Preview Section (Removed) --- */
 
 /* --- Footer Controls --- */
 .sn-footer {
-    padding: 16px 24px;
+    padding: 8px 12px;
     background: var(--sn-surface);
     border-top: 1px solid var(--sn-border);
 }
@@ -475,17 +428,17 @@ onUnmounted(() => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 16px;
+    gap: 8px;
 }
 
 .sn-btn {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px 24px;
+    gap: 6px;
+    padding: 6px 12px;
     border: none;
-    border-radius: 8px;
-    font-size: 14px;
+    border-radius: 6px;
+    font-size: 12px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -494,8 +447,8 @@ onUnmounted(() => {
 }
 
 .sn-btn svg {
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
 }
 
 .sn-btn:hover:not(:disabled) {
@@ -522,10 +475,10 @@ onUnmounted(() => {
 .sn-timer {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 12px 20px;
+    gap: 8px;
+    padding: 6px 12px;
     background: var(--sn-surface-alt);
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
     transition: background 0.2s ease;
     user-select: none;
@@ -536,8 +489,8 @@ onUnmounted(() => {
 }
 
 .sn-timer-icon {
-    font-size: 14px;
-    width: 20px;
+    font-size: 10px;
+    width: 14px;
     text-align: center;
 }
 
@@ -546,20 +499,20 @@ onUnmounted(() => {
 }
 
 .sn-timer-value {
-    font-size: 24px;
+    font-size: 14px;
     font-weight: 600;
     font-variant-numeric: tabular-nums;
     letter-spacing: 0.02em;
-    min-width: 80px;
+    min-width: 50px;
 }
 
 .sn-timer-reset {
     background: none;
     border: none;
     color: var(--sn-text-muted);
-    font-size: 18px;
+    font-size: 14px;
     cursor: pointer;
-    padding: 4px;
+    padding: 2px;
     border-radius: 4px;
     transition: color 0.2s ease;
 }
@@ -571,16 +524,16 @@ onUnmounted(() => {
 /* --- Responsive --- */
 @media (max-width: 600px) {
     .sn-header {
-        padding: 12px 16px;
+        padding: 8px 10px;
     }
 
     .sn-content {
-        padding: 16px;
+        padding: 10px;
     }
 
     .sn-notes-content {
-        font-size: 16px;
-        padding: 16px;
+        font-size: 13px;
+        padding: 10px;
     }
 
     .sn-btn span {
@@ -588,7 +541,7 @@ onUnmounted(() => {
     }
 
     .sn-timer-value {
-        font-size: 18px;
+        font-size: 14px;
     }
 }
 </style>

@@ -1,5 +1,6 @@
 import { createApp, h, App as VueApp, watch } from 'vue';
 import LuminaDeck from '../components/LuminaDeck.vue';
+import LuminaSpeakerNotes from '../components/LuminaSpeakerNotes.vue';
 import LayoutStatement from '../components/layouts/LayoutStatement.vue';
 import LayoutHalf from '../components/layouts/LayoutHalf.vue';
 import LayoutFeatures from '../components/layouts/LayoutFeatures.vue';
@@ -58,6 +59,20 @@ export class Lumina {
 
         // Dependency Injection
         this.app.provide(StoreKey, this.store);
+
+        // Watch for state changes and emit public events
+        watch(() => this.store.state.currentIndex, (newIndex, oldIndex) => {
+            const currentSlide = this.store.state.deck?.slides[newIndex];
+            // Only emit if we have a valid slide
+            if (currentSlide) {
+                bus.emit('slideChange', {
+                    index: newIndex,
+                    previousIndex: oldIndex ?? 0,
+                    slide: currentSlide
+                });
+            }
+            this.syncSpeakerNotes();
+        });
 
         // Register Core Components
         this.app.component('layout-statement', LayoutStatement);
@@ -221,12 +236,9 @@ export class Lumina {
         const left = window.screenX + window.outerWidth; // Position to the right of main window
         const top = window.screenY;
 
-        // Open popup window
-        const baseUrl = import.meta.env.BASE_URL || '/';
-        const speakerNotesUrl = `${baseUrl}speaker-notes.html?channel=${encodeURIComponent(this.speakerChannelId)}`;
-
+        // Open blank popup window
         this.speakerWindow = window.open(
-            speakerNotesUrl,
+            'about:blank',
             `lumina-speaker-notes-${this.speakerChannelId}`,
             `width=${width},height=${height},left=${left},top=${top},resizable=yes,scrollbars=yes`
         );
@@ -235,6 +247,55 @@ export class Lumina {
             console.warn('[Lumina] Popup blocked. Please allow popups for speaker notes.');
             return null;
         }
+
+        const win = this.speakerWindow;
+
+        // Write initial HTML structure
+        win.document.open();
+        win.document.write(`
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Speaker Notes - Lumina</title>
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+            </head>
+            <body>
+                <div id="speaker-notes-root"></div>
+            </body>
+            </html>
+        `);
+        win.document.close();
+
+        // Copy styles from main window to ensure consistent look
+        // This copies both <style> tags and <link rel="stylesheet">
+        // We wait for the new document to be ready
+        setTimeout(() => {
+            if (win.closed) return;
+
+            // Copy stylesheets (including Vite injected styles)
+            Array.from(document.querySelectorAll('style, link[rel="stylesheet"]')).forEach(node => {
+                win.document.head.appendChild(node.cloneNode(true));
+            });
+
+            // Mount Component
+            // We mount it directly into the new window's DOM
+            const container = win.document.getElementById('speaker-notes-root');
+            if (container) {
+                const notesApp = createApp(LuminaSpeakerNotes, {
+                    channelId: this.speakerChannelId
+                });
+                notesApp.mount(container);
+
+                // Handle window close to unmount app
+                win.addEventListener('unload', () => {
+                    notesApp.unmount();
+                });
+            }
+        }, 0);
 
         // Initialize channel
         this.initSpeakerChannel();

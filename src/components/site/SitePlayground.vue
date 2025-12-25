@@ -23,6 +23,17 @@
                             class="px-3 py-1.5 text-xs font-bold uppercase bg-white/10 text-white/60 rounded-lg hover:bg-white/20 transition">
                             Format
                         </button>
+                        <button @click="exportHtml"
+                            class="px-3 py-1.5 text-xs font-bold uppercase bg-pink-500/20 text-pink-400 rounded-lg hover:bg-pink-500/30 transition flex items-center gap-1.5"
+                            title="Export as standalone HTML">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            Export
+                        </button>
                     </div>
                 </div>
 
@@ -181,6 +192,89 @@ const formatJson = () => {
         jsonInput.value = JSON.stringify(parsed, null, 2);
     } catch {
         // Ignore if invalid
+    }
+};
+
+const exportHtml = () => {
+    if (!jsonInput.value.trim()) return;
+
+    try {
+        let parsed = JSON.parse(jsonInput.value);
+
+        // Auto-wrap logic (same as preview)
+        if (parsed.type && !parsed.slides) {
+            parsed = {
+                meta: { title: 'Exported Deck' },
+                slides: [{ ...parsed, sizing: 'container' }]
+            };
+        }
+
+        // Apply container sizing
+        if (parsed.slides) {
+            parsed.slides.forEach((s: any) => s.sizing = 'container');
+        }
+
+        const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${parsed.meta?.title || 'Lumina Presentation'}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lumina-slides@8.2.5/dist/style.css">
+    <style>
+        body { margin: 0; padding: 0; overflow: hidden; background: #000; font-family: sans-serif; }
+        #app { width: 100vw; height: 100vh; }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    
+    <!-- Lumina Engine (Universal Build) -->
+    <script src="https://cdn.jsdelivr.net/npm/lumina-slides@8.2.5/dist/lumina-slides.umd.cjs"><\/script>
+    
+    <script>
+        // Initialize when ready
+        document.addEventListener('DOMContentLoaded', () => {
+            const { Lumina } = LuminaSlides;
+            
+            // The JSON from your playground
+            const deckData = ${JSON.stringify(parsed, null, 4)};
+
+            // Start the engine
+            const engine = new Lumina('#app', {
+                loop: true,
+                navigation: true,
+                ui: {
+                    visible: true,
+                    showSlideCount: true,
+                    showControls: true,
+                    showProgressBar: true
+                },
+                keys: {
+                    next: ['ArrowRight', ' ', 'Enter'],
+                    prev: ['ArrowLeft', 'Backspace']
+                },
+                animation: { enabled: true, durationIn: 0.5 }
+            });
+            
+            engine.load(deckData);
+        });
+    <\/script>
+</body>
+</html>`;
+
+        const blob = new Blob([html], { type: 'text/html' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'lumina-deck.html';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+    } catch (e: any) {
+        alert('Invalid JSON: ' + e.message);
     }
 };
 

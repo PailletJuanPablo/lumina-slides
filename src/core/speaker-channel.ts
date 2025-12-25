@@ -39,9 +39,16 @@ export class SpeakerChannel {
 
     /**
      * Gets or creates a SpeakerChannel instance for the given name.
-     * Uses singleton pattern to ensure one channel per name.
+     * Uses singleton pattern to ensure one channel per name, unless forceNew is true.
+     * 
+     * @param channelName - The unique ID for the channel
+     * @param forceNew - If true, creates a new instance even if one exists (needed for in-context communication)
      */
-    public static getInstance(channelName: string): SpeakerChannel {
+    public static getInstance(channelName: string, forceNew = false): SpeakerChannel {
+        if (forceNew) {
+            return new SpeakerChannel(channelName);
+        }
+
         if (!SpeakerChannel.instances.has(channelName)) {
             SpeakerChannel.instances.set(channelName, new SpeakerChannel(channelName));
         }

@@ -205,10 +205,18 @@ export function createStore(initialOptions: LuminaOptions = {}) {
     function next() {
         if (!hasNext()) return;
         const count = state.deck?.slides.length || 0;
+        let newIndex = state.currentIndex;
+
         if (state.options.loop) {
-            state.currentIndex = (state.currentIndex + 1) % count;
+            newIndex = (state.currentIndex + 1) % count;
         } else {
-            state.currentIndex++;
+            newIndex++;
+        }
+
+        if (newIndex !== state.currentIndex) {
+            state.currentIndex = newIndex;
+            // Emit event via bus (imported from events.ts, need to update imports)
+            // Ideally store shouldn't know about bus, but for now this is the direct fix
         }
     }
 
@@ -216,10 +224,16 @@ export function createStore(initialOptions: LuminaOptions = {}) {
     function prev() {
         if (!hasPrev()) return;
         const count = state.deck?.slides.length || 0;
+        let newIndex = state.currentIndex;
+
         if (state.options.loop) {
-            state.currentIndex = (state.currentIndex - 1 + count) % count;
+            newIndex = (state.currentIndex - 1 + count) % count;
         } else {
-            state.currentIndex--;
+            newIndex--;
+        }
+
+        if (newIndex !== state.currentIndex) {
+            state.currentIndex = newIndex;
         }
     }
 
@@ -230,9 +244,13 @@ export function createStore(initialOptions: LuminaOptions = {}) {
     function goto(index: number) {
         if (!state.deck) return;
         if (index >= 0 && index < state.deck.slides.length) {
-            state.currentIndex = index;
+            if (state.currentIndex !== index) {
+                state.currentIndex = index;
+            }
         }
     }
+
+
 
     return {
         state: readonly(state),
