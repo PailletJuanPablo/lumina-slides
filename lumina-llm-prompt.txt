@@ -266,6 +266,49 @@ Full control with raw HTML/CSS. Use sparingly for advanced layouts.
 
 ---
 
+### 7. CHART
+Data visualization for CSV/Excel extracted data.
+
+```json
+{
+  "type": "chart",
+  "chartType": "bar",
+  "title": "Revenue by Quarter",
+  "subtitle": "2024 Performance",
+  "data": {
+    "labels": ["Q1", "Q2", "Q3", "Q4"],
+    "datasets": [{
+      "label": "Revenue ($M)",
+      "values": [120, 150, 180, 220],
+      "color": "c:p"
+    }]
+  }
+}
+```
+
+| Property | Type | Required |
+|----------|------|----------|
+| type | `"chart"` | ✓ |
+| chartType | `"bar"` \| `"line"` \| `"pie"` \| `"doughnut"` | ✓ |
+| data | ChartData | ✓ |
+| title | string | |
+| subtitle | string | |
+| notes | string | ✓ |
+
+**ChartData**: `{ labels: string[], datasets: ChartDataset[] }`
+
+**ChartDataset**: `{ label: string, values: number[], color?: string }`
+
+**Color tokens**: 
+- `"c:p"` → primary color
+- `"c:s"` → secondary color  
+- `"c:m"` → muted color
+- Or any hex color (e.g. `"#10b981"`)
+
+> **Use Case**: LLMs excel at extracting tabular data from CSVs and spreadsheets. Convert that data into chart slides automatically.
+
+---
+
 ## SECTION 7: FLEX ELEMENTS
 
 ### IMAGE
