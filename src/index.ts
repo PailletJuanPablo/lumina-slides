@@ -28,12 +28,34 @@ export type {
     LuminaUIOptions,
     LuminaAnimationOptions,
     LuminaKeyBindings,
+    // Chart Types
+    ChartType,
+    ChartData,
+    ChartDataset,
+    // Flex Types
+    FlexElement,
+    FlexChildElement,
+    FlexSize,
+    SpacingToken,
+    VAlign,
+    HAlign,
+    TextAlign,
+    FlexElementImage,
+    FlexElementContent,
+    FlexElementTitle,
+    FlexElementText,
+    FlexElementBullets,
+    FlexElementOrdered,
+    FlexElementButton,
+    FlexElementTimeline,
+    FlexElementStepper,
+    FlexElementSpacer,
     // Speaker Notes
     SpeakerSyncPayload
 } from './core/types';
 
 // Events
-export { bus, EventBus } from './core/events';
+export { bus, EventBus, type Handler } from './core/events';
 
 // Speaker Notes
 export { SpeakerChannel, type MessageHandler } from './core/speaker-channel';

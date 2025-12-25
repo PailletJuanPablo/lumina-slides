@@ -10,7 +10,10 @@ import { LuminaEventMap } from './types';
  * 3. One-time listeners: via `once` (implementation optional but good).
  */
 
-type Handler<T> = (payload: T) => void;
+/**
+ * Generic handler function type for event callbacks.
+ */
+export type Handler<T> = (payload: T) => void;
 
 export class EventBus {
     private handlers: Map<keyof LuminaEventMap, Set<Handler<any>>> = new Map();

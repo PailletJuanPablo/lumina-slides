@@ -31,46 +31,6 @@
 
 <br />
 
-## 🔮 The Problem
-
-<div align="center">
-  <table>
-    <tr>
-      <td width="45%" align="center">
-        <h3>❌ The Old Way</h3>
-        <p>Models hallucinate HTML/CSS.</p>
-        <p>Broken layouts.</p>
-        <p>Ugly, non-responsive designs.</p>
-        <p>Huge token cost.</p>
-      </td>
-      <td width="10%" align="center">👉</td>
-      <td width="45%" align="center">
-        <h3>✅ The Lumina Way</h3>
-        <p>Model outputs <b>Intent</b> (JSON).</p>
-        <p>Engine handles <b>Execution</b> (Renderer).</p>
-        <p>Guaranteed 60fps & Responsive.</p>
-        <p>Tiny token footprint.</p>
-      </td>
-    </tr>
-  </table>
-</div>
-
-### Architecture
-
-```mermaid
-graph LR
-    A[🤖 AI Agent] -->|Streams JSON| B(Lumina Engine)
-    B -->|Normalizes| C{Layout System}
-    C -->|Timeline| D[Render Slide]
-    C -->|Flex| D
-    C -->|Features| D
-    D -->|60fps| E[✨ User Screen]
-    E -->|Click Event| A
-    style A fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    style B fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000
-    style E fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
-```
-
 ---
 
 ## 🎨 Layouts & Gallery
