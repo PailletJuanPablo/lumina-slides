@@ -15,7 +15,7 @@
   </p>
   
   <p style="font-size: 1em; max-width: 600px; opacity: 0.8;">
-    ✨ <b>60fps animations</b> · 🎨 <b>6 built-in themes</b> · 📱 <b>Responsive</b> · ⚡ <b>Zero dependencies UI</b>
+    ✨ <b>Smooth Animations</b> · 🎨 <b>6 Built-in Themes</b> · 📱 <b>Fully Responsive</b> · ⚡ <b>All-in-One Bundle</b>
   </p>
 
   <p>
@@ -26,7 +26,7 @@
 
 [![Version](https://img.shields.io/npm/v/lumina-slides?style=for-the-badge&color=2563EB)](https://www.npmjs.com/package/lumina-slides)
 [![Downloads](https://img.shields.io/npm/dt/lumina-slides?style=for-the-badge&color=7C3AED)](https://www.npmjs.com/package/lumina-slides)
-[![License](https://img.shields.io/github/license/PailletJuanPablo/lumina-slides?style=for-the-badge&color=DB2777)](https://github.com/PailletJuanPablo/lumina-slides/blob/main/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/Written%20In-TypeScript-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 
 </div>
