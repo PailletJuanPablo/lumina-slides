@@ -6751,31 +6751,96 @@
 	"readme": [
 		{
 			"kind": "text",
-			"text": "# Lumina Engine\n\n<div align=\"center\">\n  <br />\n  <p>\n    <b>The Interface Layer for the Agentic Era</b>\n  </p>\n    The first presentation engine designed for <b>LLMs</b>. Turn JSON into cinematic, interactive experiences.\n  </p>\n  <br />\n\n  <img src=\"https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/demo.gif\" alt=\"Lumina Engine Demo\" width=\"100%\" style=\"border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);\" />\n\n  <br />\n</div>\n\n**Lumina Engine** is a high-performance, declarative library that enables AI agents and LLMs to generate professional, interactive UI and slide decks by simply outputting JSON. It bridges the gap between text generation and visual storytelling, offering deterministic, GPU-accelerated rendering without the hallucination of pixel-generation.\n\n> [!IMPORTANT] > **Building an Agent?**\n> Read the complete **[Lumina for Agents Guide](https://github.com/PailletJuanPablo/lumina-slides/blob/main/AGENTS.md)** to learn about Streaming, Auto-Layouts, and Token Optimization.\n\n## 🤖 Why for LLMs?\n\nTraditional UI libraries require understanding complex component trees, CSS modules, and state management. Lumina abstracts this into a **single, flat JSON schema**.\n\n- **structured_output Friendly**: Designed to match the capabilities of models like GPT-4o, Claude 3.5 Sonnet, and Gemini Pro.\n- **Hallucination Proof**: The renderer handles the \"how\", the LLM only cares about the \"what\".\n- **Zero Config**: No build steps or bundler configuration needed to generate visual content dynamically.\n\n## ✨ Features\n\n- **📄 JSON-First Architecture**: Define entire decks, including content, styling, and flow, in one serializable object.\n- **⚡ Reactive & Performant**: Built on Vue 3 + GSAP for 60fps animations even on mobile.\n- **🎨 Cinematic Layouts**: \"Pro\" layouts ("
+			"text": "# Lumina Engine\n\n<div align=\"center\">\n\n  <img src=\"https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/demo.gif\" alt=\"Lumina Engine Demo\" width=\"100%\" style=\"border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 80px -20px rgba(0,0,0,0.5);\" />\n\n  <br />\n  <br />\n\n  <h1>The Interface Layer for the Agentic Era</h1>\n  \n  <p style=\"font-size: 1.2em; max-width: 600px;\">\n    <b>Stop making your AI write HTML.</b>\n    <br>\n    Lumina turns \"fuzzy\" Agent thoughts into <br> \n    cinematic, 60fps GPU-accelerated experiences.\n  </p>\n\n  <p>\n    <a href=\"#-quick-start\"><strong>🚀 Quick Start</strong></a> · \n    <a href=\"#-layouts--gallery\"><strong>🎨 Layout Gallery</strong></a> · \n    <a href=\""
 		},
 		{
-			"kind": "code",
-			"text": "`timeline`"
-		},
-		{
-			"kind": "text",
-			"text": ", "
-		},
-		{
-			"kind": "code",
-			"text": "`statement`"
+			"kind": "relative-link",
+			"text": "AGENTS.md",
+			"target": 2
 		},
 		{
 			"kind": "text",
-			"text": ", "
+			"text": "\"><strong>🤖 Agent Guide</strong></a>\n  </p>\n\n[![Version](https://img.shields.io/npm/v/lumina-slides?style=for-the-badge&color=2563EB)](https://www.npmjs.com/package/lumina-slides)\n[![Downloads](https://img.shields.io/npm/dt/lumina-slides?style=for-the-badge&color=7C3AED)](https://www.npmjs.com/package/lumina-slides)\n[![License](https://img.shields.io/github/license/PailletJuanPablo/lumina-slides?style=for-the-badge&color=DB2777)](https://github.com/PailletJuanPablo/lumina-slides/blob/main/LICENSE)\n[![TypeScript](https://img.shields.io/badge/Written%20In-TypeScript-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)\n\n</div>\n\n<br />\n\n## 🔮 The Problem\n\n<div align=\"center\">\n  <table>\n    <tr>\n      <td width=\"45%\" align=\"center\">\n        <h3>❌ The Old Way</h3>\n        <p>Models hallucinate HTML/CSS.</p>\n        <p>Broken layouts.</p>\n        <p>Ugly, non-responsive designs.</p>\n        <p>Huge token cost.</p>\n      </td>\n      <td width=\"10%\" align=\"center\">👉</td>\n      <td width=\"45%\" align=\"center\">\n        <h3>✅ The Lumina Way</h3>\n        <p>Model outputs <b>Intent</b> (JSON).</p>\n        <p>Engine handles <b>Execution</b> (Renderer).</p>\n        <p>Guaranteed 60fps & Responsive.</p>\n        <p>Tiny token footprint.</p>\n      </td>\n    </tr>\n  </table>\n</div>\n\n### Architecture\n\n"
 		},
 		{
 			"kind": "code",
-			"text": "`features`"
+			"text": "```mermaid\ngraph LR\n    A[🤖 AI Agent] -->|Streams JSON| B(Lumina Engine)\n    B -->|Normalizes| C{Layout System}\n    C -->|Timeline| D[Render Slide]\n    C -->|Flex| D\n    C -->|Features| D\n    D -->|60fps| E[✨ User Screen]\n    E -->|Click Event| A\n    style A fill:#e1f5fe,stroke:#01579b,stroke-width:2px\n    style B fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000\n    style E fill:#fff3e0,stroke:#ef6c00,stroke-width:2px\n```"
 		},
 		{
 			"kind": "text",
-			"text": ") that look good by default.\n- **🛡️ Type Safe**: Full TypeScript support with exported types for your AI system prompts.\n- **🔌 Event Driven**: Hook into every user interaction to feed state back to your agent.\n\n## 📦 Installation\n\n"
+			"text": "\n\n---\n\n## 🎨 Layouts & Gallery\n\nLumina comes with **\"Pro\" Layouts** built-in. Your agent just needs to pick the "
+		},
+		{
+			"kind": "code",
+			"text": "`type`"
+		},
+		{
+			"kind": "text",
+			"text": ".\n\n| Layout        | Description                                                                                                                   | Visual Preview                                                                                                                                        |\n| :------------ | :---------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- |\n| **Statement** | High-impact text. Perfect for titles, big ideas, or \"cover\" slides. <br><br> "
+		},
+		{
+			"kind": "code",
+			"text": "`type: \"statement\"`"
+		},
+		{
+			"kind": "text",
+			"text": "                              | <img src=\"https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-statement.png\" width=\"200\" style=\"border-radius: 6px;\"> |\n| **Features**  | A powerful grid system for benefits, stats, or KPIs. Automatically adapts to the number of items. <br><br> "
+		},
+		{
+			"kind": "code",
+			"text": "`type: \"features\"`"
+		},
+		{
+			"kind": "text",
+			"text": " | <img src=\"https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-features.png\" width=\"200\" style=\"border-radius: 6px;\">  |\n| **Timeline**  | Chronological events, roadmaps, or history. Horizontal scrolling with snap points. <br><br> "
+		},
+		{
+			"kind": "code",
+			"text": "`type: \"timeline\"`"
+		},
+		{
+			"kind": "text",
+			"text": "                | <img src=\"https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-timeline.png\" width=\"200\" style=\"border-radius: 6px;\">  |\n| **Steps**     | Numbered process flows, tutorials, or \"How-To\" guides. <br><br> "
+		},
+		{
+			"kind": "code",
+			"text": "`type: \"steps\"`"
+		},
+		{
+			"kind": "text",
+			"text": "                                               | <img src=\"https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-steps.png\" width=\"200\" style=\"border-radius: 6px;\">     |\n| **Half**      | Visual context. Image on one side, text on the other. Responsive. <br><br> "
+		},
+		{
+			"kind": "code",
+			"text": "`type: \"half\"`"
+		},
+		{
+			"kind": "text",
+			"text": "                                     | <img src=\"https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-half.png\" width=\"200\" style=\"border-radius: 6px;\">      |\n| **Embedded**  | **Widget Mode**. Embed slides inside dashboards or smaller containers. <br><br> "
+		},
+		{
+			"kind": "code",
+			"text": "`type: \"features\" (compact)`"
+		},
+		{
+			"kind": "text",
+			"text": "                  | <img src=\"https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-embedded.png\" width=\"200\" style=\"border-radius: 6px;\">  |\n\n> [!TIP] > **See the Code**: Click on the dropdowns below to see the exact JSON used to generate these slides.\n\n<details>\n<summary><b>Example: Timeline JSON</b></summary>\n\n"
+		},
+		{
+			"kind": "code",
+			"text": "```json\n{\n  \"type\": \"timeline\",\n  \"title\": \"Project History\",\n  \"timeline\": [\n    {\n      \"date\": \"2023\",\n      \"title\": \"Inception\",\n      \"description\": \"The idea is born.\"\n    },\n    {\n      \"date\": \"2024\",\n      \"title\": \"Launch\",\n      \"description\": \"First public release.\"\n    }\n  ]\n}\n```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\n</details>\n\n<details>\n<summary><b>Example: Flex (Advanced) JSON</b></summary>\n\n"
+		},
+		{
+			"kind": "code",
+			"text": "```json\n{\n  \"type\": \"flex\",\n  \"direction\": \"horizontal\",\n  \"elements\": [\n    { \"type\": \"image\", \"src\": \"data.png\", \"size\": \"half\" },\n    {\n      \"type\": \"content\",\n      \"size\": \"half\",\n      \"elements\": [\n        { \"type\": \"title\", \"text\": \"Deep Dive\" },\n        { \"type\": \"text\", \"text\": \"Detailed analysis here...\" }\n      ]\n    }\n  ]\n}\n```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\n</details>\n\n---\n\n## ⚡ Quick Start\n\n### 1. Install\n\n"
 		},
 		{
 			"kind": "code",
@@ -6783,47 +6848,152 @@
 		},
 		{
 			"kind": "text",
-			"text": "\n\n## ⚡ Quick Start for Agents\n\n### 1. The \"System Prompt\"\n\nYour agent generates this structure:\n\n"
+			"text": "\n\n### 2. Implementation\n\nLumina is a **Framework Agnostic** class. It mounts to any DOM node.\n\n"
 		},
 		{
 			"kind": "code",
-			"text": "```json\n{\n  \"meta\": { \"title\": \"Quarterly Review\" },\n  \"slides\": [\n    {\n      \"type\": \"statement\",\n      \"title\": \"Q4 Performance\",\n      \"subtitle\": \"Exceeding expectations.\",\n      \"meta\": { \"variant\": \"gradient\" }\n    },\n    {\n      \"type\": \"features\",\n      \"title\": \"Key Metrics\",\n      \"features\": [\n        {\n          \"title\": \"Growth\",\n          \"description\": \"+145% YoY\",\n          \"icon\": \"trending-up\"\n        },\n        { \"title\": \"Retention\", \"description\": \"98% Renewal\", \"icon\": \"users\" }\n      ]\n    }\n  ]\n}\n```"
+			"text": "```typescript\nimport { Lumina } from \"lumina-slides\";\nimport \"lumina-slides/style.css\";\n\nconst engine = new Lumina(\"#app\", {\n  theme: \"dark\",\n  loop: true,\n});\n\n// Load Data (From your API, or static)\nengine.load({\n  meta: { title: \"Demo Deck\" },\n  slides: [\n    { type: \"statement\", title: \"Hello World\", subtitle: \"Powered by Lumina\" },\n  ],\n});\n```"
 		},
 		{
 			"kind": "text",
-			"text": "\n\n### 2. The Engine Renders\n\nYou pass that JSON directly to Lumina.\n\n"
+			"text": "\n\n---\n\n## 🤖 Building Agents?\n\nWe have a dedicated guide for that.\n\n> [!IMPORTANT] > **Read the [Agent Integration Guide]("
+		},
+		{
+			"kind": "relative-link",
+			"text": "./AGENTS.md",
+			"target": 2
+		},
+		{
+			"kind": "text",
+			"text": ")**\n>\n> Learn about:\n>\n> - **Streaming**: How to pipe token streams directly into the engine.\n> - **Aliases**: Improve latency by 30% using "
 		},
 		{
 			"kind": "code",
-			"text": "```typescript\nimport { Lumina } from \"lumina-slides\";\nimport \"lumina-slides/style.css\";\n\n// Works in Vanilla JS, React, Angular, Svelte, etc.\n// No Vue installation required.\nconst engine = new Lumina(\"#app\", {\n  theme: \"dark\",\n});\n\n// Imagine this comes from your LLM stream\nconst llmOutput = await agent.generatePresentation();\n\nengine.load(llmOutput);\n```"
+			"text": "`t`"
 		},
 		{
 			"kind": "text",
-			"text": "\n\n## 🧩 Built-in Layouts\n\nLumina provides semantic layout types that LLMs can easily select based on context.\n\n### **Statement**\n\nBig ideas, quotes, titles. Great for \"cover\" slides.\n\n[![Statement Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-statement.png)](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-statement.json)\n[View JSON Source](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-statement.json)\n\n### **Half**\n\nComparisons, text + image context.\n\n[![Half Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-half.png)](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-half.json)\n[View JSON Source](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-half.json)\n\n### **Features**\n\nLists of benefits, KPIs, or grid items.\n\n[![Features Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-features.png)](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-features.json)\n[View JSON Source](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-features.json)\n\n### **Timeline**\n\nChronological events, roadmaps, history.\n\n[![Timeline Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-timeline.png)](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-timeline.json)\n[View JSON Source](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-timeline.json)\n\n### **Steps**\n\nTutorials, flows, numbered processes.\n\n[![Steps Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-steps.png)](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-steps.json)\n[View JSON Source](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-steps.json)\n\n### **Embedded (Widget Mode)**\n\nSlides constrained to a container, perfect for dashboards.\n\n[![Embedded Layout](https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/layout-embedded.png)](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-embedded.json)\n[View JSON Source](https://github.com/PailletJuanPablo/lumina-slides/blob/main/public/layout-embedded.json)\n\n## 📚 API Reference\n\n### "
+			"text": " instead of "
 		},
 		{
 			"kind": "code",
-			"text": "`engine.load(deck: DeckDefinition)`"
+			"text": "`title`"
 		},
 		{
 			"kind": "text",
-			"text": "\n\nLoads a new deck. This is reactive - calling it again with new data (e.g. streaming chunks) will update the view seamlessly.\n\n### "
+			"text": ".\n> - **Feedback Loops**: How to let the AI know what the user is clicking.\n\n### Token Optimization\n\nLumina includes a built-in normalizer. Your LLM can output \"lazy\" JSON to save money.\n\n| Concept        | Standard     | Short Alias |\n| :------------- | :----------- | :---------- |\n| **Header**     | "
 		},
 		{
 			"kind": "code",
-			"text": "`engine.on(event, callback)`"
+			"text": "`title`"
 		},
 		{
 			"kind": "text",
-			"text": "\n\nListen to interactions to create loops where the user's action prompts the AI for the next step.\n\n"
+			"text": "      | "
 		},
 		{
 			"kind": "code",
-			"text": "```typescript\nengine.on(\"action\", (payload) => {\n  // Feed user interaction back to the AI\n  agent.send(`User clicked on button: ${payload.value}`);\n});\n```"
+			"text": "`t`"
 		},
 		{
 			"kind": "text",
-			"text": "\n\n## 📄 License\n\nMIT"
+			"text": "         |\n| **Sub-Header** | "
+		},
+		{
+			"kind": "code",
+			"text": "`subtitle`"
+		},
+		{
+			"kind": "text",
+			"text": "   | "
+		},
+		{
+			"kind": "code",
+			"text": "`s`"
+		},
+		{
+			"kind": "text",
+			"text": "         |\n| **Picture**    | "
+		},
+		{
+			"kind": "code",
+			"text": "`image`"
+		},
+		{
+			"kind": "text",
+			"text": "      | "
+		},
+		{
+			"kind": "code",
+			"text": "`img`"
+		},
+		{
+			"kind": "text",
+			"text": "       |\n| **Background** | "
+		},
+		{
+			"kind": "code",
+			"text": "`background`"
+		},
+		{
+			"kind": "text",
+			"text": " | "
+		},
+		{
+			"kind": "code",
+			"text": "`bg`"
+		},
+		{
+			"kind": "text",
+			"text": "        |\n\n---\n\n## 🛠 API Reference\n\n### "
+		},
+		{
+			"kind": "code",
+			"text": "`engine.load(deck)`"
+		},
+		{
+			"kind": "text",
+			"text": "\n\nReplaces the entire deck. Use this for the initial load.\n\n### "
+		},
+		{
+			"kind": "code",
+			"text": "`engine.patch(diff)`"
+		},
+		{
+			"kind": "text",
+			"text": "\n\nUpdates **parts** of the deck. Use this for:\n\n- Real-time streaming (appending slides).\n- Correcting typos live.\n- Updating a \"Status\" slide based on live data.\n\n### "
+		},
+		{
+			"kind": "code",
+			"text": "`engine.on(event, handler)`"
+		},
+		{
+			"kind": "text",
+			"text": "\n\nListen to user behavior.\n\n- "
+		},
+		{
+			"kind": "code",
+			"text": "`action`"
+		},
+		{
+			"kind": "text",
+			"text": ": User clicked a button.\n- "
+		},
+		{
+			"kind": "code",
+			"text": "`slideChange`"
+		},
+		{
+			"kind": "text",
+			"text": ": User navigated.\n\n"
+		},
+		{
+			"kind": "code",
+			"text": "```typescript\nengine.on(\"action\", (e) => {\n  // e.value = \"buy_now_clicked\"\n  // Tell the Agent to proceed to checkout!\n});\n```"
+		},
+		{
+			"kind": "text",
+			"text": "\n\n---\n\n<div align=\"center\">\n  <p>Built with ❤️ by <a href=\"https://pailletjp.com\">Juan Pablo Paillet</a>.</p>\n</div>"
 		}
 	],
 	"symbolIdMap": {
@@ -8066,13 +8236,14 @@
 	"files": {
 		"entries": {
 			"1": "src/index.ts",
-			"2": "README.md",
-			"3": ""
+			"2": "AGENTS.md",
+			"3": "README.md",
+			"4": ""
 		},
 		"reflections": {
 			"1": 0,
-			"2": 0,
-			"3": 0
+			"3": 0,
+			"4": 0
 		}
 	}
 }
