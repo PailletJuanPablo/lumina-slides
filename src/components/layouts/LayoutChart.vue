@@ -84,7 +84,7 @@ const resolveColor = (colorToken: string | undefined, index: number): string => 
         return defaultColors[index % defaultColors.length];
     }
 
-    // Resolve Lumina color tokens
+    // Resolve Lumina color tokens with strict fallbacks
     switch (colorToken) {
         case 'c:p':
             return getComputedStyle(document.documentElement).getPropertyValue('--lumina-colors-primary').trim() || '#3b82f6';
@@ -93,7 +93,13 @@ const resolveColor = (colorToken: string | undefined, index: number): string => 
         case 'c:m':
             return getComputedStyle(document.documentElement).getPropertyValue('--lumina-colors-muted').trim() || '#9ca3af';
         default:
-            return colorToken;
+            // If valid definition, return it
+            if (colorToken && (colorToken.startsWith('#') || colorToken.startsWith('rgb') || colorToken.startsWith('hsl'))) return colorToken;
+            // If known color name (red, blue), return it
+            if (colorToken && /^[a-z]+$/i.test(colorToken)) return colorToken;
+
+            // Fallback for empty/undefined/invalid tokens
+            return resolveColor(undefined, index);
     }
 };
 

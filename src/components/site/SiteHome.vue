@@ -1,5 +1,32 @@
 <template>
-    <div class="min-h-screen pt-24 px-8 flex flex-col items-center justify-center text-center relative overflow-hidden">
+    <!-- VIEWING MODE (When ?id=xxx is present) -->
+    <div v-if="loadingDeck || viewingDeck" class="w-full h-screen bg-black overflow-hidden relative z-[9999]">
+        <div id="deck-viewer" class="w-full h-full"></div>
+
+        <!-- Loading State -->
+        <div v-if="loadingDeck" class="absolute inset-0 flex items-center justify-center bg-black z-50">
+            <div class="text-center">
+                <i class="fa-solid fa-circle-notch fa-spin text-4xl text-blue-500 mb-4"></i>
+                <p class="text-white/50 animate-pulse">Loading presentation...</p>
+            </div>
+        </div>
+
+        <!-- Error State -->
+        <div v-if="deckError" class="absolute inset-0 flex items-center justify-center bg-black z-50">
+            <div class="text-center max-w-md px-6">
+                <i class="fa-solid fa-triangle-exclamation text-4xl text-red-500 mb-4"></i>
+                <h3 class="text-xl font-bold text-white mb-2">Presentation Not Found</h3>
+                <p class="text-white/50 mb-6">{{ deckError }}</p>
+                <a href="./" class="px-6 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition">
+                    Go Home
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NORMAL HOME PAGE -->
+    <div v-else
+        class="min-h-screen pt-24 px-8 flex flex-col items-center justify-center text-center relative overflow-hidden">
         <!-- Background Gradients -->
         <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-[100px] pointer-events-none">
         </div>
@@ -122,15 +149,34 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, onUnmounted, nextTick } from 'vue';
+import { ref, watch, onUnmounted, nextTick, onMounted } from 'vue';
 import { Lumina } from '../../core/Lumina';
 import { parsePartialJson } from '../../utils/streaming';
+import { getDeck, initFirebase } from '../../utils/firebase';
 
 defineEmits(['navigate']);
 
+// Demo State
 const demoInput = ref('');
 const demoStarted = ref(false);
 let demoEngine: Lumina | null = null;
+let viewerEngine: Lumina | null = null;
+
+// Viewer State
+const loadingDeck = ref(false);
+const viewingDeck = ref(false);
+const deckError = ref<string | null>(null);
+
+// Initialize Firebase (Public details are safe here, but usually use env vars)
+// NOTE: You should ideally use environment variables for keys.
+const firebaseConfig = {
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID
+};
 
 const TARGET_JSON = `{
   "meta": { "title": "Home Demo" },
@@ -230,11 +276,16 @@ watch(demoInput, (val) => {
             // We want to be on the last slide that has sufficient content (e.g., at least a title)
             const availableSlides = parsed.slides.filter((s: any) => s.title || s.type);
             // We subtract 1 because index is 0-based
-            const targetIndex = availableSlides.length - 1;
+            // const targetIndex = availableSlides.length - 1;
 
-            if (targetIndex > demoEngine.currentSlideIndex) {
-                demoEngine.goTo(targetIndex);
+            if (availableSlides.length > 0) {
+                const targetIndex = availableSlides.length - 1;
+                // Only advance if it's forward
+                if (targetIndex > demoEngine.currentSlideIndex) {
+                    demoEngine.goTo(targetIndex);
+                }
             }
+
         } else {
             demoEngine.load({
                 meta: { title: "Demo" },
@@ -244,8 +295,68 @@ watch(demoInput, (val) => {
     }
 });
 
+/**
+ * Initialize Viewer Mode if ID is present
+ */
+const initViewer = async (id: string) => {
+    loadingDeck.value = true;
+    try {
+        // Initialize Firebase
+        initFirebase(firebaseConfig);
+
+        const deck = await getDeck(id);
+        if (deck) {
+            viewingDeck.value = true;
+            await nextTick();
+
+            // Allow time for DOM to render #deck-viewer
+            setTimeout(() => {
+                viewerEngine = new Lumina('#deck-viewer', {
+                    loop: true,
+                    navigation: true,
+                    keyboard: true,
+                    ui: {
+                        visible: true,
+                        showControls: true,
+                        showProgressBar: true,
+                        showSlideCount: true
+                    },
+                    // Ensure the viewer takes focus for keyboard events
+                });
+                viewerEngine.load(deck);
+                // Emit event to notify parent App.vue to hide navbar if possible, or we just handle it via CSS/z-index
+                document.body.classList.add('viewing-deck');
+            }, 100);
+
+        } else {
+            deckError.value = "The presentation could not be found. It may have been deleted.";
+        }
+    } catch (e: any) {
+        console.error(e);
+        deckError.value = "Failed to load presentation. Please try again later.";
+    } finally {
+        loadingDeck.value = false;
+    }
+};
+
+onMounted(() => {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    if (id) {
+        initViewer(id);
+    }
+});
 
 onUnmounted(() => {
     if (demoEngine) demoEngine.destroy();
+    if (viewerEngine) viewerEngine.destroy();
+    document.body.classList.remove('viewing-deck');
 });
 </script>
+
+<style>
+/* Global override for viewer mode to hide navbar if needed */
+body.viewing-deck nav {
+    display: none !important;
+}
+</style>

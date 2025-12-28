@@ -1,0 +1,41 @@
+# Source files
+src/
+public/
+functions/
+scripts/
+
+# Config files
+vite.config.ts
+vite.docs.config.ts
+tailwind.config.js
+postcss.config.js
+firebase.json
+firebase-credentials.json
+.firebaserc
+
+# Environment
+.env
+.env.*
+
+# Tests and Coverage
+coverage/
+tests/
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git
+.git/
+.gitignore
+
+# CI/CD
+.github/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

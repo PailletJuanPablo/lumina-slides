@@ -152,6 +152,19 @@ export interface FlexElementImage {
 }
 
 /**
+ * Video element - Visual media.
+ */
+export interface FlexElementVideo extends VideoProperties {
+    type: 'video';
+    /** Fill entire container edge-to-edge. Default: true */
+    fill?: boolean;
+    /** Object-fit mode when fill is true. Default: 'cover' */
+    fit?: 'cover' | 'contain';
+    /** Border radius. Default: 'none' when fill, 'lg' otherwise */
+    rounded?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
+}
+
+/**
  * Button element - Call-to-action button.
  */
 export interface FlexElementButton {
@@ -228,6 +241,7 @@ export type FlexChildElement =
  */
 export type FlexElement =
     | (FlexElementImage & { size?: FlexSize })
+    | (FlexElementVideo & { size?: FlexSize })
     | (FlexElementContent & { size?: FlexSize })
     | (FlexElementTitle & { size?: FlexSize })
     | (FlexElementText & { size?: FlexSize })
@@ -259,6 +273,29 @@ interface SlideBase {
     sizing?: 'viewport' | 'container';
     /** Speaker notes for this slide (supports basic markdown). */
     notes?: string;
+    /** Background image or video. */
+    background?: string | VideoProperties;
+    /** Opacity of the background (0-1). Default: 1 (or 0.2 for default dark overlay) */
+    backgroundOpacity?: number;
+}
+
+/**
+ * Common properties for video elements.
+ */
+export interface VideoProperties {
+    type: 'video';
+    src: string;
+    poster?: string;
+    /** Default: true for backgrounds, false for elements */
+    autoplay?: boolean;
+    /** Default: true for backgrounds, false for elements */
+    loop?: boolean;
+    /** Default: true for backgrounds, false for elements */
+    muted?: boolean;
+    /** Default: false */
+    controls?: boolean;
+    /** Custom CSS class */
+    className?: string;
 }
 
 /**
@@ -334,7 +371,10 @@ export interface SlideHalf extends SlideBase {
     type: 'half';
     /** Which side the image appears on. */
     imageSide: 'left' | 'right';
-    image: string;
+    /** Image URL (optional if video is provided). */
+    image?: string;
+    /** Video properties (optional). */
+    video?: VideoProperties;
     tag?: string;
     title: string;
     paragraphs: string[];
@@ -453,6 +493,17 @@ export interface SlideGeneric extends SlideBase {
 }
 
 /**
+ * Slide: Video Layout
+ * Full screen video player.
+ */
+export interface SlideVideo extends SlideBase {
+    type: 'video';
+    video: VideoProperties;
+    /** Optional caption or title overlay */
+    title?: string;
+}
+
+/**
  * The main Slide Data structure.
  * A discriminated union of all supported slide types.
  */
@@ -465,6 +516,7 @@ export type BaseSlideData =
     | SlideFlex
     | SlideChart
     | SlideCustom
+    | SlideVideo
     | SlideGeneric;
 
 /**

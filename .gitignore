@@ -156,3 +156,4 @@ xcuserdata/
 # Vite
 dist-ssr
 *.local
+firebase-credentials.json

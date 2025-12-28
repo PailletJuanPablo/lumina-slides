@@ -393,60 +393,6 @@ Groups elements vertically with alignment.
 { "type": "spacer", "size": "md" }
 ```
 
----
-
-## SECTION 8: COMPLETE EXAMPLE
-
-```json
-{
-  "meta": { "title": "Product Launch" },
-  "slides": [
-    {
-      "type": "statement",
-      "tag": "Introducing",
-      "title": "The Future is Here",
-      "subtitle": "A revolutionary approach to presentations",
-      "notes": "Welcome the audience. Mention key stakeholders. Set the tone for innovation."
-    },
-    {
-      "type": "flex",
-      "direction": "horizontal",
-      "elements": [
-        { "type": "image", "src": "https://example.com/hero.jpg", "size": "half", "fill": true },
-        {
-          "type": "content",
-          "size": "half",
-          "valign": "center",
-          "padding": "xl",
-          "gap": "lg",
-          "elements": [
-            { "type": "title", "text": "Built for Speed", "size": "2xl" },
-            { "type": "text", "text": "Lightning-fast rendering with zero compromise.", "muted": true },
-            { "type": "bullets", "items": ["60fps animations", "Instant updates", "No loading states"] },
-            { "type": "button", "label": "Get Started", "variant": "primary" }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "features",
-      "title": "Core Capabilities",
-      "features": [
-        { "title": "JSON Native", "desc": "Define slides as pure data", "icon": "code" },
-        { "title": "LLM Ready", "desc": "Designed for AI generation", "icon": "bolt" },
-        { "title": "Zero Config", "desc": "Works out of the box", "icon": "zap" }
-      ]
-    },
-    {
-      "type": "statement",
-      "tag": "Ready?",
-      "title": "Start Building Today"
-    }
-  ]
-}
-```
-
----
 
 ## REMEMBER
 

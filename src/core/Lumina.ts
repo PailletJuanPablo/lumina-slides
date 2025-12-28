@@ -10,6 +10,7 @@ import LayoutFlex from '../components/layouts/LayoutFlex.vue';
 import LayoutAuto from '../components/layouts/LayoutAuto.vue';
 import LayoutCustom from '../components/layouts/LayoutCustom.vue';
 import LayoutChart from '../components/layouts/LayoutChart.vue';
+import LayoutVideo from '../components/layouts/LayoutVideo.vue';
 import { createStore, StoreKey, LuminaStore } from './store';
 import { bus } from './events';
 import { ThemeManager } from './theme';
@@ -60,6 +61,7 @@ export class Lumina {
 
         // Dependency Injection
         this.app.provide(StoreKey, this.store);
+        this.app.provide('LuminaEngine', this);
 
         // Watch for state changes and emit public events
         watch(() => this.store.state.currentIndex, (newIndex, oldIndex) => {
@@ -85,6 +87,7 @@ export class Lumina {
         this.app.component('layout-auto', LayoutAuto);
         this.app.component('layout-custom', LayoutCustom);
         this.app.component('layout-chart', LayoutChart);
+        this.app.component('layout-video', LayoutVideo);
 
         // Internal Event Listeners
         bus.on('action', (payload) => {

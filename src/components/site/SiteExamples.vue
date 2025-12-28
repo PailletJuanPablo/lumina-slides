@@ -32,6 +32,7 @@ const decks = [
     { id: 'layout-timeline', title: 'Timeline', description: 'Vertical chronological sequence.', icon: '⏱️' },
     { id: 'layout-steps', title: 'Process Steps', description: 'Horizontal sequential flow.', icon: '👣' },
     { id: 'layout-flex-demo', title: 'Flex Layout', description: 'Flow-based composition for LLMs.', icon: '🧬' },
+    { id: 'layout-video', title: 'Video & Media', description: 'Cinematic backgrounds and video elements.', icon: '🎬' },
     { id: 'layout-chart', title: 'Chart Layout', description: 'Data visualization with Chart.js.', icon: '📊' },
     { id: 'layout-custom', title: 'Custom HTML', description: 'Full control with raw HTML/CSS.', icon: '🎨' },
     { id: 'layout-embedded', title: 'Embedded Widget', description: 'Container-sized, perfect for embedding.', icon: '🧩' },

@@ -1,6 +1,6 @@
 {
   "name": "lumina-slides",
-  "version": "8.5.3",
+  "version": "8.6.0",
   "homepage": "https://pailletjuanpablo.github.io/lumina-slides/",
   "description": "The interface layer for the agentic era. Turn text to UI with declarative JSON.",
   "type": "module",
@@ -40,6 +40,7 @@
     "@vitejs/plugin-vue": "^4.5.0",
     "autoprefixer": "^10.4.16",
     "chart.js": "^4.5.1",
+    "firebase": "^12.7.0",
     "gh-pages": "^6.3.0",
     "gsap": "^3.12.2",
     "postcss": "^8.4.31",

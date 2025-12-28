@@ -1,0 +1,145 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Lumina Slides API",
+        "description": "API to generate and save Lumina Slides presentations, and retrieve schema definitions.",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://us-central1-lumina-slides.cloudfunctions.net",
+            "description": "Production Server"
+        }
+    ],
+    "paths": {
+        "/saveDeck": {
+            "post": {
+                "operationId": "saveDeck",
+                "summary": "Save a new presentation deck",
+                "description": "Accepts a JSON definition of a slide deck and saves it to Firestore, returning a unique ID and shareable URL.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Deck"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Deck saved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string",
+                                            "description": "The unique ID of the saved deck."
+                                        },
+                                        "url": {
+                                            "type": "string",
+                                            "description": "The direct URL to view the saved deck."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/getSchema": {
+            "get": {
+                "operationId": "getSchema",
+                "summary": "Get the JSON Schema for Lumina Decks",
+                "description": "Returns the full JSON Schema for validation. Optional 'type' parameter to filter specific schemas.",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "Specific slide type to retrieve schema for (e.g. 'chart', 'flex').",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "JSON Schema definition",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "description": "A valid JSON Schema object",
+                                    "properties": {
+                                        "$schema": {
+                                            "type": "string"
+                                        },
+                                        "type": {
+                                            "type": "string"
+                                        },
+                                        "properties": {
+                                            "type": "object"
+                                        },
+                                        "definitions": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "additionalProperties": true
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Deck": {
+                "type": "object",
+                "properties": {
+                    "meta": {
+                        "type": "object",
+                        "description": "Metadata about the presentation",
+                        "properties": {
+                            "title": {
+                                "type": "string"
+                            },
+                            "author": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "slides": {
+                        "type": "array",
+                        "description": "List of slides in the deck",
+                        "items": {
+                            "type": "object",
+                            "description": "A generic slide object",
+                            "properties": {
+                                "type": {
+                                    "type": "string",
+                                    "description": "The type of slide layout"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -4,13 +4,17 @@
             <div :class="['flex w-full h-full max-w-7xl mx-auto', directionClass]" :style="mainFlexStyle">
                 <template v-for="(element, i) in data.elements" :key="i">
                     <!-- Image Element -->
-                    <div v-if="element.type === 'image'" :class="getSizeClass(element.size)"
+                    <FlexImage v-if="element.type === 'image'" :src="element.src" :alt="element.alt"
+                        :fill="element.fill" :rounded="element.rounded" :container-class="getSizeClass(element.size)"
+                        :container-style="getElementStyle(element)" />
+
+                    <!-- Video Element -->
+                    <div v-else-if="element.type === 'video'" :class="getSizeClass(element.size)"
                         :style="getElementStyle(element)">
-                        <img :src="element.src" :alt="element.alt || ''" :class="[
-                            'w-full h-full',
-                            element.fill !== false ? 'object-cover' : 'object-contain',
-                            getRoundedClass(element.rounded, element.fill)
-                        ]" />
+                        <VideoPlayer :class="g_oundedClass(element.rounded, element.fill)" :src="element.src"
+                            :poster="element.poster" :autoplay="element.autoplay ?? false" :loop="element.loop ?? false"
+                            :muted="element.muted ?? false" :controls="element.controls ?? true"
+                            :object-fit="element.fill !== false ? 'cover' : 'contain'" />
                     </div>
 
                     <!-- Content Container -->
@@ -34,7 +38,9 @@
 <script setup lang="ts">
 import { computed, h, defineComponent } from 'vue';
 import BaseSlide from '../base/BaseSlide.vue';
+import VideoPlayer from '../base/VideoPlayer.vue';
 import type { SlideFlex, FlexElement, FlexChildElement, SpacingToken, FlexSize, VAlign, HAlign, FlexElementContent } from '../../core/types';
+import FlexImage from '../parts/FlexImage.vue';
 import { bus } from '../../core/events';
 
 const props = defineProps<{
@@ -128,6 +134,13 @@ const getTopLevelStyle = () => ({
     padding: spacingMap['lg'],
 });
 
+
+
+// Helper for templates
+const g_oundedClass = (r?: string, f?: boolean) => {
+    return `w-full h-full ${getRoundedClass(r, f)}`;
+};
+
 const getRoundedClass = (rounded?: string, fill?: boolean) => {
     if (fill !== false && !rounded) return '';
     const map: Record<string, string> = {
@@ -150,21 +163,23 @@ const handleAction = (payload: any) => {
 const FlexTitle = defineComponent({
     props: ['text', 'size', 'align'],
     setup(props) {
-        const sizeClass = {
+        const sizeClass: Record<string, string> = {
             'lg': 'text-3xl lg:text-4xl',
             'xl': 'text-4xl lg:text-5xl',
             '2xl': 'text-5xl lg:text-6xl',
             '3xl': 'text-6xl lg:text-7xl',
-        }[props.size || 'xl'] || 'text-4xl lg:text-5xl';
+        };
+        const finalSize = sizeClass[props.size || 'xl'] || 'text-4xl lg:text-5xl';
 
-        const alignClass = {
+        const alignClass: Record<string, string> = {
             'left': 'text-left',
             'center': 'text-center',
             'right': 'text-right',
-        }[props.align || 'left'] || 'text-left';
+        };
+        const finalAlign = alignClass[props.align || 'left'] || 'text-left';
 
         return () => h('h2', {
-            class: `font-heading font-bold leading-tight ${sizeClass} ${alignClass} w-full`
+            class: `font-heading font-bold leading-tight ${finalSize} ${finalAlign} w-full`
         }, props.text);
     }
 });
@@ -172,14 +187,15 @@ const FlexTitle = defineComponent({
 const FlexText = defineComponent({
     props: ['text', 'align', 'muted'],
     setup(props) {
-        const alignClass = {
+        const alignClass: Record<string, string> = {
             'left': 'text-left',
             'center': 'text-center',
             'right': 'text-right',
-        }[props.align || 'left'] || 'text-left';
+        };
+        const finalAlign = alignClass[props.align || 'left'] || 'text-left';
 
         return () => h('p', {
-            class: `text-lg lg:text-xl leading-relaxed w-full ${alignClass} ${props.muted ? 'opacity-60' : 'opacity-80'}`
+            class: `text-lg lg:text-xl leading-relaxed w-full ${finalAlign} ${props.muted ? 'opacity-60' : 'opacity-80'}`
         }, props.text);
     }
 });
@@ -218,12 +234,13 @@ const FlexButton = defineComponent({
     props: ['label', 'action', 'variant', 'fullWidth'],
     emits: ['action'],
     setup(props, { emit }) {
-        const variantClasses = {
+        const variantClasses: Record<string, string> = {
             'primary': 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg hover:shadow-xl',
             'secondary': 'bg-white/10 text-white border border-white/20 hover:bg-white/20',
             'outline': 'bg-transparent text-white border-2 border-white/50 hover:border-white hover:bg-white/5',
             'ghost': 'bg-transparent text-white/70 hover:text-white hover:bg-white/5',
-        }[props.variant || 'primary'] || 'bg-gradient-to-r from-blue-500 to-purple-600 text-white';
+        };
+        const finalVariant = variantClasses[props.variant || 'primary'] || variantClasses['primary'];
 
         const handleClick = () => {
             emit('action', {
@@ -235,7 +252,7 @@ const FlexButton = defineComponent({
         };
 
         return () => h('button', {
-            class: `px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 cursor-pointer hover:scale-105 ${variantClasses} ${props.fullWidth ? 'w-full' : ''}`,
+            class: `px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 cursor-pointer hover:scale-105 ${finalVariant} ${props.fullWidth ? 'w-full' : ''}`,
             onClick: handleClick
         }, props.label);
     }
@@ -281,7 +298,8 @@ const FlexStepper = defineComponent({
 const FlexSpacer = defineComponent({
     props: ['size'],
     setup(props) {
-        const sizeValue = spacingMap[props.size || 'md'] || spacingMap['md'];
+        const spacingKey = (props.size || 'md') as SpacingToken;
+        const sizeValue = spacingMap[spacingKey] || spacingMap['md'];
         return () => h('div', { style: { height: sizeValue, width: '100%' } });
     }
 });

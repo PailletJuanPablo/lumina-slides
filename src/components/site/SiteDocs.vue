@@ -31,8 +31,37 @@
             <Transition name="fade" mode="out-in">
                 <div :key="activeSection" class="doc-content max-w-6xl">
 
+                    <!-- MEDIA & VIDEO -->
+                    <div v-if="activeSection === 'media'">
+                        <h1>Media & Video</h1>
+                        <p class="lead">Lumina supports rich media experiences, including full-screen video backgrounds
+                            and inline video elements.</p>
+
+                        <h2>Video Backgrounds</h2>
+                        <p>You can add a cinematic feel to any slide by using a video background. This works on
+                            <strong>all layouts</strong>.
+                        </p>
+
+                        <div class="my-8">
+                            <LivePreview :initial-code="EXAMPLES.video" />
+                        </div>
+
+                        <h2>Video Elements</h2>
+                        <p>In 'Flex' and 'Half' layouts, you can use video instead of images.</p>
+
+                        <h3>In Half Layout</h3>
+                        <div class="my-6">
+                            <LivePreview :initial-code="EXAMPLES.video_half" />
+                        </div>
+
+                        <h3>In Flex Layout</h3>
+                        <div class="my-6">
+                            <LivePreview :initial-code="EXAMPLES.video_flex" />
+                        </div>
+                    </div>
+
                     <!-- INTRODUCTION -->
-                    <div v-if="activeSection === 'intro'">
+                    <div v-else-if="activeSection === 'intro'">
                         <h1>Introduction</h1>
                         <p class="lead text-2xl text-white font-light">
                             Lumina is a high-performance, Universal Presentation Engine.
@@ -1729,7 +1758,20 @@ engine.<span class="text-yellow-400">closeSpeakerNotes</span>();</code></pre>
         "color": "c:p"
       }
     ]
-  }
+  },
+  video: `{
+  "type": "statement",
+  "sizing": "container",
+  "meta": { "orbColor": "#ec4899" },
+  "background": {
+    "type": "video",
+    "src": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    "opacity": 0.4
+  },
+  "tag": "Cinematic",
+  "title": "Video Backgrounds",
+  "subtitle": "Immersive support."
+}`
 }' />
                         </div>
 
@@ -2123,6 +2165,42 @@ const EXAMPLES = {
       { "type": "button", "label": "Learn More", "variant": "primary" }
     ]}
   ]
+}` ,
+    video: `{
+  "type": "statement",
+  "sizing": "container",
+  "meta": { "orbColor": "#ec4899" },
+  "background": {
+    "type": "video",
+    "src": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    "opacity": 0.4
+  },
+  "tag": "Cinematic",
+  "title": "Video Backgrounds",
+  "subtitle": "Immersive support."
+}`,
+    video_half: `{
+  "type": "half",
+  "sizing": "container",
+  "video": {
+    "type": "video",
+    "src": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+    "autoplay": true,
+    "muted": true
+  },
+  "title": "Watch This"
+}`,
+    video_flex: `{
+  "type": "flex",
+  "sizing": "container",
+  "elements": [
+    { 
+      "type": "video", 
+      "src": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+      "controls": true,
+      "size": "half"
+    }
+  ]
 }`
 };
 
@@ -2168,6 +2246,17 @@ const navigation = [
             { id: 'install', label: 'Installation' },
             { id: 'setup', label: 'Quick Start' },
             { id: 'theming', label: 'Theming & Presets' }
+        ]
+    },
+    {
+        title: 'Concepts',
+        items: [
+            { id: 'deck', label: 'Deck Structure' },
+            { id: 'slides', label: 'Slide Layouts' },
+            { id: 'media', label: 'Media & Video' },
+            { id: 'sizing', label: 'Embedding & Sizing' },
+            { id: 'agents-intro', label: 'Agent Protocol' },
+            { id: 'agents-tokens', label: 'Token Optimization' }
         ]
     },
     {

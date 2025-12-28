@@ -6,7 +6,19 @@
       <div
         :class="['relative h-[40vh] lg:h-full lg:w-1/2 overflow-hidden z-0', data.sizing === 'container' ? 'lg:absolute lg:top-0' : 'lg:fixed lg:top-0', data.imageSide === 'right' ? 'lg:right-0 order-1' : 'lg:left-0 order-1']">
         <div class="absolute inset-0 bg-black/20 z-10"></div>
-        <img :src="data.image" class="w-full h-full object-cover reveal-img scale-110 origin-center" alt="Slide Image">
+
+        <!-- Video Handling -->
+        <div v-if="data.video" class="w-full h-full relative">
+          <VideoPlayer class="w-full h-full" :src="data.video.src" :poster="data.video.poster"
+            :autoplay="data.video.autoplay ?? true" :loop="data.video.loop ?? true" :muted="data.video.muted ?? true"
+            :controls="data.video.controls" object-fit="cover" />
+        </div>
+
+        <!-- Image Handling -->
+        <img v-else-if="data.image" :src="data.image"
+          :class="['w-full h-full object-cover reveal-img scale-110 origin-center transition-opacity duration-700', isLoaded ? 'opacity-100' : 'opacity-0']"
+          alt="Slide Image" @load="isLoaded = true"
+          @error="(e: any) => { isLoaded = true; e.target.src = 'https://placehold.co/1920x1080/1a1a1a/666?text=Image+Not+Found'; }">
       </div>
 
       <!-- Content Section -->
@@ -40,12 +52,16 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import BaseSlide from '../base/BaseSlide.vue';
+import VideoPlayer from '../base/VideoPlayer.vue';
 import type { SlideHalf } from '../../core/types';
 
 defineProps<{
   data: SlideHalf
 }>();
+
+const isLoaded = ref(false);
 
 defineEmits<{
   (e: 'action', payload: any): void

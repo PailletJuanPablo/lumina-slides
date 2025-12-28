@@ -18,7 +18,7 @@
                     <div :class="['rounded-xl bg-white/5 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition duration-300', data.sizing === 'container' ? 'w-10 h-10 mb-4' : 'w-12 h-12 mb-6']"
                         style="color: var(--lumina-colors-primary, #3b82f6);">
                         <i
-                            :class="['fa-solid', feature.icon.startsWith('fa-') ? feature.icon : `fa-${feature.icon}`]"></i>
+                            :class="['fa-solid', (feature.icon || 'star').startsWith('fa-') ? feature.icon : `fa-${feature.icon || 'star'}`]"></i>
                     </div>
                     <h3 :class="['font-bold mb-3 text-white', data.sizing === 'container' ? 'text-lg' : 'text-2xl']">{{
                         feature.title }}</h3>

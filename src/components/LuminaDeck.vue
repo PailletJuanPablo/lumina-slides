@@ -70,6 +70,13 @@
             <div v-else class="flex-1"></div>
 
             <div v-if="uiOptions?.showControls" class="pointer-events-auto flex gap-3">
+                <!-- Notes Toggle (Sync Window) -->
+                <button v-if="slide?.notes" @click="openSpeakerNotes"
+                    class="w-12 h-12 rounded-full glass-panel hover:bg-white/10 flex items-center justify-center transition active:scale-95"
+                    title="Open Speaker View">
+                    <i class="fa-solid fa-person-chalkboard text-sm text-gray-400 hover:text-white"></i>
+                </button>
+
                 <button @click="prev"
                     :class="['w-12 h-12 rounded-full glass-panel hover:bg-white/10 flex items-center justify-center transition active:scale-95', (!hasPrev || !isNavEnabled) ? 'opacity-30 cursor-not-allowed' : '']"
                     :disabled="!hasPrev || !isNavEnabled"><i class="fa-solid fa-arrow-left"></i></button>
@@ -110,7 +117,18 @@ const isNavEnabled = computed(() => store.state.options.navigation);
 
 useKeyboard();
 
-const ui = ref({ showJson: false });
+const ui = ref({ showJson: false }); // Removed showNotes
+const engine = inject('LuminaEngine') as any;
+
+const openSpeakerNotes = () => {
+    if (engine && typeof engine.openSpeakerNotes === 'function') {
+        engine.openSpeakerNotes();
+    } else {
+        console.warn('Lumina Engine not found or openSpeakerNotes not available');
+        alert('Speaker notes require the full Lumina Engine environment.');
+    }
+};
+
 const isDebug = computed(() => options.debug);
 
 const currentSlideComponent = computed(() => {
