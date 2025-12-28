@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "title": "Video & Media",
+        "theme": "ocean",
+        "author": "Lumina Engine"
+    },
+    "slides": [
+        {
+            "type": "video",
+            "sizing": "container",
+            "title": "Big Buck Bunny (Trailer)",
+            "video": {
+                "type": "video",
+                "src": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                "autoplay": false,
+                "muted": false,
+                "controls": true
+            }
+        },
+        {
+            "type": "half",
+            "sizing": "container",
+            "imageSide": "right",
+            "video": {
+                "type": "video",
+                "src": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+                "autoplay": true,
+                "muted": true,
+                "loop": true
+            },
+            "tag": "Rich Media",
+            "title": "Video Elements",
+            "paragraphs": [
+                "Embed video directly into your slides.",
+                "Perfect for product demos, screencasts, or motion graphics.",
+                "Supports autoplay, loops, and custom controls."
+            ],
+            "cta": "Watch Demo"
+        },
+        {
+            "type": "statement",
+            "sizing": "container",
+            "meta": {
+                "orbColor": "#ec4899"
+            },
+            "background": {
+                "type": "video",
+                "src": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+                "opacity": 0.4
+            },
+            "tag": "Cinematic",
+            "title": "Video Backgrounds",
+            "subtitle": "Immersive full-screen video support for any layout."
+        }
+    ]
+}
