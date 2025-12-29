@@ -85,6 +85,91 @@ Introduce yourself, ask for language preference, and gather requirements:
 
 ---
 
+## SECTION 4.5: THEMING SYSTEM
+
+Lumina has a powerful theming system. You can customize the entire presentation's visual style.
+
+### Theme Presets
+Use `meta.theme` to apply a built-in preset:
+- **default**: Clean blue on dark
+- **ocean**: Cyan on slate  
+- **midnight**: Indigo on black
+- **forest**: Emerald greens
+- **cyber**: Neon pink on zinc
+- **latte**: Light mode, warm amber
+- **sunset**: Orange to rose gradient
+- **monochrome**: Black and white
+
+### Custom Theme Configuration
+Use `meta.themeConfig` to customize any aspect:
+
+```json
+{
+  "meta": {
+    "title": "My Presentation",
+    "theme": "default",
+    "themeConfig": {
+      "colors": {
+        "primary": "#8b5cf6",
+        "secondary": "#ec4899",
+        "background": "#0a0a0a",
+        "text": "#ffffff",
+        "muted": "#6b7280",
+        "gradientFrom": "#8b5cf6",
+        "gradientTo": "#ec4899"
+      },
+      "effects": {
+        "useGradients": true,
+        "useGlass": true,
+        "glassOpacity": 0.05,
+        "useOrb": true,
+        "orbOpacity": 0.4
+      },
+      "components": {
+        "cardRadius": "1.5rem",
+        "buttonRadius": "9999px"
+      }
+    }
+  },
+  "slides": [...]
+}
+```
+
+### Available Theme Options
+
+**Colors (25+ options)**:
+| Category | Properties |
+|----------|------------|
+| Core | `primary`, `secondary`, `accent`, `background`, `surface`, `text`, `textSecondary`, `muted` |
+| Semantic | `success`, `warning`, `danger`, `info` |
+| UI | `border`, `borderSubtle`, `shadow`, `overlay`, `highlight` |
+| Interactive | `buttonPrimary`, `buttonPrimaryText`, `buttonSecondary`, `link`, `linkHover` |
+| Gradients | `gradientFrom`, `gradientVia`, `gradientTo` |
+
+**Effects**:
+| Property | Type | Description |
+|----------|------|-------------|
+| `useGradients` | boolean | Enable/disable gradients |
+| `gradientDirection` | enum | `to-t`, `to-b`, `to-l`, `to-r`, `to-tl`, `to-tr`, `to-bl`, `to-br` |
+| `useShadows` | boolean | Enable/disable shadows |
+| `shadowIntensity` | enum | `none`, `sm`, `md`, `lg`, `xl`, `2xl` |
+| `useGlass` | boolean | Enable/disable glassmorphism |
+| `glassOpacity` | number | 0-1, glass panel opacity |
+| `glassBlur` | string | e.g., "20px" |
+| `useOrb` | boolean | Enable/disable ambient orb glow |
+| `orbOpacity` | number | 0-1, orb opacity |
+| `animationsEnabled` | boolean | Enable/disable animations |
+
+**Components**:
+| Property | Description |
+|----------|-------------|
+| `buttonRadius`, `buttonPadding`, `buttonFontWeight` | Button styling |
+| `cardRadius`, `cardPadding`, `cardBorderWidth` | Card/panel styling |
+| `timelineNodeSize`, `timelineLineWidth`, `timelineNodeColor` | Timeline styling |
+| `tagPadding`, `tagRadius`, `tagFontSize` | Tag/badge styling |
+
+---
+
 ## SECTION 5: JSON SCHEMA
 
 ### Deck Structure
