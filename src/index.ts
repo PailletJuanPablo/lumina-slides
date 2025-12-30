@@ -51,7 +51,14 @@ export type {
     FlexElementStepper,
     FlexElementSpacer,
     // Speaker Notes
-    SpeakerSyncPayload
+    SpeakerSyncPayload,
+    // Theme Types (NEW)
+    ThemeColors,
+    ThemeTypography,
+    ThemeSpacing,
+    ThemeBorderRadius,
+    ThemeEffects,
+    ThemeComponents,
 } from './core/types';
 
 // Events
@@ -60,6 +67,13 @@ export { bus, EventBus, type Handler } from './core/events';
 // Speaker Notes
 export { SpeakerChannel, type MessageHandler } from './core/speaker-channel';
 
+// Theme System (NEW)
+export { ThemeManager, DEFAULT_THEME } from './core/theme';
+export { THEME_PRESETS } from './core/presets';
+export { getLuminaJsonSchema, getThemeJsonSchema, ThemeConfigSchema } from './core/schema';
+
+// Prompt Generation
+export { generateSystemPrompt, generateThemePrompt, type SystemPromptOptions } from './core/prompts';
+
 export { default as LuminaDeck } from './components/LuminaDeck.vue';
 import './style/main.css';
-

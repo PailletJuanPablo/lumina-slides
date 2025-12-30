@@ -540,30 +540,398 @@ export interface Deck {
 
 // --- Configuration ---
 
+// ============================================================================
+// THEME CONFIGURATION TYPES
+// Comprehensive design token system for full customization
+// ============================================================================
+
+/**
+ * Color palette configuration.
+ * All values should be Hex codes (e.g. '#EF4444') or valid CSS colors.
+ */
+export interface ThemeColors {
+    // --- Core Colors ---
+    /** Main brand/accent color. Used for highlights, buttons, links. */
+    primary?: string;
+    /** Secondary brand color. Used for complementary elements. */
+    secondary?: string;
+    /** Tertiary/accent color. Used for special highlights. */
+    accent?: string;
+    /** Main background color. */
+    background?: string;
+    /** Elevated surface color (cards, panels, modals). */
+    surface?: string;
+    /** Primary text color. */
+    text?: string;
+    /** Secondary/subdued text color. */
+    textSecondary?: string;
+    /** Muted/disabled text color. */
+    muted?: string;
+
+    // --- Semantic Colors ---
+    /** Success state color (green tones). */
+    success?: string;
+    /** Warning state color (yellow/amber tones). */
+    warning?: string;
+    /** Danger/error state color (red tones). */
+    danger?: string;
+    /** Informational state color (blue tones). */
+    info?: string;
+
+    // --- UI Element Colors ---
+    /** Border color for containers, cards, inputs. */
+    border?: string;
+    /** Subtle border color for dividers. */
+    borderSubtle?: string;
+    /** Shadow color (used with rgba). */
+    shadow?: string;
+    /** Overlay color for modals, backdrops. */
+    overlay?: string;
+    /** Highlight/selection color. */
+    highlight?: string;
+
+    // --- Interactive Element Colors ---
+    /** Primary button background. */
+    buttonPrimary?: string;
+    /** Primary button text. */
+    buttonPrimaryText?: string;
+    /** Secondary button background. */
+    buttonSecondary?: string;
+    /** Secondary button text. */
+    buttonSecondaryText?: string;
+    /** Link color. */
+    link?: string;
+    /** Link hover color. */
+    linkHover?: string;
+
+    // --- Gradient Colors ---
+    /** Gradient start color. */
+    gradientFrom?: string;
+    /** Gradient middle color (optional). */
+    gradientVia?: string;
+    /** Gradient end color. */
+    gradientTo?: string;
+}
+
+/**
+ * Typography configuration.
+ */
+export interface ThemeTypography {
+    /** Font family definitions. */
+    fontFamily?: {
+        /** Font for headings (h1-h6, titles). */
+        heading?: string;
+        /** Font for body text, paragraphs. */
+        body?: string;
+        /** Font for code, monospace text. */
+        mono?: string;
+    };
+    /** Font size scale. Values should be CSS size values (rem, px, etc.). */
+    fontSize?: {
+        /** Extra small: 0.75rem / 12px */
+        xs?: string;
+        /** Small: 0.875rem / 14px */
+        sm?: string;
+        /** Base: 1rem / 16px */
+        base?: string;
+        /** Large: 1.125rem / 18px */
+        lg?: string;
+        /** Extra large: 1.25rem / 20px */
+        xl?: string;
+        /** 2XL: 1.5rem / 24px */
+        '2xl'?: string;
+        /** 3XL: 1.875rem / 30px */
+        '3xl'?: string;
+        /** 4XL: 2.25rem / 36px */
+        '4xl'?: string;
+        /** 5XL: 3rem / 48px */
+        '5xl'?: string;
+        /** 6XL: 3.75rem / 60px */
+        '6xl'?: string;
+        /** 7XL: 4.5rem / 72px */
+        '7xl'?: string;
+    };
+    /** Font weight scale. Values should be numeric (100-900). */
+    fontWeight?: {
+        /** Light weight: 300 */
+        light?: number;
+        /** Normal weight: 400 */
+        normal?: number;
+        /** Medium weight: 500 */
+        medium?: number;
+        /** Semibold weight: 600 */
+        semibold?: number;
+        /** Bold weight: 700 */
+        bold?: number;
+        /** Extra bold weight: 800 */
+        extrabold?: number;
+    };
+    /** Line height scale. Values should be unitless or CSS values. */
+    lineHeight?: {
+        /** Tight: 1.1 */
+        tight?: string;
+        /** Snug: 1.25 */
+        snug?: string;
+        /** Normal: 1.5 */
+        normal?: string;
+        /** Relaxed: 1.625 */
+        relaxed?: string;
+        /** Loose: 2 */
+        loose?: string;
+    };
+    /** Letter spacing scale. Values should be CSS values (em, px). */
+    letterSpacing?: {
+        /** Tighter: -0.05em */
+        tighter?: string;
+        /** Tight: -0.025em */
+        tight?: string;
+        /** Normal: 0 */
+        normal?: string;
+        /** Wide: 0.025em */
+        wide?: string;
+        /** Wider: 0.05em */
+        wider?: string;
+        /** Widest: 0.1em (tracking-widest for labels) */
+        widest?: string;
+    };
+}
+
+/**
+ * Spacing scale configuration.
+ * Values should be CSS size values (rem, px, etc.).
+ */
+export interface ThemeSpacing {
+    /** 0 */
+    none?: string;
+    /** 0.25rem / 4px */
+    xs?: string;
+    /** 0.5rem / 8px */
+    sm?: string;
+    /** 1rem / 16px */
+    md?: string;
+    /** 1.5rem / 24px */
+    lg?: string;
+    /** 2rem / 32px */
+    xl?: string;
+    /** 3rem / 48px */
+    '2xl'?: string;
+    /** 4rem / 64px */
+    '3xl'?: string;
+    /** 6rem / 96px */
+    '4xl'?: string;
+}
+
+/**
+ * Border radius scale configuration.
+ * Values should be CSS size values (rem, px, etc.).
+ */
+export interface ThemeBorderRadius {
+    /** No rounding: 0 */
+    none?: string;
+    /** Small: 0.25rem / 4px */
+    sm?: string;
+    /** Medium: 0.5rem / 8px */
+    md?: string;
+    /** Large: 0.75rem / 12px */
+    lg?: string;
+    /** Extra large: 1rem / 16px */
+    xl?: string;
+    /** 2XL: 1.5rem / 24px */
+    '2xl'?: string;
+    /** 3XL: 2rem / 32px */
+    '3xl'?: string;
+    /** Full circle/pill: 9999px */
+    full?: string;
+}
+
+/**
+ * Visual effects configuration.
+ */
+export interface ThemeEffects {
+    // --- Gradients ---
+    /** Enable/disable gradient effects globally. */
+    useGradients?: boolean;
+    /** Gradient direction. */
+    gradientDirection?: 'to-t' | 'to-b' | 'to-l' | 'to-r' | 'to-tl' | 'to-tr' | 'to-bl' | 'to-br';
+    /** Override gradient start color (uses colors.gradientFrom if not set). */
+    gradientFrom?: string;
+    /** Override gradient via/middle color. */
+    gradientVia?: string;
+    /** Override gradient end color (uses colors.gradientTo if not set). */
+    gradientTo?: string;
+
+    // --- Shadows ---
+    /** Enable/disable shadow effects globally. */
+    useShadows?: boolean;
+    /** Shadow intensity level. */
+    shadowIntensity?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+    /** Shadow color (supports CSS color). */
+    shadowColor?: string;
+
+    // --- Glass/Blur Effect ---
+    /** Enable/disable glassmorphism effect on panels. */
+    useGlass?: boolean;
+    /** Glass panel opacity (0-1). */
+    glassOpacity?: number;
+    /** Glass blur amount (e.g., "20px"). */
+    glassBlur?: string;
+    /** Glass border opacity (0-1). */
+    glassBorderOpacity?: number;
+
+    // --- Ambient Orb/Glow ---
+    /** Enable/disable ambient orb effect. */
+    useOrb?: boolean;
+    /** Orb opacity (0-1). */
+    orbOpacity?: number;
+    /** Orb blur amount (e.g., "120px"). */
+    orbBlur?: string;
+    /** Orb size (e.g., "60vw"). */
+    orbSize?: string;
+
+    // --- Animations ---
+    /** Enable/disable animations globally. */
+    animationsEnabled?: boolean;
+    /** Default transition duration (e.g., "0.3s"). */
+    transitionDuration?: string;
+    /** Default transition easing (e.g., "ease-out", CSS cubic-bezier). */
+    transitionEasing?: string;
+    /** Hover scale factor (e.g., 1.05 for 5% scale up). */
+    hoverScale?: number;
+}
+
+/**
+ * Component-specific theming configuration.
+ */
+export interface ThemeComponents {
+    // --- Buttons ---
+    /** Button border radius token or CSS value. */
+    buttonRadius?: string;
+    /** Button padding (e.g., "0.75rem 1.5rem"). */
+    buttonPadding?: string;
+    /** Button font weight. */
+    buttonFontWeight?: number;
+    /** Button text transform (uppercase, capitalize, none). */
+    buttonTextTransform?: 'none' | 'uppercase' | 'capitalize';
+
+    // --- Cards/Panels ---
+    /** Card border radius token or CSS value. */
+    cardRadius?: string;
+    /** Card padding. */
+    cardPadding?: string;
+    /** Card border width (e.g., "1px"). */
+    cardBorderWidth?: string;
+    /** Card background (can override surface color). */
+    cardBackground?: string;
+
+    // --- Timeline ---
+    /** Timeline node/dot size (e.g., "1rem"). */
+    timelineNodeSize?: string;
+    /** Timeline connector line width (e.g., "2px"). */
+    timelineLineWidth?: string;
+    /** Timeline node color (uses primary if not set). */
+    timelineNodeColor?: string;
+    /** Timeline line color (uses border if not set). */
+    timelineLineColor?: string;
+
+    // --- Steps ---
+    /** Step number badge size. */
+    stepBadgeSize?: string;
+    /** Step number font size. */
+    stepFontSize?: string;
+
+    // --- Progress Bar ---
+    /** Progress bar height. */
+    progressHeight?: string;
+    /** Progress bar border radius. */
+    progressRadius?: string;
+    /** Progress bar background (track). */
+    progressBackground?: string;
+    /** Progress bar fill color. */
+    progressFill?: string;
+
+    // --- Tags/Badges ---
+    /** Tag padding. */
+    tagPadding?: string;
+    /** Tag border radius. */
+    tagRadius?: string;
+    /** Tag font size. */
+    tagFontSize?: string;
+
+    // --- Input/Form Elements ---
+    /** Input border radius. */
+    inputRadius?: string;
+    /** Input padding. */
+    inputPadding?: string;
+    /** Input border color. */
+    inputBorder?: string;
+    /** Input focus border color. */
+    inputFocusBorder?: string;
+}
+
 /**
  * Configuration for the visual theme.
+ * Comprehensive design token system for full slide customization.
+ * 
+ * @example
+ * ```typescript
+ * const theme: ThemeConfig = {
+ *   colors: {
+ *     primary: '#8b5cf6',
+ *     background: '#0a0a0a',
+ *     text: '#ffffff'
+ *   },
+ *   effects: {
+ *     useGradients: true,
+ *     useGlass: true,
+ *     glassBlur: '20px'
+ *   }
+ * };
+ * ```
  */
 export interface ThemeConfig {
     /**
-     * Color palette overrides.
-     * Values should be Hex codes (e.g. '#EF4444').
+     * Color palette configuration.
+     * Defines all colors used throughout the presentation.
      */
-    colors?: {
-        primary?: string;
-        background?: string;
-        text?: string;
-        muted?: string;
-    };
+    colors?: ThemeColors;
+
     /**
-     * Font family overrides.
-     * Values should be valid CSS font-family strings.
+     * Typography configuration.
+     * Controls fonts, sizes, weights, and text styling.
      */
+    typography?: ThemeTypography;
+
+    /**
+     * Spacing scale configuration.
+     * Defines consistent spacing values for gaps, padding, margins.
+     */
+    spacing?: ThemeSpacing;
+
+    /**
+     * Border radius configuration.
+     * Defines rounded corner values for UI elements.
+     */
+    borderRadius?: ThemeBorderRadius;
+
+    /**
+     * Visual effects configuration.
+     * Controls gradients, shadows, glass effects, animations.
+     */
+    effects?: ThemeEffects;
+
+    /**
+     * Component-specific theming.
+     * Fine-grained control over individual component styles.
+     */
+    components?: ThemeComponents;
+
+    // Legacy support (mapped to new structure internally)
+    /** @deprecated Use typography.fontFamily instead */
     fonts?: {
         heading?: string;
         body?: string;
         mono?: string;
     };
-    // Future: Spacing, Border Radius, etc.
 }
 
 /**

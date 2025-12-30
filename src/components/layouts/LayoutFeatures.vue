@@ -1,29 +1,70 @@
 <template>
     <BaseSlide :data="data">
-        <div
-            :class="['w-full flex flex-col justify-center p-8 lg:p-24', data.sizing === 'container' ? 'min-h-full' : 'min-h-screen']">
+        <div :class="['w-full flex flex-col justify-center', data.sizing === 'container' ? 'min-h-full' : 'min-h-screen']"
+            :style="{ padding: 'var(--lumina-space-xl) var(--lumina-space-3xl)' }">
             <!-- Header -->
-            <div class="mb-16 reveal-up text-center lg:text-left max-w-6xl">
-                <h2 :class="['font-heading font-bold mb-4', data.sizing === 'container' ? 'text-3xl' : 'text-5xl']">{{
-                    data.title }}</h2>
-                <p :class="[data.sizing === 'container' ? 'text-sm' : 'text-xl']"
-                    style="color: var(--lumina-colors-muted, #9ca3af);">{{ data.description }}</p>
+            <div class="reveal-up text-center lg:text-left max-w-6xl"
+                :style="{ marginBottom: 'var(--lumina-space-2xl)' }">
+                <h2 class="font-bold" :style="{
+                    fontFamily: 'var(--lumina-font-heading)',
+                    fontSize: data.sizing === 'container' ? 'var(--lumina-text-3xl)' : 'var(--lumina-text-5xl)',
+                    marginBottom: 'var(--lumina-space-md)',
+                    color: 'var(--lumina-color-text-safe, var(--lumina-color-text))',
+                    textShadow: '0 2px 10px rgba(0,0,0,0.1)'
+                }">
+                    {{ data.title }}
+                </h2>
+                <p v-if="data.description" :style="{
+                    color: 'var(--lumina-color-text-safe, var(--lumina-color-text))', // Enforce safe text
+                    opacity: 0.9,
+                    fontSize: data.sizing === 'container' ? 'var(--lumina-text-sm)' : 'var(--lumina-text-xl)'
+                }">
+                    {{ data.description }}
+                </p>
             </div>
 
             <!-- Grid -->
-            <div
-                :class="['grid w-full', data.sizing === 'container' ? 'grid-cols-1 gap-3' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6']">
-                <div v-for="(feature, i) in data.features" :key="i"
-                    :class="['glass-panel rounded-3xl hover:bg-white/5 transition duration-500 reveal-card group border-t border-white/5 hover:border-blue-500/50', data.sizing === 'container' ? 'p-6' : 'p-8']">
-                    <div :class="['rounded-xl bg-white/5 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition duration-300', data.sizing === 'container' ? 'w-10 h-10 mb-4' : 'w-12 h-12 mb-6']"
-                        style="color: var(--lumina-colors-primary, #3b82f6);">
+            <div :style="{
+                display: 'grid',
+                gridTemplateColumns: data.sizing === 'container' ? '1fr' : 'repeat(auto-fit, minmax(300px, 1fr))',
+                gap: data.sizing === 'container' ? 'var(--lumina-space-md)' : 'var(--lumina-space-lg)'
+            }">
+                <div v-for="(feature, i) in data.features" :key="i" class="glass-panel reveal-card group" :style="{
+                    borderRadius: 'var(--lumina-card-radius)',
+                    padding: data.sizing === 'container' ? 'var(--lumina-space-lg)' : 'var(--lumina-card-padding)',
+                    borderTop: '1px solid var(--lumina-color-border-subtle)',
+                    transition: 'all var(--lumina-transition-duration) var(--lumina-transition-easing)'
+                }">
+                    <!-- Icon -->
+                    <div class="flex items-center justify-center group-hover:scale-110" :style="{
+                        color: 'white',
+                        background: 'linear-gradient(135deg, var(--lumina-color-primary) 0%, var(--lumina-color-secondary) 100%)',
+                        width: data.sizing === 'container' ? 'var(--lumina-space-xl)' : 'var(--lumina-space-2xl)',
+                        height: data.sizing === 'container' ? 'var(--lumina-space-xl)' : 'var(--lumina-space-2xl)',
+                        borderRadius: 'var(--lumina-radius-xl)',
+                        marginBottom: data.sizing === 'container' ? 'var(--lumina-space-md)' : 'var(--lumina-space-lg)',
+                        fontSize: 'var(--lumina-text-xl)',
+                        boxShadow: '0 4px 12px rgba(var(--lumina-color-primary-rgb), 0.3)',
+                        transition: 'all var(--lumina-transition-duration) var(--lumina-transition-easing)'
+                    }">
                         <i
                             :class="['fa-solid', (feature.icon || 'star').startsWith('fa-') ? feature.icon : `fa-${feature.icon || 'star'}`]"></i>
                     </div>
-                    <h3 :class="['font-bold mb-3 text-white', data.sizing === 'container' ? 'text-lg' : 'text-2xl']">{{
-                        feature.title }}</h3>
-                    <p class="leading-relaxed" :class="[data.sizing === 'container' ? 'text-sm' : '']"
-                        style="color: var(--lumina-colors-muted, #9ca3af);">{{ feature.desc }}
+                    <!-- Title -->
+                    <h3 class="font-bold" :style="{
+                        color: 'var(--lumina-surface-text, var(--lumina-color-text))',
+                        fontSize: data.sizing === 'container' ? 'var(--lumina-text-lg)' : 'var(--lumina-text-2xl)',
+                        marginBottom: 'var(--lumina-space-sm)'
+                    }">
+                        {{ feature.title }}
+                    </h3>
+                    <!-- Description -->
+                    <p :style="{
+                        color: 'var(--lumina-surface-muted, var(--lumina-color-muted))',
+                        fontSize: data.sizing === 'container' ? 'var(--lumina-text-sm)' : 'var(--lumina-text-base)',
+                        lineHeight: 'var(--lumina-leading-relaxed)'
+                    }">
+                        {{ feature.desc }}
                     </p>
                 </div>
             </div>

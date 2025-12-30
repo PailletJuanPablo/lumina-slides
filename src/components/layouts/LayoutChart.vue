@@ -4,8 +4,12 @@
             :class="['w-full flex flex-col justify-center p-8 lg:p-16', data.sizing === 'container' ? 'min-h-full py-8' : 'min-h-screen']">
             <!-- Header -->
             <div v-if="data.title || data.subtitle" class="text-center mb-8 reveal-up">
-                <h2 v-if="data.title" class="text-4xl lg:text-5xl font-heading font-bold mb-3">{{ data.title }}</h2>
-                <p v-if="data.subtitle" class="text-lg lg:text-xl opacity-60">{{ data.subtitle }}</p>
+                <h2 v-if="data.title" class="text-4xl lg:text-5xl font-heading font-bold mb-3"
+                    :style="{ color: 'var(--lumina-color-text-safe, var(--lumina-color-text))', textShadow: '0 2px 10px rgba(0,0,0,0.1)' }">
+                    {{ data.title }}</h2>
+                <p v-if="data.subtitle" class="text-lg lg:text-xl"
+                    :style="{ color: 'var(--lumina-color-text-safe, var(--lumina-color-text))', opacity: 0.8 }">{{
+                        data.subtitle }}</p>
             </div>
 
             <!-- Error State -->
@@ -103,11 +107,48 @@ const resolveColor = (colorToken: string | undefined, index: number): string => 
     }
 };
 
-// Generate colors for pie/doughnut charts (one color per segment)
+// Generate smart palette derived from theme identity
 const generateSegmentColors = (datasets: ChartDataset[], labelsCount: number): string[] => {
     const colors: string[] = [];
+
+    // Get theme colors from CSS variables
+    const style = getComputedStyle(document.body);
+    const primary = style.getPropertyValue('--lumina-color-primary').trim() || '#3b82f6';
+    const secondary = style.getPropertyValue('--lumina-color-secondary').trim() || '#8b5cf6';
+    const accent = style.getPropertyValue('--lumina-color-accent').trim() || '#06b6d4';
+
+    // Create an intelligent palette based on brand identity
+    // We alternate between brand colors and variations
+    const basePalette = [
+        primary,
+        secondary,
+        accent,
+        // Generate variations (simulated by opacity or mixing - hard to do perfectly in JS without lib, 
+        // but we can assume these are distinct enough for 3 categories)
+    ];
+
+    // If we need more colors, we loop or use fallbacks that match the vibe
+    const extendedPalette = [
+        ...basePalette,
+        '#f59e0b', // construction/warning (often useful in business/engine contexts)
+        '#10b981', // success
+        '#ef4444'  // danger
+    ];
+
+    // For Pie/Doughnut charts, if we only have one dataset and one color, 
+    // it results in a mono-colored chart which is often not desired.
+    // We force using the extended palette to differentiate segments.
     for (let i = 0; i < labelsCount; i++) {
-        colors.push(resolveColor(datasets[0]?.color, i));
+        // If it's a multi-dataset chart (e.g. bar), we might want to respect the dataset color.
+        // But for single-dataset Pie charts, we ignore the single color to show variety.
+        if (datasets.length === 1 && datasets[0].color && labelsCount > 1) {
+            colors.push(extendedPalette[i % extendedPalette.length]);
+        }
+        else if (datasets[0]?.color) {
+            colors.push(resolveColor(datasets[0].color, i));
+        } else {
+            colors.push(extendedPalette[i % extendedPalette.length]);
+        }
     }
     return colors;
 };
@@ -142,7 +183,7 @@ const chartConfig = computed(() => {
                     display: true,
                     position: 'bottom' as const,
                     labels: {
-                        color: 'rgba(255, 255, 255, 0.7)',
+                        color: getComputedStyle(document.body).getPropertyValue('--lumina-color-text').trim() || '#ffffff',
                         padding: 20,
                         font: {
                             family: 'Inter, system-ui, sans-serif',
@@ -168,10 +209,10 @@ const chartConfig = computed(() => {
             scales: isPieType ? {} : {
                 x: {
                     grid: {
-                        color: 'rgba(255, 255, 255, 0.05)'
+                        color: 'rgba(128, 128, 128, 0.1)'
                     },
                     ticks: {
-                        color: 'rgba(255, 255, 255, 0.6)',
+                        color: getComputedStyle(document.body).getPropertyValue('--lumina-color-muted').trim() || '#9ca3af',
                         font: {
                             family: 'Inter, system-ui, sans-serif'
                         }
@@ -179,10 +220,10 @@ const chartConfig = computed(() => {
                 },
                 y: {
                     grid: {
-                        color: 'rgba(255, 255, 255, 0.05)'
+                        color: 'rgba(128, 128, 128, 0.1)'
                     },
                     ticks: {
-                        color: 'rgba(255, 255, 255, 0.6)',
+                        color: getComputedStyle(document.body).getPropertyValue('--lumina-color-muted').trim() || '#9ca3af',
                         font: {
                             family: 'Inter, system-ui, sans-serif'
                         }

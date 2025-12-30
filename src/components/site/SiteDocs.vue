@@ -375,7 +375,7 @@ engine.<span class="text-yellow-400">on</span>('action', (payload) => {
                         <!-- Theme Presets Section -->
                         <div class="my-12">
                             <h2 class="text-2xl font-bold text-white mb-6">Built-in Presets</h2>
-                            <p class="text-white/60 mb-8">Lumina comes with 6 beautiful theme presets. Pass the preset
+                            <p class="text-white/60 mb-8">Lumina comes with 8 beautiful theme presets. Pass the preset
                                 name as a string to instantly apply a complete look.</p>
 
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 not-prose">
@@ -489,6 +489,44 @@ engine.<span class="text-yellow-400">on</span>('action', (payload) => {
                                         <p class="text-xs text-white/50">Light mode with warm amber. Elegant.</p>
                                     </div>
                                 </div>
+
+                                <!-- Sunset Theme -->
+                                <div
+                                    class="rounded-xl overflow-hidden border border-white/10 group hover:border-orange-500/50 transition-all duration-300">
+                                    <div class="h-32 p-6 flex items-center justify-center"
+                                        style="background: linear-gradient(135deg, #1c1917 0%, #292524 100%);">
+                                        <span class="text-2xl font-bold"
+                                            style="background: linear-gradient(to right, #f97316, #f43f5e); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Lumina</span>
+                                    </div>
+                                    <div class="p-4 bg-black/50">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <h3 class="font-bold text-white">sunset</h3>
+                                            <div class="flex gap-1">
+                                                <span class="w-4 h-4 rounded-full" style="background: #f97316;"></span>
+                                                <span class="w-4 h-4 rounded-full" style="background: #f43f5e;"></span>
+                                            </div>
+                                        </div>
+                                        <p class="text-xs text-white/50">Orange to rose gradient. Warm and vibrant.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Monochrome Theme -->
+                                <div
+                                    class="rounded-xl overflow-hidden border border-white/10 group hover:border-white/50 transition-all duration-300">
+                                    <div class="h-32 p-6 flex items-center justify-center" style="background: #000000;">
+                                        <span class="text-2xl font-bold" style="color: #ffffff;">Lumina</span>
+                                    </div>
+                                    <div class="p-4 bg-black/50">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <h3 class="font-bold text-white">monochrome</h3>
+                                            <div class="flex gap-1">
+                                                <span class="w-4 h-4 rounded-full" style="background: #ffffff;"></span>
+                                                <span class="w-4 h-4 rounded-full" style="background: #000000;"></span>
+                                            </div>
+                                        </div>
+                                        <p class="text-xs text-white/50">Pure black and white. Timeless elegance.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -499,7 +537,7 @@ engine.<span class="text-yellow-400">on</span>('action', (payload) => {
                                 option:</p>
 
                             <pre><code><span class="text-blue-400">const</span> engine = <span class="text-blue-400">new</span> Lumina('#app', {
-  theme: <span class="text-green-400">'ocean'</span>  <span class="text-gray-500">// or 'midnight', 'forest', 'cyber', 'latte'</span>
+  theme: <span class="text-green-400">'ocean'</span>  <span class="text-gray-500">// 'midnight', 'forest', 'cyber', 'latte', 'sunset', 'monochrome'</span>
 });
 
 engine.load(myDeck);</code></pre>
@@ -507,73 +545,506 @@ engine.load(myDeck);</code></pre>
 
                         <!-- CSS Variables -->
                         <div class="my-12">
-                            <h2 class="text-2xl font-bold text-white mb-6">CSS Variables Reference</h2>
-                            <p class="text-white/60 mb-4">Lumina injects CSS custom properties that you can override in
-                                your stylesheets:</p>
+                            <h2 class="text-2xl font-bold text-white mb-6">Complete Theme Configuration</h2>
+                            <p class="text-white/60 mb-8">Lumina v9 introduces 80+ CSS custom properties for full visual
+                                customization.
+                                Configure via <code>themeConfig</code> in your deck JSON or engine options.</p>
 
-                            <div class="overflow-x-auto border border-white/10 rounded-lg">
-                                <table class="w-full text-left text-sm text-gray-400">
-                                    <thead class="bg-white/5 text-white font-bold">
-                                        <tr>
-                                            <th class="p-3 border-b border-white/10">Variable</th>
-                                            <th class="p-3 border-b border-white/10">Description</th>
-                                            <th class="p-3 border-b border-white/10">Default</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="divide-y divide-white/5">
-                                        <tr>
-                                            <td class="p-3 font-mono text-blue-400">--lumina-colors-primary</td>
-                                            <td class="p-3">Primary accent color</td>
-                                            <td class="p-3"><span class="inline-block w-4 h-4 rounded mr-2"
-                                                    style="background: #3b82f6;"></span>#3b82f6</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-3 font-mono text-blue-400">--lumina-colors-background</td>
-                                            <td class="p-3">Slide background color</td>
-                                            <td class="p-3"><span
-                                                    class="inline-block w-4 h-4 rounded mr-2 border border-white/20"
-                                                    style="background: #030303;"></span>#030303</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-3 font-mono text-blue-400">--lumina-colors-text</td>
-                                            <td class="p-3">Primary text color</td>
-                                            <td class="p-3"><span class="inline-block w-4 h-4 rounded mr-2"
-                                                    style="background: #ffffff;"></span>#ffffff</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-3 font-mono text-blue-400">--lumina-colors-muted</td>
-                                            <td class="p-3">Secondary/muted text</td>
-                                            <td class="p-3"><span class="inline-block w-4 h-4 rounded mr-2"
-                                                    style="background: #9ca3af;"></span>#9ca3af</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-3 font-mono text-purple-400">--lumina-font-heading</td>
-                                            <td class="p-3">Font family for headings</td>
-                                            <td class="p-3">Inter, sans-serif</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-3 font-mono text-purple-400">--lumina-font-body</td>
-                                            <td class="p-3">Font family for body text</td>
-                                            <td class="p-3">Inter, sans-serif</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-3 font-mono text-purple-400">--lumina-font-mono</td>
-                                            <td class="p-3">Monospace font</td>
-                                            <td class="p-3">monospace</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <!-- COLORS SECTION -->
+                            <div class="mb-12">
+                                <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                                    <span
+                                        class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-400">🎨</span>
+                                    Colors (25+ tokens)
+                                </h3>
+                                <div class="overflow-x-auto border border-white/10 rounded-lg">
+                                    <table class="w-full text-left text-sm text-gray-400">
+                                        <thead class="bg-white/5 text-white font-bold">
+                                            <tr>
+                                                <th class="p-3 border-b border-white/10">Property</th>
+                                                <th class="p-3 border-b border-white/10">CSS Variable</th>
+                                                <th class="p-3 border-b border-white/10">Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-white/5">
+                                            <tr>
+                                                <td colspan="3"
+                                                    class="p-2 text-xs text-blue-400 bg-blue-500/5 font-bold">Core
+                                                    Colors</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">primary</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-color-primary</td>
+                                                <td class="p-3">Main brand/accent color</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">secondary</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-color-secondary</td>
+                                                <td class="p-3">Complementary brand color</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">accent</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-color-accent</td>
+                                                <td class="p-3">Tertiary/accent highlights</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">background</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-color-background</td>
+                                                <td class="p-3">Main slide background</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">surface</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-color-surface</td>
+                                                <td class="p-3">Cards, panels, elevated surfaces</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">text</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-color-text</td>
+                                                <td class="p-3">Primary text color</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">textSecondary</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-color-text-secondary
+                                                </td>
+                                                <td class="p-3">Secondary body text</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">muted</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-color-muted</td>
+                                                <td class="p-3">Subdued text, captions</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3"
+                                                    class="p-2 text-xs text-yellow-400 bg-yellow-500/5 font-bold">
+                                                    Semantic Colors</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">success</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-color-success</td>
+                                                <td class="p-3">Positive actions (#22c55e)</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">warning</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-color-warning</td>
+                                                <td class="p-3">Caution states (#eab308)</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">danger</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-color-danger</td>
+                                                <td class="p-3">Errors, destructive (#ef4444)</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">info</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-color-info</td>
+                                                <td class="p-3">Informational highlights</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3"
+                                                    class="p-2 text-xs text-purple-400 bg-purple-500/5 font-bold">UI
+                                                    Colors</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">border</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-color-border</td>
+                                                <td class="p-3">Default border color</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">borderSubtle</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-color-border-subtle
+                                                </td>
+                                                <td class="p-3">Subtle/light borders</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">shadow</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-shadow-color</td>
+                                                <td class="p-3">Shadow color for elevation</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3"
+                                                    class="p-2 text-xs text-pink-400 bg-pink-500/5 font-bold">Gradient
+                                                    Colors</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">gradientFrom</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-gradient-from</td>
+                                                <td class="p-3">Gradient start color</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">gradientVia</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-gradient-via</td>
+                                                <td class="p-3">Gradient middle (optional)</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">gradientTo</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-gradient-to</td>
+                                                <td class="p-3">Gradient end color</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
 
-                            <div class="mt-6">
-                                <h3>Using CSS Override</h3>
-                                <pre class="language-css"><code><span class="text-gray-500">/* Override in your CSS */</span>
-<span class="text-yellow-400">:root</span> {
-  --lumina-colors-primary: <span class="text-green-400">#ec4899</span>;
-  --lumina-colors-background: <span class="text-green-400">#1e1e2e</span>;
-  --lumina-colors-text: <span class="text-green-400">#cdd6f4</span>;
-  --lumina-colors-muted: <span class="text-green-400">#6c7086</span>;
-  --lumina-font-heading: <span class="text-green-400">'Poppins'</span>, sans-serif;
+                            <!-- EFFECTS SECTION -->
+                            <div class="mb-12">
+                                <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                                    <span
+                                        class="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-400">✨</span>
+                                    Effects
+                                </h3>
+                                <div class="overflow-x-auto border border-white/10 rounded-lg">
+                                    <table class="w-full text-left text-sm text-gray-400">
+                                        <thead class="bg-white/5 text-white font-bold">
+                                            <tr>
+                                                <th class="p-3 border-b border-white/10">Property</th>
+                                                <th class="p-3 border-b border-white/10">Type</th>
+                                                <th class="p-3 border-b border-white/10">Values</th>
+                                                <th class="p-3 border-b border-white/10">Default</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-white/5">
+                                            <tr>
+                                                <td colspan="4"
+                                                    class="p-2 text-xs text-pink-400 bg-pink-500/5 font-bold">Gradients
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">useGradients</td>
+                                                <td class="p-3 text-purple-400">boolean</td>
+                                                <td class="p-3">true / false</td>
+                                                <td class="p-3">true</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">gradientDirection</td>
+                                                <td class="p-3 text-purple-400">enum</td>
+                                                <td class="p-3 font-mono text-xs">'to-t' | 'to-b' | 'to-l' | 'to-r' |
+                                                    'to-tl' | 'to-tr' | 'to-bl' | 'to-br'</td>
+                                                <td class="p-3">'to-br'</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4"
+                                                    class="p-2 text-xs text-blue-400 bg-blue-500/5 font-bold">Shadows
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">useShadows</td>
+                                                <td class="p-3 text-purple-400">boolean</td>
+                                                <td class="p-3">true / false</td>
+                                                <td class="p-3">true</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">shadowIntensity</td>
+                                                <td class="p-3 text-purple-400">enum</td>
+                                                <td class="p-3 font-mono text-xs">'none' | 'sm' | 'md' | 'lg' | 'xl' |
+                                                    '2xl'</td>
+                                                <td class="p-3">'md'</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">shadowColor</td>
+                                                <td class="p-3 text-purple-400">string</td>
+                                                <td class="p-3">Any CSS color (rgba works best)</td>
+                                                <td class="p-3">rgba(0,0,0,0.25)</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4"
+                                                    class="p-2 text-xs text-cyan-400 bg-cyan-500/5 font-bold">
+                                                    Glassmorphism</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">useGlass</td>
+                                                <td class="p-3 text-purple-400">boolean</td>
+                                                <td class="p-3">true / false (frosted glass panels)</td>
+                                                <td class="p-3">true</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">glassOpacity</td>
+                                                <td class="p-3 text-purple-400">number</td>
+                                                <td class="p-3">0 to 1 (panel background opacity)</td>
+                                                <td class="p-3">0.03</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">glassBlur</td>
+                                                <td class="p-3 text-purple-400">string</td>
+                                                <td class="p-3">CSS blur value (e.g., '20px')</td>
+                                                <td class="p-3">'20px'</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">glassBorderOpacity</td>
+                                                <td class="p-3 text-purple-400">number</td>
+                                                <td class="p-3">0 to 1 (subtle border opacity)</td>
+                                                <td class="p-3">0.05</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4"
+                                                    class="p-2 text-xs text-orange-400 bg-orange-500/5 font-bold">
+                                                    Ambient Orb</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">useOrb</td>
+                                                <td class="p-3 text-purple-400">boolean</td>
+                                                <td class="p-3">true / false (background glow)</td>
+                                                <td class="p-3">true</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">orbOpacity</td>
+                                                <td class="p-3 text-purple-400">number</td>
+                                                <td class="p-3">0 to 1</td>
+                                                <td class="p-3">0.4</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">orbBlur</td>
+                                                <td class="p-3 text-purple-400">string</td>
+                                                <td class="p-3">CSS blur value</td>
+                                                <td class="p-3">'120px'</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">orbSize</td>
+                                                <td class="p-3 text-purple-400">string</td>
+                                                <td class="p-3">CSS size (vw, vh, px, %)</td>
+                                                <td class="p-3">'60vw'</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4"
+                                                    class="p-2 text-xs text-green-400 bg-green-500/5 font-bold">
+                                                    Animations</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">animationsEnabled</td>
+                                                <td class="p-3 text-purple-400">boolean</td>
+                                                <td class="p-3">Master toggle for all animations</td>
+                                                <td class="p-3">true</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">transitionDuration</td>
+                                                <td class="p-3 text-purple-400">string</td>
+                                                <td class="p-3">CSS duration (e.g., '0.3s')</td>
+                                                <td class="p-3">'0.3s'</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">transitionEasing</td>
+                                                <td class="p-3 text-purple-400">string</td>
+                                                <td class="p-3">CSS easing function</td>
+                                                <td class="p-3">cubic-bezier(0.16,1,0.3,1)</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">hoverScale</td>
+                                                <td class="p-3 text-purple-400">number</td>
+                                                <td class="p-3">Scale on hover (1.0 = no scale)</td>
+                                                <td class="p-3">1.05</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- COMPONENTS SECTION -->
+                            <div class="mb-12">
+                                <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                                    <span
+                                        class="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center text-green-400">🧩</span>
+                                    Component Tokens
+                                </h3>
+                                <div class="overflow-x-auto border border-white/10 rounded-lg">
+                                    <table class="w-full text-left text-sm text-gray-400">
+                                        <thead class="bg-white/5 text-white font-bold">
+                                            <tr>
+                                                <th class="p-3 border-b border-white/10">Property</th>
+                                                <th class="p-3 border-b border-white/10">CSS Variable</th>
+                                                <th class="p-3 border-b border-white/10">Default</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-white/5">
+                                            <tr>
+                                                <td colspan="3"
+                                                    class="p-2 text-xs text-blue-400 bg-blue-500/5 font-bold">Buttons
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">buttonRadius</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-button-radius</td>
+                                                <td class="p-3">9999px (pill)</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">buttonPadding</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-button-padding</td>
+                                                <td class="p-3">0.75rem 1.5rem</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">buttonFontWeight</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-button-font-weight</td>
+                                                <td class="p-3">700</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">buttonTextTransform</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-button-text-transform
+                                                </td>
+                                                <td class="p-3">none</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3"
+                                                    class="p-2 text-xs text-purple-400 bg-purple-500/5 font-bold">Cards
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">cardRadius</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-card-radius</td>
+                                                <td class="p-3">1.5rem</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">cardPadding</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-card-padding</td>
+                                                <td class="p-3">2rem</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">cardBorderWidth</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-card-border-width</td>
+                                                <td class="p-3">1px</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3"
+                                                    class="p-2 text-xs text-cyan-400 bg-cyan-500/5 font-bold">Timeline
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">timelineNodeSize</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-timeline-node-size</td>
+                                                <td class="p-3">1rem</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">timelineLineWidth</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-timeline-line-width
+                                                </td>
+                                                <td class="p-3">2px</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">timelineNodeColor</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-timeline-node-color
+                                                </td>
+                                                <td class="p-3">(uses primary)</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3"
+                                                    class="p-2 text-xs text-pink-400 bg-pink-500/5 font-bold">
+                                                    Tags/Badges</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">tagPadding</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-tag-padding</td>
+                                                <td class="p-3">0.25rem 1rem</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">tagRadius</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-tag-radius</td>
+                                                <td class="p-3">9999px</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="p-3 font-mono text-green-400">tagFontSize</td>
+                                                <td class="p-3 font-mono text-white/50">--lumina-tag-font-size</td>
+                                                <td class="p-3">0.75rem</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- TYPOGRAPHY SECTION -->
+                            <div class="mb-12">
+                                <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                                    <span
+                                        class="w-8 h-8 rounded-lg bg-yellow-500/20 flex items-center justify-center text-yellow-400">🔤</span>
+                                    Typography
+                                </h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="border border-white/10 rounded-lg p-4">
+                                        <h4 class="text-white font-bold mb-3">Font Families</h4>
+                                        <div class="space-y-2 text-sm">
+                                            <div><code class="text-green-400">heading</code>: <span
+                                                    class="text-white/60">Headings (default: Inter)</span></div>
+                                            <div><code class="text-green-400">body</code>: <span
+                                                    class="text-white/60">Body text (default: Inter)</span></div>
+                                            <div><code class="text-green-400">mono</code>: <span
+                                                    class="text-white/60">Code (default: monospace)</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="border border-white/10 rounded-lg p-4">
+                                        <h4 class="text-white font-bold mb-3">Font Sizes (--lumina-text-*)</h4>
+                                        <div class="space-y-1 text-sm text-white/60">
+                                            <div>xs: 0.75rem | sm: 0.875rem | base: 1rem</div>
+                                            <div>lg: 1.125rem | xl: 1.25rem | 2xl: 1.5rem</div>
+                                            <div>3xl: 1.875rem | 4xl: 2.25rem | 5xl: 3rem</div>
+                                            <div>6xl: 3.75rem | 7xl: 4.5rem</div>
+                                        </div>
+                                    </div>
+                                    <div class="border border-white/10 rounded-lg p-4">
+                                        <h4 class="text-white font-bold mb-3">Font Weights (--lumina-font-weight-*)</h4>
+                                        <div class="space-y-1 text-sm text-white/60">
+                                            <div>light: 300 | normal: 400 | medium: 500</div>
+                                            <div>semibold: 600 | bold: 700 | extrabold: 800</div>
+                                        </div>
+                                    </div>
+                                    <div class="border border-white/10 rounded-lg p-4">
+                                        <h4 class="text-white font-bold mb-3">Line Heights (--lumina-leading-*)</h4>
+                                        <div class="space-y-1 text-sm text-white/60">
+                                            <div>tight: 1.1 | snug: 1.25 | normal: 1.5</div>
+                                            <div>relaxed: 1.625 | loose: 2</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SPACING SECTION -->
+                            <div class="mb-12">
+                                <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                                    <span
+                                        class="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-400">📏</span>
+                                    Spacing & Border Radius
+                                </h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="border border-white/10 rounded-lg p-4">
+                                        <h4 class="text-white font-bold mb-3">Spacing (--lumina-space-*)</h4>
+                                        <div class="space-y-1 text-sm text-white/60">
+                                            <div>none: 0 | xs: 0.25rem | sm: 0.5rem</div>
+                                            <div>md: 1rem | lg: 1.5rem | xl: 2rem</div>
+                                            <div>2xl: 3rem | 3xl: 4rem | 4xl: 6rem</div>
+                                        </div>
+                                    </div>
+                                    <div class="border border-white/10 rounded-lg p-4">
+                                        <h4 class="text-white font-bold mb-3">Border Radius (--lumina-radius-*)</h4>
+                                        <div class="space-y-1 text-sm text-white/60">
+                                            <div>none: 0 | sm: 0.25rem | md: 0.5rem</div>
+                                            <div>lg: 0.75rem | xl: 1rem | 2xl: 1.5rem</div>
+                                            <div>3xl: 2rem | full: 9999px</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- JSON Example -->
+                            <div class="mt-8">
+                                <h3 class="text-xl font-bold text-white mb-4">Full themeConfig Example</h3>
+                                <pre><code><span class="text-gray-500">// In your deck JSON</span>
+{
+  <span class="text-blue-400">"meta"</span>: {
+    <span class="text-blue-400">"theme"</span>: <span class="text-green-400">"default"</span>,
+    <span class="text-blue-400">"themeConfig"</span>: {
+      <span class="text-blue-400">"colors"</span>: {
+        <span class="text-blue-400">"primary"</span>: <span class="text-green-400">"#8b5cf6"</span>,
+        <span class="text-blue-400">"secondary"</span>: <span class="text-green-400">"#ec4899"</span>,
+        <span class="text-blue-400">"gradientFrom"</span>: <span class="text-green-400">"#8b5cf6"</span>,
+        <span class="text-blue-400">"gradientTo"</span>: <span class="text-green-400">"#ec4899"</span>
+      },
+      <span class="text-blue-400">"effects"</span>: {
+        <span class="text-blue-400">"useGradients"</span>: <span class="text-yellow-400">true</span>,
+        <span class="text-blue-400">"useGlass"</span>: <span class="text-yellow-400">true</span>,
+        <span class="text-blue-400">"glassOpacity"</span>: <span class="text-yellow-400">0.05</span>,
+        <span class="text-blue-400">"useOrb"</span>: <span class="text-yellow-400">true</span>,
+        <span class="text-blue-400">"orbOpacity"</span>: <span class="text-yellow-400">0.4</span>
+      },
+      <span class="text-blue-400">"components"</span>: {
+        <span class="text-blue-400">"cardRadius"</span>: <span class="text-green-400">"1.5rem"</span>,
+        <span class="text-blue-400">"buttonRadius"</span>: <span class="text-green-400">"9999px"</span>
+      }
+    }
+  }
 }</code></pre>
                             </div>
                         </div>

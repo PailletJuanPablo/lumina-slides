@@ -2,7 +2,9 @@
 
 <div align="center">
 
-  <img src="https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/demo.gif" alt="Lumina Engine Demo" width="100%" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 80px -20px rgba(0,0,0,0.5);" />
+  <a href="https://pailletjuanpablo.github.io/lumina-slides/">
+    <img src="https://raw.githubusercontent.com/PailletJuanPablo/lumina-slides/main/public/demo.gif" alt="Lumina Engine Demo" width="100%" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 80px -20px rgba(0,0,0,0.5);" />
+  </a>
 
   <br />
   <br />
@@ -13,10 +15,7 @@
     A lightweight, framework-agnostic library that renders beautiful, animated slide decks from simple JSON. 
     Perfect for AI-generated content, dynamic dashboards, and interactive presentations.
   </p>
-  
-  <p style="font-size: 1em; max-width: 600px; opacity: 0.8;">
-    ✨ <b>Smooth Animations</b> · 🎨 <b>6 Built-in Themes</b> · 📱 <b>Fully Responsive</b> · ⚡ <b>All-in-One Bundle</b>
-  </p>
+
 
   <p>
     <a href="#-quick-start"><strong>🚀 Quick Start</strong></a> · 
@@ -28,6 +27,16 @@
 [![Downloads](https://img.shields.io/npm/dt/lumina-slides?style=for-the-badge&color=7C3AED)](https://www.npmjs.com/package/lumina-slides)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/Written%20In-TypeScript-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+
+</div>
+
+<div align="center">
+
+### 🤖 Build with AI Instantly
+
+[![Lumina Slides Agent](https://img.shields.io/badge/Try_on-ChatGPT-black?style=for-the-badge&logo=openai&logoColor=white)](https://chatgpt.com/g/g-6951593015fc8191bf8db3ff13ebe986-lumina-slides-agent)
+
+**Need a presentation fast?** The Lumina Slides Agent builds full slide decks from your prompts and shares live preview links in seconds.
 
 </div>
 
@@ -180,13 +189,14 @@ Lumina includes a built-in normalizer. Your LLM can output "lazy" JSON to save m
 
 ## 📚 Documentation & Resources
 
-| Resource                                                                                           | Description                                                      |
-| :------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------- |
-| 📖 **[Full Documentation](https://pailletjuanpablo.github.io/lumina-slides/)**                     | Complete guides, examples, and live playground                   |
-| 🔧 **[API Reference](https://pailletjuanpablo.github.io/lumina-slides/#/api)**                     | TypeDoc-generated API docs with all methods and types            |
-| 🤖 **[Agent Integration Guide](./AGENTS.md)**                                                      | How to integrate Lumina with AI agents (OpenAI, Anthropic, etc.) |
-| 📝 **[LLM System Prompt](https://pailletjuanpablo.github.io/lumina-slides/lumina-llm-prompt.txt)** | Ready-to-use system prompt for your AI to generate slides        |
-| 🎮 **[Live Playground](https://pailletjuanpablo.github.io/lumina-slides/#/playground)**            | Try Lumina in your browser with live JSON editing                |
+| Resource                                                                                                | Description                                                      |
+| :------------------------------------------------------------------------------------------------------ | :--------------------------------------------------------------- |
+| 📖 **[Full Documentation](https://pailletjuanpablo.github.io/lumina-slides/)**                          | Complete guides, examples, and live playground                   |
+| 🔧 **[API Reference](https://pailletjuanpablo.github.io/lumina-slides/#/api)**                          | TypeDoc-generated API docs with all methods and types            |
+| 🤖 **[Agent Integration Guide](./AGENTS.md)**                                                           | How to integrate Lumina with AI agents (OpenAI, Anthropic, etc.) |
+| 📝 **[LLM System Prompt](https://pailletjuanpablo.github.io/lumina-slides/lumina-llm-prompt.txt)**      | Ready-to-use system prompt for your AI to generate slides        |
+| 🤖 **[Custom GPT Agent](https://chatgpt.com/g/g-6951593015fc8191bf8db3ff13ebe986-lumina-slides-agent)** | Specialized ChatGPT agent to build and preview slides instantly  |
+| 🎮 **[Live Playground](https://pailletjuanpablo.github.io/lumina-slides/#/playground)**                 | Try Lumina in your browser with live JSON editing                |
 
 ---
 

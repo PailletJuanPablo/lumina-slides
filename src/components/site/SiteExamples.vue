@@ -42,6 +42,9 @@ const decks = [
     { id: 'theme-forest', title: 'Theme: Forest', description: 'Emerald greens for eco-friendly vibes.', icon: '🌲' },
     { id: 'theme-cyber', title: 'Theme: Cyber', description: 'Neon pink futuristic with sci-fi fonts.', icon: '🤖' },
     { id: 'theme-latte', title: 'Theme: Latte', description: 'Light mode with warm amber accents.', icon: '☕' },
+    { id: 'theme-sunset', title: 'Theme: Sunset', description: 'Orange to rose gradient warmth.', icon: '🌅' },
+    { id: 'theme-monochrome', title: 'Theme: Monochrome', description: 'Pure black and white elegance.', icon: '⚫' },
+    { id: 'theme-custom-example', title: 'Custom Theme', description: 'Full ThemeConfig with 80+ options.', icon: '🔧' },
 ];
 
 const baseUrl = import.meta.env.BASE_URL;

@@ -11,7 +11,7 @@
                     <!-- Video Element -->
                     <div v-else-if="element.type === 'video'" :class="getSizeClass(element.size)"
                         :style="getElementStyle(element)">
-                        <VideoPlayer :class="g_oundedClass(element.rounded, element.fill)" :src="element.src"
+                        <VideoPlayer :class="getRoundedClass(element.rounded, element.fill)" :src="element.src"
                             :poster="element.poster" :autoplay="element.autoplay ?? false" :loop="element.loop ?? false"
                             :muted="element.muted ?? false" :controls="element.controls ?? true"
                             :object-fit="element.fill !== false ? 'cover' : 'contain'" />
@@ -39,7 +39,7 @@
 import { computed, h, defineComponent } from 'vue';
 import BaseSlide from '../base/BaseSlide.vue';
 import VideoPlayer from '../base/VideoPlayer.vue';
-import type { SlideFlex, FlexElement, FlexChildElement, SpacingToken, FlexSize, VAlign, HAlign, FlexElementContent } from '../../core/types';
+import type { SlideFlex, FlexElement, SpacingToken, FlexSize, VAlign, HAlign, FlexElementContent } from '../../core/types';
 import FlexImage from '../parts/FlexImage.vue';
 import { bus } from '../../core/events';
 
@@ -49,18 +49,17 @@ const props = defineProps<{
 
 const emit = defineEmits(['action']);
 
-// Spacing token to rem mapping
-const spacingMap: Record<SpacingToken, string> = {
-    'none': '0',
-    'xs': '0.5rem',
-    'sm': '0.75rem',
-    'md': '1rem',
-    'lg': '1.5rem',
-    'xl': '2rem',
-    '2xl': '3rem',
+// Use CSS variable references for spacing
+const spacingVarMap: Record<SpacingToken, string> = {
+    'none': 'var(--lumina-space-none, 0)',
+    'xs': 'var(--lumina-space-xs)',
+    'sm': 'var(--lumina-space-sm)',
+    'md': 'var(--lumina-space-md)',
+    'lg': 'var(--lumina-space-lg)',
+    'xl': 'var(--lumina-space-xl)',
+    '2xl': 'var(--lumina-space-2xl)',
 };
 
-// Size token to flex-basis mapping
 const sizeMap: Record<FlexSize, string> = {
     'auto': 'auto',
     'quarter': '25%',
@@ -71,14 +70,12 @@ const sizeMap: Record<FlexSize, string> = {
     'full': '100%',
 };
 
-// Vertical alignment mapping
 const valignMap: Record<VAlign, string> = {
     'top': 'flex-start',
     'center': 'center',
     'bottom': 'flex-end',
 };
 
-// Horizontal alignment mapping
 const halignMap: Record<HAlign, string> = {
     'left': 'flex-start',
     'center': 'center',
@@ -86,7 +83,7 @@ const halignMap: Record<HAlign, string> = {
 };
 
 const containerStyle = computed(() => ({
-    padding: spacingMap[props.data.padding || 'none'],
+    padding: spacingVarMap[props.data.padding || 'none'],
 }));
 
 const directionClass = computed(() =>
@@ -94,7 +91,7 @@ const directionClass = computed(() =>
 );
 
 const mainFlexStyle = computed(() => ({
-    gap: spacingMap[props.data.gap || 'none'],
+    gap: spacingVarMap[props.data.gap || 'none'],
 }));
 
 const getSizeClass = (size?: FlexSize): string => {
@@ -123,35 +120,28 @@ const getContentStyle = (element: FlexElementContent & { size?: FlexSize }) => {
         flex: size === 'auto' ? '1 1 auto' : `0 0 ${sizeMap[size]}`,
         justifyContent: valignMap[valign],
         alignItems: halignMap[halign],
-        gap: spacingMap[gap],
-        padding: spacingMap[padding],
+        gap: spacingVarMap[gap],
+        padding: spacingVarMap[padding],
     };
 };
 
 const getTopLevelStyle = () => ({
     display: 'flex',
     alignItems: 'center',
-    padding: spacingMap['lg'],
+    padding: spacingVarMap['lg'],
 });
 
-
-
-// Helper for templates
-const g_oundedClass = (r?: string, f?: boolean) => {
-    return `w-full h-full ${getRoundedClass(r, f)}`;
-};
-
 const getRoundedClass = (rounded?: string, fill?: boolean) => {
-    if (fill !== false && !rounded) return '';
+    if (fill !== false && !rounded) return 'w-full h-full';
     const map: Record<string, string> = {
-        'none': 'rounded-none',
-        'sm': 'rounded-sm',
-        'md': 'rounded-md',
-        'lg': 'rounded-lg',
-        'xl': 'rounded-xl',
-        'full': 'rounded-full',
+        'none': 'w-full h-full rounded-none',
+        'sm': 'w-full h-full rounded-sm',
+        'md': 'w-full h-full rounded-md',
+        'lg': 'w-full h-full rounded-lg',
+        'xl': 'w-full h-full rounded-xl',
+        'full': 'w-full h-full rounded-full',
     };
-    return map[rounded || 'lg'] || 'rounded-lg';
+    return map[rounded || 'lg'] || 'w-full h-full rounded-lg';
 };
 
 const handleAction = (payload: any) => {
@@ -159,27 +149,32 @@ const handleAction = (payload: any) => {
     bus.emit('action', payload);
 };
 
-// Child element components
+// ============================================================================
+// CHILD ELEMENT COMPONENTS - All using CSS variables
+// ============================================================================
+
 const FlexTitle = defineComponent({
     props: ['text', 'size', 'align'],
     setup(props) {
-        const sizeClass: Record<string, string> = {
-            'lg': 'text-3xl lg:text-4xl',
-            'xl': 'text-4xl lg:text-5xl',
-            '2xl': 'text-5xl lg:text-6xl',
-            '3xl': 'text-6xl lg:text-7xl',
+        const sizeMap: Record<string, string> = {
+            'lg': 'var(--lumina-text-3xl)',
+            'xl': 'var(--lumina-text-4xl)',
+            '2xl': 'var(--lumina-text-5xl)',
+            '3xl': 'var(--lumina-text-6xl)',
         };
-        const finalSize = sizeClass[props.size || 'xl'] || 'text-4xl lg:text-5xl';
-
-        const alignClass: Record<string, string> = {
-            'left': 'text-left',
-            'center': 'text-center',
-            'right': 'text-right',
-        };
-        const finalAlign = alignClass[props.align || 'left'] || 'text-left';
+        const fontSize = sizeMap[props.size || 'xl'] || 'var(--lumina-text-4xl)';
+        const textAlign = props.align || 'left';
 
         return () => h('h2', {
-            class: `font-heading font-bold leading-tight ${finalSize} ${finalAlign} w-full`
+            style: {
+                fontFamily: 'var(--lumina-font-heading)',
+                fontWeight: 'var(--lumina-font-weight-bold)',
+                lineHeight: 'var(--lumina-leading-tight)',
+                fontSize,
+                textAlign,
+                width: '100%',
+                color: 'var(--lumina-color-text-safe, var(--lumina-color-text))', // Enforce safe color
+            }
         }, props.text);
     }
 });
@@ -187,15 +182,16 @@ const FlexTitle = defineComponent({
 const FlexText = defineComponent({
     props: ['text', 'align', 'muted'],
     setup(props) {
-        const alignClass: Record<string, string> = {
-            'left': 'text-left',
-            'center': 'text-center',
-            'right': 'text-right',
-        };
-        const finalAlign = alignClass[props.align || 'left'] || 'text-left';
-
         return () => h('p', {
-            class: `text-lg lg:text-xl leading-relaxed w-full ${finalAlign} ${props.muted ? 'opacity-60' : 'opacity-80'}`
+            style: {
+                fontSize: 'var(--lumina-text-lg)',
+                lineHeight: 'var(--lumina-leading-relaxed)',
+                // Ensure we use safe variables if possible, or result of theme.ts fix
+                color: props.muted ? 'var(--lumina-color-muted)' : 'var(--lumina-color-text-secondary)',
+                opacity: props.muted ? 0.9 : 1, // Increased opacity for readability
+                textAlign: props.align || 'left',
+                width: '100%',
+            }
         }, props.text);
     }
 });
@@ -203,10 +199,36 @@ const FlexText = defineComponent({
 const FlexBullets = defineComponent({
     props: ['items'],
     setup(props) {
-        return () => h('ul', { class: 'space-y-3 w-full' },
+        return () => h('ul', {
+            style: {
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--lumina-space-sm)',
+                width: '100%'
+            }
+        },
             (props.items || []).map((item: string) =>
-                h('li', { class: 'flex items-start gap-3 text-lg opacity-80' }, [
-                    h('span', { class: 'w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0 shadow-[0_0_10px_rgba(59,130,246,0.5)]' }),
+                h('li', {
+                    style: {
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: 'var(--lumina-space-sm)',
+                        fontSize: 'var(--lumina-text-lg)',
+                        color: 'var(--lumina-color-text-safe, var(--lumina-color-text))', // Fix unsafe color
+                        opacity: 0.9,
+                    }
+                }, [
+                    h('span', {
+                        style: {
+                            width: 'var(--lumina-space-sm)',
+                            height: 'var(--lumina-space-sm)',
+                            borderRadius: 'var(--lumina-radius-full)',
+                            backgroundColor: 'var(--lumina-color-primary)',
+                            marginTop: 'var(--lumina-space-sm)',
+                            flexShrink: 0,
+                            boxShadow: '0 0 var(--lumina-space-sm) rgba(var(--lumina-color-primary-rgb), 0.5)',
+                        }
+                    }),
                     h('span', {}, item)
                 ])
             )
@@ -217,11 +239,38 @@ const FlexBullets = defineComponent({
 const FlexOrdered = defineComponent({
     props: ['items'],
     setup(props) {
-        return () => h('ol', { class: 'space-y-3 w-full' },
+        return () => h('ol', {
+            style: {
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--lumina-space-sm)',
+                width: '100%'
+            }
+        },
             (props.items || []).map((item: string, i: number) =>
-                h('li', { class: 'flex items-start gap-3 text-lg opacity-80' }, [
+                h('li', {
+                    style: {
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: 'var(--lumina-space-sm)',
+                        fontSize: 'var(--lumina-text-lg)',
+                        color: 'var(--lumina-color-text-safe, var(--lumina-color-text))', // Fix unsafe color
+                        opacity: 0.9,
+                    }
+                }, [
                     h('span', {
-                        class: 'w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center text-sm font-bold flex-shrink-0'
+                        style: {
+                            width: 'var(--lumina-space-xl)',
+                            height: 'var(--lumina-space-xl)',
+                            borderRadius: 'var(--lumina-radius-lg)',
+                            backgroundColor: 'rgba(var(--lumina-color-text-rgb), 0.1)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontSize: 'var(--lumina-text-sm)',
+                            fontWeight: 'var(--lumina-font-weight-bold)',
+                            flexShrink: 0,
+                        }
                     }, i + 1),
                     h('span', {}, item)
                 ])
@@ -234,13 +283,30 @@ const FlexButton = defineComponent({
     props: ['label', 'action', 'variant', 'fullWidth'],
     emits: ['action'],
     setup(props, { emit }) {
-        const variantClasses: Record<string, string> = {
-            'primary': 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg hover:shadow-xl',
-            'secondary': 'bg-white/10 text-white border border-white/20 hover:bg-white/20',
-            'outline': 'bg-transparent text-white border-2 border-white/50 hover:border-white hover:bg-white/5',
-            'ghost': 'bg-transparent text-white/70 hover:text-white hover:bg-white/5',
+        const getVariantStyle = (variant: string) => {
+            const styles: Record<string, Record<string, string>> = {
+                'primary': {
+                    background: 'linear-gradient(to right, var(--lumina-color-primary), var(--lumina-color-secondary))',
+                    color: 'var(--lumina-color-text)',
+                    boxShadow: '0 var(--lumina-space-xs) var(--lumina-space-lg) var(--lumina-shadow-color)',
+                },
+                'secondary': {
+                    backgroundColor: 'rgba(var(--lumina-color-text-rgb), 0.1)',
+                    color: 'var(--lumina-color-text)',
+                    border: '1px solid var(--lumina-color-border)',
+                },
+                'outline': {
+                    backgroundColor: 'transparent',
+                    color: 'var(--lumina-color-text)',
+                    border: '2px solid var(--lumina-color-border)',
+                },
+                'ghost': {
+                    backgroundColor: 'transparent',
+                    color: 'var(--lumina-color-muted)',
+                },
+            };
+            return styles[variant] || styles['primary'];
         };
-        const finalVariant = variantClasses[props.variant || 'primary'] || variantClasses['primary'];
 
         const handleClick = () => {
             emit('action', {
@@ -252,7 +318,16 @@ const FlexButton = defineComponent({
         };
 
         return () => h('button', {
-            class: `px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 cursor-pointer hover:scale-105 ${finalVariant} ${props.fullWidth ? 'w-full' : ''}`,
+            style: {
+                padding: 'var(--lumina-button-padding)',
+                borderRadius: 'var(--lumina-button-radius)',
+                fontWeight: 'var(--lumina-button-font-weight)',
+                fontSize: 'var(--lumina-text-lg)',
+                transition: 'all var(--lumina-transition-duration) var(--lumina-transition-easing)',
+                cursor: 'pointer',
+                width: props.fullWidth ? '100%' : 'auto',
+                ...getVariantStyle(props.variant || 'primary'),
+            },
             onClick: handleClick
         }, props.label);
     }
@@ -261,14 +336,59 @@ const FlexButton = defineComponent({
 const FlexTimeline = defineComponent({
     props: ['items', 'compact'],
     setup(props) {
-        return () => h('div', { class: 'w-full space-y-4' },
+        return () => h('div', {
+            style: {
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--lumina-space-md)',
+                width: '100%'
+            }
+        },
             (props.items || []).map((item: any) =>
-                h('div', { class: 'flex gap-4 items-start border-l-2 border-blue-500/30 pl-4' }, [
-                    h('div', { class: 'flex-shrink-0 w-3 h-3 rounded-full bg-blue-500 -ml-[22px] mt-1.5 shadow-[0_0_10px_rgba(59,130,246,0.5)]' }),
+                h('div', {
+                    style: {
+                        display: 'flex',
+                        gap: 'var(--lumina-space-md)',
+                        alignItems: 'flex-start',
+                        borderLeft: 'var(--lumina-timeline-line-width) solid rgba(var(--lumina-color-primary-rgb), 0.3)',
+                        paddingLeft: 'var(--lumina-space-md)',
+                    }
+                }, [
+                    h('div', {
+                        style: {
+                            flexShrink: 0,
+                            width: 'calc(var(--lumina-timeline-node-size) * 0.75)',
+                            height: 'calc(var(--lumina-timeline-node-size) * 0.75)',
+                            borderRadius: 'var(--lumina-radius-full)',
+                            backgroundColor: 'var(--lumina-color-primary)',
+                            marginLeft: 'calc(-1 * var(--lumina-space-md) - var(--lumina-timeline-line-width) / 2 - var(--lumina-timeline-node-size) * 0.375)',
+                            marginTop: 'var(--lumina-space-xs)',
+                            boxShadow: '0 0 var(--lumina-space-sm) rgba(var(--lumina-color-primary-rgb), 0.5)',
+                        }
+                    }),
                     h('div', {}, [
-                        h('span', { class: 'text-xs text-blue-400 font-bold uppercase tracking-wider' }, item.date),
-                        h('h4', { class: 'font-bold text-lg' }, item.title || item.t),
-                        h('p', { class: 'text-sm opacity-60' }, item.description || item.desc)
+                        h('span', {
+                            style: {
+                                fontSize: 'var(--lumina-text-xs)',
+                                color: 'var(--lumina-color-primary)',
+                                fontWeight: 'var(--lumina-font-weight-bold)',
+                                textTransform: 'uppercase',
+                                letterSpacing: 'var(--lumina-tracking-wider)',
+                            }
+                        }, item.date),
+                        h('h4', {
+                            style: {
+                                fontWeight: 'var(--lumina-font-weight-bold)',
+                                fontSize: 'var(--lumina-text-lg)',
+                            }
+                        }, item.title || item.t),
+                        h('p', {
+                            style: {
+                                fontSize: 'var(--lumina-text-sm)',
+                                color: 'var(--lumina-color-muted)',
+                                opacity: 0.6,
+                            }
+                        }, item.description || item.desc)
                     ])
                 ])
             )
@@ -279,15 +399,51 @@ const FlexTimeline = defineComponent({
 const FlexStepper = defineComponent({
     props: ['items', 'compact'],
     setup(props) {
-        return () => h('div', { class: 'w-full space-y-4' },
+        return () => h('div', {
+            style: {
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--lumina-space-md)',
+                width: '100%'
+            }
+        },
             (props.items || []).map((item: any) =>
-                h('div', { class: 'flex gap-4 items-start p-4 rounded-lg bg-white/5 border border-white/10' }, [
+                h('div', {
+                    style: {
+                        display: 'flex',
+                        gap: 'var(--lumina-space-md)',
+                        alignItems: 'flex-start',
+                        padding: 'var(--lumina-space-md)',
+                        borderRadius: 'var(--lumina-radius-lg)',
+                        backgroundColor: 'rgba(var(--lumina-color-text-rgb), 0.05)',
+                        border: '1px solid var(--lumina-color-border)',
+                    }
+                }, [
                     h('div', {
-                        class: 'flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center font-bold text-blue-400'
+                        style: {
+                            flexShrink: 0,
+                            width: 'var(--lumina-step-badge-size)',
+                            height: 'var(--lumina-step-badge-size)',
+                            borderRadius: 'var(--lumina-radius-lg)',
+                            background: 'linear-gradient(135deg, rgba(var(--lumina-color-primary-rgb), 0.2), rgba(var(--lumina-color-secondary-rgb), 0.2))',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontWeight: 'var(--lumina-font-weight-bold)',
+                            color: 'var(--lumina-color-primary)',
+                        }
                     }, item.step),
                     h('div', {}, [
-                        h('h4', { class: 'font-bold' }, item.title || item.t),
-                        h('p', { class: 'text-sm opacity-60' }, item.description || item.desc)
+                        h('h4', {
+                            style: { fontWeight: 'var(--lumina-font-weight-bold)' }
+                        }, item.title || item.t),
+                        h('p', {
+                            style: {
+                                fontSize: 'var(--lumina-text-sm)',
+                                color: 'var(--lumina-color-muted)',
+                                opacity: 0.6,
+                            }
+                        }, item.description || item.desc)
                     ])
                 ])
             )
@@ -298,9 +454,8 @@ const FlexStepper = defineComponent({
 const FlexSpacer = defineComponent({
     props: ['size'],
     setup(props) {
-        const spacingKey = (props.size || 'md') as SpacingToken;
-        const sizeValue = spacingMap[spacingKey] || spacingMap['md'];
-        return () => h('div', { style: { height: sizeValue, width: '100%' } });
+        const sizeVar = spacingVarMap[(props.size || 'md') as SpacingToken] || spacingVarMap['md'];
+        return () => h('div', { style: { height: sizeVar, width: '100%' } });
     }
 });
 

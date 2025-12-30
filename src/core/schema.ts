@@ -262,15 +262,185 @@ export const SlideSchema = z.discriminatedUnion('type', [
     SlideFlexSchema,
 ]);
 
+// --- THEME CONFIGURATION SCHEMA ---
+// Comprehensive design token system for LLM-driven theming
+
+const ThemeColorsSchema = z.object({
+    primary: z.string().optional().describe("Main brand/accent color. Used for highlights, buttons, links. Example: '#3b82f6'"),
+    secondary: z.string().optional().describe("Secondary brand color. Used for complementary elements. Example: '#8b5cf6'"),
+    accent: z.string().optional().describe("Tertiary/accent color. Used for special highlights. Example: '#06b6d4'"),
+    background: z.string().optional().describe("Main background color. Example: '#030303'"),
+    surface: z.string().optional().describe("Elevated surface color (cards, panels, modals). Example: '#0a0a0a'"),
+    text: z.string().optional().describe("Primary text color. Example: '#ffffff'"),
+    textSecondary: z.string().optional().describe("Secondary/subdued text color. Example: '#e5e7eb'"),
+    muted: z.string().optional().describe("Muted/disabled text color. Example: '#9ca3af'"),
+    success: z.string().optional().describe("Success state color (green tones). Example: '#10b981'"),
+    warning: z.string().optional().describe("Warning state color (yellow/amber). Example: '#f59e0b'"),
+    danger: z.string().optional().describe("Danger/error state color (red). Example: '#ef4444'"),
+    info: z.string().optional().describe("Informational state color (blue). Example: '#3b82f6'"),
+    border: z.string().optional().describe("Border color for containers, cards. Example: 'rgba(255,255,255,0.1)'"),
+    borderSubtle: z.string().optional().describe("Subtle border for dividers. Example: 'rgba(255,255,255,0.05)'"),
+    shadow: z.string().optional().describe("Shadow color. Example: '#000000'"),
+    overlay: z.string().optional().describe("Overlay color for modals. Example: 'rgba(0,0,0,0.5)'"),
+    highlight: z.string().optional().describe("Highlight/selection color."),
+    buttonPrimary: z.string().optional().describe("Primary button background."),
+    buttonPrimaryText: z.string().optional().describe("Primary button text color."),
+    buttonSecondary: z.string().optional().describe("Secondary button background."),
+    buttonSecondaryText: z.string().optional().describe("Secondary button text color."),
+    link: z.string().optional().describe("Link color."),
+    linkHover: z.string().optional().describe("Link hover color."),
+    gradientFrom: z.string().optional().describe("Gradient start color. Example: '#3b82f6'"),
+    gradientVia: z.string().optional().describe("Gradient middle color (optional)."),
+    gradientTo: z.string().optional().describe("Gradient end color. Example: '#8b5cf6'"),
+}).describe("Color palette configuration with 25+ customizable colors.");
+
+const ThemeTypographySchema = z.object({
+    fontFamily: z.object({
+        heading: z.string().optional().describe("Font for headings. Example: 'Inter, sans-serif'"),
+        body: z.string().optional().describe("Font for body text. Example: 'Inter, sans-serif'"),
+        mono: z.string().optional().describe("Font for code. Example: 'monospace'"),
+    }).optional().describe("Font family definitions."),
+    fontSize: z.object({
+        xs: z.string().optional().describe("Extra small: 0.75rem"),
+        sm: z.string().optional().describe("Small: 0.875rem"),
+        base: z.string().optional().describe("Base: 1rem"),
+        lg: z.string().optional().describe("Large: 1.125rem"),
+        xl: z.string().optional().describe("Extra large: 1.25rem"),
+        '2xl': z.string().optional().describe("2XL: 1.5rem"),
+        '3xl': z.string().optional().describe("3XL: 1.875rem"),
+        '4xl': z.string().optional().describe("4XL: 2.25rem"),
+        '5xl': z.string().optional().describe("5XL: 3rem"),
+        '6xl': z.string().optional().describe("6XL: 3.75rem"),
+        '7xl': z.string().optional().describe("7XL: 4.5rem"),
+    }).optional().describe("Font size scale."),
+    fontWeight: z.object({
+        light: z.number().optional().describe("Light: 300"),
+        normal: z.number().optional().describe("Normal: 400"),
+        medium: z.number().optional().describe("Medium: 500"),
+        semibold: z.number().optional().describe("Semibold: 600"),
+        bold: z.number().optional().describe("Bold: 700"),
+        extrabold: z.number().optional().describe("Extra bold: 800"),
+    }).optional().describe("Font weight scale."),
+    lineHeight: z.object({
+        tight: z.string().optional().describe("Tight: 1.1"),
+        snug: z.string().optional().describe("Snug: 1.25"),
+        normal: z.string().optional().describe("Normal: 1.5"),
+        relaxed: z.string().optional().describe("Relaxed: 1.625"),
+        loose: z.string().optional().describe("Loose: 2"),
+    }).optional().describe("Line height scale."),
+    letterSpacing: z.object({
+        tighter: z.string().optional().describe("-0.05em"),
+        tight: z.string().optional().describe("-0.025em"),
+        normal: z.string().optional().describe("0"),
+        wide: z.string().optional().describe("0.025em"),
+        wider: z.string().optional().describe("0.05em"),
+        widest: z.string().optional().describe("0.1em"),
+    }).optional().describe("Letter spacing scale."),
+}).describe("Typography configuration: fonts, sizes, weights, line-heights.");
+
+const ThemeSpacingSchema = z.object({
+    none: z.string().optional().describe("0"),
+    xs: z.string().optional().describe("0.25rem / 4px"),
+    sm: z.string().optional().describe("0.5rem / 8px"),
+    md: z.string().optional().describe("1rem / 16px"),
+    lg: z.string().optional().describe("1.5rem / 24px"),
+    xl: z.string().optional().describe("2rem / 32px"),
+    '2xl': z.string().optional().describe("3rem / 48px"),
+    '3xl': z.string().optional().describe("4rem / 64px"),
+    '4xl': z.string().optional().describe("6rem / 96px"),
+}).describe("Spacing scale for gaps, padding, margins.");
+
+const ThemeBorderRadiusSchema = z.object({
+    none: z.string().optional().describe("No rounding: 0"),
+    sm: z.string().optional().describe("Small: 0.25rem"),
+    md: z.string().optional().describe("Medium: 0.5rem"),
+    lg: z.string().optional().describe("Large: 0.75rem"),
+    xl: z.string().optional().describe("Extra large: 1rem"),
+    '2xl': z.string().optional().describe("2XL: 1.5rem"),
+    '3xl': z.string().optional().describe("3XL: 2rem"),
+    full: z.string().optional().describe("Full circle: 9999px"),
+}).describe("Border radius scale for rounded corners.");
+
+const ThemeEffectsSchema = z.object({
+    useGradients: z.boolean().optional().describe("Enable/disable gradient effects globally."),
+    gradientDirection: z.enum(['to-t', 'to-b', 'to-l', 'to-r', 'to-tl', 'to-tr', 'to-bl', 'to-br']).optional().describe("Gradient direction."),
+    gradientFrom: z.string().optional().describe("Override gradient start color."),
+    gradientVia: z.string().optional().describe("Override gradient middle color."),
+    gradientTo: z.string().optional().describe("Override gradient end color."),
+    useShadows: z.boolean().optional().describe("Enable/disable shadow effects."),
+    shadowIntensity: z.enum(['none', 'sm', 'md', 'lg', 'xl', '2xl']).optional().describe("Shadow intensity level."),
+    shadowColor: z.string().optional().describe("Shadow color."),
+    useGlass: z.boolean().optional().describe("Enable/disable glassmorphism effect."),
+    glassOpacity: z.number().optional().describe("Glass panel opacity (0-1)."),
+    glassBlur: z.string().optional().describe("Glass blur amount. Example: '20px'"),
+    glassBorderOpacity: z.number().optional().describe("Glass border opacity (0-1)."),
+    useOrb: z.boolean().optional().describe("Enable/disable ambient orb/glow effect."),
+    orbOpacity: z.number().optional().describe("Orb opacity (0-1)."),
+    orbBlur: z.string().optional().describe("Orb blur amount. Example: '120px'"),
+    orbSize: z.string().optional().describe("Orb size. Example: '60vw'"),
+    animationsEnabled: z.boolean().optional().describe("Enable/disable animations globally."),
+    transitionDuration: z.string().optional().describe("Default transition duration. Example: '0.3s'"),
+    transitionEasing: z.string().optional().describe("Default transition easing. Example: 'ease-out'"),
+    hoverScale: z.number().optional().describe("Hover scale factor. Example: 1.05"),
+}).describe("Visual effects: gradients, shadows, glass, orb, animations.");
+
+const ThemeComponentsSchema = z.object({
+    buttonRadius: z.string().optional().describe("Button border radius."),
+    buttonPadding: z.string().optional().describe("Button padding. Example: '0.75rem 1.5rem'"),
+    buttonFontWeight: z.number().optional().describe("Button font weight."),
+    buttonTextTransform: z.enum(['none', 'uppercase', 'capitalize']).optional().describe("Button text transform."),
+    cardRadius: z.string().optional().describe("Card border radius."),
+    cardPadding: z.string().optional().describe("Card padding."),
+    cardBorderWidth: z.string().optional().describe("Card border width. Example: '1px'"),
+    cardBackground: z.string().optional().describe("Card background override."),
+    timelineNodeSize: z.string().optional().describe("Timeline node size. Example: '1rem'"),
+    timelineLineWidth: z.string().optional().describe("Timeline line width. Example: '2px'"),
+    timelineNodeColor: z.string().optional().describe("Timeline node color."),
+    timelineLineColor: z.string().optional().describe("Timeline line color."),
+    stepBadgeSize: z.string().optional().describe("Step badge size."),
+    stepFontSize: z.string().optional().describe("Step font size."),
+    progressHeight: z.string().optional().describe("Progress bar height."),
+    progressRadius: z.string().optional().describe("Progress bar border radius."),
+    progressBackground: z.string().optional().describe("Progress bar background."),
+    progressFill: z.string().optional().describe("Progress bar fill color."),
+    tagPadding: z.string().optional().describe("Tag padding."),
+    tagRadius: z.string().optional().describe("Tag border radius."),
+    tagFontSize: z.string().optional().describe("Tag font size."),
+    inputRadius: z.string().optional().describe("Input border radius."),
+    inputPadding: z.string().optional().describe("Input padding."),
+    inputBorder: z.string().optional().describe("Input border color."),
+    inputFocusBorder: z.string().optional().describe("Input focus border color."),
+}).describe("Component-specific theming: buttons, cards, timeline, steps, etc.");
+
+/**
+ * Complete Theme Configuration Schema.
+ * Comprehensive design token system for full slide customization by LLMs.
+ */
+export const ThemeConfigSchema = z.object({
+    colors: ThemeColorsSchema.optional().describe("Color palette with 25+ customizable colors."),
+    typography: ThemeTypographySchema.optional().describe("Typography: fonts, sizes, weights, line-heights."),
+    spacing: ThemeSpacingSchema.optional().describe("Spacing scale for consistent gaps and padding."),
+    borderRadius: ThemeBorderRadiusSchema.optional().describe("Border radius tokens for rounded corners."),
+    effects: ThemeEffectsSchema.optional().describe("Visual effects: gradients, shadows, glass, orb."),
+    components: ThemeComponentsSchema.optional().describe("Component-specific styling tokens."),
+}).describe("Complete theme configuration for full visual customization.");
+
+// Available theme preset names
+const ThemePresetSchema = z.enum([
+    'default', 'ocean', 'midnight', 'forest', 'cyber', 'latte', 'sunset', 'monochrome'
+]).describe("Built-in theme preset name.");
+
 // Deck Schema
 export const DeckMetaSchema = z.object({
     title: fuzzyString.describe("Title of the entire presentation."),
     author: fuzzyString.optional(),
     date: fuzzyString.optional(),
+    theme: ThemePresetSchema.optional().describe("Theme preset to use. Options: default, ocean, midnight, forest, cyber, latte, sunset, monochrome."),
+    themeConfig: ThemeConfigSchema.optional().describe("Custom theme configuration to override preset values."),
 }).passthrough();
 
 export const DeckSchema = z.object({
-    meta: DeckMetaSchema.describe("Global deck settings."),
+    meta: DeckMetaSchema.describe("Global deck settings including title and theme."),
     // Apply normalization (Alias -> Full key) at the entrance of each slide
     slides: z.array(z.preprocess(normalizeAliases, SlideSchema)).describe("Ordered array of slide definitions."),
 });
@@ -291,3 +461,18 @@ export function getLuminaJsonSchema() {
         return {};
     }
 }
+
+/**
+ * Exports the JSON Schema for Theme Configuration only.
+ * Useful for LLMs to understand all available theming options.
+ */
+export function getThemeJsonSchema() {
+    try {
+        const { zodToJsonSchema } = require('zod-to-json-schema');
+        return zodToJsonSchema(ThemeConfigSchema, "LuminaThemeConfig");
+    } catch (e) {
+        console.warn("zod-to-json-schema not installed. Install it to export raw JSON Schema.");
+        return {};
+    }
+}
+

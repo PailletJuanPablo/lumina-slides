@@ -57,12 +57,16 @@
 
         <!-- NAV BAR -->
         <div v-if="uiOptions?.visible"
-            class="absolute bottom-0 left-0 w-full z-40 px-8 py-6 bg-gradient-to-t from-black via-black/80 to-transparent flex justify-between items-end pointer-events-none">
+            class="absolute bottom-0 left-0 w-full z-40 px-8 py-6 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex justify-between items-end pointer-events-none">
             <div v-if="uiOptions?.showSlideCount" class="pointer-events-auto text-left">
-                <h2 class="text-[10px] font-bold text-gray-500 tracking-[0.2em] uppercase mb-1">{{ deckTitle }}</h2>
-                <div class="flex items-center gap-2 text-white/50 text-sm font-mono">
+                <h2 class="text-[10px] font-bold tracking-[0.2em] uppercase mb-1"
+                    :style="{ color: 'var(--lumina-color-muted)' }">{{ deckTitle }}</h2>
+                <div class="flex items-center gap-2 text-sm font-mono"
+                    :style="{ color: 'var(--lumina-color-text-safe, var(--lumina-color-text))', opacity: 0.8 }">
                     <span>{{ (index + 1).toString().padStart(2, '0') }}</span>
-                    <div v-if="uiOptions?.showProgressBar" class="h-px w-8 bg-white/20"></div>
+                    <div v-if="uiOptions?.showProgressBar" class="h-px w-8"
+                        :style="{ backgroundColor: 'var(--lumina-color-text-safe, var(--lumina-color-text))', opacity: 0.3 }">
+                    </div>
                     <span>{{ total.toString().padStart(2, '0') }}</span>
                 </div>
             </div>
@@ -89,7 +93,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { useLumina } from '../composables/useLumina';
 import { useKeyboard } from '../composables/useKeyboard';
 import { bus } from '../core/events';
@@ -117,6 +121,32 @@ const isNavEnabled = computed(() => store.state.options.navigation);
 
 useKeyboard();
 
+// Random orb position state
+const currentOrbPosition = ref({ top: '-20%', left: '-10%' });
+
+// Function to generate random orb position
+const generateRandomOrbPosition = () => {
+    // Generate true random positions within a safe range to keep the 80vw orb visible
+    // Range: -20% to 60% provides good coverage without losing the orb
+    const randomRange = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1) + min);
+
+    return {
+        top: `${randomRange(-25, 65)}%`,
+        left: `${randomRange(-25, 65)}%`
+    };
+};
+
+// Watch for slide index changes to update orb position
+watch(index, (newIndex, oldIndex) => {
+    // First slide (index 0) keeps default position
+    if (newIndex === 0) {
+        currentOrbPosition.value = { top: '-20%', left: '-10%' };
+    } else if (oldIndex !== undefined) {
+        // Only randomize when actually navigating between slides (not on initial load)
+        currentOrbPosition.value = generateRandomOrbPosition();
+    }
+}, { immediate: true });
+
 const ui = ref({ showJson: false }); // Removed showNotes
 const engine = inject('LuminaEngine') as any;
 
@@ -137,11 +167,12 @@ const currentSlideComponent = computed(() => {
 });
 
 const orbStyle = computed(() => ({
-    backgroundColor: slide.value?.meta?.orbColor || 'var(--lumina-colors-primary, #3b82f6)',
-    width: '60vw',
-    height: '60vw',
-    top: slide.value?.meta?.orbPos?.top || '-20%',
-    left: slide.value?.meta?.orbPos?.left || '-10%'
+    backgroundColor: slide.value?.meta?.orbColor || 'var(--lumina-color-primary, #3b82f6)',
+    width: 'var(--lumina-orb-size, 60vw)',
+    height: 'var(--lumina-orb-size, 60vw)',
+    top: slide.value?.meta?.orbPos?.top || currentOrbPosition.value.top,
+    left: slide.value?.meta?.orbPos?.left || currentOrbPosition.value.left,
+    transition: 'top 0.8s cubic-bezier(0.4, 0, 0.2, 1), left 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
 }));
 
 const handleAction = (payload: any) => {

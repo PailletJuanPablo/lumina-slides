@@ -1,0 +1,15 @@
+{
+    "meta": {
+        "title": "Monochrome Theme",
+        "theme": "monochrome"
+    },
+    "slides": [
+        {
+            "type": "statement",
+            "tag": "Theme: Monochrome",
+            "title": "Pure Elegance",
+            "subtitle": "Black and white minimalism for a timeless look.",
+            "notes": "Monochrome theme demonstrates pure black and white styling."
+        }
+    ]
+}

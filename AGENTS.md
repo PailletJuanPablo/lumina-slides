@@ -16,7 +16,7 @@ Lumina is designed as a **display layer** for AI agents. Your agent generates si
 
 - ✨ **Rendering** — Beautiful, responsive layouts
 - 🎬 **Animations** — 60fps GPU-accelerated transitions
-- 🎨 **Theming** — 6 built-in themes, fully customizable
+- 🎨 **Theming** — 8 built-in themes, 80+ CSS variables, fully customizable colors/effects/components
 - 📊 **Charts** — Built-in Chart.js integration
 - 🔄 **Streaming** — Real-time updates as content generates
 
