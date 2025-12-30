@@ -1,5 +1,8 @@
 {
-  "name": "lumina-slides",
+  "name": "@PailletJuanPablo/lumina-slides",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "version": "8.7.1",
   "homepage": "https://pailletjuanpablo.github.io/lumina-slides/",
   "description": "The interface layer for the agentic era. Turn text to UI with declarative JSON.",

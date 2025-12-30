@@ -157,3 +157,4 @@ xcuserdata/
 dist-ssr
 *.local
 firebase-credentials.json
+docs-dist/
