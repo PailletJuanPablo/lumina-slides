@@ -2541,14 +2541,14 @@
 			},
 			"children": [
 				{
-					"id": 1662,
+					"id": 1682,
 					"name": "constructor",
 					"variant": "declaration",
 					"kind": 512,
 					"flags": {},
 					"signatures": [
 						{
-							"id": 1663,
+							"id": 1683,
 							"name": "ThemeManager",
 							"variant": "signature",
 							"kind": 16384,
@@ -2728,7 +2728,7 @@
 				{
 					"title": "Constructors",
 					"children": [
-						1662
+						1682
 					]
 				},
 				{
@@ -10025,7 +10025,7 @@
 			]
 		},
 		{
-			"id": 1838,
+			"id": 1858,
 			"name": "SystemPromptOptions",
 			"variant": "declaration",
 			"kind": 256,
@@ -10040,7 +10040,7 @@
 			},
 			"children": [
 				{
-					"id": 1840,
+					"id": 1860,
 					"name": "includeSchema",
 					"variant": "declaration",
 					"kind": 1024,
@@ -10069,7 +10069,7 @@
 					}
 				},
 				{
-					"id": 1841,
+					"id": 1861,
 					"name": "includeTheming",
 					"variant": "declaration",
 					"kind": 1024,
@@ -10098,7 +10098,7 @@
 					}
 				},
 				{
-					"id": 1839,
+					"id": 1859,
 					"name": "mode",
 					"variant": "declaration",
 					"kind": 1024,
@@ -10140,9 +10140,9 @@
 				{
 					"title": "Properties",
 					"children": [
-						1840,
-						1841,
-						1839
+						1860,
+						1861,
+						1859
 					]
 				}
 			],
@@ -16084,7 +16084,7 @@
 			"defaultValue": "..."
 		},
 		{
-			"id": 1664,
+			"id": 1684,
 			"name": "DEFAULT_THEME",
 			"variant": "declaration",
 			"kind": 32,
@@ -16128,7 +16128,7 @@
 			"defaultValue": "..."
 		},
 		{
-			"id": 1842,
+			"id": 1862,
 			"name": "LuminaDeck",
 			"variant": "declaration",
 			"kind": 32,
@@ -16154,7 +16154,7 @@
 					{
 						"type": "reflection",
 						"declaration": {
-							"id": 1843,
+							"id": 1863,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
@@ -16172,7 +16172,7 @@
 					{
 						"type": "reflection",
 						"declaration": {
-							"id": 1844,
+							"id": 1864,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
@@ -16197,7 +16197,7 @@
 			}
 		},
 		{
-			"id": 1665,
+			"id": 1685,
 			"name": "THEME_PRESETS",
 			"variant": "declaration",
 			"kind": 32,
@@ -16245,7 +16245,7 @@
 			"defaultValue": "..."
 		},
 		{
-			"id": 1670,
+			"id": 1690,
 			"name": "ThemeConfigSchema",
 			"variant": "declaration",
 			"kind": 32,
@@ -16279,14 +16279,14 @@
 					{
 						"type": "reflection",
 						"declaration": {
-							"id": 1671,
+							"id": 1691,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 1754,
+									"id": 1774,
 									"name": "borderRadius",
 									"variant": "declaration",
 									"kind": 1024,
@@ -16318,14 +16318,14 @@
 													{
 														"type": "reflection",
 														"declaration": {
-															"id": 1755,
+															"id": 1775,
 															"name": "__type",
 															"variant": "declaration",
 															"kind": 65536,
 															"flags": {},
 															"children": [
 																{
-																	"id": 1761,
+																	"id": 1781,
 																	"name": "2xl",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -16363,7 +16363,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1762,
+																	"id": 1782,
 																	"name": "3xl",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -16401,7 +16401,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1763,
+																	"id": 1783,
 																	"name": "full",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -16439,7 +16439,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1759,
+																	"id": 1779,
 																	"name": "lg",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -16477,7 +16477,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1758,
+																	"id": 1778,
 																	"name": "md",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -16515,7 +16515,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1756,
+																	"id": 1776,
 																	"name": "none",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -16553,7 +16553,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1757,
+																	"id": 1777,
 																	"name": "sm",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -16591,7 +16591,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1760,
+																	"id": 1780,
 																	"name": "xl",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -16633,14 +16633,14 @@
 																{
 																	"title": "Properties",
 																	"children": [
-																		1761,
-																		1762,
-																		1763,
-																		1759,
-																		1758,
-																		1756,
-																		1757,
-																		1760
+																		1781,
+																		1782,
+																		1783,
+																		1779,
+																		1778,
+																		1776,
+																		1777,
+																		1780
 																	]
 																}
 															],
@@ -16674,7 +16674,7 @@
 									"defaultValue": "..."
 								},
 								{
-									"id": 1672,
+									"id": 1692,
 									"name": "colors",
 									"variant": "declaration",
 									"kind": 1024,
@@ -16706,14 +16706,14 @@
 													{
 														"type": "reflection",
 														"declaration": {
-															"id": 1673,
+															"id": 1693,
 															"name": "__type",
 															"variant": "declaration",
 															"kind": 65536,
 															"flags": {},
 															"children": [
 																{
-																	"id": 1676,
+																	"id": 1696,
 																	"name": "accent",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -16751,7 +16751,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1677,
+																	"id": 1697,
 																	"name": "background",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -16789,7 +16789,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1686,
+																	"id": 1706,
 																	"name": "border",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -16827,7 +16827,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1687,
+																	"id": 1707,
 																	"name": "borderSubtle",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -16865,7 +16865,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1691,
+																	"id": 1711,
 																	"name": "buttonPrimary",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -16903,7 +16903,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1692,
+																	"id": 1712,
 																	"name": "buttonPrimaryText",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -16941,7 +16941,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1693,
+																	"id": 1713,
 																	"name": "buttonSecondary",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -16979,7 +16979,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1694,
+																	"id": 1714,
 																	"name": "buttonSecondaryText",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17017,7 +17017,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1684,
+																	"id": 1704,
 																	"name": "danger",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17055,7 +17055,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1697,
+																	"id": 1717,
 																	"name": "gradientFrom",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17093,7 +17093,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1699,
+																	"id": 1719,
 																	"name": "gradientTo",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17131,7 +17131,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1698,
+																	"id": 1718,
 																	"name": "gradientVia",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17169,7 +17169,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1690,
+																	"id": 1710,
 																	"name": "highlight",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17207,7 +17207,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1685,
+																	"id": 1705,
 																	"name": "info",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17245,7 +17245,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1695,
+																	"id": 1715,
 																	"name": "link",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17283,7 +17283,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1696,
+																	"id": 1716,
 																	"name": "linkHover",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17321,7 +17321,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1681,
+																	"id": 1701,
 																	"name": "muted",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17359,7 +17359,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1689,
+																	"id": 1709,
 																	"name": "overlay",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17397,7 +17397,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1674,
+																	"id": 1694,
 																	"name": "primary",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17435,7 +17435,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1675,
+																	"id": 1695,
 																	"name": "secondary",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17473,7 +17473,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1688,
+																	"id": 1708,
 																	"name": "shadow",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17511,7 +17511,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1682,
+																	"id": 1702,
 																	"name": "success",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17549,7 +17549,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1678,
+																	"id": 1698,
 																	"name": "surface",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17587,7 +17587,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1679,
+																	"id": 1699,
 																	"name": "text",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17625,7 +17625,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1680,
+																	"id": 1700,
 																	"name": "textSecondary",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17663,7 +17663,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1683,
+																	"id": 1703,
 																	"name": "warning",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17705,32 +17705,32 @@
 																{
 																	"title": "Properties",
 																	"children": [
-																		1676,
-																		1677,
-																		1686,
-																		1687,
-																		1691,
-																		1692,
-																		1693,
-																		1694,
-																		1684,
-																		1697,
-																		1699,
-																		1698,
-																		1690,
-																		1685,
-																		1695,
 																		1696,
-																		1681,
-																		1689,
-																		1674,
-																		1675,
-																		1688,
-																		1682,
-																		1678,
-																		1679,
-																		1680,
-																		1683
+																		1697,
+																		1706,
+																		1707,
+																		1711,
+																		1712,
+																		1713,
+																		1714,
+																		1704,
+																		1717,
+																		1719,
+																		1718,
+																		1710,
+																		1705,
+																		1715,
+																		1716,
+																		1701,
+																		1709,
+																		1694,
+																		1695,
+																		1708,
+																		1702,
+																		1698,
+																		1699,
+																		1700,
+																		1703
 																	]
 																}
 															],
@@ -17764,7 +17764,7 @@
 									"defaultValue": "..."
 								},
 								{
-									"id": 1802,
+									"id": 1822,
 									"name": "components",
 									"variant": "declaration",
 									"kind": 1024,
@@ -17796,14 +17796,14 @@
 													{
 														"type": "reflection",
 														"declaration": {
-															"id": 1803,
+															"id": 1823,
 															"name": "__type",
 															"variant": "declaration",
 															"kind": 65536,
 															"flags": {},
 															"children": [
 																{
-																	"id": 1806,
+																	"id": 1826,
 																	"name": "buttonFontWeight",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17841,7 +17841,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1805,
+																	"id": 1825,
 																	"name": "buttonPadding",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17879,7 +17879,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1804,
+																	"id": 1824,
 																	"name": "buttonRadius",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17917,7 +17917,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1807,
+																	"id": 1827,
 																	"name": "buttonTextTransform",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -17949,14 +17949,14 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 1808,
+																							"id": 1828,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
 																							"flags": {},
 																							"children": [
 																								{
-																									"id": 1811,
+																									"id": 1831,
 																									"name": "capitalize",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -17967,7 +17967,7 @@
 																									}
 																								},
 																								{
-																									"id": 1809,
+																									"id": 1829,
 																									"name": "none",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -17978,7 +17978,7 @@
 																									}
 																								},
 																								{
-																									"id": 1810,
+																									"id": 1830,
 																									"name": "uppercase",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -17993,9 +17993,9 @@
 																								{
 																									"title": "Properties",
 																									"children": [
-																										1811,
-																										1809,
-																										1810
+																										1831,
+																										1829,
+																										1830
 																									]
 																								}
 																							],
@@ -18019,7 +18019,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1815,
+																	"id": 1835,
 																	"name": "cardBackground",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18057,7 +18057,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1814,
+																	"id": 1834,
 																	"name": "cardBorderWidth",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18095,7 +18095,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1813,
+																	"id": 1833,
 																	"name": "cardPadding",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18133,7 +18133,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1812,
+																	"id": 1832,
 																	"name": "cardRadius",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18171,7 +18171,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1831,
+																	"id": 1851,
 																	"name": "inputBorder",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18209,7 +18209,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1832,
+																	"id": 1852,
 																	"name": "inputFocusBorder",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18247,7 +18247,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1830,
+																	"id": 1850,
 																	"name": "inputPadding",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18285,7 +18285,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1829,
+																	"id": 1849,
 																	"name": "inputRadius",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18323,7 +18323,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1824,
+																	"id": 1844,
 																	"name": "progressBackground",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18361,7 +18361,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1825,
+																	"id": 1845,
 																	"name": "progressFill",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18399,7 +18399,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1822,
+																	"id": 1842,
 																	"name": "progressHeight",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18437,7 +18437,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1823,
+																	"id": 1843,
 																	"name": "progressRadius",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18475,7 +18475,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1820,
+																	"id": 1840,
 																	"name": "stepBadgeSize",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18513,7 +18513,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1821,
+																	"id": 1841,
 																	"name": "stepFontSize",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18551,7 +18551,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1828,
+																	"id": 1848,
 																	"name": "tagFontSize",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18589,7 +18589,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1826,
+																	"id": 1846,
 																	"name": "tagPadding",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18627,7 +18627,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1827,
+																	"id": 1847,
 																	"name": "tagRadius",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18665,7 +18665,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1819,
+																	"id": 1839,
 																	"name": "timelineLineColor",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18703,7 +18703,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1817,
+																	"id": 1837,
 																	"name": "timelineLineWidth",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18741,7 +18741,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1818,
+																	"id": 1838,
 																	"name": "timelineNodeColor",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18779,7 +18779,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1816,
+																	"id": 1836,
 																	"name": "timelineNodeSize",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18821,31 +18821,31 @@
 																{
 																	"title": "Properties",
 																	"children": [
-																		1806,
-																		1805,
-																		1804,
-																		1807,
-																		1815,
-																		1814,
-																		1813,
-																		1812,
-																		1831,
-																		1832,
-																		1830,
-																		1829,
-																		1824,
-																		1825,
-																		1822,
-																		1823,
-																		1820,
-																		1821,
-																		1828,
 																		1826,
+																		1825,
+																		1824,
 																		1827,
-																		1819,
-																		1817,
-																		1818,
-																		1816
+																		1835,
+																		1834,
+																		1833,
+																		1832,
+																		1851,
+																		1852,
+																		1850,
+																		1849,
+																		1844,
+																		1845,
+																		1842,
+																		1843,
+																		1840,
+																		1841,
+																		1848,
+																		1846,
+																		1847,
+																		1839,
+																		1837,
+																		1838,
+																		1836
 																	]
 																}
 															],
@@ -18879,7 +18879,7 @@
 									"defaultValue": "..."
 								},
 								{
-									"id": 1764,
+									"id": 1784,
 									"name": "effects",
 									"variant": "declaration",
 									"kind": 1024,
@@ -18911,14 +18911,14 @@
 													{
 														"type": "reflection",
 														"declaration": {
-															"id": 1765,
+															"id": 1785,
 															"name": "__type",
 															"variant": "declaration",
 															"kind": 65536,
 															"flags": {},
 															"children": [
 																{
-																	"id": 1798,
+																	"id": 1818,
 																	"name": "animationsEnabled",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18956,7 +18956,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1792,
+																	"id": 1812,
 																	"name": "glassBlur",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -18994,7 +18994,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1793,
+																	"id": 1813,
 																	"name": "glassBorderOpacity",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -19032,7 +19032,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1791,
+																	"id": 1811,
 																	"name": "glassOpacity",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -19070,7 +19070,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1767,
+																	"id": 1787,
 																	"name": "gradientDirection",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -19102,14 +19102,14 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 1768,
+																							"id": 1788,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
 																							"flags": {},
 																							"children": [
 																								{
-																									"id": 1770,
+																									"id": 1790,
 																									"name": "to-b",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -19120,7 +19120,7 @@
 																									}
 																								},
 																								{
-																									"id": 1775,
+																									"id": 1795,
 																									"name": "to-bl",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -19131,7 +19131,7 @@
 																									}
 																								},
 																								{
-																									"id": 1776,
+																									"id": 1796,
 																									"name": "to-br",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -19142,7 +19142,7 @@
 																									}
 																								},
 																								{
-																									"id": 1771,
+																									"id": 1791,
 																									"name": "to-l",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -19153,7 +19153,7 @@
 																									}
 																								},
 																								{
-																									"id": 1772,
+																									"id": 1792,
 																									"name": "to-r",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -19164,7 +19164,7 @@
 																									}
 																								},
 																								{
-																									"id": 1769,
+																									"id": 1789,
 																									"name": "to-t",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -19175,7 +19175,7 @@
 																									}
 																								},
 																								{
-																									"id": 1773,
+																									"id": 1793,
 																									"name": "to-tl",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -19186,7 +19186,7 @@
 																									}
 																								},
 																								{
-																									"id": 1774,
+																									"id": 1794,
 																									"name": "to-tr",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -19201,14 +19201,14 @@
 																								{
 																									"title": "Properties",
 																									"children": [
-																										1770,
-																										1775,
-																										1776,
-																										1771,
-																										1772,
-																										1769,
-																										1773,
-																										1774
+																										1790,
+																										1795,
+																										1796,
+																										1791,
+																										1792,
+																										1789,
+																										1793,
+																										1794
 																									]
 																								}
 																							],
@@ -19232,7 +19232,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1777,
+																	"id": 1797,
 																	"name": "gradientFrom",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -19270,7 +19270,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1779,
+																	"id": 1799,
 																	"name": "gradientTo",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -19308,7 +19308,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1778,
+																	"id": 1798,
 																	"name": "gradientVia",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -19346,7 +19346,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1801,
+																	"id": 1821,
 																	"name": "hoverScale",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -19384,7 +19384,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1796,
+																	"id": 1816,
 																	"name": "orbBlur",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -19422,7 +19422,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1795,
+																	"id": 1815,
 																	"name": "orbOpacity",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -19460,7 +19460,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1797,
+																	"id": 1817,
 																	"name": "orbSize",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -19498,7 +19498,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1789,
+																	"id": 1809,
 																	"name": "shadowColor",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -19536,7 +19536,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1781,
+																	"id": 1801,
 																	"name": "shadowIntensity",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -19568,14 +19568,14 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 1782,
+																							"id": 1802,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
 																							"flags": {},
 																							"children": [
 																								{
-																									"id": 1788,
+																									"id": 1808,
 																									"name": "2xl",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -19586,7 +19586,7 @@
 																									}
 																								},
 																								{
-																									"id": 1786,
+																									"id": 1806,
 																									"name": "lg",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -19597,7 +19597,7 @@
 																									}
 																								},
 																								{
-																									"id": 1785,
+																									"id": 1805,
 																									"name": "md",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -19608,7 +19608,7 @@
 																									}
 																								},
 																								{
-																									"id": 1783,
+																									"id": 1803,
 																									"name": "none",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -19619,7 +19619,7 @@
 																									}
 																								},
 																								{
-																									"id": 1784,
+																									"id": 1804,
 																									"name": "sm",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -19630,7 +19630,7 @@
 																									}
 																								},
 																								{
-																									"id": 1787,
+																									"id": 1807,
 																									"name": "xl",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -19645,12 +19645,12 @@
 																								{
 																									"title": "Properties",
 																									"children": [
-																										1788,
-																										1786,
-																										1785,
-																										1783,
-																										1784,
-																										1787
+																										1808,
+																										1806,
+																										1805,
+																										1803,
+																										1804,
+																										1807
 																									]
 																								}
 																							],
@@ -19674,7 +19674,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1799,
+																	"id": 1819,
 																	"name": "transitionDuration",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -19712,7 +19712,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1800,
+																	"id": 1820,
 																	"name": "transitionEasing",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -19750,7 +19750,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1790,
+																	"id": 1810,
 																	"name": "useGlass",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -19788,7 +19788,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1766,
+																	"id": 1786,
 																	"name": "useGradients",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -19826,7 +19826,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1794,
+																	"id": 1814,
 																	"name": "useOrb",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -19864,7 +19864,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1780,
+																	"id": 1800,
 																	"name": "useShadows",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -19906,26 +19906,26 @@
 																{
 																	"title": "Properties",
 																	"children": [
-																		1798,
-																		1792,
-																		1793,
-																		1791,
-																		1767,
-																		1777,
-																		1779,
-																		1778,
-																		1801,
-																		1796,
-																		1795,
+																		1818,
+																		1812,
+																		1813,
+																		1811,
+																		1787,
 																		1797,
-																		1789,
-																		1781,
 																		1799,
-																		1800,
-																		1790,
-																		1766,
-																		1794,
-																		1780
+																		1798,
+																		1821,
+																		1816,
+																		1815,
+																		1817,
+																		1809,
+																		1801,
+																		1819,
+																		1820,
+																		1810,
+																		1786,
+																		1814,
+																		1800
 																	]
 																}
 															],
@@ -19959,7 +19959,7 @@
 									"defaultValue": "..."
 								},
 								{
-									"id": 1743,
+									"id": 1763,
 									"name": "spacing",
 									"variant": "declaration",
 									"kind": 1024,
@@ -19991,14 +19991,14 @@
 													{
 														"type": "reflection",
 														"declaration": {
-															"id": 1744,
+															"id": 1764,
 															"name": "__type",
 															"variant": "declaration",
 															"kind": 65536,
 															"flags": {},
 															"children": [
 																{
-																	"id": 1751,
+																	"id": 1771,
 																	"name": "2xl",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -20036,7 +20036,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1752,
+																	"id": 1772,
 																	"name": "3xl",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -20074,7 +20074,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1753,
+																	"id": 1773,
 																	"name": "4xl",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -20112,7 +20112,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1749,
+																	"id": 1769,
 																	"name": "lg",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -20150,7 +20150,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1748,
+																	"id": 1768,
 																	"name": "md",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -20188,7 +20188,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1745,
+																	"id": 1765,
 																	"name": "none",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -20226,7 +20226,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1747,
+																	"id": 1767,
 																	"name": "sm",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -20264,7 +20264,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1750,
+																	"id": 1770,
 																	"name": "xl",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -20302,7 +20302,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1746,
+																	"id": 1766,
 																	"name": "xs",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -20344,15 +20344,15 @@
 																{
 																	"title": "Properties",
 																	"children": [
-																		1751,
-																		1752,
-																		1753,
-																		1749,
-																		1748,
-																		1745,
-																		1747,
-																		1750,
-																		1746
+																		1771,
+																		1772,
+																		1773,
+																		1769,
+																		1768,
+																		1765,
+																		1767,
+																		1770,
+																		1766
 																	]
 																}
 															],
@@ -20386,7 +20386,7 @@
 									"defaultValue": "..."
 								},
 								{
-									"id": 1700,
+									"id": 1720,
 									"name": "typography",
 									"variant": "declaration",
 									"kind": 1024,
@@ -20418,14 +20418,14 @@
 													{
 														"type": "reflection",
 														"declaration": {
-															"id": 1701,
+															"id": 1721,
 															"name": "__type",
 															"variant": "declaration",
 															"kind": 65536,
 															"flags": {},
 															"children": [
 																{
-																	"id": 1702,
+																	"id": 1722,
 																	"name": "fontFamily",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -20457,14 +20457,14 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 1703,
+																							"id": 1723,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
 																							"flags": {},
 																							"children": [
 																								{
-																									"id": 1705,
+																									"id": 1725,
 																									"name": "body",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -20502,7 +20502,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1704,
+																									"id": 1724,
 																									"name": "heading",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -20540,7 +20540,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1706,
+																									"id": 1726,
 																									"name": "mono",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -20582,9 +20582,9 @@
 																								{
 																									"title": "Properties",
 																									"children": [
-																										1705,
-																										1704,
-																										1706
+																										1725,
+																										1724,
+																										1726
 																									]
 																								}
 																							],
@@ -20618,7 +20618,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1707,
+																	"id": 1727,
 																	"name": "fontSize",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -20650,14 +20650,14 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 1708,
+																							"id": 1728,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
 																							"flags": {},
 																							"children": [
 																								{
-																									"id": 1714,
+																									"id": 1734,
 																									"name": "2xl",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -20695,7 +20695,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1715,
+																									"id": 1735,
 																									"name": "3xl",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -20733,7 +20733,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1716,
+																									"id": 1736,
 																									"name": "4xl",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -20771,7 +20771,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1717,
+																									"id": 1737,
 																									"name": "5xl",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -20809,7 +20809,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1718,
+																									"id": 1738,
 																									"name": "6xl",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -20847,7 +20847,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1719,
+																									"id": 1739,
 																									"name": "7xl",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -20885,7 +20885,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1711,
+																									"id": 1731,
 																									"name": "base",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -20923,7 +20923,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1712,
+																									"id": 1732,
 																									"name": "lg",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -20961,7 +20961,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1710,
+																									"id": 1730,
 																									"name": "sm",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -20999,7 +20999,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1713,
+																									"id": 1733,
 																									"name": "xl",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -21037,7 +21037,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1709,
+																									"id": 1729,
 																									"name": "xs",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -21079,17 +21079,17 @@
 																								{
 																									"title": "Properties",
 																									"children": [
-																										1714,
-																										1715,
-																										1716,
-																										1717,
-																										1718,
-																										1719,
-																										1711,
-																										1712,
-																										1710,
-																										1713,
-																										1709
+																										1734,
+																										1735,
+																										1736,
+																										1737,
+																										1738,
+																										1739,
+																										1731,
+																										1732,
+																										1730,
+																										1733,
+																										1729
 																									]
 																								}
 																							],
@@ -21123,7 +21123,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1720,
+																	"id": 1740,
 																	"name": "fontWeight",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -21155,14 +21155,14 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 1721,
+																							"id": 1741,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
 																							"flags": {},
 																							"children": [
 																								{
-																									"id": 1726,
+																									"id": 1746,
 																									"name": "bold",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -21200,7 +21200,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1727,
+																									"id": 1747,
 																									"name": "extrabold",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -21238,7 +21238,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1722,
+																									"id": 1742,
 																									"name": "light",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -21276,7 +21276,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1724,
+																									"id": 1744,
 																									"name": "medium",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -21314,7 +21314,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1723,
+																									"id": 1743,
 																									"name": "normal",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -21352,7 +21352,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1725,
+																									"id": 1745,
 																									"name": "semibold",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -21394,12 +21394,12 @@
 																								{
 																									"title": "Properties",
 																									"children": [
-																										1726,
-																										1727,
-																										1722,
-																										1724,
-																										1723,
-																										1725
+																										1746,
+																										1747,
+																										1742,
+																										1744,
+																										1743,
+																										1745
 																									]
 																								}
 																							],
@@ -21433,7 +21433,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1735,
+																	"id": 1755,
 																	"name": "letterSpacing",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -21465,14 +21465,14 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 1736,
+																							"id": 1756,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
 																							"flags": {},
 																							"children": [
 																								{
-																									"id": 1739,
+																									"id": 1759,
 																									"name": "normal",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -21510,7 +21510,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1738,
+																									"id": 1758,
 																									"name": "tight",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -21548,7 +21548,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1737,
+																									"id": 1757,
 																									"name": "tighter",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -21586,7 +21586,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1740,
+																									"id": 1760,
 																									"name": "wide",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -21624,7 +21624,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1741,
+																									"id": 1761,
 																									"name": "wider",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -21662,7 +21662,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1742,
+																									"id": 1762,
 																									"name": "widest",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -21704,12 +21704,12 @@
 																								{
 																									"title": "Properties",
 																									"children": [
-																										1739,
-																										1738,
-																										1737,
-																										1740,
-																										1741,
-																										1742
+																										1759,
+																										1758,
+																										1757,
+																										1760,
+																										1761,
+																										1762
 																									]
 																								}
 																							],
@@ -21743,7 +21743,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 1728,
+																	"id": 1748,
 																	"name": "lineHeight",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -21775,14 +21775,14 @@
 																					{
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 1729,
+																							"id": 1749,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
 																							"flags": {},
 																							"children": [
 																								{
-																									"id": 1734,
+																									"id": 1754,
 																									"name": "loose",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -21820,7 +21820,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1732,
+																									"id": 1752,
 																									"name": "normal",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -21858,7 +21858,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1733,
+																									"id": 1753,
 																									"name": "relaxed",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -21896,7 +21896,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1731,
+																									"id": 1751,
 																									"name": "snug",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -21934,7 +21934,7 @@
 																									"defaultValue": "..."
 																								},
 																								{
-																									"id": 1730,
+																									"id": 1750,
 																									"name": "tight",
 																									"variant": "declaration",
 																									"kind": 1024,
@@ -21976,11 +21976,11 @@
 																								{
 																									"title": "Properties",
 																									"children": [
-																										1734,
-																										1732,
-																										1733,
-																										1731,
-																										1730
+																										1754,
+																										1752,
+																										1753,
+																										1751,
+																										1750
 																									]
 																								}
 																							],
@@ -22018,11 +22018,11 @@
 																{
 																	"title": "Properties",
 																	"children": [
-																		1702,
-																		1707,
-																		1720,
-																		1735,
-																		1728
+																		1722,
+																		1727,
+																		1740,
+																		1755,
+																		1748
 																	]
 																}
 															],
@@ -22060,12 +22060,12 @@
 								{
 									"title": "Properties",
 									"children": [
-										1754,
-										1672,
-										1802,
-										1764,
-										1743,
-										1700
+										1774,
+										1692,
+										1822,
+										1784,
+										1763,
+										1720
 									]
 								}
 							],
@@ -22095,7 +22095,7 @@
 			"defaultValue": "..."
 		},
 		{
-			"id": 1833,
+			"id": 1853,
 			"name": "generateSystemPrompt",
 			"variant": "declaration",
 			"kind": 64,
@@ -22110,7 +22110,7 @@
 			],
 			"signatures": [
 				{
-					"id": 1834,
+					"id": 1854,
 					"name": "generateSystemPrompt",
 					"variant": "signature",
 					"kind": 4096,
@@ -22133,14 +22133,14 @@
 					],
 					"parameters": [
 						{
-							"id": 1835,
+							"id": 1855,
 							"name": "options",
 							"variant": "param",
 							"kind": 32768,
 							"flags": {},
 							"type": {
 								"type": "reference",
-								"target": 1838,
+								"target": 1858,
 								"name": "SystemPromptOptions",
 								"package": "lumina-slides"
 							},
@@ -22155,7 +22155,7 @@
 			]
 		},
 		{
-			"id": 1836,
+			"id": 1856,
 			"name": "generateThemePrompt",
 			"variant": "declaration",
 			"kind": 64,
@@ -22170,7 +22170,7 @@
 			],
 			"signatures": [
 				{
-					"id": 1837,
+					"id": 1857,
 					"name": "generateThemePrompt",
 					"variant": "signature",
 					"kind": 4096,
@@ -22199,7 +22199,7 @@
 			]
 		},
 		{
-			"id": 1666,
+			"id": 1686,
 			"name": "getLuminaJsonSchema",
 			"variant": "declaration",
 			"kind": 64,
@@ -22214,7 +22214,7 @@
 			],
 			"signatures": [
 				{
-					"id": 1667,
+					"id": 1687,
 					"name": "getLuminaJsonSchema",
 					"variant": "signature",
 					"kind": 4096,
@@ -22251,7 +22251,7 @@
 			]
 		},
 		{
-			"id": 1668,
+			"id": 1688,
 			"name": "getThemeJsonSchema",
 			"variant": "declaration",
 			"kind": 64,
@@ -22266,7 +22266,7 @@
 			],
 			"signatures": [
 				{
-					"id": 1669,
+					"id": 1689,
 					"name": "getThemeJsonSchema",
 					"variant": "signature",
 					"kind": 4096,
@@ -22342,7 +22342,7 @@
 				1210,
 				1408,
 				1281,
-				1838,
+				1858,
 				1498,
 				1419,
 				1528,
@@ -22374,19 +22374,19 @@
 			"title": "Variables",
 			"children": [
 				1554,
-				1664,
-				1842,
-				1665,
-				1670
+				1684,
+				1862,
+				1685,
+				1690
 			]
 		},
 		{
 			"title": "Functions",
 			"children": [
-				1833,
-				1836,
-				1666,
-				1668
+				1853,
+				1856,
+				1686,
+				1688
 			]
 		}
 	],
@@ -25370,290 +25370,190 @@
 			"packagePath": "src/core/theme.ts",
 			"qualifiedName": "ThemeManager.getDefaultTheme"
 		},
-		"1664": {
+		"1684": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/theme.ts",
 			"qualifiedName": "DEFAULT_THEME"
 		},
-		"1665": {
+		"1685": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/presets.ts",
 			"qualifiedName": "THEME_PRESETS"
 		},
-		"1666": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "getLuminaJsonSchema"
-		},
-		"1667": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "getLuminaJsonSchema"
-		},
-		"1668": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "getThemeJsonSchema"
-		},
-		"1669": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "getThemeJsonSchema"
-		},
-		"1670": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "ThemeConfigSchema"
-		},
-		"1671": {
-			"packageName": "zod",
-			"packagePath": "v4/core/util.d.cts",
-			"qualifiedName": "__type"
-		},
-		"1672": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "colors"
-		},
-		"1673": {
-			"packageName": "zod",
-			"packagePath": "v4/core/util.d.cts",
-			"qualifiedName": "__type"
-		},
-		"1674": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "primary"
-		},
-		"1675": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "secondary"
-		},
-		"1676": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "accent"
-		},
-		"1677": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "background"
-		},
-		"1678": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "surface"
-		},
-		"1679": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "text"
-		},
-		"1680": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "textSecondary"
-		},
-		"1681": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "muted"
-		},
-		"1682": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "success"
-		},
-		"1683": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "warning"
-		},
-		"1684": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "danger"
-		},
-		"1685": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "info"
-		},
 		"1686": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "border"
+			"qualifiedName": "getLuminaJsonSchema"
 		},
 		"1687": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "borderSubtle"
+			"qualifiedName": "getLuminaJsonSchema"
 		},
 		"1688": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "shadow"
+			"qualifiedName": "getThemeJsonSchema"
 		},
 		"1689": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "overlay"
+			"qualifiedName": "getThemeJsonSchema"
 		},
 		"1690": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "highlight"
+			"qualifiedName": "ThemeConfigSchema"
 		},
 		"1691": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "buttonPrimary"
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
 		},
 		"1692": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "buttonPrimaryText"
+			"qualifiedName": "colors"
 		},
 		"1693": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "buttonSecondary"
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
 		},
 		"1694": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "buttonSecondaryText"
+			"qualifiedName": "primary"
 		},
 		"1695": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "link"
+			"qualifiedName": "secondary"
 		},
 		"1696": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "linkHover"
+			"qualifiedName": "accent"
 		},
 		"1697": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "gradientFrom"
+			"qualifiedName": "background"
 		},
 		"1698": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "gradientVia"
+			"qualifiedName": "surface"
 		},
 		"1699": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "gradientTo"
+			"qualifiedName": "text"
 		},
 		"1700": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "typography"
+			"qualifiedName": "textSecondary"
 		},
 		"1701": {
-			"packageName": "zod",
-			"packagePath": "v4/core/util.d.cts",
-			"qualifiedName": "__type"
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "muted"
 		},
 		"1702": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "fontFamily"
+			"qualifiedName": "success"
 		},
 		"1703": {
-			"packageName": "zod",
-			"packagePath": "v4/core/util.d.cts",
-			"qualifiedName": "__type"
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "warning"
 		},
 		"1704": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "heading"
+			"qualifiedName": "danger"
 		},
 		"1705": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "body"
+			"qualifiedName": "info"
 		},
 		"1706": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "mono"
+			"qualifiedName": "border"
 		},
 		"1707": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "fontSize"
+			"qualifiedName": "borderSubtle"
 		},
 		"1708": {
-			"packageName": "zod",
-			"packagePath": "v4/core/util.d.cts",
-			"qualifiedName": "__type"
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "shadow"
 		},
 		"1709": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "xs"
+			"qualifiedName": "overlay"
 		},
 		"1710": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "sm"
+			"qualifiedName": "highlight"
 		},
 		"1711": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "base"
+			"qualifiedName": "buttonPrimary"
 		},
 		"1712": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "lg"
+			"qualifiedName": "buttonPrimaryText"
 		},
 		"1713": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "xl"
+			"qualifiedName": "buttonSecondary"
 		},
 		"1714": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "2xl"
+			"qualifiedName": "buttonSecondaryText"
 		},
 		"1715": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "3xl"
+			"qualifiedName": "link"
 		},
 		"1716": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "4xl"
+			"qualifiedName": "linkHover"
 		},
 		"1717": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "5xl"
+			"qualifiedName": "gradientFrom"
 		},
 		"1718": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "6xl"
+			"qualifiedName": "gradientVia"
 		},
 		"1719": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "7xl"
+			"qualifiedName": "gradientTo"
 		},
 		"1720": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "fontWeight"
+			"qualifiedName": "typography"
 		},
 		"1721": {
 			"packageName": "zod",
@@ -25663,614 +25563,714 @@
 		"1722": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "light"
+			"qualifiedName": "fontFamily"
 		},
 		"1723": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "normal"
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
 		},
 		"1724": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "medium"
+			"qualifiedName": "heading"
 		},
 		"1725": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "semibold"
+			"qualifiedName": "body"
 		},
 		"1726": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "bold"
+			"qualifiedName": "mono"
 		},
 		"1727": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "extrabold"
+			"qualifiedName": "fontSize"
 		},
 		"1728": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "lineHeight"
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
 		},
 		"1729": {
-			"packageName": "zod",
-			"packagePath": "v4/core/util.d.cts",
-			"qualifiedName": "__type"
-		},
-		"1730": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "tight"
-		},
-		"1731": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "snug"
-		},
-		"1732": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "normal"
-		},
-		"1733": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "relaxed"
-		},
-		"1734": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "loose"
-		},
-		"1735": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "letterSpacing"
-		},
-		"1736": {
-			"packageName": "zod",
-			"packagePath": "v4/core/util.d.cts",
-			"qualifiedName": "__type"
-		},
-		"1737": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "tighter"
-		},
-		"1738": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "tight"
-		},
-		"1739": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "normal"
-		},
-		"1740": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "wide"
-		},
-		"1741": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "wider"
-		},
-		"1742": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "widest"
-		},
-		"1743": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "spacing"
-		},
-		"1744": {
-			"packageName": "zod",
-			"packagePath": "v4/core/util.d.cts",
-			"qualifiedName": "__type"
-		},
-		"1745": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "none"
-		},
-		"1746": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
 			"qualifiedName": "xs"
 		},
-		"1747": {
+		"1730": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
 			"qualifiedName": "sm"
 		},
-		"1748": {
+		"1731": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "md"
+			"qualifiedName": "base"
 		},
-		"1749": {
+		"1732": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
 			"qualifiedName": "lg"
 		},
-		"1750": {
+		"1733": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
 			"qualifiedName": "xl"
 		},
-		"1751": {
+		"1734": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
 			"qualifiedName": "2xl"
 		},
-		"1752": {
+		"1735": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
 			"qualifiedName": "3xl"
 		},
-		"1753": {
+		"1736": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
 			"qualifiedName": "4xl"
 		},
-		"1754": {
+		"1737": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "borderRadius"
+			"qualifiedName": "5xl"
 		},
-		"1755": {
+		"1738": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "6xl"
+		},
+		"1739": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "7xl"
+		},
+		"1740": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "fontWeight"
+		},
+		"1741": {
 			"packageName": "zod",
 			"packagePath": "v4/core/util.d.cts",
 			"qualifiedName": "__type"
 		},
-		"1756": {
+		"1742": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "none"
+			"qualifiedName": "light"
+		},
+		"1743": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "normal"
+		},
+		"1744": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "medium"
+		},
+		"1745": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "semibold"
+		},
+		"1746": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "bold"
+		},
+		"1747": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "extrabold"
+		},
+		"1748": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "lineHeight"
+		},
+		"1749": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
+		},
+		"1750": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "tight"
+		},
+		"1751": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "snug"
+		},
+		"1752": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "normal"
+		},
+		"1753": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "relaxed"
+		},
+		"1754": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "loose"
+		},
+		"1755": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "letterSpacing"
+		},
+		"1756": {
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
 		},
 		"1757": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "sm"
+			"qualifiedName": "tighter"
 		},
 		"1758": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "md"
+			"qualifiedName": "tight"
 		},
 		"1759": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "lg"
+			"qualifiedName": "normal"
 		},
 		"1760": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "xl"
+			"qualifiedName": "wide"
 		},
 		"1761": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "2xl"
+			"qualifiedName": "wider"
 		},
 		"1762": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "3xl"
+			"qualifiedName": "widest"
 		},
 		"1763": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "full"
+			"qualifiedName": "spacing"
 		},
 		"1764": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "effects"
-		},
-		"1765": {
 			"packageName": "zod",
 			"packagePath": "v4/core/util.d.cts",
 			"qualifiedName": "__type"
+		},
+		"1765": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "none"
 		},
 		"1766": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "useGradients"
+			"qualifiedName": "xs"
 		},
 		"1767": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "gradientDirection"
+			"qualifiedName": "sm"
 		},
 		"1768": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "md"
+		},
+		"1769": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "lg"
+		},
+		"1770": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "xl"
+		},
+		"1771": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "2xl"
+		},
+		"1772": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "3xl"
+		},
+		"1773": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "4xl"
+		},
+		"1774": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "borderRadius"
+		},
+		"1775": {
 			"packageName": "zod",
 			"packagePath": "v4/core/util.d.cts",
 			"qualifiedName": "__type"
 		},
-		"1769": {
-			"packageName": "lumina-slides",
-			"packagePath": "",
-			"qualifiedName": "to-t"
-		},
-		"1770": {
-			"packageName": "lumina-slides",
-			"packagePath": "",
-			"qualifiedName": "to-b"
-		},
-		"1771": {
-			"packageName": "lumina-slides",
-			"packagePath": "",
-			"qualifiedName": "to-l"
-		},
-		"1772": {
-			"packageName": "lumina-slides",
-			"packagePath": "",
-			"qualifiedName": "to-r"
-		},
-		"1773": {
-			"packageName": "lumina-slides",
-			"packagePath": "",
-			"qualifiedName": "to-tl"
-		},
-		"1774": {
-			"packageName": "lumina-slides",
-			"packagePath": "",
-			"qualifiedName": "to-tr"
-		},
-		"1775": {
-			"packageName": "lumina-slides",
-			"packagePath": "",
-			"qualifiedName": "to-bl"
-		},
 		"1776": {
 			"packageName": "lumina-slides",
-			"packagePath": "",
-			"qualifiedName": "to-br"
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "none"
 		},
 		"1777": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "gradientFrom"
+			"qualifiedName": "sm"
 		},
 		"1778": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "gradientVia"
+			"qualifiedName": "md"
 		},
 		"1779": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "gradientTo"
+			"qualifiedName": "lg"
 		},
 		"1780": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "useShadows"
+			"qualifiedName": "xl"
 		},
 		"1781": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "shadowIntensity"
+			"qualifiedName": "2xl"
 		},
 		"1782": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "3xl"
+		},
+		"1783": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "full"
+		},
+		"1784": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "effects"
+		},
+		"1785": {
 			"packageName": "zod",
 			"packagePath": "v4/core/util.d.cts",
 			"qualifiedName": "__type"
 		},
-		"1783": {
-			"packageName": "lumina-slides",
-			"packagePath": "",
-			"qualifiedName": "none"
-		},
-		"1784": {
-			"packageName": "lumina-slides",
-			"packagePath": "",
-			"qualifiedName": "sm"
-		},
-		"1785": {
-			"packageName": "lumina-slides",
-			"packagePath": "",
-			"qualifiedName": "md"
-		},
 		"1786": {
 			"packageName": "lumina-slides",
-			"packagePath": "",
-			"qualifiedName": "lg"
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "useGradients"
 		},
 		"1787": {
 			"packageName": "lumina-slides",
-			"packagePath": "",
-			"qualifiedName": "xl"
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "gradientDirection"
 		},
 		"1788": {
-			"packageName": "lumina-slides",
-			"packagePath": "",
-			"qualifiedName": "2xl"
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
 		},
 		"1789": {
 			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "shadowColor"
+			"packagePath": "",
+			"qualifiedName": "to-t"
 		},
 		"1790": {
 			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "useGlass"
+			"packagePath": "",
+			"qualifiedName": "to-b"
 		},
 		"1791": {
 			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "glassOpacity"
+			"packagePath": "",
+			"qualifiedName": "to-l"
 		},
 		"1792": {
 			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "glassBlur"
+			"packagePath": "",
+			"qualifiedName": "to-r"
 		},
 		"1793": {
 			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "glassBorderOpacity"
+			"packagePath": "",
+			"qualifiedName": "to-tl"
 		},
 		"1794": {
 			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "useOrb"
+			"packagePath": "",
+			"qualifiedName": "to-tr"
 		},
 		"1795": {
 			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "orbOpacity"
+			"packagePath": "",
+			"qualifiedName": "to-bl"
 		},
 		"1796": {
 			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "orbBlur"
+			"packagePath": "",
+			"qualifiedName": "to-br"
 		},
 		"1797": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "orbSize"
+			"qualifiedName": "gradientFrom"
 		},
 		"1798": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "animationsEnabled"
+			"qualifiedName": "gradientVia"
 		},
 		"1799": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "transitionDuration"
+			"qualifiedName": "gradientTo"
 		},
 		"1800": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "transitionEasing"
+			"qualifiedName": "useShadows"
 		},
 		"1801": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "hoverScale"
+			"qualifiedName": "shadowIntensity"
 		},
 		"1802": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "components"
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
 		},
 		"1803": {
-			"packageName": "zod",
-			"packagePath": "v4/core/util.d.cts",
-			"qualifiedName": "__type"
-		},
-		"1804": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "buttonRadius"
-		},
-		"1805": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "buttonPadding"
-		},
-		"1806": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "buttonFontWeight"
-		},
-		"1807": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "buttonTextTransform"
-		},
-		"1808": {
-			"packageName": "zod",
-			"packagePath": "v4/core/util.d.cts",
-			"qualifiedName": "__type"
-		},
-		"1809": {
 			"packageName": "lumina-slides",
 			"packagePath": "",
 			"qualifiedName": "none"
 		},
-		"1810": {
+		"1804": {
 			"packageName": "lumina-slides",
 			"packagePath": "",
-			"qualifiedName": "uppercase"
+			"qualifiedName": "sm"
+		},
+		"1805": {
+			"packageName": "lumina-slides",
+			"packagePath": "",
+			"qualifiedName": "md"
+		},
+		"1806": {
+			"packageName": "lumina-slides",
+			"packagePath": "",
+			"qualifiedName": "lg"
+		},
+		"1807": {
+			"packageName": "lumina-slides",
+			"packagePath": "",
+			"qualifiedName": "xl"
+		},
+		"1808": {
+			"packageName": "lumina-slides",
+			"packagePath": "",
+			"qualifiedName": "2xl"
+		},
+		"1809": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "shadowColor"
+		},
+		"1810": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "useGlass"
 		},
 		"1811": {
 			"packageName": "lumina-slides",
-			"packagePath": "",
-			"qualifiedName": "capitalize"
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "glassOpacity"
 		},
 		"1812": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "cardRadius"
+			"qualifiedName": "glassBlur"
 		},
 		"1813": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "cardPadding"
+			"qualifiedName": "glassBorderOpacity"
 		},
 		"1814": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "cardBorderWidth"
+			"qualifiedName": "useOrb"
 		},
 		"1815": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "cardBackground"
+			"qualifiedName": "orbOpacity"
 		},
 		"1816": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "timelineNodeSize"
+			"qualifiedName": "orbBlur"
 		},
 		"1817": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "timelineLineWidth"
+			"qualifiedName": "orbSize"
 		},
 		"1818": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "timelineNodeColor"
+			"qualifiedName": "animationsEnabled"
 		},
 		"1819": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "timelineLineColor"
+			"qualifiedName": "transitionDuration"
 		},
 		"1820": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "stepBadgeSize"
+			"qualifiedName": "transitionEasing"
 		},
 		"1821": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "stepFontSize"
+			"qualifiedName": "hoverScale"
 		},
 		"1822": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "progressHeight"
+			"qualifiedName": "components"
 		},
 		"1823": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "progressRadius"
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
 		},
 		"1824": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "progressBackground"
+			"qualifiedName": "buttonRadius"
 		},
 		"1825": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "progressFill"
+			"qualifiedName": "buttonPadding"
 		},
 		"1826": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "tagPadding"
+			"qualifiedName": "buttonFontWeight"
 		},
 		"1827": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "tagRadius"
+			"qualifiedName": "buttonTextTransform"
 		},
 		"1828": {
-			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "tagFontSize"
+			"packageName": "zod",
+			"packagePath": "v4/core/util.d.cts",
+			"qualifiedName": "__type"
 		},
 		"1829": {
 			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "inputRadius"
+			"packagePath": "",
+			"qualifiedName": "none"
 		},
 		"1830": {
 			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "inputPadding"
+			"packagePath": "",
+			"qualifiedName": "uppercase"
 		},
 		"1831": {
 			"packageName": "lumina-slides",
-			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "inputBorder"
+			"packagePath": "",
+			"qualifiedName": "capitalize"
 		},
 		"1832": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/schema.ts",
-			"qualifiedName": "inputFocusBorder"
+			"qualifiedName": "cardRadius"
 		},
 		"1833": {
 			"packageName": "lumina-slides",
-			"packagePath": "src/core/prompts.ts",
-			"qualifiedName": "generateSystemPrompt"
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "cardPadding"
 		},
 		"1834": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "cardBorderWidth"
+		},
+		"1835": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "cardBackground"
+		},
+		"1836": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "timelineNodeSize"
+		},
+		"1837": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "timelineLineWidth"
+		},
+		"1838": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "timelineNodeColor"
+		},
+		"1839": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "timelineLineColor"
+		},
+		"1840": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "stepBadgeSize"
+		},
+		"1841": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "stepFontSize"
+		},
+		"1842": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "progressHeight"
+		},
+		"1843": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "progressRadius"
+		},
+		"1844": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "progressBackground"
+		},
+		"1845": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "progressFill"
+		},
+		"1846": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "tagPadding"
+		},
+		"1847": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "tagRadius"
+		},
+		"1848": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "tagFontSize"
+		},
+		"1849": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "inputRadius"
+		},
+		"1850": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "inputPadding"
+		},
+		"1851": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "inputBorder"
+		},
+		"1852": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/schema.ts",
+			"qualifiedName": "inputFocusBorder"
+		},
+		"1853": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/prompts.ts",
 			"qualifiedName": "generateSystemPrompt"
 		},
-		"1835": {
+		"1854": {
+			"packageName": "lumina-slides",
+			"packagePath": "src/core/prompts.ts",
+			"qualifiedName": "generateSystemPrompt"
+		},
+		"1855": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/prompts.ts",
 			"qualifiedName": "options"
 		},
-		"1836": {
+		"1856": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/prompts.ts",
 			"qualifiedName": "generateThemePrompt"
 		},
-		"1837": {
+		"1857": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/prompts.ts",
 			"qualifiedName": "generateThemePrompt"
 		},
-		"1838": {
+		"1858": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/prompts.ts",
 			"qualifiedName": "SystemPromptOptions"
 		},
-		"1839": {
+		"1859": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/prompts.ts",
 			"qualifiedName": "SystemPromptOptions.mode"
 		},
-		"1840": {
+		"1860": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/prompts.ts",
 			"qualifiedName": "SystemPromptOptions.includeSchema"
 		},
-		"1841": {
+		"1861": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/core/prompts.ts",
 			"qualifiedName": "SystemPromptOptions.includeTheming"
 		},
-		"1842": {
+		"1862": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/vite-env.d.ts",
 			"qualifiedName": "component"
 		},
-		"1843": {
+		"1863": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/vite-env.d.ts",
 			"qualifiedName": "__type"
 		},
-		"1844": {
+		"1864": {
 			"packageName": "lumina-slides",
 			"packagePath": "src/vite-env.d.ts",
 			"qualifiedName": "__type"
